@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *fitbitFullName;
 @property (weak, nonatomic) IBOutlet UILabel *fitbitSteps;
 
+- (void)setUserInfoText;
+
 @end

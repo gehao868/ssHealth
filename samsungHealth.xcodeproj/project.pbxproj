@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
 		7CBD2C1A197E4510002F23A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C19197E4510002F23A5 /* Foundation.framework */; };
 		7CBD2C1C197E4510002F23A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */; };
 		7CBD2C1E197E4510002F23A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1D197E4510002F23A5 /* UIKit.framework */; };
@@ -41,7 +42,6 @@
 		7CBD2C89197E467D002F23A5 /* avatar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */; };
 		7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */; };
 		7CBD2C8C197E46AF002F23A5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8B197E46AF002F23A5 /* Parse.framework */; };
-		7CBD2C8E197E4754002F23A5 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
 		7CBD2C90197E47C5002F23A5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8F197E47C5002F23A5 /* AudioToolbox.framework */; };
 		7CBD2C92197E47CF002F23A5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C91197E47CF002F23A5 /* CFNetwork.framework */; };
 		7CBD2C94197E47D9002F23A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C93197E47D9002F23A5 /* CoreLocation.framework */; };
@@ -141,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */,
 				7CBD2CA0197E482C002F23A5 /* SystemConfiguration.framework in Frameworks */,
 				7CBD2C9E197E481F002F23A5 /* StoreKit.framework in Frameworks */,
 				7CBD2C9C197E4813002F23A5 /* Security.framework in Frameworks */,
@@ -154,7 +155,6 @@
 				7CBD2C1E197E4510002F23A5 /* UIKit.framework in Frameworks */,
 				7CBD2C8C197E46AF002F23A5 /* Parse.framework in Frameworks */,
 				7CBD2C1A197E4510002F23A5 /* Foundation.framework in Frameworks */,
-				7CBD2C8E197E4754002F23A5 /* OAuthiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

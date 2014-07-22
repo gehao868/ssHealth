@@ -36,15 +36,19 @@ static NSString * username = NULL;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     PFQuery *query = [PFQuery queryWithClassName:@"currUser"];
+    [query whereKey:@"device" equalTo:@"all"];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!error) {
             username = [object objectForKey:@"username"];
+            [self setUserInfoText];
         } else {
             NSLog(@"The currUser request failed.");
         }
     }];
-    
-    query = [PFQuery queryWithClassName:fitbitUserInfo];
+}
+
+- (void)setUserInfoText {
+    PFQuery *query = [PFQuery queryWithClassName:fitbitUserInfo];
     [query whereKey:@"username" equalTo:username];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!error) {
@@ -53,7 +57,6 @@ static NSString * username = NULL;
             } else {
                 fitbitFullName.text = [object objectForKey:@"fitbitFullName"];
                 fitbitSteps.text = [object objectForKey:@"fitbitSteps"];
-                NSLog(@"success!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);

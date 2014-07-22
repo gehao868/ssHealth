@@ -37,12 +37,12 @@ static NSString * username = NULL;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     PFQuery *query = [PFQuery queryWithClassName:@"currUser"];
+    [query whereKey:@"device" equalTo:@"all"];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!error) {
-            userid = object.objectId;
             username = [object objectForKey:@"username"];
         } else {
-            NSLog(@"The currUser request failed.");
+            NSLog(@"The currUser username request failed.");
         }
     }];
 }
@@ -69,17 +69,16 @@ static NSString * username = NULL;
     PFQuery *query = [PFQuery queryWithClassName:fitbitUserInfo];
     [query whereKey:@"username" equalTo:username];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (!error) {
-            if (object == NULL) {
-                OAuthIOModal *oauthioModal =
-                [[OAuthIOModal alloc] initWithKey:OAuthKeyForFitbit delegate:self];
-                [oauthioModal showWithProvider:@"fitbit"];
-            } else {
-                OAuthIORequest * request = [object objectForKey:@"requestToken"];
-                [self requestFromFitbit:request];
-            }
+        if (object == nil) {
+            OAuthIOModal *oauthioModal =
+            [[OAuthIOModal alloc] initWithKey:OAuthKeyForFitbit delegate:self];
+            [oauthioModal showWithProvider:@"fitbit"];
         } else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            OAuthIOData * data = [[OAuthIOData alloc] init];
+            NSString * oauthToken = [object objectForKey:@"oauthToken"];
+            [data setOauth_token:oauthToken];
+            OAuthIORequest * request = [self getRequestToken:data];
+            [self requestFromFitbit:request];
         }
     }];
     
@@ -98,13 +97,27 @@ static NSString * username = NULL;
     //NSLog(@"get Token: %@", credentials[@"oauth_token"]);
     //NSLog(@"get Secret: %@", credentials[@"oauth_token_secret"]);
     
+    [self putRequestToken:request];
+    [self requestFromFitbit:request];
+}
+
+
+- (OAuthIORequest *)getRequestToken:(OAuthIOData *)data {
+    OAuthIORequest * request = [[OAuthIORequest alloc] init];
+    [request setData:data];
+    return request;
+}
+
+- (void)putRequestToken:(OAuthIORequest *)request {
+    OAuthIOData * data = [request data];
+    
     // push request token to Parse
     PFObject *userInfo = [PFObject objectWithClassName:fitbitUserInfo];
     userInfo[@"username"] = username;
-    userInfo[@"requestToken"] = request;
+    userInfo[@"fitbitFullName"] = @"";
+    userInfo[@"fitbitSteps"] = @"";
+    userInfo[@"oauthToken"] = [data oauth_token];
     [userInfo saveInBackground];
-
-    [self requestFromFitbit:request];
 }
 
 - (void)didFailWithOAuthIOError:(NSError *)error {
@@ -113,8 +126,21 @@ static NSString * username = NULL;
 }
 
 - (void)requestFromFitbit:(OAuthIORequest *)request {
+    [self getUserId];
     [self getUserInfo:request];
     [self getSteps:request];
+}
+
+- (void)getUserId {
+    PFQuery *query = [PFQuery queryWithClassName:fitbitUserInfo];
+    [query whereKey:@"username" equalTo:username];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!error) {
+            userid = object.objectId;
+        } else {
+            NSLog(@"The currUser userid request failed.");
+        }
+    }];
 }
 
 - (void)getUserInfo:(OAuthIORequest *)request {
@@ -132,7 +158,6 @@ static NSString * username = NULL;
          [query getObjectInBackgroundWithId:userid block:^(PFObject *object, NSError *error) {
              object[@"fitbitFullName"] = fitbitFullName;
              [object saveInBackground];
-             
          }];
      }];
 }
@@ -152,7 +177,6 @@ static NSString * username = NULL;
          [query getObjectInBackgroundWithId:userid block:^(PFObject *object, NSError *error) {
              object[@"fitbitSteps"] = fitbitSteps;
              [object saveInBackground];
-             
          }];
      }];
 }
