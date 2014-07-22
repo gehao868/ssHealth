@@ -13,7 +13,6 @@
 		7CBD2C24197E4510002F23A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD2C22197E4510002F23A5 /* InfoPlist.strings */; };
 		7CBD2C26197E4510002F23A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C25197E4510002F23A5 /* main.m */; };
 		7CBD2C2A197E4510002F23A5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C29197E4510002F23A5 /* AppDelegate.m */; };
-		7CBD2C2D197E4510002F23A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD2C2B197E4510002F23A5 /* Main.storyboard */; };
 		7CBD2C30197E4510002F23A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C2F197E4510002F23A5 /* ViewController.m */; };
 		7CBD2C32197E4510002F23A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD2C31197E4510002F23A5 /* Images.xcassets */; };
 		7CBD2C39197E4510002F23A5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C38197E4510002F23A5 /* XCTest.framework */; };
@@ -21,6 +20,38 @@
 		7CBD2C3B197E4510002F23A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1D197E4510002F23A5 /* UIKit.framework */; };
 		7CBD2C43197E4510002F23A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD2C41197E4510002F23A5 /* InfoPlist.strings */; };
 		7CBD2C45197E4510002F23A5 /* samsungHealthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C44197E4510002F23A5 /* samsungHealthTests.m */; };
+		7CBD2C4F197E4538002F23A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD2C4E197E4538002F23A5 /* Main.storyboard */; };
+		7CBD2C58197E4642002F23A5 /* UIViewController+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C50197E4642002F23A5 /* UIViewController+REFrostedViewController.m */; };
+		7CBD2C59197E4642002F23A5 /* UIView+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C52197E4642002F23A5 /* UIView+REFrostedViewController.m */; };
+		7CBD2C5A197E4642002F23A5 /* UIImage+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C54197E4642002F23A5 /* UIImage+REFrostedViewController.m */; };
+		7CBD2C5B197E4642002F23A5 /* TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C56197E4642002F23A5 /* TargetViewController.m */; };
+		7CBD2C6C197E4651002F23A5 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C5C197E4651002F23A5 /* RootViewController.m */; };
+		7CBD2C6D197E4651002F23A5 /* RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C5E197E4651002F23A5 /* RewardViewController.m */; };
+		7CBD2C6E197E4651002F23A5 /* REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C60197E4651002F23A5 /* REFrostedViewController.m */; };
+		7CBD2C6F197E4651002F23A5 /* REFrostedContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C62197E4651002F23A5 /* REFrostedContainerViewController.m */; };
+		7CBD2C70197E4651002F23A5 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C64197E4651002F23A5 /* RECommonFunctions.m */; };
+		7CBD2C71197E4651002F23A5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C66197E4651002F23A5 /* ProfileViewController.m */; };
+		7CBD2C72197E4651002F23A5 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C68197E4651002F23A5 /* NavigationController.m */; };
+		7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C6A197E4651002F23A5 /* MenuViewController.m */; };
+		7CBD2C76197E4668002F23A5 /* HealthDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C74197E4668002F23A5 /* HealthDataViewController.m */; };
+		7CBD2C79197E4671002F23A5 /* FitbitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C77197E4671002F23A5 /* FitbitViewController.m */; };
+		7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */; };
+		7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */; };
+		7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */; };
+		7CBD2C88197E467D002F23A5 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C80197E467D002F23A5 /* CircularProgressView.m */; };
+		7CBD2C89197E467D002F23A5 /* avatar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */; };
+		7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */; };
+		7CBD2C8C197E46AF002F23A5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8B197E46AF002F23A5 /* Parse.framework */; };
+		7CBD2C8E197E4754002F23A5 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
+		7CBD2C90197E47C5002F23A5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8F197E47C5002F23A5 /* AudioToolbox.framework */; };
+		7CBD2C92197E47CF002F23A5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C91197E47CF002F23A5 /* CFNetwork.framework */; };
+		7CBD2C94197E47D9002F23A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C93197E47D9002F23A5 /* CoreLocation.framework */; };
+		7CBD2C96197E47FE002F23A5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C95197E47FE002F23A5 /* libz.dylib */; };
+		7CBD2C98197E4804002F23A5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C97197E4804002F23A5 /* MobileCoreServices.framework */; };
+		7CBD2C9A197E480B002F23A5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C99197E480B002F23A5 /* QuartzCore.framework */; };
+		7CBD2C9C197E4813002F23A5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9B197E4813002F23A5 /* Security.framework */; };
+		7CBD2C9E197E481F002F23A5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9D197E481F002F23A5 /* StoreKit.framework */; };
+		7CBD2CA0197E482C002F23A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +75,6 @@
 		7CBD2C27197E4510002F23A5 /* samsungHealth-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "samsungHealth-Prefix.pch"; sourceTree = "<group>"; };
 		7CBD2C28197E4510002F23A5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CBD2C29197E4510002F23A5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7CBD2C2C197E4510002F23A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CBD2C2E197E4510002F23A5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7CBD2C2F197E4510002F23A5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7CBD2C31197E4510002F23A5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -53,6 +83,57 @@
 		7CBD2C40197E4510002F23A5 /* samsungHealthTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "samsungHealthTests-Info.plist"; sourceTree = "<group>"; };
 		7CBD2C42197E4510002F23A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7CBD2C44197E4510002F23A5 /* samsungHealthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = samsungHealthTests.m; sourceTree = "<group>"; };
+		7CBD2C4E197E4538002F23A5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7CBD2C50197E4642002F23A5 /* UIViewController+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+REFrostedViewController.m"; sourceTree = "<group>"; };
+		7CBD2C51197E4642002F23A5 /* UIViewController+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+REFrostedViewController.h"; sourceTree = "<group>"; };
+		7CBD2C52197E4642002F23A5 /* UIView+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+REFrostedViewController.m"; sourceTree = "<group>"; };
+		7CBD2C53197E4642002F23A5 /* UIView+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+REFrostedViewController.h"; sourceTree = "<group>"; };
+		7CBD2C54197E4642002F23A5 /* UIImage+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+REFrostedViewController.m"; sourceTree = "<group>"; };
+		7CBD2C55197E4642002F23A5 /* UIImage+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+REFrostedViewController.h"; sourceTree = "<group>"; };
+		7CBD2C56197E4642002F23A5 /* TargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetViewController.m; sourceTree = "<group>"; };
+		7CBD2C57197E4642002F23A5 /* TargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetViewController.h; sourceTree = "<group>"; };
+		7CBD2C5C197E4651002F23A5 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		7CBD2C5D197E4651002F23A5 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		7CBD2C5E197E4651002F23A5 /* RewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardViewController.m; sourceTree = "<group>"; };
+		7CBD2C5F197E4651002F23A5 /* RewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardViewController.h; sourceTree = "<group>"; };
+		7CBD2C60197E4651002F23A5 /* REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedViewController.m; sourceTree = "<group>"; };
+		7CBD2C61197E4651002F23A5 /* REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedViewController.h; sourceTree = "<group>"; };
+		7CBD2C62197E4651002F23A5 /* REFrostedContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedContainerViewController.m; sourceTree = "<group>"; };
+		7CBD2C63197E4651002F23A5 /* REFrostedContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedContainerViewController.h; sourceTree = "<group>"; };
+		7CBD2C64197E4651002F23A5 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		7CBD2C65197E4651002F23A5 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		7CBD2C66197E4651002F23A5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		7CBD2C67197E4651002F23A5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		7CBD2C68197E4651002F23A5 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		7CBD2C69197E4651002F23A5 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		7CBD2C6A197E4651002F23A5 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		7CBD2C6B197E4651002F23A5 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		7CBD2C74197E4668002F23A5 /* HealthDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthDataViewController.m; sourceTree = "<group>"; };
+		7CBD2C75197E4668002F23A5 /* HealthDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthDataViewController.h; sourceTree = "<group>"; };
+		7CBD2C77197E4671002F23A5 /* FitbitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FitbitViewController.m; sourceTree = "<group>"; };
+		7CBD2C78197E4671002F23A5 /* FitbitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FitbitViewController.h; sourceTree = "<group>"; };
+		7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewController.m; sourceTree = "<group>"; };
+		7CBD2C7B197E467D002F23A5 /* DeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewController.h; sourceTree = "<group>"; };
+		7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashBoardViewController.m; sourceTree = "<group>"; };
+		7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardViewController.h; sourceTree = "<group>"; };
+		7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
+		7CBD2C7F197E467D002F23A5 /* ConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectViewController.h; sourceTree = "<group>"; };
+		7CBD2C80197E467D002F23A5 /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularProgressView.m; sourceTree = "<group>"; };
+		7CBD2C81197E467D002F23A5 /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularProgressView.h; sourceTree = "<group>"; };
+		7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "avatar@2x.jpg"; sourceTree = "<group>"; };
+		7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsDevicesViewController.m; sourceTree = "<group>"; };
+		7CBD2C84197E467D002F23A5 /* AppsDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsDevicesViewController.h; sourceTree = "<group>"; };
+		7CBD2C8B197E46AF002F23A5 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OAuthiOS.framework; sourceTree = "<group>"; };
+		7CBD2C8F197E47C5002F23A5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		7CBD2C91197E47CF002F23A5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7CBD2C93197E47D9002F23A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7CBD2C95197E47FE002F23A5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7CBD2C97197E4804002F23A5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		7CBD2C99197E480B002F23A5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7CBD2C9B197E4813002F23A5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7CBD2C9D197E481F002F23A5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +141,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CBD2CA0197E482C002F23A5 /* SystemConfiguration.framework in Frameworks */,
+				7CBD2C9E197E481F002F23A5 /* StoreKit.framework in Frameworks */,
+				7CBD2C9C197E4813002F23A5 /* Security.framework in Frameworks */,
+				7CBD2C9A197E480B002F23A5 /* QuartzCore.framework in Frameworks */,
+				7CBD2C98197E4804002F23A5 /* MobileCoreServices.framework in Frameworks */,
+				7CBD2C96197E47FE002F23A5 /* libz.dylib in Frameworks */,
+				7CBD2C94197E47D9002F23A5 /* CoreLocation.framework in Frameworks */,
+				7CBD2C92197E47CF002F23A5 /* CFNetwork.framework in Frameworks */,
+				7CBD2C90197E47C5002F23A5 /* AudioToolbox.framework in Frameworks */,
 				7CBD2C1C197E4510002F23A5 /* CoreGraphics.framework in Frameworks */,
 				7CBD2C1E197E4510002F23A5 /* UIKit.framework in Frameworks */,
+				7CBD2C8C197E46AF002F23A5 /* Parse.framework in Frameworks */,
 				7CBD2C1A197E4510002F23A5 /* Foundation.framework in Frameworks */,
+				7CBD2C8E197E4754002F23A5 /* OAuthiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +193,17 @@
 		7CBD2C18197E4510002F23A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */,
+				7CBD2C9D197E481F002F23A5 /* StoreKit.framework */,
+				7CBD2C9B197E4813002F23A5 /* Security.framework */,
+				7CBD2C99197E480B002F23A5 /* QuartzCore.framework */,
+				7CBD2C97197E4804002F23A5 /* MobileCoreServices.framework */,
+				7CBD2C95197E47FE002F23A5 /* libz.dylib */,
+				7CBD2C93197E47D9002F23A5 /* CoreLocation.framework */,
+				7CBD2C91197E47CF002F23A5 /* CFNetwork.framework */,
+				7CBD2C8F197E47C5002F23A5 /* AudioToolbox.framework */,
+				7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */,
+				7CBD2C8B197E46AF002F23A5 /* Parse.framework */,
 				7CBD2C19197E4510002F23A5 /* Foundation.framework */,
 				7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */,
 				7CBD2C1D197E4510002F23A5 /* UIKit.framework */,
@@ -112,9 +215,48 @@
 		7CBD2C1F197E4510002F23A5 /* samsungHealth */ = {
 			isa = PBXGroup;
 			children = (
+				7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */,
+				7CBD2C7B197E467D002F23A5 /* DeviceViewController.h */,
+				7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */,
+				7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */,
+				7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */,
+				7CBD2C7F197E467D002F23A5 /* ConnectViewController.h */,
+				7CBD2C80197E467D002F23A5 /* CircularProgressView.m */,
+				7CBD2C81197E467D002F23A5 /* CircularProgressView.h */,
+				7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */,
+				7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */,
+				7CBD2C84197E467D002F23A5 /* AppsDevicesViewController.h */,
+				7CBD2C77197E4671002F23A5 /* FitbitViewController.m */,
+				7CBD2C78197E4671002F23A5 /* FitbitViewController.h */,
+				7CBD2C74197E4668002F23A5 /* HealthDataViewController.m */,
+				7CBD2C75197E4668002F23A5 /* HealthDataViewController.h */,
+				7CBD2C5C197E4651002F23A5 /* RootViewController.m */,
+				7CBD2C5D197E4651002F23A5 /* RootViewController.h */,
+				7CBD2C5E197E4651002F23A5 /* RewardViewController.m */,
+				7CBD2C5F197E4651002F23A5 /* RewardViewController.h */,
+				7CBD2C60197E4651002F23A5 /* REFrostedViewController.m */,
+				7CBD2C61197E4651002F23A5 /* REFrostedViewController.h */,
+				7CBD2C62197E4651002F23A5 /* REFrostedContainerViewController.m */,
+				7CBD2C63197E4651002F23A5 /* REFrostedContainerViewController.h */,
+				7CBD2C64197E4651002F23A5 /* RECommonFunctions.m */,
+				7CBD2C65197E4651002F23A5 /* RECommonFunctions.h */,
+				7CBD2C66197E4651002F23A5 /* ProfileViewController.m */,
+				7CBD2C67197E4651002F23A5 /* ProfileViewController.h */,
+				7CBD2C68197E4651002F23A5 /* NavigationController.m */,
+				7CBD2C69197E4651002F23A5 /* NavigationController.h */,
+				7CBD2C6A197E4651002F23A5 /* MenuViewController.m */,
+				7CBD2C6B197E4651002F23A5 /* MenuViewController.h */,
+				7CBD2C50197E4642002F23A5 /* UIViewController+REFrostedViewController.m */,
+				7CBD2C51197E4642002F23A5 /* UIViewController+REFrostedViewController.h */,
+				7CBD2C52197E4642002F23A5 /* UIView+REFrostedViewController.m */,
+				7CBD2C53197E4642002F23A5 /* UIView+REFrostedViewController.h */,
+				7CBD2C54197E4642002F23A5 /* UIImage+REFrostedViewController.m */,
+				7CBD2C55197E4642002F23A5 /* UIImage+REFrostedViewController.h */,
+				7CBD2C56197E4642002F23A5 /* TargetViewController.m */,
+				7CBD2C57197E4642002F23A5 /* TargetViewController.h */,
 				7CBD2C28197E4510002F23A5 /* AppDelegate.h */,
 				7CBD2C29197E4510002F23A5 /* AppDelegate.m */,
-				7CBD2C2B197E4510002F23A5 /* Main.storyboard */,
+				7CBD2C4E197E4538002F23A5 /* Main.storyboard */,
 				7CBD2C2E197E4510002F23A5 /* ViewController.h */,
 				7CBD2C2F197E4510002F23A5 /* ViewController.m */,
 				7CBD2C31197E4510002F23A5 /* Images.xcassets */,
@@ -229,8 +371,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CBD2C32197E4510002F23A5 /* Images.xcassets in Resources */,
+				7CBD2C89197E467D002F23A5 /* avatar@2x.jpg in Resources */,
 				7CBD2C24197E4510002F23A5 /* InfoPlist.strings in Resources */,
-				7CBD2C2D197E4510002F23A5 /* Main.storyboard in Resources */,
+				7CBD2C4F197E4538002F23A5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,8 +393,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CBD2C30197E4510002F23A5 /* ViewController.m in Sources */,
+				7CBD2C5B197E4642002F23A5 /* TargetViewController.m in Sources */,
+				7CBD2C6C197E4651002F23A5 /* RootViewController.m in Sources */,
+				7CBD2C6F197E4651002F23A5 /* REFrostedContainerViewController.m in Sources */,
+				7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */,
+				7CBD2C76197E4668002F23A5 /* HealthDataViewController.m in Sources */,
+				7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */,
+				7CBD2C5A197E4642002F23A5 /* UIImage+REFrostedViewController.m in Sources */,
 				7CBD2C2A197E4510002F23A5 /* AppDelegate.m in Sources */,
+				7CBD2C6D197E4651002F23A5 /* RewardViewController.m in Sources */,
+				7CBD2C70197E4651002F23A5 /* RECommonFunctions.m in Sources */,
+				7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */,
+				7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */,
+				7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */,
+				7CBD2C59197E4642002F23A5 /* UIView+REFrostedViewController.m in Sources */,
+				7CBD2C71197E4651002F23A5 /* ProfileViewController.m in Sources */,
+				7CBD2C58197E4642002F23A5 /* UIViewController+REFrostedViewController.m in Sources */,
 				7CBD2C26197E4510002F23A5 /* main.m in Sources */,
+				7CBD2C79197E4671002F23A5 /* FitbitViewController.m in Sources */,
+				7CBD2C6E197E4651002F23A5 /* REFrostedViewController.m in Sources */,
+				7CBD2C88197E467D002F23A5 /* CircularProgressView.m in Sources */,
+				7CBD2C72197E4651002F23A5 /* NavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,14 +442,6 @@
 				7CBD2C23197E4510002F23A5 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		7CBD2C2B197E4510002F23A5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7CBD2C2C197E4510002F23A5 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		7CBD2C41197E4510002F23A5 /* InfoPlist.strings */ = {
@@ -376,6 +530,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "samsungHealth/samsungHealth-Prefix.pch";
 				INFOPLIST_FILE = "samsungHealth/samsungHealth-Info.plist";
@@ -389,6 +547,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "samsungHealth/samsungHealth-Prefix.pch";
 				INFOPLIST_FILE = "samsungHealth/samsungHealth-Info.plist";
