@@ -318,10 +318,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Fitbit" id="rVb-Xu-AK4"/>
                     <connections>
-                        <outlet property="FitbitName" destination="PJa-bV-Vlr" id="YHL-km-hje"/>
-                        <outlet property="FitbitSteps" destination="ozj-zM-Ewz" id="Frf-wp-noH"/>
                         <outlet property="fitbitFullName" destination="PJa-bV-Vlr" id="YR8-7J-FpD"/>
-                        <outlet property="fitbitName" destination="PJa-bV-Vlr" id="BOz-Mg-8PM"/>
                         <outlet property="fitbitSteps" destination="ozj-zM-Ewz" id="Tlr-xO-6as"/>
                     </connections>
                 </viewController>

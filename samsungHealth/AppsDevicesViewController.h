@@ -20,8 +20,14 @@
 // Handle errors in the case of an unsuccessful authentication
 - (void)didFailWithOAuthIOError:(NSError *)error;
 
+- (OAuthIORequest *)getRequestToken:(OAuthIOData *)data;
+
+- (void)putRequestToken:(OAuthIORequest *)request;
+
 - (void)requestFromFitbit:(OAuthIORequest *)request;
-    
+
+- (void)getUserId;
+
 - (void)getUserInfo:(OAuthIORequest *)request;
 
 - (void)getSteps:(OAuthIORequest *)request;
