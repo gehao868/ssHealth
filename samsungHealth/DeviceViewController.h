@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "REFrostedViewController.h"
 
+
 @interface DeviceViewController : UIViewController
 
 - (IBAction)showMenu:(id)sender;

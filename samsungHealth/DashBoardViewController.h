@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "REFrostedViewController.h"
+#import "DACircularProgressView.h"
 
 @interface DashBoardViewController : UIViewController
+
+
+@property (strong, nonatomic) DACircularProgressView *largestProgressView;
 
 - (IBAction)showMenu;
 

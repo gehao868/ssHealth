@@ -38,7 +38,6 @@
 		7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */; };
 		7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */; };
 		7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */; };
-		7CBD2C88197E467D002F23A5 /* CircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C80197E467D002F23A5 /* CircularProgressView.m */; };
 		7CBD2C89197E467D002F23A5 /* avatar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */; };
 		7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */; };
 		7CBD2C8C197E46AF002F23A5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8B197E46AF002F23A5 /* Parse.framework */; };
@@ -52,6 +51,7 @@
 		7CBD2C9C197E4813002F23A5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9B197E4813002F23A5 /* Security.framework */; };
 		7CBD2C9E197E481F002F23A5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9D197E481F002F23A5 /* StoreKit.framework */; };
 		7CBD2CA0197E482C002F23A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */; };
+		7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,8 +118,6 @@
 		7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardViewController.h; sourceTree = "<group>"; };
 		7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
 		7CBD2C7F197E467D002F23A5 /* ConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectViewController.h; sourceTree = "<group>"; };
-		7CBD2C80197E467D002F23A5 /* CircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularProgressView.m; sourceTree = "<group>"; };
-		7CBD2C81197E467D002F23A5 /* CircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularProgressView.h; sourceTree = "<group>"; };
 		7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "avatar@2x.jpg"; sourceTree = "<group>"; };
 		7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsDevicesViewController.m; sourceTree = "<group>"; };
 		7CBD2C84197E467D002F23A5 /* AppsDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsDevicesViewController.h; sourceTree = "<group>"; };
@@ -134,6 +132,8 @@
 		7CBD2C9B197E4813002F23A5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7CBD2C9D197E481F002F23A5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7CBD2CA2197EF612002F23A5 /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
+		7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,14 +215,13 @@
 		7CBD2C1F197E4510002F23A5 /* samsungHealth */ = {
 			isa = PBXGroup;
 			children = (
+				7CBD2CA1197EF600002F23A5 /* CircularController */,
 				7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */,
 				7CBD2C7B197E467D002F23A5 /* DeviceViewController.h */,
 				7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */,
 				7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */,
 				7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */,
 				7CBD2C7F197E467D002F23A5 /* ConnectViewController.h */,
-				7CBD2C80197E467D002F23A5 /* CircularProgressView.m */,
-				7CBD2C81197E467D002F23A5 /* CircularProgressView.h */,
 				7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */,
 				7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */,
 				7CBD2C84197E467D002F23A5 /* AppsDevicesViewController.h */,
@@ -292,6 +291,15 @@
 				7CBD2C41197E4510002F23A5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7CBD2CA1197EF600002F23A5 /* CircularController */ = {
+			isa = PBXGroup;
+			children = (
+				7CBD2CA2197EF612002F23A5 /* DACircularProgressView.h */,
+				7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */,
+			);
+			name = CircularController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,10 +417,10 @@
 				7CBD2C59197E4642002F23A5 /* UIView+REFrostedViewController.m in Sources */,
 				7CBD2C71197E4651002F23A5 /* ProfileViewController.m in Sources */,
 				7CBD2C58197E4642002F23A5 /* UIViewController+REFrostedViewController.m in Sources */,
+				7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */,
 				7CBD2C26197E4510002F23A5 /* main.m in Sources */,
 				7CBD2C79197E4671002F23A5 /* FitbitViewController.m in Sources */,
 				7CBD2C6E197E4651002F23A5 /* REFrostedViewController.m in Sources */,
-				7CBD2C88197E467D002F23A5 /* CircularProgressView.m in Sources */,
 				7CBD2C72197E4651002F23A5 /* NavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -618,6 +626,7 @@
 				7CBD2C4A197E4510002F23A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7CBD2C4B197E4510002F23A5 /* Build configuration list for PBXNativeTarget "samsungHealthTests" */ = {
 			isa = XCConfigurationList;
@@ -626,6 +635,7 @@
 				7CBD2C4D197E4510002F23A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
