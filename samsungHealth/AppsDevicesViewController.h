@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *fibitbutton;
 
 - (IBAction)fibitAction:(id)sender;
-
+/*
 // Handles the results of a successful authentication
 - (void)didReceiveOAuthIOResponse:(OAuthIORequest *)request;
 
@@ -31,5 +31,6 @@
 - (void)getUserInfo:(OAuthIORequest *)request;
 
 - (void)getSteps:(OAuthIORequest *)request;
+*/
 
 @end

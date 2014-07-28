@@ -18,7 +18,7 @@ static NSString * const OAuthKeyForFitbit = @"s0ROr_j8tXMhlAfwlPQ4SXKQWQM";
 static NSString * const fitbitUserInfo = @"fitbitUserInfo";
 static NSString * userid = NULL;
 static NSString * username = NULL;
-
+static NSMutableData * responseData;
 @implementation AppsDevicesViewController
 
 @synthesize fibitbutton;
@@ -36,6 +36,7 @@ static NSString * username = NULL;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    /*
     PFQuery *query = [PFQuery queryWithClassName:@"currUser"];
     [query whereKey:@"device" equalTo:@"all"];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
@@ -45,6 +46,7 @@ static NSString * username = NULL;
             NSLog(@"The currUser username request failed.");
         }
     }];
+    */
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,6 +67,13 @@ static NSString * username = NULL;
 */
 
 - (IBAction)fibitAction:(id)sender {
+    responseData = [NSMutableData data];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:
+                             [NSURL URLWithString:@"https://api.samihub.com/v1.1/users/7e95d03d1989482cba5daf625e348906/devices"]];
+    [request addValue:@"bearer 9e676ccfc43d4b6b92274816ef38d903" forHTTPHeaderField:@"Authorization"];
+    id _ = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    #pragma unused(_)
+    /*
     // fetch data from Parse
     PFQuery *query = [PFQuery queryWithClassName:fitbitUserInfo];
     [query whereKey:@"username" equalTo:username];
@@ -81,7 +90,7 @@ static NSString * username = NULL;
             [self requestFromFitbit:request];
         }
     }];
-    
+    */
     //call cloud function
     //    [PFCloud callFunctionInBackground:@"hello"
     //                       withParameters:@{}
@@ -92,6 +101,51 @@ static NSString * username = NULL;
     //                                }];
 }
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    NSLog(@"didReceiveResponse");
+    [responseData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [responseData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    NSLog(@"didFailWithError");
+    NSLog(@"%@", [NSString stringWithFormat:@"Connection failed: %@", [error description]]);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    NSLog(@"connectionDidFinishLoading");
+    NSLog(@"Succeeded! Received %d bytes of data",[responseData length]);
+    
+    // convert to JSON
+    NSError *myError = nil;
+    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&myError];
+    
+    // show all values
+    for(id key in res) {
+        
+        id value = [res objectForKey:key];
+        
+        NSString *keyAsString = (NSString *)key;
+        NSString *valueAsString = (NSString *)value;
+        
+        NSLog(@"key: %@", keyAsString);
+        NSLog(@"value: %@", valueAsString);
+    }
+    
+    // extract specific value...
+    NSArray *results = [res objectForKey:@"results"];
+    
+    for (NSDictionary *result in results) {
+        NSString *icon = [result objectForKey:@"icon"];
+        NSLog(@"icon: %@", icon);
+    }
+    
+}
+
+/*
 - (void)didReceiveOAuthIOResponse:(OAuthIORequest *)request {
     //NSDictionary *credentials = [request getCredentials];
     //NSLog(@"get Token: %@", credentials[@"oauth_token"]);
@@ -180,5 +234,6 @@ static NSString * username = NULL;
          }];
      }];
 }
+*/
 
 @end
