@@ -58,13 +58,6 @@
                     <view key="view" contentMode="scaleToFill" id="NKZ-RZ-CBv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dd1-cu-8Ku" customClass="DACircularProgressView">
-                                <rect key="frame" x="54" y="90" width="212" height="202"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                     </view>
                     <navigationItem key="navigationItem" title="Dash Board" id="HIf-bS-REK">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="SZg-Pf-I50">
