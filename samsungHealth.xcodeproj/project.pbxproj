@@ -52,6 +52,7 @@
 		7CBD2C9E197E481F002F23A5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9D197E481F002F23A5 /* StoreKit.framework */; };
 		7CBD2CA0197E482C002F23A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */; };
 		7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */; };
+		BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC1B2CD198721E600DDEC78 /* FriendListController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,8 @@
 		7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7CBD2CA2197EF612002F23A5 /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
 		7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
+		BBC1B2CC198721E600DDEC78 /* FriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListController.h; sourceTree = "<group>"; };
+		BBC1B2CD198721E600DDEC78 /* FriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,14 +237,13 @@
 		7CBD2C1F197E4510002F23A5 /* samsungHealth */ = {
 			isa = PBXGroup;
 			children = (
+				BBC1B2CF1987228800DDEC78 /* Connect */,
 				7C79580419871C5D008FB679 /* RFViewController */,
 				7CBD2CA1197EF600002F23A5 /* CircularController */,
 				7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */,
 				7CBD2C7B197E467D002F23A5 /* DeviceViewController.h */,
 				7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */,
 				7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */,
-				7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */,
-				7CBD2C7F197E467D002F23A5 /* ConnectViewController.h */,
 				7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */,
 				7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */,
 				7CBD2C84197E467D002F23A5 /* AppsDevicesViewController.h */,
@@ -308,6 +310,17 @@
 				7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */,
 			);
 			name = CircularController;
+			sourceTree = "<group>";
+		};
+		BBC1B2CF1987228800DDEC78 /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+				7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */,
+				7CBD2C7F197E467D002F23A5 /* ConnectViewController.h */,
+				BBC1B2CC198721E600DDEC78 /* FriendListController.h */,
+				BBC1B2CD198721E600DDEC78 /* FriendListController.m */,
+			);
+			name = Connect;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */,
 				7CBD2C30197E4510002F23A5 /* ViewController.m in Sources */,
 				7CBD2C5B197E4642002F23A5 /* TargetViewController.m in Sources */,
 				7CBD2C6C197E4651002F23A5 /* RootViewController.m in Sources */,
