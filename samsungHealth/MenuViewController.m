@@ -109,16 +109,16 @@
     } else if(indexPath.section == 0 && indexPath.row == 1) {
         TargetViewController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"secondController"];
         navigationController.viewControllers = @[secondViewController];
-    }  else if(indexPath.section == 0 && indexPath.row == 3) {
+    }  else if(indexPath.section == 0 && indexPath.row == 2) {
         ConnectViewController *connectController = [self.storyboard instantiateViewControllerWithIdentifier:@"connectController"];
         navigationController.viewControllers = @[connectController];
-    } else if(indexPath.section == 0 && indexPath.row == 4) {
+    } else if(indexPath.section == 0 && indexPath.row == 3) {
         RewardViewController *rewardController = [self.storyboard instantiateViewControllerWithIdentifier:@"rewardController"];
         navigationController.viewControllers = @[rewardController];
-    } else if(indexPath.section == 0 && indexPath.row == 5) {
+    } else if(indexPath.section == 0 && indexPath.row == 4) {
         ProfileViewController *profileController = [self.storyboard instantiateViewControllerWithIdentifier:@"profileController"];
         navigationController.viewControllers = @[profileController];
-    } else if(indexPath.section == 0 && indexPath.row == 6) {
+    } else if(indexPath.section == 0 && indexPath.row == 5) {
         DeviceViewController *deviceController = [self.storyboard instantiateViewControllerWithIdentifier:@"deviceController"];
         navigationController.viewControllers = @[deviceController];
     }
@@ -155,7 +155,7 @@
     }
     
     if (indexPath.section == 0) {
-        NSArray *titles = @[@"DashBoard", @"Target", @"Connect", @"Rewards", @"Profile", @"Manage Device"];
+        NSArray *titles = @[@"DashBoard", @"Goal", @"Connect", @"Rewards", @"Profile", @"Manage Device"];
         NSArray *images = @[[UIImage imageNamed:@"dashboard"],[UIImage imageNamed:@"target"],[UIImage imageNamed:@"connect"],[UIImage imageNamed:@"reward"],[UIImage imageNamed:@"profile"],[UIImage imageNamed:@"setting"]];
         cell.textLabel.text = titles[indexPath.row];
         cell.imageView.image = images[indexPath.row];
