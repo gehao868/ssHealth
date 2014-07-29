@@ -171,6 +171,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C79580419871C5D008FB679 /* RFViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7CBD2C50197E4642002F23A5 /* UIViewController+REFrostedViewController.m */,
+				7CBD2C51197E4642002F23A5 /* UIViewController+REFrostedViewController.h */,
+				7CBD2C52197E4642002F23A5 /* UIView+REFrostedViewController.m */,
+				7CBD2C53197E4642002F23A5 /* UIView+REFrostedViewController.h */,
+				7CBD2C54197E4642002F23A5 /* UIImage+REFrostedViewController.m */,
+				7CBD2C55197E4642002F23A5 /* UIImage+REFrostedViewController.h */,
+				7CBD2C60197E4651002F23A5 /* REFrostedViewController.m */,
+				7CBD2C61197E4651002F23A5 /* REFrostedViewController.h */,
+				7CBD2C62197E4651002F23A5 /* REFrostedContainerViewController.m */,
+				7CBD2C63197E4651002F23A5 /* REFrostedContainerViewController.h */,
+				7CBD2C64197E4651002F23A5 /* RECommonFunctions.m */,
+				7CBD2C65197E4651002F23A5 /* RECommonFunctions.h */,
+			);
+			name = RFViewController;
+			sourceTree = "<group>";
+		};
 		7CBD2C0D197E4510002F23A5 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +234,7 @@
 		7CBD2C1F197E4510002F23A5 /* samsungHealth */ = {
 			isa = PBXGroup;
 			children = (
+				7C79580419871C5D008FB679 /* RFViewController */,
 				7CBD2CA1197EF600002F23A5 /* CircularController */,
 				7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */,
 				7CBD2C7B197E467D002F23A5 /* DeviceViewController.h */,
@@ -233,24 +253,12 @@
 				7CBD2C5D197E4651002F23A5 /* RootViewController.h */,
 				7CBD2C5E197E4651002F23A5 /* RewardViewController.m */,
 				7CBD2C5F197E4651002F23A5 /* RewardViewController.h */,
-				7CBD2C60197E4651002F23A5 /* REFrostedViewController.m */,
-				7CBD2C61197E4651002F23A5 /* REFrostedViewController.h */,
-				7CBD2C62197E4651002F23A5 /* REFrostedContainerViewController.m */,
-				7CBD2C63197E4651002F23A5 /* REFrostedContainerViewController.h */,
-				7CBD2C64197E4651002F23A5 /* RECommonFunctions.m */,
-				7CBD2C65197E4651002F23A5 /* RECommonFunctions.h */,
 				7CBD2C66197E4651002F23A5 /* ProfileViewController.m */,
 				7CBD2C67197E4651002F23A5 /* ProfileViewController.h */,
 				7CBD2C68197E4651002F23A5 /* NavigationController.m */,
 				7CBD2C69197E4651002F23A5 /* NavigationController.h */,
 				7CBD2C6A197E4651002F23A5 /* MenuViewController.m */,
 				7CBD2C6B197E4651002F23A5 /* MenuViewController.h */,
-				7CBD2C50197E4642002F23A5 /* UIViewController+REFrostedViewController.m */,
-				7CBD2C51197E4642002F23A5 /* UIViewController+REFrostedViewController.h */,
-				7CBD2C52197E4642002F23A5 /* UIView+REFrostedViewController.m */,
-				7CBD2C53197E4642002F23A5 /* UIView+REFrostedViewController.h */,
-				7CBD2C54197E4642002F23A5 /* UIImage+REFrostedViewController.m */,
-				7CBD2C55197E4642002F23A5 /* UIImage+REFrostedViewController.h */,
 				7CBD2C56197E4642002F23A5 /* TargetViewController.m */,
 				7CBD2C57197E4642002F23A5 /* TargetViewController.h */,
 				7CBD2C28197E4510002F23A5 /* AppDelegate.h */,
