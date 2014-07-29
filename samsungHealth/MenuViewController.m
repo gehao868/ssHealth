@@ -11,7 +11,6 @@
 #import "DashBoardViewController.h"
 #import "TargetViewController.h"
 #import "DeviceViewController.h"
-#import "HealthDataViewController.h"
 #import "ConnectViewController.h"
 #import "RewardViewController.h"
 #import "ProfileViewController.h"
@@ -110,10 +109,7 @@
     } else if(indexPath.section == 0 && indexPath.row == 1) {
         TargetViewController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"secondController"];
         navigationController.viewControllers = @[secondViewController];
-    } else if(indexPath.section == 0 && indexPath.row == 2) {
-        HealthDataViewController *healthController = [self.storyboard instantiateViewControllerWithIdentifier:@"healthController"];
-        navigationController.viewControllers = @[healthController];
-    } else if(indexPath.section == 0 && indexPath.row == 3) {
+    }  else if(indexPath.section == 0 && indexPath.row == 3) {
         ConnectViewController *connectController = [self.storyboard instantiateViewControllerWithIdentifier:@"connectController"];
         navigationController.viewControllers = @[connectController];
     } else if(indexPath.section == 0 && indexPath.row == 4) {
