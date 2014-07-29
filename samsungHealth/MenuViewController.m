@@ -145,7 +145,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 7;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -159,8 +159,8 @@
     }
     
     if (indexPath.section == 0) {
-        NSArray *titles = @[@"DashBoard", @"Target", @"Health Data", @"Connect", @"Rewards", @"Profile", @"Manage Device"];
-        NSArray *images = @[[UIImage imageNamed:@"dashboard"],[UIImage imageNamed:@"target"],[UIImage imageNamed:@"connect"],[UIImage imageNamed:@"reward"],[UIImage imageNamed:@"profile"],[UIImage imageNamed:@"profile"],[UIImage imageNamed:@"profile"]];
+        NSArray *titles = @[@"DashBoard", @"Target", @"Connect", @"Rewards", @"Profile", @"Manage Device"];
+        NSArray *images = @[[UIImage imageNamed:@"dashboard"],[UIImage imageNamed:@"target"],[UIImage imageNamed:@"connect"],[UIImage imageNamed:@"reward"],[UIImage imageNamed:@"profile"],[UIImage imageNamed:@"setting"]];
         cell.textLabel.text = titles[indexPath.row];
         cell.imageView.image = images[indexPath.row];
     }

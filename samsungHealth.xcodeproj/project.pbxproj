@@ -34,7 +34,6 @@
 		7CBD2C71197E4651002F23A5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C66197E4651002F23A5 /* ProfileViewController.m */; };
 		7CBD2C72197E4651002F23A5 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C68197E4651002F23A5 /* NavigationController.m */; };
 		7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C6A197E4651002F23A5 /* MenuViewController.m */; };
-		7CBD2C76197E4668002F23A5 /* HealthDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C74197E4668002F23A5 /* HealthDataViewController.m */; };
 		7CBD2C79197E4671002F23A5 /* FitbitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C77197E4671002F23A5 /* FitbitViewController.m */; };
 		7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */; };
 		7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */; };
@@ -109,8 +108,6 @@
 		7CBD2C69197E4651002F23A5 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		7CBD2C6A197E4651002F23A5 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		7CBD2C6B197E4651002F23A5 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		7CBD2C74197E4668002F23A5 /* HealthDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthDataViewController.m; sourceTree = "<group>"; };
-		7CBD2C75197E4668002F23A5 /* HealthDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthDataViewController.h; sourceTree = "<group>"; };
 		7CBD2C77197E4671002F23A5 /* FitbitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FitbitViewController.m; sourceTree = "<group>"; };
 		7CBD2C78197E4671002F23A5 /* FitbitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FitbitViewController.h; sourceTree = "<group>"; };
 		7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewController.m; sourceTree = "<group>"; };
@@ -193,6 +190,53 @@
 			name = RFViewController;
 			sourceTree = "<group>";
 		};
+		7C79580519872552008FB679 /* DashBoard */ = {
+			isa = PBXGroup;
+			children = (
+				7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */,
+				7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */,
+			);
+			name = DashBoard;
+			sourceTree = "<group>";
+		};
+		7C79580719872581008FB679 /* Goal */ = {
+			isa = PBXGroup;
+			children = (
+				7CBD2C56197E4642002F23A5 /* TargetViewController.m */,
+				7CBD2C57197E4642002F23A5 /* TargetViewController.h */,
+			);
+			name = Goal;
+			sourceTree = "<group>";
+		};
+		7C79580819872593008FB679 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7CBD2C66197E4651002F23A5 /* ProfileViewController.m */,
+				7CBD2C67197E4651002F23A5 /* ProfileViewController.h */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		7C795809198725C7008FB679 /* ManageDevice */ = {
+			isa = PBXGroup;
+			children = (
+				7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */,
+				7CBD2C77197E4671002F23A5 /* FitbitViewController.m */,
+				7CBD2C78197E4671002F23A5 /* FitbitViewController.h */,
+				7CBD2C7B197E467D002F23A5 /* DeviceViewController.h */,
+			);
+			name = ManageDevice;
+			sourceTree = "<group>";
+		};
+		7C79580A198725E3008FB679 /* Reward */ = {
+			isa = PBXGroup;
+			children = (
+				7CBD2C5E197E4651002F23A5 /* RewardViewController.m */,
+				7CBD2C5F197E4651002F23A5 /* RewardViewController.h */,
+			);
+			name = Reward;
+			sourceTree = "<group>";
+		};
 		7CBD2C0D197E4510002F23A5 = {
 			isa = PBXGroup;
 			children = (
@@ -237,32 +281,23 @@
 		7CBD2C1F197E4510002F23A5 /* samsungHealth */ = {
 			isa = PBXGroup;
 			children = (
+				7C79580A198725E3008FB679 /* Reward */,
+				7C795809198725C7008FB679 /* ManageDevice */,
+				7C79580819872593008FB679 /* Profile */,
+				7C79580719872581008FB679 /* Goal */,
+				7C79580519872552008FB679 /* DashBoard */,
 				BBC1B2CF1987228800DDEC78 /* Connect */,
 				7C79580419871C5D008FB679 /* RFViewController */,
 				7CBD2CA1197EF600002F23A5 /* CircularController */,
-				7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */,
-				7CBD2C7B197E467D002F23A5 /* DeviceViewController.h */,
-				7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */,
-				7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */,
 				7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */,
 				7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */,
 				7CBD2C84197E467D002F23A5 /* AppsDevicesViewController.h */,
-				7CBD2C77197E4671002F23A5 /* FitbitViewController.m */,
-				7CBD2C78197E4671002F23A5 /* FitbitViewController.h */,
-				7CBD2C74197E4668002F23A5 /* HealthDataViewController.m */,
-				7CBD2C75197E4668002F23A5 /* HealthDataViewController.h */,
 				7CBD2C5C197E4651002F23A5 /* RootViewController.m */,
 				7CBD2C5D197E4651002F23A5 /* RootViewController.h */,
-				7CBD2C5E197E4651002F23A5 /* RewardViewController.m */,
-				7CBD2C5F197E4651002F23A5 /* RewardViewController.h */,
-				7CBD2C66197E4651002F23A5 /* ProfileViewController.m */,
-				7CBD2C67197E4651002F23A5 /* ProfileViewController.h */,
 				7CBD2C68197E4651002F23A5 /* NavigationController.m */,
 				7CBD2C69197E4651002F23A5 /* NavigationController.h */,
 				7CBD2C6A197E4651002F23A5 /* MenuViewController.m */,
 				7CBD2C6B197E4651002F23A5 /* MenuViewController.h */,
-				7CBD2C56197E4642002F23A5 /* TargetViewController.m */,
-				7CBD2C57197E4642002F23A5 /* TargetViewController.h */,
 				7CBD2C28197E4510002F23A5 /* AppDelegate.h */,
 				7CBD2C29197E4510002F23A5 /* AppDelegate.m */,
 				7CBD2C4E197E4538002F23A5 /* Main.storyboard */,
@@ -427,7 +462,6 @@
 				7CBD2C6C197E4651002F23A5 /* RootViewController.m in Sources */,
 				7CBD2C6F197E4651002F23A5 /* REFrostedContainerViewController.m in Sources */,
 				7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */,
-				7CBD2C76197E4668002F23A5 /* HealthDataViewController.m in Sources */,
 				7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */,
 				7CBD2C5A197E4642002F23A5 /* UIImage+REFrostedViewController.m in Sources */,
 				7CBD2C2A197E4510002F23A5 /* AppDelegate.m in Sources */,

@@ -37,7 +37,6 @@
                         <segue destination="jsP-Dz-DYG" kind="relationship" relationship="rootViewController" id="LUF-1Q-jf3"/>
                         <segue destination="yGP-ij-jME" kind="push" identifier="Second" id="fOf-2J-bLN"/>
                         <segue destination="o5Y-rG-uv8" kind="push" id="JpW-yR-Yxf"/>
-                        <segue destination="0rR-Kx-Bwz" kind="push" id="c71-4q-CVf"/>
                         <segue destination="OSV-Jl-5cM" kind="push" id="pyX-UI-6l3"/>
                         <segue destination="6N3-9P-l8I" kind="push" id="BGQ-cu-STM"/>
                         <segue destination="UIv-9b-taJ" kind="push" id="F3X-1S-78r"/>
@@ -99,7 +98,7 @@
             </objects>
             <point key="canvasLocation" x="-1366" y="2585"/>
         </scene>
-        <!--Target View Controller - Target-->
+        <!--Target View Controller - Goal-->
         <scene sceneID="ajy-0O-wjT">
             <objects>
                 <viewController restorationIdentifier="secondController" storyboardIdentifier="secondController" id="yGP-ij-jME" customClass="TargetViewController" sceneMemberID="viewController">
@@ -118,7 +117,7 @@
                             </tableView>
                         </subviews>
                     </view>
-                    <navigationItem key="navigationItem" title="Target" id="8VR-6H-mGr">
+                    <navigationItem key="navigationItem" title="Goal" id="8VR-6H-mGr">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="3gh-ed-0Ek">
                             <connections>
                                 <action selector="showMenu" destination="yGP-ij-jME" id="ZoY-gJ-XvS"/>
@@ -129,31 +128,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBM-yN-hYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="366" y="131"/>
-        </scene>
-        <!--Health Data View Controller - Health Data-->
-        <scene sceneID="04Y-9u-Qh3">
-            <objects>
-                <viewController storyboardIdentifier="healthController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0rR-Kx-Bwz" customClass="HealthDataViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="inE-VY-A7d"/>
-                        <viewControllerLayoutGuide type="bottom" id="MNG-1R-aSl"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="11a-Di-TOw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Health Data" id="Qtu-zg-uPu">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="nib-Lh-kwr">
-                            <connections>
-                                <action selector="showMenu:" destination="0rR-Kx-Bwz" id="gFG-BL-kXf"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="03V-QI-Bqj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="366" y="857"/>
         </scene>
         <!--Connect View Controller - Connect-->
         <scene sceneID="pDP-iZ-9fO">
@@ -211,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGl-0u-xeG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366" y="1589"/>
+            <point key="canvasLocation" x="366" y="933"/>
         </scene>
         <!--Friend List Controller - Title-->
         <scene sceneID="tFW-R5-hwo">
@@ -237,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pj-UE-RZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="1589"/>
+            <point key="canvasLocation" x="900" y="933"/>
         </scene>
         <!--Reward View Controller - Rewards-->
         <scene sceneID="8Ws-BW-n8O">
@@ -262,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="det-jd-oOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="355" y="2305"/>
+            <point key="canvasLocation" x="355" y="1649"/>
         </scene>
         <!--Profile View Controller - Profile-->
         <scene sceneID="NDk-Lz-Qu1">
@@ -287,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dls-g0-H1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="355" y="3097"/>
+            <point key="canvasLocation" x="355" y="2441"/>
         </scene>
         <!--Device View Controller - Manage Device-->
         <scene sceneID="l2S-pE-PqJ">
@@ -317,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PfV-9q-9n2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366" y="3879"/>
+            <point key="canvasLocation" x="366" y="3223"/>
         </scene>
         <!--Apps Devices View Controller - Apps & Devices-->
         <scene sceneID="hcd-kM-Xdi">
@@ -353,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bH-Av-nvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="982" y="3879"/>
+            <point key="canvasLocation" x="982" y="3223"/>
         </scene>
         <!--Fitbit View Controller - Fitbit-->
         <scene sceneID="vIK-bd-swi">
@@ -391,7 +365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vg9-Lc-5h5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1459" y="3879"/>
+            <point key="canvasLocation" x="1459" y="3223"/>
         </scene>
     </scenes>
     <resources>
