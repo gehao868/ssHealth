@@ -230,9 +230,9 @@
 			children = (
 				7C89F8921989A99E00F021EF /* AppAndDevice */,
 				7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */,
+				7CBD2C7B197E467D002F23A5 /* DeviceViewController.h */,
 				7CBD2C77197E4671002F23A5 /* FitbitViewController.m */,
 				7CBD2C78197E4671002F23A5 /* FitbitViewController.h */,
-				7CBD2C7B197E467D002F23A5 /* DeviceViewController.h */,
 			);
 			name = ManageDevice;
 			sourceTree = "<group>";
@@ -251,8 +251,8 @@
 			children = (
 				7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */,
 				7CBD2C84197E467D002F23A5 /* AppsDevicesViewController.h */,
-				7C89F8931989A9F100F021EF /* AppDeviceTableViewCell.h */,
 				7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */,
+				7C89F8931989A9F100F021EF /* AppDeviceTableViewCell.h */,
 			);
 			name = AppAndDevice;
 			sourceTree = "<group>";

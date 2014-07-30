@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppsDevicesViewController : UITableViewController
+@interface AppsDevicesViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIButton *fibitbutton;
 
