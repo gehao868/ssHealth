@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
 		7C79580D198729D1008FB679 /* DashTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C79580C198729D1008FB679 /* DashTableViewController.m */; };
+		7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */; };
 		7CBD2C1A197E4510002F23A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C19197E4510002F23A5 /* Foundation.framework */; };
 		7CBD2C1C197E4510002F23A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */; };
 		7CBD2C1E197E4510002F23A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1D197E4510002F23A5 /* UIKit.framework */; };
@@ -68,6 +69,8 @@
 /* Begin PBXFileReference section */
 		7C79580B198729D1008FB679 /* DashTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashTableViewController.h; sourceTree = "<group>"; };
 		7C79580C198729D1008FB679 /* DashTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashTableViewController.m; sourceTree = "<group>"; };
+		7C89F8931989A9F100F021EF /* AppDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDeviceTableViewCell.h; sourceTree = "<group>"; };
+		7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDeviceTableViewCell.m; sourceTree = "<group>"; };
 		7CBD2C16197E4510002F23A5 /* samsungHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = samsungHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBD2C19197E4510002F23A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -225,8 +228,7 @@
 		7C795809198725C7008FB679 /* ManageDevice */ = {
 			isa = PBXGroup;
 			children = (
-				7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */,
-				7CBD2C84197E467D002F23A5 /* AppsDevicesViewController.h */,
+				7C89F8921989A99E00F021EF /* AppAndDevice */,
 				7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */,
 				7CBD2C77197E4671002F23A5 /* FitbitViewController.m */,
 				7CBD2C78197E4671002F23A5 /* FitbitViewController.h */,
@@ -242,6 +244,17 @@
 				7CBD2C5F197E4651002F23A5 /* RewardViewController.h */,
 			);
 			name = Reward;
+			sourceTree = "<group>";
+		};
+		7C89F8921989A99E00F021EF /* AppAndDevice */ = {
+			isa = PBXGroup;
+			children = (
+				7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */,
+				7CBD2C84197E467D002F23A5 /* AppsDevicesViewController.h */,
+				7C89F8931989A9F100F021EF /* AppDeviceTableViewCell.h */,
+				7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */,
+			);
+			name = AppAndDevice;
 			sourceTree = "<group>";
 		};
 		7CBD2C0D197E4510002F23A5 = {
@@ -476,6 +489,7 @@
 				7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */,
 				7C79580D198729D1008FB679 /* DashTableViewController.m in Sources */,
 				7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */,
+				7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */,
 				7CBD2C59197E4642002F23A5 /* UIView+REFrostedViewController.m in Sources */,
 				7CBD2C71197E4651002F23A5 /* ProfileViewController.m in Sources */,
 				7CBD2C58197E4642002F23A5 /* UIViewController+REFrostedViewController.m in Sources */,
