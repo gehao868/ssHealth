@@ -20,7 +20,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1309" y="1890"/>
+            <point key="canvasLocation" x="-1743" y="1890"/>
+        </scene>
+        <!--Launch View Controller-->
+        <scene sceneID="5ZA-u8-W9y">
+            <objects>
+                <viewController storyboardIdentifier="launchController" id="0XT-Lj-xhU" customClass="LaunchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="umd-i5-aku"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bem-gM-trI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PRC-Nl-go1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ek8-8k-P6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1300" y="1890"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jO9-85-nrD">
