@@ -9,6 +9,7 @@
 #import <Parse/Parse.h>
 #import <OAuthiOS/OAuthiOS.h>
 #import "AppsDevicesViewController.h"
+#import "AppDeviceTableViewCell.h"
 
 @interface AppsDevicesViewController ()
 
@@ -81,7 +82,7 @@ static NSMutableData * responseData;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *appTableIdentifier = @"AppDeviceCell";
+    static NSString *appTableIdentifier = @"AppDeviceTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:appTableIdentifier];
     
     if (cell == nil) {
@@ -93,6 +94,22 @@ static NSMutableData * responseData;
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    /*UIAlertView *messageAlert = [[UIAlertView alloc]
+     initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];*/
+    UIAlertView *messageAlert = [[UIAlertView alloc]
+                                 initWithTitle:@"Row Selected" message:[tableData objectAtIndex:indexPath.row] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+    // Display the Hello World Message
+    [messageAlert show];
+    
+    // Checked the selected row
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 /*
  // Override to support conditional editing of the table view.
