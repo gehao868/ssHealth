@@ -33,13 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
- 
-    FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:
-                              @[@"public_profile", @"email", @"user_friends"]];
-    // Align the button in the center horizontally
-    loginView.frame = CGRectOffset(loginView.frame, (self.view.center.x - (loginView.frame.size.width / 2)), 5);
-    [self.view addSubview:loginView];
-    
+
 }
 
 - (void)didReceiveMemoryWarning
