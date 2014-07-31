@@ -16,7 +16,6 @@
 @end
 
 static NSString * const OAuthKeyForFitbit = @"s0ROr_j8tXMhlAfwlPQ4SXKQWQM";
-static NSString * const fitbitUserInfo = @"fitbitUserInfo";
 static NSString * userid = NULL;
 static NSString * username = NULL;
 static NSMutableData * responseData;
