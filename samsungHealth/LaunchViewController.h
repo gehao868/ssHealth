@@ -10,4 +10,6 @@
 
 @interface LaunchViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *skipButton;
+
 @end
