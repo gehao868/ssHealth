@@ -10,7 +10,7 @@
 #import "REFrostedViewController.h"
 #import "DACircularProgressView.h"
 
-@interface DashBoardViewController : UIViewController
+@interface DashBoardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 
 @property (strong, nonatomic) DACircularProgressView *largestProgressView;

@@ -8,8 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
-		7C79580D198729D1008FB679 /* DashTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C79580C198729D1008FB679 /* DashTableViewController.m */; };
 		7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */; };
+		7C89F8A31989C1B800F021EF /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8981989C1B800F021EF /* PNBar.m */; };
+		7C89F8A41989C1B800F021EF /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F89A1989C1B800F021EF /* PNBarChart.m */; };
+		7C89F8A51989C1B800F021EF /* PNChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F89C1989C1B800F021EF /* PNChart.m */; };
+		7C89F8A61989C1B800F021EF /* PNChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F89E1989C1B800F021EF /* PNChartLabel.m */; };
+		7C89F8A71989C1B800F021EF /* PNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8A01989C1B800F021EF /* PNColor.m */; };
+		7C89F8A81989C1B800F021EF /* PNLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8A21989C1B800F021EF /* PNLineChart.m */; };
+		7C89F8AB1989C22F00F021EF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8AA1989C22F00F021EF /* DetailViewController.m */; };
+		7C89F8AE1989C45E00F021EF /* DashTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8AD1989C45E00F021EF /* DashTableViewController.m */; };
 		7CBD2C1A197E4510002F23A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C19197E4510002F23A5 /* Foundation.framework */; };
 		7CBD2C1C197E4510002F23A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */; };
 		7CBD2C1E197E4510002F23A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1D197E4510002F23A5 /* UIKit.framework */; };
@@ -67,10 +74,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7C79580B198729D1008FB679 /* DashTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashTableViewController.h; sourceTree = "<group>"; };
-		7C79580C198729D1008FB679 /* DashTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashTableViewController.m; sourceTree = "<group>"; };
 		7C89F8931989A9F100F021EF /* AppDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDeviceTableViewCell.h; sourceTree = "<group>"; };
 		7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDeviceTableViewCell.m; sourceTree = "<group>"; };
+		7C89F8971989C1B800F021EF /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
+		7C89F8981989C1B800F021EF /* PNBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBar.m; sourceTree = "<group>"; };
+		7C89F8991989C1B800F021EF /* PNBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBarChart.h; sourceTree = "<group>"; };
+		7C89F89A1989C1B800F021EF /* PNBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBarChart.m; sourceTree = "<group>"; };
+		7C89F89B1989C1B800F021EF /* PNChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChart.h; sourceTree = "<group>"; };
+		7C89F89C1989C1B800F021EF /* PNChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNChart.m; sourceTree = "<group>"; };
+		7C89F89D1989C1B800F021EF /* PNChartLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChartLabel.h; sourceTree = "<group>"; };
+		7C89F89E1989C1B800F021EF /* PNChartLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNChartLabel.m; sourceTree = "<group>"; };
+		7C89F89F1989C1B800F021EF /* PNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNColor.h; sourceTree = "<group>"; };
+		7C89F8A01989C1B800F021EF /* PNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNColor.m; sourceTree = "<group>"; };
+		7C89F8A11989C1B800F021EF /* PNLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNLineChart.h; sourceTree = "<group>"; };
+		7C89F8A21989C1B800F021EF /* PNLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChart.m; sourceTree = "<group>"; };
+		7C89F8A91989C22F00F021EF /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		7C89F8AA1989C22F00F021EF /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		7C89F8AC1989C45E00F021EF /* DashTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashTableViewController.h; sourceTree = "<group>"; };
+		7C89F8AD1989C45E00F021EF /* DashTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashTableViewController.m; sourceTree = "<group>"; };
 		7CBD2C16197E4510002F23A5 /* samsungHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = samsungHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBD2C19197E4510002F23A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -199,10 +220,12 @@
 		7C79580519872552008FB679 /* DashBoard */ = {
 			isa = PBXGroup;
 			children = (
+				7C89F8AC1989C45E00F021EF /* DashTableViewController.h */,
+				7C89F8AD1989C45E00F021EF /* DashTableViewController.m */,
 				7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */,
 				7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */,
-				7C79580B198729D1008FB679 /* DashTableViewController.h */,
-				7C79580C198729D1008FB679 /* DashTableViewController.m */,
+				7C89F8A91989C22F00F021EF /* DetailViewController.h */,
+				7C89F8AA1989C22F00F021EF /* DetailViewController.m */,
 			);
 			name = DashBoard;
 			sourceTree = "<group>";
@@ -257,6 +280,25 @@
 			name = AppAndDevice;
 			sourceTree = "<group>";
 		};
+		7C89F8961989C1B800F021EF /* PNChart */ = {
+			isa = PBXGroup;
+			children = (
+				7C89F8971989C1B800F021EF /* PNBar.h */,
+				7C89F8981989C1B800F021EF /* PNBar.m */,
+				7C89F8991989C1B800F021EF /* PNBarChart.h */,
+				7C89F89A1989C1B800F021EF /* PNBarChart.m */,
+				7C89F89B1989C1B800F021EF /* PNChart.h */,
+				7C89F89C1989C1B800F021EF /* PNChart.m */,
+				7C89F89D1989C1B800F021EF /* PNChartLabel.h */,
+				7C89F89E1989C1B800F021EF /* PNChartLabel.m */,
+				7C89F89F1989C1B800F021EF /* PNColor.h */,
+				7C89F8A01989C1B800F021EF /* PNColor.m */,
+				7C89F8A11989C1B800F021EF /* PNLineChart.h */,
+				7C89F8A21989C1B800F021EF /* PNLineChart.m */,
+			);
+			path = PNChart;
+			sourceTree = "<group>";
+		};
 		7CBD2C0D197E4510002F23A5 = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +343,7 @@
 		7CBD2C1F197E4510002F23A5 /* samsungHealth */ = {
 			isa = PBXGroup;
 			children = (
+				7C89F8961989C1B800F021EF /* PNChart */,
 				7C79580A198725E3008FB679 /* Reward */,
 				7C795809198725C7008FB679 /* ManageDevice */,
 				7C79580819872593008FB679 /* Profile */,
@@ -474,25 +517,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C89F8A31989C1B800F021EF /* PNBar.m in Sources */,
 				BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */,
 				7CBD2C30197E4510002F23A5 /* ViewController.m in Sources */,
 				7CBD2C5B197E4642002F23A5 /* TargetViewController.m in Sources */,
 				7CBD2C6C197E4651002F23A5 /* RootViewController.m in Sources */,
+				7C89F8A71989C1B800F021EF /* PNColor.m in Sources */,
 				7CBD2C6F197E4651002F23A5 /* REFrostedContainerViewController.m in Sources */,
 				7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */,
 				7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */,
+				7C89F8AB1989C22F00F021EF /* DetailViewController.m in Sources */,
 				7CBD2C5A197E4642002F23A5 /* UIImage+REFrostedViewController.m in Sources */,
 				7CBD2C2A197E4510002F23A5 /* AppDelegate.m in Sources */,
+				7C89F8A51989C1B800F021EF /* PNChart.m in Sources */,
 				7CBD2C6D197E4651002F23A5 /* RewardViewController.m in Sources */,
 				7CBD2C70197E4651002F23A5 /* RECommonFunctions.m in Sources */,
 				7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */,
 				7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */,
-				7C79580D198729D1008FB679 /* DashTableViewController.m in Sources */,
 				7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */,
 				7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */,
 				7CBD2C59197E4642002F23A5 /* UIView+REFrostedViewController.m in Sources */,
+				7C89F8A81989C1B800F021EF /* PNLineChart.m in Sources */,
 				7CBD2C71197E4651002F23A5 /* ProfileViewController.m in Sources */,
 				7CBD2C58197E4642002F23A5 /* UIViewController+REFrostedViewController.m in Sources */,
+				7C89F8AE1989C45E00F021EF /* DashTableViewController.m in Sources */,
+				7C89F8A61989C1B800F021EF /* PNChartLabel.m in Sources */,
+				7C89F8A41989C1B800F021EF /* PNBarChart.m in Sources */,
 				7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */,
 				7CBD2C26197E4510002F23A5 /* main.m in Sources */,
 				7CBD2C79197E4671002F23A5 /* FitbitViewController.m in Sources */,
