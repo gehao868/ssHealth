@@ -12,7 +12,10 @@
 
 @end
 
-@implementation DashBoardViewController
+@implementation DashBoardViewController {
+    NSMutableArray *tableData;
+
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,6 +60,8 @@
 {
     [self.frostedViewController presentMenuViewController];
 }
+
+
 
 @end
 
