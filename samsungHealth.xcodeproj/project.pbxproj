@@ -20,6 +20,7 @@
 		7C89F8AE1989C45E00F021EF /* DashTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8AD1989C45E00F021EF /* DashTableViewController.m */; };
 		7C89F8B11989CB4A00F021EF /* TargetViewDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */; };
 		7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B31989CD9900F021EF /* CompeteViewController.m */; };
+		7C89F8B71989F01600F021EF /* ProfileTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B61989F01600F021EF /* ProfileTableTableViewController.m */; };
 		7CBD2C1A197E4510002F23A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C19197E4510002F23A5 /* Foundation.framework */; };
 		7CBD2C1C197E4510002F23A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */; };
 		7CBD2C1E197E4510002F23A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1D197E4510002F23A5 /* UIKit.framework */; };
@@ -43,7 +44,6 @@
 		7CBD2C6E197E4651002F23A5 /* REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C60197E4651002F23A5 /* REFrostedViewController.m */; };
 		7CBD2C6F197E4651002F23A5 /* REFrostedContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C62197E4651002F23A5 /* REFrostedContainerViewController.m */; };
 		7CBD2C70197E4651002F23A5 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C64197E4651002F23A5 /* RECommonFunctions.m */; };
-		7CBD2C71197E4651002F23A5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C66197E4651002F23A5 /* ProfileViewController.m */; };
 		7CBD2C72197E4651002F23A5 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C68197E4651002F23A5 /* NavigationController.m */; };
 		7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C6A197E4651002F23A5 /* MenuViewController.m */; };
 		7CBD2C79197E4671002F23A5 /* FitbitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C77197E4671002F23A5 /* FitbitViewController.m */; };
@@ -101,6 +101,8 @@
 		7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetViewDetailController.m; sourceTree = "<group>"; };
 		7C89F8B21989CD9900F021EF /* CompeteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompeteViewController.h; sourceTree = "<group>"; };
 		7C89F8B31989CD9900F021EF /* CompeteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompeteViewController.m; sourceTree = "<group>"; };
+		7C89F8B51989F01600F021EF /* ProfileTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableTableViewController.h; sourceTree = "<group>"; };
+		7C89F8B61989F01600F021EF /* ProfileTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableTableViewController.m; sourceTree = "<group>"; };
 		7CBD2C16197E4510002F23A5 /* samsungHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = samsungHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBD2C19197E4510002F23A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,8 +140,6 @@
 		7CBD2C63197E4651002F23A5 /* REFrostedContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedContainerViewController.h; sourceTree = "<group>"; };
 		7CBD2C64197E4651002F23A5 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
 		7CBD2C65197E4651002F23A5 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
-		7CBD2C66197E4651002F23A5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		7CBD2C67197E4651002F23A5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		7CBD2C68197E4651002F23A5 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		7CBD2C69197E4651002F23A5 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		7CBD2C6A197E4651002F23A5 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
@@ -257,8 +257,8 @@
 		7C79580819872593008FB679 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				7CBD2C66197E4651002F23A5 /* ProfileViewController.m */,
-				7CBD2C67197E4651002F23A5 /* ProfileViewController.h */,
+				7C89F8B51989F01600F021EF /* ProfileTableTableViewController.h */,
+				7C89F8B61989F01600F021EF /* ProfileTableTableViewController.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -536,6 +536,7 @@
 				7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */,
 				BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */,
 				7CBD2C30197E4510002F23A5 /* ViewController.m in Sources */,
+				7C89F8B71989F01600F021EF /* ProfileTableTableViewController.m in Sources */,
 				7CBD2C5B197E4642002F23A5 /* TargetViewController.m in Sources */,
 				7CBD2C6C197E4651002F23A5 /* RootViewController.m in Sources */,
 				7C89F8A71989C1B800F021EF /* PNColor.m in Sources */,
@@ -556,7 +557,6 @@
 				7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */,
 				7CBD2C59197E4642002F23A5 /* UIView+REFrostedViewController.m in Sources */,
 				7C89F8A81989C1B800F021EF /* PNLineChart.m in Sources */,
-				7CBD2C71197E4651002F23A5 /* ProfileViewController.m in Sources */,
 				7CBD2C58197E4642002F23A5 /* UIViewController+REFrostedViewController.m in Sources */,
 				7C89F8AE1989C45E00F021EF /* DashTableViewController.m in Sources */,
 				7C89F8A61989C1B800F021EF /* PNChartLabel.m in Sources */,

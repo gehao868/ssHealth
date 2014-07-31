@@ -13,7 +13,7 @@
 #import "DeviceViewController.h"
 #import "ConnectViewController.h"
 #import "RewardViewController.h"
-#import "ProfileViewController.h"
+#import "ProfileTableTableViewController.h"
 
 #import "UIViewController+REFrostedViewController.h"
 
@@ -116,7 +116,7 @@
         RewardViewController *rewardController = [self.storyboard instantiateViewControllerWithIdentifier:@"rewardController"];
         navigationController.viewControllers = @[rewardController];
     } else if(indexPath.section == 0 && indexPath.row == 4) {
-        ProfileViewController *profileController = [self.storyboard instantiateViewControllerWithIdentifier:@"profileController"];
+        ProfileTableTableViewController *profileController = [self.storyboard instantiateViewControllerWithIdentifier:@"profileController"];
         navigationController.viewControllers = @[profileController];
     } else if(indexPath.section == 0 && indexPath.row == 5) {
         DeviceViewController *deviceController = [self.storyboard instantiateViewControllerWithIdentifier:@"deviceController"];
