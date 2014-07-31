@@ -30,6 +30,12 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>URL Types</key>
+	<array/>
+	<key>FacebookAppID</key>
+	<string>603965869701802</string>
+	<key>FacebookDisplayName</key>
+	<string>samsungHealth</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
