@@ -2,8 +2,8 @@
 //  GoalTableCell.h
 //  samsungHealth
 //
-//  Created by Jessica Zhuang on 7/30/14.
-//  Copyright (c) 2014 Hao Ge. All rights reserved.
+//  Created by Quincy on 7/30/14.
+//  Copyright (c) 2014 Quincy. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
