@@ -30,10 +30,10 @@
 	<array>
 		<string>armv7</string>
 	</array>
-	<key>URL Types</key>
+	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>URL Schemes</key>
+			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb603965869701802</string>
 			</array>

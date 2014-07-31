@@ -241,8 +241,8 @@
 			children = (
 				7C89F8AC1989C45E00F021EF /* DashTableViewController.h */,
 				7C89F8AD1989C45E00F021EF /* DashTableViewController.m */,
-				7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */,
 				7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */,
+				7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */,
 				7C89F8A91989C22F00F021EF /* DetailViewController.h */,
 				7C89F8AA1989C22F00F021EF /* DetailViewController.m */,
 			);
@@ -254,8 +254,8 @@
 			children = (
 				0B3758551989DE08004A9EB9 /* GoalTableCell.h */,
 				0B3758561989DE08004A9EB9 /* GoalTableCell.m */,
-				7CBD2C56197E4642002F23A5 /* TargetViewController.m */,
 				7CBD2C57197E4642002F23A5 /* TargetViewController.h */,
+				7CBD2C56197E4642002F23A5 /* TargetViewController.m */,
 				7C89F8AF1989CB4A00F021EF /* TargetViewDetailController.h */,
 				7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */,
 				7C89F8B21989CD9900F021EF /* CompeteViewController.h */,
@@ -387,11 +387,11 @@
 				7CBD2C69197E4651002F23A5 /* NavigationController.h */,
 				7CBD2C6A197E4651002F23A5 /* MenuViewController.m */,
 				7CBD2C6B197E4651002F23A5 /* MenuViewController.h */,
-				7CBD2C28197E4510002F23A5 /* AppDelegate.h */,
 				7CBD2C29197E4510002F23A5 /* AppDelegate.m */,
-				7CBD2C4E197E4538002F23A5 /* Main.storyboard */,
-				7CBD2C2E197E4510002F23A5 /* ViewController.h */,
+				7CBD2C28197E4510002F23A5 /* AppDelegate.h */,
 				7CBD2C2F197E4510002F23A5 /* ViewController.m */,
+				7CBD2C2E197E4510002F23A5 /* ViewController.h */,
+				7CBD2C4E197E4538002F23A5 /* Main.storyboard */,
 				7CBD2C31197E4510002F23A5 /* Images.xcassets */,
 				7CBD2C20197E4510002F23A5 /* Supporting Files */,
 			);
@@ -439,8 +439,8 @@
 		BBC1B2CF1987228800DDEC78 /* Connect */ = {
 			isa = PBXGroup;
 			children = (
-				7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */,
 				7CBD2C7F197E467D002F23A5 /* ConnectViewController.h */,
+				7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */,
 				BBC1B2CC198721E600DDEC78 /* FriendListController.h */,
 				BBC1B2CD198721E600DDEC78 /* FriendListController.m */,
 			);

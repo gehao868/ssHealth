@@ -20,12 +20,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1899" y="1890"/>
+            <point key="canvasLocation" x="-1351" y="1890"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jO9-85-nrD">
             <objects>
                 <navigationController storyboardIdentifier="contentController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EPR-YW-obD" customClass="NavigationController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="564-f4-G32"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bHH-Lh-tAZ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -44,7 +45,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zzD-df-7on" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1361" y="1890"/>
+            <point key="canvasLocation" x="-835" y="1890"/>
         </scene>
         <!--Dash Board View Controller - Dash Board-->
         <scene sceneID="4d1-Jz-tGk">
@@ -197,7 +198,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5la-pB-NuB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1366" y="2585"/>
+            <point key="canvasLocation" x="-830" y="2585"/>
         </scene>
         <!--Target View Controller - Goal-->
         <scene sceneID="ajy-0O-wjT">
@@ -648,7 +649,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="det-jd-oOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366" y="1689"/>
+            <point key="canvasLocation" x="892" y="1689"/>
         </scene>
         <!--View Controller - Redeem Coupon-->
         <scene sceneID="xQx-mh-DGy">
@@ -674,7 +675,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rxd-un-sXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="1689"/>
+            <point key="canvasLocation" x="1335" y="1689"/>
         </scene>
         <!--Table View Controller - Profile-->
         <scene sceneID="GCt-rG-MKC">
@@ -747,7 +748,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sw6-Gg-qQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="344" y="2471"/>
+            <point key="canvasLocation" x="870" y="2471"/>
         </scene>
         <!--Device View Controller - Manage Device-->
         <scene sceneID="l2S-pE-PqJ">
@@ -880,7 +881,7 @@
         <image name="heart_white" width="20" height="20"/>
         <image name="menu" width="20" height="20"/>
     </resources>
-    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.24819362541137419" green="0.73656728316326525" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
