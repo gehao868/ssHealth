@@ -24,9 +24,9 @@
     
 }
 
-@synthesize calender;
 @synthesize back;
 @synthesize forward;
+@synthesize calendar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,9 +40,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    calender.image = [UIImage imageNamed:@"calendar"];
-    forward.image = [UIImage imageNamed:@"forward_grey"];
-    back.image = [UIImage imageNamed:@"back_grey"];
+//    [calendar setImage:[UIImage imageNamed:@"calendar"] forState:UIControlStateNormal];
+//    [forward setImage:[UIImage imageNamed:@"forward_grey"] forState:UIControlStateNormal];
+//    [back setImage:[UIImage imageNamed:@"back_grey"] forState:UIControlStateNormal];
+    
+    [calendar setBackgroundImage:[UIImage imageNamed:@"calendar"] forState:UIControlStateNormal];
+    [calendar setTitle:@"" forState:UIControlStateNormal];
+    [forward setBackgroundImage:[UIImage imageNamed:@"forward_grey"] forState:UIControlStateNormal];
+    [forward setTitle:@"" forState:UIControlStateNormal];
+    [back setBackgroundImage:[UIImage imageNamed:@"back_grey"] forState:UIControlStateNormal];
+    [back setTitle:@"" forState:UIControlStateNormal];
+//    calender.image = [UIImage imageNamed:@"calendar"];
+//    forward.image = [UIImage imageNamed:@"forward_grey"];
+//    back.image = [UIImage imageNamed:@"back_grey"];
     font = [UIFont systemFontOfSize:20.0f];
     imgList = [NSMutableArray arrayWithObjects:@"steps", @"food_green", @"sleep_green", nil];
     finished = [NSArray arrayWithObjects: [NSNumber numberWithInt:2700], [NSNumber numberWithInt:800], [NSNumber numberWithInt:1800], nil];
