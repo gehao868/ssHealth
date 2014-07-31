@@ -7,6 +7,8 @@
 //
 
 #import "CompeteViewController.h"
+#import "DashBoardViewController.h"
+
 
 @interface CompeteViewController ()
 
