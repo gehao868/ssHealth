@@ -1,5 +1,5 @@
 //
-//  DetailViewController.h
+//  CompeteViewController.h
 //  samsungHealth
 //
 //  Created by Hao Ge on 7/30/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@interface CompeteViewController : UIViewController
 
 @end
