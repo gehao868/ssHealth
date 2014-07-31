@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REFrostedViewController.h"
+#import "DACircularProgressView.h"
 
 @interface CompeteViewController : UIViewController
+
+@property (strong, nonatomic) DACircularProgressView *largestProgressView;
 
 @end

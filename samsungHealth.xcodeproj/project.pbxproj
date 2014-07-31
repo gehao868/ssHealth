@@ -11,6 +11,7 @@
 		0B3758521989D8FC004A9EB9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3758511989D8FC004A9EB9 /* Social.framework */; };
 		0B3758541989D90E004A9EB9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3758531989D90E004A9EB9 /* Accounts.framework */; };
 		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
+		3B1CD2071989D75400282886 /* GoalTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1CD2061989D75400282886 /* GoalTableCell.m */; };
 		7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */; };
 		7C89F8A31989C1B800F021EF /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8981989C1B800F021EF /* PNBar.m */; };
 		7C89F8A41989C1B800F021EF /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F89A1989C1B800F021EF /* PNBarChart.m */; };
@@ -250,6 +251,8 @@
 			children = (
 				7CBD2C56197E4642002F23A5 /* TargetViewController.m */,
 				7CBD2C57197E4642002F23A5 /* TargetViewController.h */,
+				3B1CD2051989D75400282886 /* GoalTableCell.h */,
+				3B1CD2061989D75400282886 /* GoalTableCell.m */,
 				7C89F8AF1989CB4A00F021EF /* TargetViewDetailController.h */,
 				7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */,
 				7C89F8B21989CD9900F021EF /* CompeteViewController.h */,
@@ -556,6 +559,7 @@
 				7CBD2C6D197E4651002F23A5 /* RewardViewController.m in Sources */,
 				7CBD2C70197E4651002F23A5 /* RECommonFunctions.m in Sources */,
 				7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */,
+				3B1CD2071989D75400282886 /* GoalTableCell.m in Sources */,
 				7C89F8B11989CB4A00F021EF /* TargetViewDetailController.m in Sources */,
 				7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */,
 				7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */,
