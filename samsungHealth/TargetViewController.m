@@ -73,8 +73,9 @@
     NSString *text = [NSString stringWithFormat:@"%d%@%d", [x intValue], @"/",[y intValue]];
     cell.number.text = text;
     [cell.number setFont:font];
-    cell.progress.progress =x.doubleValue / y.doubleValue;
     
+    cell.progress.progress =x.doubleValue / y.doubleValue;
+    cell.progress.progressTintColor = [UIColor redColor];
     return cell;
 }
 
