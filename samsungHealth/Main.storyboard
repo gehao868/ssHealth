@@ -202,7 +202,7 @@
         <!--Target View Controller - Goal-->
         <scene sceneID="ajy-0O-wjT">
             <objects>
-                <viewController restorationIdentifier="secondController" storyboardIdentifier="secondController" id="yGP-ij-jME" customClass="TargetViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="secondController" storyboardIdentifier="secondController" automaticallyAdjustsScrollViewInsets="NO" id="yGP-ij-jME" customClass="TargetViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VZK-f4-1g7"/>
                         <viewControllerLayoutGuide type="bottom" id="106-eZ-5pe"/>
@@ -217,7 +217,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="GoalTableCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="GoalTableCell" rowHeight="75" id="q35-2T-Keo" customClass="GoalTableCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="75"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q35-2T-Keo" id="MIe-tY-MAv">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="74"/>
