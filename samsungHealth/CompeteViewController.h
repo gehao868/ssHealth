@@ -12,6 +12,8 @@
 
 @interface CompeteViewController : UIViewController
 
-@property (strong, nonatomic) DACircularProgressView *largestProgressView;
+@property (strong, nonatomic) DACircularProgressView *largestProgressView1;
+@property (strong, nonatomic) DACircularProgressView *largestProgressView2;
+
 
 @end
