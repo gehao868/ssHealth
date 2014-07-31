@@ -32,7 +32,12 @@
 	</array>
 	<key>URL Types</key>
 	<array>
-		<array/>
+		<dict>
+			<key>URL Schemes</key>
+			<array>
+				<string>fb603965869701802</string>
+			</array>
+		</dict>
 	</array>
 	<key>FacebookAppID</key>
 	<string>603965869701802</string>
