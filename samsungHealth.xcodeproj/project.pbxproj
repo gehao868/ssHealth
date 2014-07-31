@@ -17,6 +17,8 @@
 		7C89F8A81989C1B800F021EF /* PNLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8A21989C1B800F021EF /* PNLineChart.m */; };
 		7C89F8AB1989C22F00F021EF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8AA1989C22F00F021EF /* DetailViewController.m */; };
 		7C89F8AE1989C45E00F021EF /* DashTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8AD1989C45E00F021EF /* DashTableViewController.m */; };
+		7C89F8B11989CB4A00F021EF /* TargetViewDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */; };
+		7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B31989CD9900F021EF /* CompeteViewController.m */; };
 		7CBD2C1A197E4510002F23A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C19197E4510002F23A5 /* Foundation.framework */; };
 		7CBD2C1C197E4510002F23A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */; };
 		7CBD2C1E197E4510002F23A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1D197E4510002F23A5 /* UIKit.framework */; };
@@ -92,6 +94,10 @@
 		7C89F8AA1989C22F00F021EF /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		7C89F8AC1989C45E00F021EF /* DashTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashTableViewController.h; sourceTree = "<group>"; };
 		7C89F8AD1989C45E00F021EF /* DashTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashTableViewController.m; sourceTree = "<group>"; };
+		7C89F8AF1989CB4A00F021EF /* TargetViewDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetViewDetailController.h; sourceTree = "<group>"; };
+		7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetViewDetailController.m; sourceTree = "<group>"; };
+		7C89F8B21989CD9900F021EF /* CompeteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompeteViewController.h; sourceTree = "<group>"; };
+		7C89F8B31989CD9900F021EF /* CompeteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompeteViewController.m; sourceTree = "<group>"; };
 		7CBD2C16197E4510002F23A5 /* samsungHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = samsungHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBD2C19197E4510002F23A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -235,6 +241,10 @@
 			children = (
 				7CBD2C56197E4642002F23A5 /* TargetViewController.m */,
 				7CBD2C57197E4642002F23A5 /* TargetViewController.h */,
+				7C89F8AF1989CB4A00F021EF /* TargetViewDetailController.h */,
+				7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */,
+				7C89F8B21989CD9900F021EF /* CompeteViewController.h */,
+				7C89F8B31989CD9900F021EF /* CompeteViewController.m */,
 			);
 			name = Goal;
 			sourceTree = "<group>";
@@ -518,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C89F8A31989C1B800F021EF /* PNBar.m in Sources */,
+				7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */,
 				BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */,
 				7CBD2C30197E4510002F23A5 /* ViewController.m in Sources */,
 				7CBD2C5B197E4642002F23A5 /* TargetViewController.m in Sources */,
@@ -533,6 +544,7 @@
 				7CBD2C6D197E4651002F23A5 /* RewardViewController.m in Sources */,
 				7CBD2C70197E4651002F23A5 /* RECommonFunctions.m in Sources */,
 				7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */,
+				7C89F8B11989CB4A00F021EF /* TargetViewDetailController.m in Sources */,
 				7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */,
 				7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */,
 				7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */,

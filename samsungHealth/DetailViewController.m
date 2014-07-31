@@ -35,14 +35,14 @@
 	barChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
 	barChartLabel.textAlignment = NSTextAlignmentCenter;
 	
-	PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 10.0, SCREEN_WIDTH, 200.0)];
+	PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 70.0, SCREEN_WIDTH, 200.0)];
 	barChart.backgroundColor = [UIColor clearColor];
 	barChart.type = PNBarType;
 	[barChart setXLabels:@[@"SEP 1",@"SEP 2",@"SEP 3",@"SEP 4",@"SEP 5"]];
 	[barChart setYValues:@[@"1",@"10",@"2",@"6",@"3"]];
 	[barChart strokeChart];
-	[self.chartScrollView addSubview:barChartLabel];
-	[self.chartScrollView addSubview:barChart];
+	[self.view addSubview:barChartLabel];
+	[self.view addSubview:barChart];
 	
 	// Do any additional setup after loading the view.
 
