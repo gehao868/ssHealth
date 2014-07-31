@@ -38,7 +38,7 @@
 {
     [super viewDidLoad];
     font = [UIFont systemFontOfSize:20.0f];
-    imgList = [NSMutableArray arrayWithObjects:@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png",@"u1.png", @"u2.png", nil];
+    imgList = [NSMutableArray arrayWithObjects:@"steps", @"food_green", @"sleep_green", nil];
     finished = [NSArray arrayWithObjects: [NSNumber numberWithInt:2700], [NSNumber numberWithInt:800], [NSNumber numberWithInt:1800], nil];
     expected = [NSArray arrayWithObjects: [NSNumber numberWithInt:3000], [NSNumber numberWithInt:1000], [NSNumber numberWithInt:2000], nil];
     numberFrame = CGRectMake(20.0f, 5.0f, 120.0f, 20.0f);
@@ -76,6 +76,9 @@
     
     cell.progress.progress =x.doubleValue / y.doubleValue;
     cell.progress.progressTintColor = [UIColor redColor];
+    
+    cell.image.image = [UIImage imageNamed:[imgList objectAtIndex:indexPath.row]];
+    cell.image.frame = CGRectMake(cell.image.frame.origin.x, cell.image.frame.origin.x, 50, 50);
     return cell;
 }
 
