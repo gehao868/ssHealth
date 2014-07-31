@@ -31,7 +31,9 @@
 		<string>armv7</string>
 	</array>
 	<key>URL Types</key>
-	<array/>
+	<array>
+		<array/>
+	</array>
 	<key>FacebookAppID</key>
 	<string>603965869701802</string>
 	<key>FacebookDisplayName</key>
