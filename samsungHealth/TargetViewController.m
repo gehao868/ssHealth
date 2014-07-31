@@ -24,6 +24,9 @@
     
 }
 
+@synthesize calender;
+@synthesize back;
+@synthesize forward;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +40,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    calender.image = [UIImage imageNamed:@"calendar"];
+    forward.image = [UIImage imageNamed:@"forward_grey"];
+    back.image = [UIImage imageNamed:@"back_grey"];
     font = [UIFont systemFontOfSize:20.0f];
     imgList = [NSMutableArray arrayWithObjects:@"steps", @"food_green", @"sleep_green", nil];
     finished = [NSArray arrayWithObjects: [NSNumber numberWithInt:2700], [NSNumber numberWithInt:800], [NSNumber numberWithInt:1800], nil];

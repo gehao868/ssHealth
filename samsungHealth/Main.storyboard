@@ -253,6 +253,25 @@
                                     <outlet property="delegate" destination="yGP-ij-jME" id="LwQ-78-BXD"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fCp-Vl-SZq">
+                                <rect key="frame" x="264" y="79" width="41" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xqh-aX-fNA">
+                                <rect key="frame" x="63" y="84" width="23" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Li-FF-cRh">
+                                <rect key="frame" x="186" y="84" width="23" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lun-ZX-2OW">
+                                <rect key="frame" x="108" y="89" width="60" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" title="Goal" id="8VR-6H-mGr">
@@ -263,6 +282,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="back" destination="Xqh-aX-fNA" id="GjF-Ag-Rjz"/>
+                        <outlet property="calender" destination="fCp-Vl-SZq" id="Ogk-0n-IVq"/>
+                        <outlet property="forward" destination="7Li-FF-cRh" id="gZ5-R0-N21"/>
                         <outlet property="goalTable" destination="494-hQ-heM" id="kkM-rj-HHO"/>
                     </connections>
                 </viewController>

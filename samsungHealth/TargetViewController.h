@@ -12,6 +12,10 @@
 @interface TargetViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *goalTable;
+@property (strong, nonatomic) IBOutlet UIImageView *calender;
+@property (strong, nonatomic) IBOutlet UIImageView *forward;
+@property (strong, nonatomic) IBOutlet UIImageView *back;
+
 - (IBAction)showMenu;
 
 @end
