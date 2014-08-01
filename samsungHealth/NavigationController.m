@@ -9,6 +9,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 #import "NavigationController.h"
+#import "LaunchViewController.h"
 #import "AppDelegate.h"
 
 @interface NavigationController ()
@@ -20,9 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)]];
-    
     //[self loginWithFB];
 }
 

@@ -12,14 +12,6 @@
 @class AppDelegate;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-{
-    NSString *userID;
-    NSString *birthday;
-    NSString *firstName;
-    NSString *lastName;
-    NSString *email;
-    NSString *gender;
-}
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSString *userID;

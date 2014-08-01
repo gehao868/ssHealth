@@ -47,7 +47,6 @@
         // The session state handler (in the app delegate) will be called automatically
         [FBSession.activeSession closeAndClearTokenInformation];
         
-        // If the session state is not any of the two "open" states when the button is clicked
     } else {
         // Open a session showing the user the login UI
         // You must ALWAYS ask for public_profile permissions when opening a session

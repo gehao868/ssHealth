@@ -139,7 +139,7 @@
         }];
     
     [FBRequestConnection startWithGraphPath:@"/me/friends" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* friends, NSError *error) {
-            //NSLog(@"%@", friends);
+            NSLog(@"%@", friends);
         }];
 }
 

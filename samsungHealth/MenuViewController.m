@@ -8,6 +8,7 @@
 
 #import "MenuViewController.h"
 
+#import "AppDelegate.h"
 #import "DashBoardViewController.h"
 #import "TargetViewController.h"
 #import "DeviceViewController.h"
@@ -22,11 +23,14 @@
 
 @end
 
-@implementation MenuViewController
+@implementation MenuViewController {
+    AppDelegate *appDelegate;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    appDelegate = [[UIApplication sharedApplication] delegate];
     
     self.tableView.separatorColor = [UIColor colorWithRed:235/255.0f green:255/255.0f blue:170/255.0f alpha:1.0f];
     self.tableView.delegate = self;
@@ -47,7 +51,7 @@
         imageView.clipsToBounds = YES;
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
-        label.text = @"Roman Efimov";
+        label.text = appDelegate.firstName;
         label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor colorWithRed:235/255.0f green:255/255.0f blue:170/255.0f alpha:1.0f];
@@ -160,11 +164,6 @@
         cell.textLabel.text = titles[indexPath.row];
         cell.imageView.image = images[indexPath.row];
     }
-    
-    //    else {
-    //        NSArray *titles = @[@"John Appleseed", @"John Doe", @"Test User"];
-    //        cell.textLabel.text = titles[indexPath.row];
-    //    }
     
     return cell;
 }
