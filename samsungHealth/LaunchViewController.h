@@ -10,6 +10,8 @@
 
 @interface LaunchViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIButton *skipButton;
+@property (weak, nonatomic) IBOutlet UIButton *FBLoginButton;
+
+- (IBAction)FBLogin:(id)sender;
 
 @end
