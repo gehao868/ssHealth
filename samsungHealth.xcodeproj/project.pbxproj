@@ -68,6 +68,7 @@
 		7CBD2C9E197E481F002F23A5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9D197E481F002F23A5 /* StoreKit.framework */; };
 		7CBD2CA0197E482C002F23A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */; };
 		7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */; };
+		7CE78A90198C5AE2002ED7E5 /* HealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A8F198C5AE2002ED7E5 /* HealthData.m */; };
 		BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC1B2CD198721E600DDEC78 /* FriendListController.m */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +179,8 @@
 		7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7CBD2CA2197EF612002F23A5 /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
 		7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
+		7CE78A8E198C5AE2002ED7E5 /* HealthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthData.h; sourceTree = "<group>"; };
+		7CE78A8F198C5AE2002ED7E5 /* HealthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthData.m; sourceTree = "<group>"; };
 		BBC1B2CC198721E600DDEC78 /* FriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListController.h; sourceTree = "<group>"; };
 		BBC1B2CD198721E600DDEC78 /* FriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -374,6 +377,7 @@
 		7CBD2C1F197E4510002F23A5 /* samsungHealth */ = {
 			isa = PBXGroup;
 			children = (
+				7CE78A8D198C5A84002ED7E5 /* Data */,
 				7C89F8961989C1B800F021EF /* PNChart */,
 				7C79580A198725E3008FB679 /* Reward */,
 				7C795809198725C7008FB679 /* ManageDevice */,
@@ -439,6 +443,15 @@
 				7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */,
 			);
 			name = CircularController;
+			sourceTree = "<group>";
+		};
+		7CE78A8D198C5A84002ED7E5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7CE78A8E198C5AE2002ED7E5 /* HealthData.h */,
+				7CE78A8F198C5AE2002ED7E5 /* HealthData.m */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 		BBC1B2CF1987228800DDEC78 /* Connect */ = {
@@ -560,6 +573,7 @@
 				7CBD2C6C197E4651002F23A5 /* RootViewController.m in Sources */,
 				7C89F8A71989C1B800F021EF /* PNColor.m in Sources */,
 				7CBD2C6F197E4651002F23A5 /* REFrostedContainerViewController.m in Sources */,
+				7CE78A90198C5AE2002ED7E5 /* HealthData.m in Sources */,
 				7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */,
 				7C89F8BA198AFDB400F021EF /* LaunchViewController.m in Sources */,
 				7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */,
