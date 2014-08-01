@@ -806,7 +806,9 @@
                             <outlet property="delegate" destination="gzx-wa-904" id="k4v-fW-RAB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Profile" id="0JL-T9-F9g"/>
+                    <navigationItem key="navigationItem" title="Profile" id="0JL-T9-F9g">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="D9J-IW-lLX"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sw6-Gg-qQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
