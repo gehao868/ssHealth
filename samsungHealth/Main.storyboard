@@ -785,6 +785,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logOut:" destination="NnE-02-v8I" eventType="touchUpInside" id="4qf-Vm-ler"/>
+                                    <segue destination="0XT-Lj-xhU" kind="modal" id="5Cl-Sv-yK5"/>
                                 </connections>
                             </button>
                         </subviews>

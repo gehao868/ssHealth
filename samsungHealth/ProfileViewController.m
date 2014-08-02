@@ -97,6 +97,8 @@
 }
 
 - (IBAction)logOut:(id)sender {
+    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"false" forKey:@"isLoggedin"];
 }
 
 
