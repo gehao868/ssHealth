@@ -15,6 +15,8 @@ static NSString *lastName;
 static NSString *email;
 static NSString *gender;
 static NSData *avatar;
+static NSArray *appFriends;
+static NSArray *FBFriends;
 
 @implementation UserData
 
@@ -65,6 +67,20 @@ static NSData *avatar;
 }
 + (void)setAvatar:(NSData *) newAvatar {
     avatar = newAvatar;
+}
+
++ (NSArray *)getAppFriends {
+    return appFriends;
+}
++ (void)setAppFriends:(NSArray *) newAppFriends {
+    appFriends = newAppFriends;
+}
+
++ (NSArray *)getFBFriends {
+    return FBFriends;
+}
++ (void)setFBFriends:(NSArray *) newFBFriends {
+    FBFriends = newFBFriends;
 }
 
 @end
