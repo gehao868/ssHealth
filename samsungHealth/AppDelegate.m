@@ -124,24 +124,26 @@
 {
     /* make the API call */
     [FBRequestConnection startWithGraphPath:@"/me" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* user, NSError *error) {
-            //NSLog(@"%@", user);
-            [UserData setUserID:[user objectForKey:@"id"]];
-            [UserData setBirthday:[user objectForKey:@"birthday"]];
-            [UserData setFirstName:[user objectForKey:@"first_name"]];
-            [UserData setLastName:[user objectForKey:@"last_name"]];
-            [UserData setEmail:[user objectForKey:@"email"]];
-            [UserData setGender:[user objectForKey:@"gender"]];
-        }];
+        //NSLog(@"%@", user);
+        [UserData setUserID:[user objectForKey:@"id"]];
+        [UserData setBirthday:[user objectForKey:@"birthday"]];
+        [UserData setFirstName:[user objectForKey:@"first_name"]];
+        [UserData setLastName:[user objectForKey:@"last_name"]];
+        [UserData setEmail:[user objectForKey:@"email"]];
+        [UserData setGender:[user objectForKey:@"gender"]];
+    }];
     
     [FBRequestConnection startWithGraphPath:@"/me/friends" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* friends, NSError *error) {
-            NSLog(@"%@", friends);
-        }];
+        //NSLog(@"%@", [friends objectForKey:@"data"]);
+    }];
     
-    /* make the API call */
-    [FBRequestConnection startWithGraphPath:@"/me/picture" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-            NSLog(@"%@", result);
-            //[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]]
-        }];
+    NSMutableDictionary *picturePara = [[NSMutableDictionary alloc] init];
+    [picturePara setValue:@"false" forKey:@"redirect"];
+    [FBRequestConnection startWithGraphPath:@"/me/picture" parameters:picturePara HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
+        NSString *url = [[result objectForKey:@"data"] objectForKey:@"url"];
+        //NSLog(@"%@", url);
+        [UserData setAvatar:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
+    }];
 }
 
 // Show an alert message
