@@ -118,7 +118,7 @@ NSUserDefaults *defaults;
 - (void)userLoggedOut
 {
     // Confirm logout message
-    [self showMessage:@"You're now logged out" withTitle:@""];
+    //[self showMessage:@"You're now logged out" withTitle:@""];
 }
 
 // Show the user the logged-in UI
