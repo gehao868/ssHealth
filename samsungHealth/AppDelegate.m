@@ -165,6 +165,30 @@ NSUserDefaults *defaults;
         
         [defaults setObject:[UserData getAvatar] forKey:@"avatar"];
     }];
+    
+    [FBRequestConnection startWithGraphPath:@"/me/taggable_friends" parameters:picturePara HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
+        NSArray *friends = [result objectForKey:@"data"];
+        NSLog(@"%@", friends);
+        
+        NSSortDescriptor *descriptor =
+        [[NSSortDescriptor alloc] initWithKey:last
+                                    ascending:NO
+                                     selector:@selector(localizedCaseInsensitiveCompare:)];
+        NSArray *descriptors = [NSArray arrayWithObjects:firstDescriptor, lastDescriptor, nil];
+        sortedArray = [array sortedArrayUsingDescriptors:descriptors];
+        
+        NSMutableArray *FBFriends = [[NSMutableArray alloc] init];
+
+        for (NSDictionary *dict in friends) {
+            NSMutableDictionary *elm = [[NSMutableDictionary alloc] init];
+            [elm setValue:[dict objectForKey:@"name"] forKey:@"name"];
+            [elm setValue:[[dict objectForKey:@"data"] objectForKey:@"url"] forKey:@"pic"];
+            [FBFriends set:];
+            [FBFriendsPic addObject:];
+        }
+        
+        [UserData setAvatar:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
+    }];
 }
 
 // Show an alert message
