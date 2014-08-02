@@ -22,7 +22,6 @@
 		7C89F8A71989C1B800F021EF /* PNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8A01989C1B800F021EF /* PNColor.m */; };
 		7C89F8A81989C1B800F021EF /* PNLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8A21989C1B800F021EF /* PNLineChart.m */; };
 		7C89F8AB1989C22F00F021EF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8AA1989C22F00F021EF /* DetailViewController.m */; };
-		7C89F8AE1989C45E00F021EF /* DashTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8AD1989C45E00F021EF /* DashTableViewController.m */; };
 		7C89F8B11989CB4A00F021EF /* TargetViewDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */; };
 		7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B31989CD9900F021EF /* CompeteViewController.m */; };
 		7C89F8B71989F01600F021EF /* ProfileTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B61989F01600F021EF /* ProfileTableTableViewController.m */; };
@@ -70,6 +69,7 @@
 		7CBD2CA0197E482C002F23A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */; };
 		7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */; };
 		7CE78A90198C5AE2002ED7E5 /* HealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A8F198C5AE2002ED7E5 /* HealthData.m */; };
+		7CE78A93198C8366002ED7E5 /* DashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A92198C8366002ED7E5 /* DashTableViewCell.m */; };
 		BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC1B2CD198721E600DDEC78 /* FriendListController.m */; };
 /* End PBXBuildFile section */
 
@@ -107,8 +107,6 @@
 		7C89F8A21989C1B800F021EF /* PNLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChart.m; sourceTree = "<group>"; };
 		7C89F8A91989C22F00F021EF /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		7C89F8AA1989C22F00F021EF /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		7C89F8AC1989C45E00F021EF /* DashTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashTableViewController.h; sourceTree = "<group>"; };
-		7C89F8AD1989C45E00F021EF /* DashTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashTableViewController.m; sourceTree = "<group>"; };
 		7C89F8AF1989CB4A00F021EF /* TargetViewDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetViewDetailController.h; sourceTree = "<group>"; };
 		7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetViewDetailController.m; sourceTree = "<group>"; };
 		7C89F8B21989CD9900F021EF /* CompeteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompeteViewController.h; sourceTree = "<group>"; };
@@ -184,6 +182,8 @@
 		7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
 		7CE78A8E198C5AE2002ED7E5 /* HealthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthData.h; sourceTree = "<group>"; };
 		7CE78A8F198C5AE2002ED7E5 /* HealthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthData.m; sourceTree = "<group>"; };
+		7CE78A91198C8366002ED7E5 /* DashTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashTableViewCell.h; sourceTree = "<group>"; };
+		7CE78A92198C8366002ED7E5 /* DashTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashTableViewCell.m; sourceTree = "<group>"; };
 		BBC1B2CC198721E600DDEC78 /* FriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListController.h; sourceTree = "<group>"; };
 		BBC1B2CD198721E600DDEC78 /* FriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,12 +248,12 @@
 		7C79580519872552008FB679 /* DashBoard */ = {
 			isa = PBXGroup;
 			children = (
-				7C89F8AC1989C45E00F021EF /* DashTableViewController.h */,
-				7C89F8AD1989C45E00F021EF /* DashTableViewController.m */,
 				7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */,
 				7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */,
 				7C89F8A91989C22F00F021EF /* DetailViewController.h */,
 				7C89F8AA1989C22F00F021EF /* DetailViewController.m */,
+				7CE78A91198C8366002ED7E5 /* DashTableViewCell.h */,
+				7CE78A92198C8366002ED7E5 /* DashTableViewCell.m */,
 			);
 			name = DashBoard;
 			sourceTree = "<group>";
@@ -597,8 +597,8 @@
 				7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */,
 				7CBD2C59197E4642002F23A5 /* UIView+REFrostedViewController.m in Sources */,
 				7C89F8A81989C1B800F021EF /* PNLineChart.m in Sources */,
+				7CE78A93198C8366002ED7E5 /* DashTableViewCell.m in Sources */,
 				7CBD2C58197E4642002F23A5 /* UIViewController+REFrostedViewController.m in Sources */,
-				7C89F8AE1989C45E00F021EF /* DashTableViewController.m in Sources */,
 				7C89F8A61989C1B800F021EF /* PNChartLabel.m in Sources */,
 				7C89F8A41989C1B800F021EF /* PNBarChart.m in Sources */,
 				7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */,
