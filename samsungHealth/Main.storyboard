@@ -84,7 +84,7 @@
             </objects>
             <point key="canvasLocation" x="-835" y="1890"/>
         </scene>
-        <!--Dash Board View Controller - Dash Board-->
+        <!--Dash Board View Controller - DashBoard-->
         <scene sceneID="4d1-Jz-tGk">
             <objects>
                 <viewController storyboardIdentifier="homeController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jsP-Dz-DYG" customClass="DashBoardViewController" sceneMemberID="viewController">
@@ -109,7 +109,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nq-Fa-Xzq">
-                                                    <rect key="frame" x="236" y="3" width="46" height="21"/>
+                                                    <rect key="frame" x="228" y="3" width="48" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -128,7 +128,7 @@
                                         <connections>
                                             <outlet property="healthIconImage" destination="eOu-mU-d3q" id="mqk-RF-ZG3"/>
                                             <outlet property="output" destination="4Nq-Fa-Xzq" id="ORR-VJ-O5X"/>
-                                            <outlet property="progress" destination="Hxm-bg-ckq" id="RkY-WS-Rk1"/>
+                                            <outlet property="progress" destination="J8u-mB-7DA" id="LP6-TL-zof"/>
                                             <segue destination="7Wj-2K-5tN" kind="push" id="bHK-vB-idW"/>
                                         </connections>
                                     </tableViewCell>
@@ -154,6 +154,9 @@
                                 <state key="normal" title="Improve">
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="y52-6N-GN7" kind="push" id="qgW-CV-eZQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You are better than 30% users" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIq-G6-fxW">
                                 <rect key="frame" x="41" y="73" width="238" height="21"/>
@@ -178,7 +181,7 @@
                             </label>
                         </subviews>
                     </view>
-                    <navigationItem key="navigationItem" title="Dash Board" id="HIf-bS-REK">
+                    <navigationItem key="navigationItem" title="DashBoard" id="HIf-bS-REK">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="SZg-Pf-I50">
                             <connections>
                                 <action selector="showMenu" destination="jsP-Dz-DYG" id="Fp7-R0-lXj"/>
@@ -191,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Awc-v8-Z61" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="-561"/>
+            <point key="canvasLocation" x="668" y="-917"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="U1o-cN-KSf">
@@ -227,7 +230,7 @@
             </objects>
             <point key="canvasLocation" x="1304" y="-570"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Table View Controller - Improve-->
         <scene sceneID="bLy-TC-Ot3">
             <objects>
                 <tableViewController id="y52-6N-GN7" sceneMemberID="viewController">
@@ -236,24 +239,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="4ck-56-5Vf">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="ImproveCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="4ck-56-5Vf" customClass="ImproveTableViewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4ck-56-5Vf" id="frp-4M-rqs">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="50c-p1-HOd">
+                                            <rect key="frame" x="18" y="2" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogu-aT-5cm">
+                                            <rect key="frame" x="102" y="11" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJU-GC-3G2">
+                                            <rect key="frame" x="266" y="11" width="32" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.27450980390000002" green="0.62745098040000002" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ImproveImage" destination="50c-p1-HOd" id="c0W-IO-EWk"/>
+                                    <outlet property="ImproveLabel" destination="ogu-aT-5cm" id="mL4-Dl-ve8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="y52-6N-GN7" id="D0S-jS-a9f"/>
+                            <outlet property="dataSource" destination="y52-6N-GN7" id="wfT-Zm-kck"/>
                             <outlet property="delegate" destination="y52-6N-GN7" id="PZQ-4x-4Yw"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Improve" id="2Mk-N5-EfW"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15a-aB-EJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1767" y="-570"/>
+            <point key="canvasLocation" x="1304" y="-1270"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="QYK-Xf-W03">

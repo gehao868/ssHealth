@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DashTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *output;
-@property (weak, nonatomic) IBOutlet UIImageView *healthIconImage;
-@property (weak, nonatomic) IBOutlet UIView *progress;
+@property (strong, nonatomic) IBOutlet UILabel *output;
+@property (strong, nonatomic) IBOutlet UIImageView *healthIconImage;
+@property (strong, nonatomic) IBOutlet UIProgressView *progress;
 
 @end

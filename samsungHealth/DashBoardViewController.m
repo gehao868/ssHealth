@@ -16,6 +16,8 @@
 @end
 
 @implementation DashBoardViewController {
+    NSArray *finished;
+    NSArray *expected;
     NSArray *tableData;
     NSArray *thumbnails;
 }
@@ -47,13 +49,9 @@
     
     // Initialize thumbnails
     thumbnails = [NSArray arrayWithObjects:@"heart_green", @"sleep_green", @"steps", @"water_green", @"weight_green",nil];
-    
-    
-    
-    // Find out the path of recipes.plist
+    finished = [NSArray arrayWithObjects: [NSNumber numberWithInt:70], [NSNumber numberWithInt:40], [NSNumber numberWithInt:60],[NSNumber numberWithInt:60],[NSNumber numberWithInt:20], nil];
+    expected = [NSArray arrayWithObjects: [NSNumber numberWithInt:100], [NSNumber numberWithInt:100], [NSNumber numberWithInt:100], [NSNumber numberWithInt:100],[NSNumber numberWithInt:100],nil];
 
-    
-    
     
 }
 
@@ -105,40 +103,24 @@
         cell = [nib objectAtIndex:0];
     }
     
+    NSNumber *x = (NSNumber*)[finished objectAtIndex:indexPath.row];
+    NSNumber *y = (NSNumber*)[expected objectAtIndex:indexPath.row];
+    float z = x.floatValue /y.floatValue;
     
-    cell.output.text = [tableData objectAtIndex:indexPath.row];
+    NSString *text = [[NSString alloc] initWithFormat:@"%2.0f %%",(z*100)];
+    
+    cell.output.text = text;
+
+
+    cell.progress.progress =  x.doubleValue /y.doubleValue;
+    cell.progress.progressTintColor = [UIColor redColor];
+    
+    //cell.output.text = [tableData objectAtIndex:indexPath.row];
     cell.healthIconImage.image = [UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
     
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"didSelectRowAtIndexPath");
-    /*UIAlertView *messageAlert = [[UIAlertView alloc]
-     initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];*/
-    UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"Row Selected" message:[tableData objectAtIndex:indexPath.row] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    
-    // Display the Hello World Message
-    [messageAlert show];
-    
-    // Checked the selected row
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"willSelectRowAtIndexPath");
-    if (indexPath.row == 0) {
-        return nil;
-    }
-    
-    return indexPath;
-}
 
 
 @end
