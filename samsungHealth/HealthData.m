@@ -17,36 +17,10 @@ static NSInteger *cupsOfwater;
 
 }
 
-+(NSInteger*) getSteps {
-    return steps;
-}
-
-+(void) setSteps: (NSInteger *)s{
-    steps = s;
-}
-
-+(NSInteger *) getHeartrate {
-    return heartrate;
-}
-
-+(void) setHeartrate: (NSInteger*)h{
-    heartrate = h;
-}
-
-+(double) getWeight{
-    return weight;
-}
-+(void) setWeight:(double)w{
-    weight = w;
-}
-
-+(NSInteger *) getCups {
-    return cupsOfwater;
-}
-
-+(void) setCups: (NSInteger*)cups{
-    cupsOfwater = cups;
-}
+@synthesize step;
+@synthesize heartrate;
+@synthesize weight;
+@synthesize cups;
 
 
 @end

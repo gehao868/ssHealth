@@ -22,7 +22,6 @@
 		7C89F8A71989C1B800F021EF /* PNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8A01989C1B800F021EF /* PNColor.m */; };
 		7C89F8A81989C1B800F021EF /* PNLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8A21989C1B800F021EF /* PNLineChart.m */; };
 		7C89F8AB1989C22F00F021EF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8AA1989C22F00F021EF /* DetailViewController.m */; };
-		7C89F8AE1989C45E00F021EF /* DashTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8AD1989C45E00F021EF /* DashTableViewController.m */; };
 		7C89F8B11989CB4A00F021EF /* TargetViewDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */; };
 		7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B31989CD9900F021EF /* CompeteViewController.m */; };
 		7C89F8B71989F01600F021EF /* ProfileTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B61989F01600F021EF /* ProfileTableTableViewController.m */; };
@@ -56,7 +55,6 @@
 		7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */; };
 		7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */; };
 		7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */; };
-		7CBD2C89197E467D002F23A5 /* avatar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */; };
 		7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */; };
 		7CBD2C8C197E46AF002F23A5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8B197E46AF002F23A5 /* Parse.framework */; };
 		7CBD2C90197E47C5002F23A5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8F197E47C5002F23A5 /* AudioToolbox.framework */; };
@@ -70,6 +68,9 @@
 		7CBD2CA0197E482C002F23A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */; };
 		7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */; };
 		7CE78A90198C5AE2002ED7E5 /* HealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A8F198C5AE2002ED7E5 /* HealthData.m */; };
+		7CE78A93198C8366002ED7E5 /* DashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A92198C8366002ED7E5 /* DashTableViewCell.m */; };
+		7CE78A96198CA42C002ED7E5 /* ImproveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A95198CA42C002ED7E5 /* ImproveTableViewCell.m */; };
+		7CE78A99198CA459002ED7E5 /* ImproveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A98198CA459002ED7E5 /* ImproveTableViewController.m */; };
 		BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC1B2CD198721E600DDEC78 /* FriendListController.m */; };
 /* End PBXBuildFile section */
 
@@ -107,8 +108,6 @@
 		7C89F8A21989C1B800F021EF /* PNLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChart.m; sourceTree = "<group>"; };
 		7C89F8A91989C22F00F021EF /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		7C89F8AA1989C22F00F021EF /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		7C89F8AC1989C45E00F021EF /* DashTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashTableViewController.h; sourceTree = "<group>"; };
-		7C89F8AD1989C45E00F021EF /* DashTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashTableViewController.m; sourceTree = "<group>"; };
 		7C89F8AF1989CB4A00F021EF /* TargetViewDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetViewDetailController.h; sourceTree = "<group>"; };
 		7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetViewDetailController.m; sourceTree = "<group>"; };
 		7C89F8B21989CD9900F021EF /* CompeteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompeteViewController.h; sourceTree = "<group>"; };
@@ -166,7 +165,6 @@
 		7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardViewController.h; sourceTree = "<group>"; };
 		7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
 		7CBD2C7F197E467D002F23A5 /* ConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectViewController.h; sourceTree = "<group>"; };
-		7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "avatar@2x.jpg"; sourceTree = "<group>"; };
 		7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsDevicesViewController.m; sourceTree = "<group>"; };
 		7CBD2C84197E467D002F23A5 /* AppsDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsDevicesViewController.h; sourceTree = "<group>"; };
 		7CBD2C8B197E46AF002F23A5 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -184,6 +182,12 @@
 		7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
 		7CE78A8E198C5AE2002ED7E5 /* HealthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthData.h; sourceTree = "<group>"; };
 		7CE78A8F198C5AE2002ED7E5 /* HealthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthData.m; sourceTree = "<group>"; };
+		7CE78A91198C8366002ED7E5 /* DashTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashTableViewCell.h; sourceTree = "<group>"; };
+		7CE78A92198C8366002ED7E5 /* DashTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashTableViewCell.m; sourceTree = "<group>"; };
+		7CE78A94198CA42C002ED7E5 /* ImproveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImproveTableViewCell.h; sourceTree = "<group>"; };
+		7CE78A95198CA42C002ED7E5 /* ImproveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImproveTableViewCell.m; sourceTree = "<group>"; };
+		7CE78A97198CA459002ED7E5 /* ImproveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImproveTableViewController.h; sourceTree = "<group>"; };
+		7CE78A98198CA459002ED7E5 /* ImproveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImproveTableViewController.m; sourceTree = "<group>"; };
 		BBC1B2CC198721E600DDEC78 /* FriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListController.h; sourceTree = "<group>"; };
 		BBC1B2CD198721E600DDEC78 /* FriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,12 +252,16 @@
 		7C79580519872552008FB679 /* DashBoard */ = {
 			isa = PBXGroup;
 			children = (
-				7C89F8AC1989C45E00F021EF /* DashTableViewController.h */,
-				7C89F8AD1989C45E00F021EF /* DashTableViewController.m */,
 				7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */,
 				7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */,
 				7C89F8A91989C22F00F021EF /* DetailViewController.h */,
 				7C89F8AA1989C22F00F021EF /* DetailViewController.m */,
+				7CE78A91198C8366002ED7E5 /* DashTableViewCell.h */,
+				7CE78A92198C8366002ED7E5 /* DashTableViewCell.m */,
+				7CE78A94198CA42C002ED7E5 /* ImproveTableViewCell.h */,
+				7CE78A95198CA42C002ED7E5 /* ImproveTableViewCell.m */,
+				7CE78A97198CA459002ED7E5 /* ImproveTableViewController.h */,
+				7CE78A98198CA459002ED7E5 /* ImproveTableViewController.m */,
 			);
 			name = DashBoard;
 			sourceTree = "<group>";
@@ -390,7 +398,6 @@
 				BBC1B2CF1987228800DDEC78 /* Connect */,
 				7C79580419871C5D008FB679 /* RFViewController */,
 				7CBD2CA1197EF600002F23A5 /* CircularController */,
-				7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */,
 				7CBD2C5D197E4651002F23A5 /* RootViewController.h */,
 				7CBD2C5C197E4651002F23A5 /* RootViewController.m */,
 				7CBD2C69197E4651002F23A5 /* NavigationController.h */,
@@ -547,7 +554,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CBD2C32197E4510002F23A5 /* Images.xcassets in Resources */,
-				7CBD2C89197E467D002F23A5 /* avatar@2x.jpg in Resources */,
 				7CBD2C24197E4510002F23A5 /* InfoPlist.strings in Resources */,
 				7CBD2C4F197E4538002F23A5 /* Main.storyboard in Resources */,
 			);
@@ -568,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CE78A99198CA459002ED7E5 /* ImproveTableViewController.m in Sources */,
 				0BA87092198C5BA900236EBD /* UserData.m in Sources */,
 				7C89F8A31989C1B800F021EF /* PNBar.m in Sources */,
 				7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */,
@@ -595,10 +602,11 @@
 				7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */,
 				7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */,
 				7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */,
+				7CE78A96198CA42C002ED7E5 /* ImproveTableViewCell.m in Sources */,
 				7CBD2C59197E4642002F23A5 /* UIView+REFrostedViewController.m in Sources */,
 				7C89F8A81989C1B800F021EF /* PNLineChart.m in Sources */,
+				7CE78A93198C8366002ED7E5 /* DashTableViewCell.m in Sources */,
 				7CBD2C58197E4642002F23A5 /* UIViewController+REFrostedViewController.m in Sources */,
-				7C89F8AE1989C45E00F021EF /* DashTableViewController.m in Sources */,
 				7C89F8A61989C1B800F021EF /* PNChartLabel.m in Sources */,
 				7C89F8A41989C1B800F021EF /* PNBarChart.m in Sources */,
 				7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */,
