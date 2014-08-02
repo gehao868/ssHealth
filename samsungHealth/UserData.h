@@ -31,4 +31,10 @@
 + (NSData *)getAvatar;
 + (void)setAvatar:(NSData *) newAvatar;
 
++ (NSArray *)getAppFriends;
++ (void)setAppFriends:(NSArray *) newAppFriends;
+
++ (NSArray *)getFBFriends;
++ (void)setFBFriends:(NSArray *) newFBFriends;
+
 @end

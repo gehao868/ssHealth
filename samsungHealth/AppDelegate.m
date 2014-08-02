@@ -133,16 +133,27 @@
         [UserData setGender:[user objectForKey:@"gender"]];
     }];
     
-    [FBRequestConnection startWithGraphPath:@"/me/friends" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* friends, NSError *error) {
-        //NSLog(@"%@", [friends objectForKey:@"data"]);
+    [FBRequestConnection startWithGraphPath:@"/me/friends" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
+        NSArray *friends = [result objectForKey:@"data"];
+        //NSLog(@"%@", friends);
+        [UserData setAppFriends:friends];
     }];
     
     NSMutableDictionary *picturePara = [[NSMutableDictionary alloc] init];
     [picturePara setValue:@"false" forKey:@"redirect"];
+    [picturePara setValue:@"large" forKey:@"type"];
+    [picturePara setValue:@"500" forKey:@"height"];
+    [picturePara setValue:@"500" forKey:@"width"];
     [FBRequestConnection startWithGraphPath:@"/me/picture" parameters:picturePara HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
         NSString *url = [[result objectForKey:@"data"] objectForKey:@"url"];
         //NSLog(@"%@", url);
         [UserData setAvatar:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
+    }];
+    
+    [FBRequestConnection startWithGraphPath:@"/me/friendlists" parameters:picturePara HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
+        NSArray *friends = [result objectForKey:@"data"];
+        NSLog(@"%@", friends);
+        //[UserData setFBFriends:friends];
     }];
 }
 
