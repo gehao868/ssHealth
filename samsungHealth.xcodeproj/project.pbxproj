@@ -11,6 +11,7 @@
 		0B3758521989D8FC004A9EB9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3758511989D8FC004A9EB9 /* Social.framework */; };
 		0B3758541989D90E004A9EB9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3758531989D90E004A9EB9 /* Accounts.framework */; };
 		0B3758571989DE08004A9EB9 /* GoalTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3758561989DE08004A9EB9 /* GoalTableCell.m */; };
+		0BA87092198C5BA900236EBD /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA87091198C5BA900236EBD /* UserData.m */; };
 		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
 		3B1CD2071989D75400282886 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */; };
@@ -88,6 +89,8 @@
 		0B3758531989D90E004A9EB9 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		0B3758551989DE08004A9EB9 /* GoalTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalTableCell.h; sourceTree = "<group>"; };
 		0B3758561989DE08004A9EB9 /* GoalTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalTableCell.m; sourceTree = "<group>"; };
+		0BA87090198C5BA900236EBD /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		0BA87091198C5BA900236EBD /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		7C89F8931989A9F100F021EF /* AppDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDeviceTableViewCell.h; sourceTree = "<group>"; };
 		7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDeviceTableViewCell.m; sourceTree = "<group>"; };
 		7C89F8971989C1B800F021EF /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
@@ -450,6 +453,8 @@
 			children = (
 				7CE78A8E198C5AE2002ED7E5 /* HealthData.h */,
 				7CE78A8F198C5AE2002ED7E5 /* HealthData.m */,
+				0BA87090198C5BA900236EBD /* UserData.h */,
+				0BA87091198C5BA900236EBD /* UserData.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BA87092198C5BA900236EBD /* UserData.m in Sources */,
 				7C89F8A31989C1B800F021EF /* PNBar.m in Sources */,
 				7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */,
 				BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */,

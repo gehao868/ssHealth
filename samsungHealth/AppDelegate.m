@@ -6,18 +6,13 @@
 //  Copyright (c) 2014 Hao Ge. All rights reserved.
 //
 
-#import <Parse/Parse.h>
-#import <FacebookSDK/FacebookSDK.h>
 #import "AppDelegate.h"
 
-@implementation AppDelegate
+#import <Parse/Parse.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import "UserData.h"
 
-@synthesize userID;
-@synthesize birthday;
-@synthesize firstName;
-@synthesize lastName;
-@synthesize email;
-@synthesize gender;
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -130,16 +125,22 @@
     /* make the API call */
     [FBRequestConnection startWithGraphPath:@"/me" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* user, NSError *error) {
             //NSLog(@"%@", user);
-            self.userID = [user objectForKey:@"id"];
-            self.birthday = [user objectForKey:@"birthday"];
-            self.firstName = [user objectForKey:@"first_name"];
-            self.lastName = [user objectForKey:@"last_name"];
-            self.email = [user objectForKey:@"email"];
-            self.gender = [user objectForKey:@"gender"];
+            [UserData setUserID:[user objectForKey:@"id"]];
+            [UserData setBirthday:[user objectForKey:@"birthday"]];
+            [UserData setFirstName:[user objectForKey:@"first_name"]];
+            [UserData setLastName:[user objectForKey:@"last_name"]];
+            [UserData setEmail:[user objectForKey:@"email"]];
+            [UserData setGender:[user objectForKey:@"gender"]];
         }];
     
     [FBRequestConnection startWithGraphPath:@"/me/friends" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* friends, NSError *error) {
             NSLog(@"%@", friends);
+        }];
+    
+    /* make the API call */
+    [FBRequestConnection startWithGraphPath:@"/me/picture" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            NSLog(@"%@", result);
+            //[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]]
         }];
 }
 
