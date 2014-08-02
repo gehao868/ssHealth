@@ -47,6 +47,7 @@ NSString *isLoggedin;
         [UserData setGender:[defaults objectForKey:@"gender"]];
         [UserData setAppFriends:[defaults objectForKey:@"appFriends"]];
         [UserData setAvatar:[defaults objectForKey:@"avatar"]];
+        [UserData setFBFriends:[defaults objectForKey:@"FBFriends"]];
     }
 }
 

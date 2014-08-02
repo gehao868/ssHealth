@@ -16,7 +16,7 @@ static NSString *email;
 static NSString *gender;
 static NSData *avatar;
 static NSArray *appFriends;
-static NSArray *FBFriends;
+static NSArray *FBFriends; //dict[@"name", @"pic"]
 static NSString *stateFileName = @"stateFile";
 
 @implementation UserData
