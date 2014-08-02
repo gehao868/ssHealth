@@ -11,5 +11,13 @@
 @interface HealthData : NSObject
 
 +(NSInteger*) getSteps;
++(void) setSteps: (NSInteger *)s;
++(NSInteger *) getHeartrate;
++(void) setHeartrate: (NSInteger*)h;
++(double) getWeight;
++(void) setWeight:(double)w;
++(NSInteger *) getCups;
++(void) setCups: (NSInteger*)cups;
+
 
 @end

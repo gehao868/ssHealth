@@ -33,13 +33,12 @@
 {
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:70.0f/255.0f green:160.0f/255.0f blue:100.0f/255.0f alpha:1.0f];
     
-    self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(60.0f, 100.0f, 200.0f, 200.0f)];
+    self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(67.0f, 110.0f, 180.0f, 180.0f)];
     [self.view addSubview: self.largestProgressView];
     
     [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
     
-
-
+    
     [super viewDidLoad];
     
 }
