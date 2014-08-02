@@ -43,7 +43,7 @@
                                 </state>
                                 <connections>
                                     <action selector="FBLogin:" destination="0XT-Lj-xhU" eventType="touchUpInside" id="cY3-p1-oIE"/>
-                                    <segue destination="vXZ-lx-hvc" kind="modal" id="JUj-4m-g5G"/>
+                                    <segue destination="vXZ-lx-hvc" kind="modal" identifier="skipLogin" id="JUj-4m-g5G"/>
                                 </connections>
                             </button>
                         </subviews>

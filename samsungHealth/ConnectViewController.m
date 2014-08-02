@@ -8,6 +8,8 @@
 
 #import "ConnectViewController.h"
 
+#import <FacebookSDK/FacebookSDK.h>
+
 @interface ConnectViewController ()
 
 @end
@@ -48,5 +50,17 @@
 
 - (IBAction)showMenu:(id)sender {
     [self.frostedViewController presentMenuViewController];
+}
+
+- (IBAction)addFriend:(id)sender {
+//    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+//    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+//                                                  NSDictionary* result,
+//                                                  NSError *error)
+//     {
+//         friendsArray = [result objectForKey:@"data"];
+//         
+//         [[self tableView] reloadData];
+//     }];
 }
 @end

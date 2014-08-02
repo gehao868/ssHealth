@@ -11,5 +11,6 @@
 
 @interface ConnectViewController : UIViewController
 - (IBAction)showMenu:(id)sender;
+- (IBAction)addFriend:(id)sender;
 
 @end

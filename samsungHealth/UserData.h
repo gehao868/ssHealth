@@ -34,7 +34,6 @@
 + (NSArray *)getAppFriends;
 + (void)setAppFriends:(NSArray *) newAppFriends;
 
-+ (NSArray *)getFBFriends;
-+ (void)setFBFriends:(NSArray *) newFBFriends;
++ (NSString *)getStateFileName;
 
 @end
