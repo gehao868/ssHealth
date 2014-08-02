@@ -8,7 +8,7 @@
 
 #import "MenuViewController.h"
 
-#import "AppDelegate.h"
+#import "UserData.h"
 #import "DashBoardViewController.h"
 #import "TargetViewController.h"
 #import "DeviceViewController.h"
@@ -23,14 +23,11 @@
 
 @end
 
-@implementation MenuViewController {
-    AppDelegate *appDelegate;
-}
+@implementation MenuViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    appDelegate = [[UIApplication sharedApplication] delegate];
     
     self.tableView.separatorColor = [UIColor colorWithRed:235/255.0f green:255/255.0f blue:170/255.0f alpha:1.0f];
     self.tableView.delegate = self;
@@ -41,7 +38,7 @@
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        imageView.image = [UIImage imageNamed:@"avatar.jpg"];
+        imageView.image = [UIImage imageWithData:[UserData getAvatar]];
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 50.0;
         imageView.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -51,7 +48,7 @@
         imageView.clipsToBounds = YES;
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
-        label.text = appDelegate.firstName;
+        label.text = [UserData getFirstName];
         label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor colorWithRed:235/255.0f green:255/255.0f blue:170/255.0f alpha:1.0f];
