@@ -7,17 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface HealthData : NSObject
 
-+(NSInteger*) getSteps;
-+(void) setSteps: (NSInteger *)s;
-+(NSInteger *) getHeartrate;
-+(void) setHeartrate: (NSInteger*)h;
-+(double) getWeight;
-+(void) setWeight:(double)w;
-+(NSInteger *) getCups;
-+(void) setCups: (NSInteger*)cups;
-
+@property (nonatomic) NSInteger *step; // name of recipe
+@property (nonatomic) NSInteger *heartrate;
+@property double weight;
+@property (nonatomic) NSInteger *cups;
 
 @end
