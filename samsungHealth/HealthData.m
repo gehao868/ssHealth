@@ -8,10 +8,6 @@
 
 #import "HealthData.h"
 
-static NSInteger *steps;
-static NSInteger *heartrate;
-static double weight;
-static NSInteger *cupsOfwater;
 
 @implementation HealthData {
 

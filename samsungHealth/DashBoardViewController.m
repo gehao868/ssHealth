@@ -37,20 +37,50 @@
     
     [super viewDidLoad];
     
+    PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
+    [query whereKey:@"UserID" equalTo:@1];
+
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
+    
+    [components setHour:-[components hour]];
+    [components setMinute:-[components minute]];
+    [components setSecond:-[components second]];
+    NSDate *today = [NSDate date];//This variable should now be pointing at a date object that is the start of today (midnight);
+    
+    [components setHour:-24];
+    [components setMinute:0];
+    [components setSecond:0];
+    
+    
+    NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];
+    
+    [query whereKey:@"Time" lessThanOrEqualTo:today];
+    [query whereKey:@"Time" greaterThan:yesterday];
+    
+    NSArray* objects = [query findObjects];
+    for (PFObject *object in objects) {
+         NSLog(@"%@", [object objectForKey:@"step"]);
+         int heartrate = [[object objectForKey:@"heartrate"] intValue];
+         int sleep = [[object objectForKey:@"sleep"] intValue];
+         int step = [[object objectForKey:@"step"] intValue];
+         int cups = [[object objectForKey:@"cups"] intValue];
+         int losedWeight = [[object objectForKey:@"weight"] intValue];
+         
+         finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:step],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight], nil];
+     }
+   
+    
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:70.0f/255.0f green:160.0f/255.0f blue:100.0f/255.0f alpha:1.0f];
     
     self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(67.0f, 110.0f, 180.0f, 180.0f)];
     [self.view addSubview: self.largestProgressView];
     
     [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
-    
-    // Initialize table data
-    tableData = [NSArray arrayWithObjects:@"56%", @"100%", @"100%", @"75%", @"80%", nil];
-    
-    // Initialize thumbnails
+
     thumbnails = [NSArray arrayWithObjects:@"heart_green", @"sleep_green", @"steps", @"water_green", @"weight_green",nil];
-    finished = [NSArray arrayWithObjects: [NSNumber numberWithInt:70], [NSNumber numberWithInt:40], [NSNumber numberWithInt:60],[NSNumber numberWithInt:60],[NSNumber numberWithInt:20], nil];
-    expected = [NSArray arrayWithObjects: [NSNumber numberWithInt:100], [NSNumber numberWithInt:100], [NSNumber numberWithInt:100], [NSNumber numberWithInt:100],[NSNumber numberWithInt:100],nil];
+    
+    expected = [NSArray arrayWithObjects: [NSNumber numberWithInt:80], [NSNumber numberWithInt:8], [NSNumber numberWithInt:1200], [NSNumber numberWithInt:6],[NSNumber numberWithInt:20],nil];
 
     
 }
@@ -83,7 +113,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tableData count];
+    return [thumbnails count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -115,7 +145,6 @@
     cell.progress.progress =  x.doubleValue /y.doubleValue;
     cell.progress.progressTintColor = [UIColor redColor];
     
-    //cell.output.text = [tableData objectAtIndex:indexPath.row];
     cell.healthIconImage.image = [UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
     
     return cell;
