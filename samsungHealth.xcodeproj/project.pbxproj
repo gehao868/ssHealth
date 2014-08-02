@@ -72,6 +72,7 @@
 		7CE78A96198CA42C002ED7E5 /* ImproveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A95198CA42C002ED7E5 /* ImproveTableViewCell.m */; };
 		7CE78A99198CA459002ED7E5 /* ImproveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A98198CA459002ED7E5 /* ImproveTableViewController.m */; };
 		7CE78A9C198D5F36002ED7E5 /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A9B198D5F36002ED7E5 /* ProfileTableViewCell.m */; };
+		7CE78A9F198D8AC0002ED7E5 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A9E198D8AC0002ED7E5 /* FriendTableViewCell.m */; };
 		BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC1B2CD198721E600DDEC78 /* FriendListController.m */; };
 /* End PBXBuildFile section */
 
@@ -191,6 +192,8 @@
 		7CE78A98198CA459002ED7E5 /* ImproveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImproveTableViewController.m; sourceTree = "<group>"; };
 		7CE78A9A198D5F36002ED7E5 /* ProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
 		7CE78A9B198D5F36002ED7E5 /* ProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
+		7CE78A9D198D8AC0002ED7E5 /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
+		7CE78A9E198D8AC0002ED7E5 /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		BBC1B2CC198721E600DDEC78 /* FriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListController.h; sourceTree = "<group>"; };
 		BBC1B2CD198721E600DDEC78 /* FriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -478,6 +481,8 @@
 				7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */,
 				BBC1B2CC198721E600DDEC78 /* FriendListController.h */,
 				BBC1B2CD198721E600DDEC78 /* FriendListController.m */,
+				7CE78A9D198D8AC0002ED7E5 /* FriendTableViewCell.h */,
+				7CE78A9E198D8AC0002ED7E5 /* FriendTableViewCell.m */,
 			);
 			name = Connect;
 			sourceTree = "<group>";
@@ -592,6 +597,7 @@
 				7C89F8A71989C1B800F021EF /* PNColor.m in Sources */,
 				7CBD2C6F197E4651002F23A5 /* REFrostedContainerViewController.m in Sources */,
 				7CE78A90198C5AE2002ED7E5 /* HealthData.m in Sources */,
+				7CE78A9F198D8AC0002ED7E5 /* FriendTableViewCell.m in Sources */,
 				7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */,
 				7C89F8BA198AFDB400F021EF /* LaunchViewController.m in Sources */,
 				7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */,
