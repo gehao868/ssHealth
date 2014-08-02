@@ -12,6 +12,8 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "UserData.h"
 
+NSUserDefaults *defaults;
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -34,7 +36,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -122,6 +124,9 @@
 // Show the user the logged-in UI
 - (void)userLoggedIn
 {
+    defaults =[NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"true" forKey:@"isLoggedin"];
+    
     /* make the API call */
     [FBRequestConnection startWithGraphPath:@"/me" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* user, NSError *error) {
         //NSLog(@"%@", user);
@@ -131,12 +136,21 @@
         [UserData setLastName:[user objectForKey:@"last_name"]];
         [UserData setEmail:[user objectForKey:@"email"]];
         [UserData setGender:[user objectForKey:@"gender"]];
+        
+        [defaults setObject:[UserData getUserID] forKey:@"id"];
+        [defaults setObject:[UserData getBirthday] forKey:@"birthday"];
+        [defaults setObject:[UserData getFirstName] forKey:@"first_name"];
+        [defaults setObject:[UserData getLastName] forKey:@"last_name"];
+        [defaults setObject:[UserData getEmail] forKey:@"email"];
+        [defaults setObject:[UserData getGender] forKey:@"gender"];
     }];
     
     [FBRequestConnection startWithGraphPath:@"/me/friends" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
         NSArray *friends = [result objectForKey:@"data"];
         //NSLog(@"%@", friends);
         [UserData setAppFriends:friends];
+        
+        [defaults setObject:[UserData getAppFriends] forKey:@"appFriends"];
     }];
     
     NSMutableDictionary *picturePara = [[NSMutableDictionary alloc] init];
@@ -148,12 +162,8 @@
         NSString *url = [[result objectForKey:@"data"] objectForKey:@"url"];
         //NSLog(@"%@", url);
         [UserData setAvatar:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
-    }];
-    
-    [FBRequestConnection startWithGraphPath:@"/me/friendlists" parameters:picturePara HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
-        NSArray *friends = [result objectForKey:@"data"];
-        NSLog(@"%@", friends);
-        //[UserData setFBFriends:friends];
+        
+        [defaults setObject:[UserData getAvatar] forKey:@"avatar"];
     }];
 }
 

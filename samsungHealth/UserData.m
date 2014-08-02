@@ -16,7 +16,7 @@ static NSString *email;
 static NSString *gender;
 static NSData *avatar;
 static NSArray *appFriends;
-static NSArray *FBFriends;
+static NSString *stateFileName = @"stateFile";
 
 @implementation UserData
 
@@ -76,11 +76,8 @@ static NSArray *FBFriends;
     appFriends = newAppFriends;
 }
 
-+ (NSArray *)getFBFriends {
-    return FBFriends;
-}
-+ (void)setFBFriends:(NSArray *) newFBFriends {
-    FBFriends = newFBFriends;
++ (NSString *)getStateFileName {
+    return stateFileName;
 }
 
 @end
