@@ -10,7 +10,7 @@
 
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface ConnectViewController ()
+@interface ConnectViewController() <FBFriendPickerDelegate>
 
 @end
 
@@ -53,14 +53,6 @@
 }
 
 - (IBAction)addFriend:(id)sender {
-//    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
-//    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
-//                                                  NSDictionary* result,
-//                                                  NSError *error)
-//     {
-//         friendsArray = [result objectForKey:@"data"];
-//         
-//         [[self tableView] reloadData];
-//     }];
 }
+
 @end

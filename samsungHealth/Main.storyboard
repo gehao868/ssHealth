@@ -544,9 +544,6 @@
                                 <state key="normal" title="+" backgroundImage="circle_yellow">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="CNN-34-lgC" kind="push" id="fQx-0g-aXg"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giH-mj-nRJ">
                                 <rect key="frame" x="170" y="141" width="130" height="130"/>
