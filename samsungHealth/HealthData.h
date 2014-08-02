@@ -10,4 +10,6 @@
 
 @interface HealthData : NSObject
 
++(NSInteger*) getSteps;
+
 @end

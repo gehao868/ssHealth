@@ -7,6 +7,8 @@
 //
 
 #import "DashBoardViewController.h"
+#import "HealthData.h"
+
 
 @interface DashBoardViewController ()
 
@@ -16,6 +18,7 @@
     NSMutableArray *tableData;
 
 }
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +37,7 @@
     [self.view addSubview: self.largestProgressView];
     
     [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
+    
 
 
     [super viewDidLoad];
