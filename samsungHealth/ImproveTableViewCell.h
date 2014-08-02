@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *improveImage;
 @property (weak, nonatomic) IBOutlet UILabel *improveLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *improveAdd;
 
 @end
