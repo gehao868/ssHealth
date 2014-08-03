@@ -24,6 +24,7 @@ NSUserDefaults *defaults;
     
     [FBLoginView class];
     [FBProfilePictureView class];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;
 }

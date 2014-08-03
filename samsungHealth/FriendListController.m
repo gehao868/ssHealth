@@ -71,7 +71,13 @@
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[thumbnails objectAtIndex:indexPath.row]]];
     cell.name.text = [tableData objectAtIndex:indexPath.row];
     cell.pic.image = [UIImage imageWithData:imageData];
-    
+    cell.pic.layer.masksToBounds = YES;
+    cell.pic.layer.cornerRadius = 20.0;
+    cell.pic.layer.borderColor = [UIColor whiteColor].CGColor;
+    cell.pic.layer.borderWidth = 2.0f;
+    cell.pic.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    cell.pic.layer.shouldRasterize = YES;
+    cell.pic.clipsToBounds = YES;
     return cell;
 }
 

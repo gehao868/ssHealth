@@ -10,6 +10,8 @@
 #import "REFrostedViewController.h"
 
 @interface RewardViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *userIcon;
+
 - (IBAction)showMenu:(id)sender;
 
 @end
