@@ -8,7 +8,9 @@
 
 #import "ConnectViewController.h"
 
-@interface ConnectViewController ()
+#import <FacebookSDK/FacebookSDK.h>
+
+@interface ConnectViewController() <FBFriendPickerDelegate>
 
 @end
 
@@ -49,4 +51,8 @@
 - (IBAction)showMenu:(id)sender {
     [self.frostedViewController presentMenuViewController];
 }
+
+- (IBAction)addFriend:(id)sender {
+}
+
 @end

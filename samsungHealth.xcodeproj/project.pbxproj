@@ -7,8 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B3758501989D5D0004A9EB9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B37584F1989D5D0004A9EB9 /* FacebookSDK.framework */; };
+		0B3758521989D8FC004A9EB9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3758511989D8FC004A9EB9 /* Social.framework */; };
+		0B3758541989D90E004A9EB9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3758531989D90E004A9EB9 /* Accounts.framework */; };
+		0B3758571989DE08004A9EB9 /* GoalTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3758561989DE08004A9EB9 /* GoalTableCell.m */; };
+		0BA87092198C5BA900236EBD /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA87091198C5BA900236EBD /* UserData.m */; };
 		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
-		7C79580D198729D1008FB679 /* DashTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C79580C198729D1008FB679 /* DashTableViewController.m */; };
+		3B1CD2071989D75400282886 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */; };
+		7C89F8A31989C1B800F021EF /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8981989C1B800F021EF /* PNBar.m */; };
+		7C89F8A41989C1B800F021EF /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F89A1989C1B800F021EF /* PNBarChart.m */; };
+		7C89F8A51989C1B800F021EF /* PNChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F89C1989C1B800F021EF /* PNChart.m */; };
+		7C89F8A61989C1B800F021EF /* PNChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F89E1989C1B800F021EF /* PNChartLabel.m */; };
+		7C89F8A71989C1B800F021EF /* PNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8A01989C1B800F021EF /* PNColor.m */; };
+		7C89F8A81989C1B800F021EF /* PNLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8A21989C1B800F021EF /* PNLineChart.m */; };
+		7C89F8AB1989C22F00F021EF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8AA1989C22F00F021EF /* DetailViewController.m */; };
+		7C89F8B11989CB4A00F021EF /* TargetViewDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */; };
+		7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B31989CD9900F021EF /* CompeteViewController.m */; };
+		7C89F8B71989F01600F021EF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B61989F01600F021EF /* ProfileViewController.m */; };
+		7C89F8BA198AFDB400F021EF /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B9198AFDB400F021EF /* LaunchViewController.m */; };
 		7CBD2C1A197E4510002F23A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C19197E4510002F23A5 /* Foundation.framework */; };
 		7CBD2C1C197E4510002F23A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */; };
 		7CBD2C1E197E4510002F23A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1D197E4510002F23A5 /* UIKit.framework */; };
@@ -32,14 +49,12 @@
 		7CBD2C6E197E4651002F23A5 /* REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C60197E4651002F23A5 /* REFrostedViewController.m */; };
 		7CBD2C6F197E4651002F23A5 /* REFrostedContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C62197E4651002F23A5 /* REFrostedContainerViewController.m */; };
 		7CBD2C70197E4651002F23A5 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C64197E4651002F23A5 /* RECommonFunctions.m */; };
-		7CBD2C71197E4651002F23A5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C66197E4651002F23A5 /* ProfileViewController.m */; };
 		7CBD2C72197E4651002F23A5 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C68197E4651002F23A5 /* NavigationController.m */; };
 		7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C6A197E4651002F23A5 /* MenuViewController.m */; };
 		7CBD2C79197E4671002F23A5 /* FitbitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C77197E4671002F23A5 /* FitbitViewController.m */; };
 		7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */; };
 		7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */; };
 		7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */; };
-		7CBD2C89197E467D002F23A5 /* avatar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */; };
 		7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */; };
 		7CBD2C8C197E46AF002F23A5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8B197E46AF002F23A5 /* Parse.framework */; };
 		7CBD2C90197E47C5002F23A5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8F197E47C5002F23A5 /* AudioToolbox.framework */; };
@@ -52,6 +67,12 @@
 		7CBD2C9E197E481F002F23A5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9D197E481F002F23A5 /* StoreKit.framework */; };
 		7CBD2CA0197E482C002F23A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */; };
 		7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */; };
+		7CE78A90198C5AE2002ED7E5 /* HealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A8F198C5AE2002ED7E5 /* HealthData.m */; };
+		7CE78A93198C8366002ED7E5 /* DashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A92198C8366002ED7E5 /* DashTableViewCell.m */; };
+		7CE78A96198CA42C002ED7E5 /* ImproveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A95198CA42C002ED7E5 /* ImproveTableViewCell.m */; };
+		7CE78A99198CA459002ED7E5 /* ImproveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A98198CA459002ED7E5 /* ImproveTableViewController.m */; };
+		7CE78A9C198D5F36002ED7E5 /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A9B198D5F36002ED7E5 /* ProfileTableViewCell.m */; };
+		7CE78A9F198D8AC0002ED7E5 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A9E198D8AC0002ED7E5 /* FriendTableViewCell.m */; };
 		BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC1B2CD198721E600DDEC78 /* FriendListController.m */; };
 /* End PBXBuildFile section */
 
@@ -66,8 +87,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7C79580B198729D1008FB679 /* DashTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashTableViewController.h; sourceTree = "<group>"; };
-		7C79580C198729D1008FB679 /* DashTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashTableViewController.m; sourceTree = "<group>"; };
+		0B37584F1989D5D0004A9EB9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		0B3758511989D8FC004A9EB9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		0B3758531989D90E004A9EB9 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		0B3758551989DE08004A9EB9 /* GoalTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalTableCell.h; sourceTree = "<group>"; };
+		0B3758561989DE08004A9EB9 /* GoalTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalTableCell.m; sourceTree = "<group>"; };
+		0BA87090198C5BA900236EBD /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		0BA87091198C5BA900236EBD /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
+		7C89F8931989A9F100F021EF /* AppDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDeviceTableViewCell.h; sourceTree = "<group>"; };
+		7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDeviceTableViewCell.m; sourceTree = "<group>"; };
+		7C89F8971989C1B800F021EF /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
+		7C89F8981989C1B800F021EF /* PNBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBar.m; sourceTree = "<group>"; };
+		7C89F8991989C1B800F021EF /* PNBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBarChart.h; sourceTree = "<group>"; };
+		7C89F89A1989C1B800F021EF /* PNBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBarChart.m; sourceTree = "<group>"; };
+		7C89F89B1989C1B800F021EF /* PNChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChart.h; sourceTree = "<group>"; };
+		7C89F89C1989C1B800F021EF /* PNChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNChart.m; sourceTree = "<group>"; };
+		7C89F89D1989C1B800F021EF /* PNChartLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChartLabel.h; sourceTree = "<group>"; };
+		7C89F89E1989C1B800F021EF /* PNChartLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNChartLabel.m; sourceTree = "<group>"; };
+		7C89F89F1989C1B800F021EF /* PNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNColor.h; sourceTree = "<group>"; };
+		7C89F8A01989C1B800F021EF /* PNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNColor.m; sourceTree = "<group>"; };
+		7C89F8A11989C1B800F021EF /* PNLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNLineChart.h; sourceTree = "<group>"; };
+		7C89F8A21989C1B800F021EF /* PNLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChart.m; sourceTree = "<group>"; };
+		7C89F8A91989C22F00F021EF /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		7C89F8AA1989C22F00F021EF /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		7C89F8AF1989CB4A00F021EF /* TargetViewDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetViewDetailController.h; sourceTree = "<group>"; };
+		7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetViewDetailController.m; sourceTree = "<group>"; };
+		7C89F8B21989CD9900F021EF /* CompeteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompeteViewController.h; sourceTree = "<group>"; };
+		7C89F8B31989CD9900F021EF /* CompeteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompeteViewController.m; sourceTree = "<group>"; };
+		7C89F8B51989F01600F021EF /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		7C89F8B61989F01600F021EF /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		7C89F8B8198AFDB400F021EF /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
+		7C89F8B9198AFDB400F021EF /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		7CBD2C16197E4510002F23A5 /* samsungHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = samsungHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBD2C19197E4510002F23A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,8 +155,6 @@
 		7CBD2C63197E4651002F23A5 /* REFrostedContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedContainerViewController.h; sourceTree = "<group>"; };
 		7CBD2C64197E4651002F23A5 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
 		7CBD2C65197E4651002F23A5 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
-		7CBD2C66197E4651002F23A5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		7CBD2C67197E4651002F23A5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		7CBD2C68197E4651002F23A5 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		7CBD2C69197E4651002F23A5 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		7CBD2C6A197E4651002F23A5 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
@@ -119,7 +167,6 @@
 		7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardViewController.h; sourceTree = "<group>"; };
 		7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
 		7CBD2C7F197E467D002F23A5 /* ConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectViewController.h; sourceTree = "<group>"; };
-		7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "avatar@2x.jpg"; sourceTree = "<group>"; };
 		7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsDevicesViewController.m; sourceTree = "<group>"; };
 		7CBD2C84197E467D002F23A5 /* AppsDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsDevicesViewController.h; sourceTree = "<group>"; };
 		7CBD2C8B197E46AF002F23A5 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -135,6 +182,18 @@
 		7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7CBD2CA2197EF612002F23A5 /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
 		7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
+		7CE78A8E198C5AE2002ED7E5 /* HealthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthData.h; sourceTree = "<group>"; };
+		7CE78A8F198C5AE2002ED7E5 /* HealthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthData.m; sourceTree = "<group>"; };
+		7CE78A91198C8366002ED7E5 /* DashTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashTableViewCell.h; sourceTree = "<group>"; };
+		7CE78A92198C8366002ED7E5 /* DashTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashTableViewCell.m; sourceTree = "<group>"; };
+		7CE78A94198CA42C002ED7E5 /* ImproveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImproveTableViewCell.h; sourceTree = "<group>"; };
+		7CE78A95198CA42C002ED7E5 /* ImproveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImproveTableViewCell.m; sourceTree = "<group>"; };
+		7CE78A97198CA459002ED7E5 /* ImproveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImproveTableViewController.h; sourceTree = "<group>"; };
+		7CE78A98198CA459002ED7E5 /* ImproveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImproveTableViewController.m; sourceTree = "<group>"; };
+		7CE78A9A198D5F36002ED7E5 /* ProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
+		7CE78A9B198D5F36002ED7E5 /* ProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
+		7CE78A9D198D8AC0002ED7E5 /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
+		7CE78A9E198D8AC0002ED7E5 /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		BBC1B2CC198721E600DDEC78 /* FriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListController.h; sourceTree = "<group>"; };
 		BBC1B2CD198721E600DDEC78 /* FriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +203,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B3758541989D90E004A9EB9 /* Accounts.framework in Frameworks */,
+				0B3758521989D8FC004A9EB9 /* Social.framework in Frameworks */,
 				0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */,
 				7CBD2CA0197E482C002F23A5 /* SystemConfiguration.framework in Frameworks */,
 				7CBD2C9E197E481F002F23A5 /* StoreKit.framework in Frameworks */,
@@ -155,6 +216,7 @@
 				7CBD2C92197E47CF002F23A5 /* CFNetwork.framework in Frameworks */,
 				7CBD2C90197E47C5002F23A5 /* AudioToolbox.framework in Frameworks */,
 				7CBD2C1C197E4510002F23A5 /* CoreGraphics.framework in Frameworks */,
+				0B3758501989D5D0004A9EB9 /* FacebookSDK.framework in Frameworks */,
 				7CBD2C1E197E4510002F23A5 /* UIKit.framework in Frameworks */,
 				7CBD2C8C197E46AF002F23A5 /* Parse.framework in Frameworks */,
 				7CBD2C1A197E4510002F23A5 /* Foundation.framework in Frameworks */,
@@ -177,18 +239,18 @@
 		7C79580419871C5D008FB679 /* RFViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7CBD2C50197E4642002F23A5 /* UIViewController+REFrostedViewController.m */,
 				7CBD2C51197E4642002F23A5 /* UIViewController+REFrostedViewController.h */,
-				7CBD2C52197E4642002F23A5 /* UIView+REFrostedViewController.m */,
+				7CBD2C50197E4642002F23A5 /* UIViewController+REFrostedViewController.m */,
 				7CBD2C53197E4642002F23A5 /* UIView+REFrostedViewController.h */,
-				7CBD2C54197E4642002F23A5 /* UIImage+REFrostedViewController.m */,
+				7CBD2C52197E4642002F23A5 /* UIView+REFrostedViewController.m */,
 				7CBD2C55197E4642002F23A5 /* UIImage+REFrostedViewController.h */,
-				7CBD2C60197E4651002F23A5 /* REFrostedViewController.m */,
+				7CBD2C54197E4642002F23A5 /* UIImage+REFrostedViewController.m */,
 				7CBD2C61197E4651002F23A5 /* REFrostedViewController.h */,
-				7CBD2C62197E4651002F23A5 /* REFrostedContainerViewController.m */,
+				7CBD2C60197E4651002F23A5 /* REFrostedViewController.m */,
 				7CBD2C63197E4651002F23A5 /* REFrostedContainerViewController.h */,
-				7CBD2C64197E4651002F23A5 /* RECommonFunctions.m */,
+				7CBD2C62197E4651002F23A5 /* REFrostedContainerViewController.m */,
 				7CBD2C65197E4651002F23A5 /* RECommonFunctions.h */,
+				7CBD2C64197E4651002F23A5 /* RECommonFunctions.m */,
 			);
 			name = RFViewController;
 			sourceTree = "<group>";
@@ -196,10 +258,16 @@
 		7C79580519872552008FB679 /* DashBoard */ = {
 			isa = PBXGroup;
 			children = (
-				7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */,
 				7CBD2C7D197E467D002F23A5 /* DashBoardViewController.h */,
-				7C79580B198729D1008FB679 /* DashTableViewController.h */,
-				7C79580C198729D1008FB679 /* DashTableViewController.m */,
+				7CBD2C7C197E467D002F23A5 /* DashBoardViewController.m */,
+				7C89F8A91989C22F00F021EF /* DetailViewController.h */,
+				7C89F8AA1989C22F00F021EF /* DetailViewController.m */,
+				7CE78A91198C8366002ED7E5 /* DashTableViewCell.h */,
+				7CE78A92198C8366002ED7E5 /* DashTableViewCell.m */,
+				7CE78A94198CA42C002ED7E5 /* ImproveTableViewCell.h */,
+				7CE78A95198CA42C002ED7E5 /* ImproveTableViewCell.m */,
+				7CE78A97198CA459002ED7E5 /* ImproveTableViewController.h */,
+				7CE78A98198CA459002ED7E5 /* ImproveTableViewController.m */,
 			);
 			name = DashBoard;
 			sourceTree = "<group>";
@@ -207,8 +275,14 @@
 		7C79580719872581008FB679 /* Goal */ = {
 			isa = PBXGroup;
 			children = (
-				7CBD2C56197E4642002F23A5 /* TargetViewController.m */,
+				0B3758551989DE08004A9EB9 /* GoalTableCell.h */,
+				0B3758561989DE08004A9EB9 /* GoalTableCell.m */,
 				7CBD2C57197E4642002F23A5 /* TargetViewController.h */,
+				7CBD2C56197E4642002F23A5 /* TargetViewController.m */,
+				7C89F8AF1989CB4A00F021EF /* TargetViewDetailController.h */,
+				7C89F8B01989CB4A00F021EF /* TargetViewDetailController.m */,
+				7C89F8B21989CD9900F021EF /* CompeteViewController.h */,
+				7C89F8B31989CD9900F021EF /* CompeteViewController.m */,
 			);
 			name = Goal;
 			sourceTree = "<group>";
@@ -216,8 +290,10 @@
 		7C79580819872593008FB679 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				7CBD2C66197E4651002F23A5 /* ProfileViewController.m */,
-				7CBD2C67197E4651002F23A5 /* ProfileViewController.h */,
+				7C89F8B51989F01600F021EF /* ProfileViewController.h */,
+				7C89F8B61989F01600F021EF /* ProfileViewController.m */,
+				7CE78A9A198D5F36002ED7E5 /* ProfileTableViewCell.h */,
+				7CE78A9B198D5F36002ED7E5 /* ProfileTableViewCell.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -225,12 +301,9 @@
 		7C795809198725C7008FB679 /* ManageDevice */ = {
 			isa = PBXGroup;
 			children = (
-				7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */,
-				7CBD2C84197E467D002F23A5 /* AppsDevicesViewController.h */,
-				7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */,
-				7CBD2C77197E4671002F23A5 /* FitbitViewController.m */,
-				7CBD2C78197E4671002F23A5 /* FitbitViewController.h */,
+				7C89F8921989A99E00F021EF /* AppAndDevice */,
 				7CBD2C7B197E467D002F23A5 /* DeviceViewController.h */,
+				7CBD2C7A197E467D002F23A5 /* DeviceViewController.m */,
 			);
 			name = ManageDevice;
 			sourceTree = "<group>";
@@ -238,10 +311,42 @@
 		7C79580A198725E3008FB679 /* Reward */ = {
 			isa = PBXGroup;
 			children = (
-				7CBD2C5E197E4651002F23A5 /* RewardViewController.m */,
 				7CBD2C5F197E4651002F23A5 /* RewardViewController.h */,
+				7CBD2C5E197E4651002F23A5 /* RewardViewController.m */,
 			);
 			name = Reward;
+			sourceTree = "<group>";
+		};
+		7C89F8921989A99E00F021EF /* AppAndDevice */ = {
+			isa = PBXGroup;
+			children = (
+				7CBD2C84197E467D002F23A5 /* AppsDevicesViewController.h */,
+				7CBD2C83197E467D002F23A5 /* AppsDevicesViewController.m */,
+				7C89F8931989A9F100F021EF /* AppDeviceTableViewCell.h */,
+				7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */,
+				7CBD2C78197E4671002F23A5 /* FitbitViewController.h */,
+				7CBD2C77197E4671002F23A5 /* FitbitViewController.m */,
+			);
+			name = AppAndDevice;
+			sourceTree = "<group>";
+		};
+		7C89F8961989C1B800F021EF /* PNChart */ = {
+			isa = PBXGroup;
+			children = (
+				7C89F8971989C1B800F021EF /* PNBar.h */,
+				7C89F8981989C1B800F021EF /* PNBar.m */,
+				7C89F8991989C1B800F021EF /* PNBarChart.h */,
+				7C89F89A1989C1B800F021EF /* PNBarChart.m */,
+				7C89F89B1989C1B800F021EF /* PNChart.h */,
+				7C89F89C1989C1B800F021EF /* PNChart.m */,
+				7C89F89D1989C1B800F021EF /* PNChartLabel.h */,
+				7C89F89E1989C1B800F021EF /* PNChartLabel.m */,
+				7C89F89F1989C1B800F021EF /* PNColor.h */,
+				7C89F8A01989C1B800F021EF /* PNColor.m */,
+				7C89F8A11989C1B800F021EF /* PNLineChart.h */,
+				7C89F8A21989C1B800F021EF /* PNLineChart.m */,
+			);
+			path = PNChart;
 			sourceTree = "<group>";
 		};
 		7CBD2C0D197E4510002F23A5 = {
@@ -266,6 +371,9 @@
 		7CBD2C18197E4510002F23A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0B3758531989D90E004A9EB9 /* Accounts.framework */,
+				0B3758511989D8FC004A9EB9 /* Social.framework */,
+				0B37584F1989D5D0004A9EB9 /* FacebookSDK.framework */,
 				7CBD2C9F197E482C002F23A5 /* SystemConfiguration.framework */,
 				7CBD2C9D197E481F002F23A5 /* StoreKit.framework */,
 				7CBD2C9B197E4813002F23A5 /* Security.framework */,
@@ -288,6 +396,8 @@
 		7CBD2C1F197E4510002F23A5 /* samsungHealth */ = {
 			isa = PBXGroup;
 			children = (
+				7CE78A8D198C5A84002ED7E5 /* Data */,
+				7C89F8961989C1B800F021EF /* PNChart */,
 				7C79580A198725E3008FB679 /* Reward */,
 				7C795809198725C7008FB679 /* ManageDevice */,
 				7C79580819872593008FB679 /* Profile */,
@@ -296,18 +406,19 @@
 				BBC1B2CF1987228800DDEC78 /* Connect */,
 				7C79580419871C5D008FB679 /* RFViewController */,
 				7CBD2CA1197EF600002F23A5 /* CircularController */,
-				7CBD2C82197E467D002F23A5 /* avatar@2x.jpg */,
-				7CBD2C5C197E4651002F23A5 /* RootViewController.m */,
 				7CBD2C5D197E4651002F23A5 /* RootViewController.h */,
-				7CBD2C68197E4651002F23A5 /* NavigationController.m */,
+				7CBD2C5C197E4651002F23A5 /* RootViewController.m */,
 				7CBD2C69197E4651002F23A5 /* NavigationController.h */,
-				7CBD2C6A197E4651002F23A5 /* MenuViewController.m */,
+				7CBD2C68197E4651002F23A5 /* NavigationController.m */,
 				7CBD2C6B197E4651002F23A5 /* MenuViewController.h */,
+				7CBD2C6A197E4651002F23A5 /* MenuViewController.m */,
 				7CBD2C28197E4510002F23A5 /* AppDelegate.h */,
 				7CBD2C29197E4510002F23A5 /* AppDelegate.m */,
-				7CBD2C4E197E4538002F23A5 /* Main.storyboard */,
 				7CBD2C2E197E4510002F23A5 /* ViewController.h */,
 				7CBD2C2F197E4510002F23A5 /* ViewController.m */,
+				7C89F8B8198AFDB400F021EF /* LaunchViewController.h */,
+				7C89F8B9198AFDB400F021EF /* LaunchViewController.m */,
+				7CBD2C4E197E4538002F23A5 /* Main.storyboard */,
 				7CBD2C31197E4510002F23A5 /* Images.xcassets */,
 				7CBD2C20197E4510002F23A5 /* Supporting Files */,
 			);
@@ -352,13 +463,26 @@
 			name = CircularController;
 			sourceTree = "<group>";
 		};
+		7CE78A8D198C5A84002ED7E5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7CE78A8E198C5AE2002ED7E5 /* HealthData.h */,
+				7CE78A8F198C5AE2002ED7E5 /* HealthData.m */,
+				0BA87090198C5BA900236EBD /* UserData.h */,
+				0BA87091198C5BA900236EBD /* UserData.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		BBC1B2CF1987228800DDEC78 /* Connect */ = {
 			isa = PBXGroup;
 			children = (
-				7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */,
 				7CBD2C7F197E467D002F23A5 /* ConnectViewController.h */,
+				7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */,
 				BBC1B2CC198721E600DDEC78 /* FriendListController.h */,
 				BBC1B2CD198721E600DDEC78 /* FriendListController.m */,
+				7CE78A9D198D8AC0002ED7E5 /* FriendTableViewCell.h */,
+				7CE78A9E198D8AC0002ED7E5 /* FriendTableViewCell.m */,
 			);
 			name = Connect;
 			sourceTree = "<group>";
@@ -440,7 +564,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CBD2C32197E4510002F23A5 /* Images.xcassets in Resources */,
-				7CBD2C89197E467D002F23A5 /* avatar@2x.jpg in Resources */,
 				7CBD2C24197E4510002F23A5 /* InfoPlist.strings in Resources */,
 				7CBD2C4F197E4538002F23A5 /* Main.storyboard in Resources */,
 			);
@@ -461,25 +584,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CE78A99198CA459002ED7E5 /* ImproveTableViewController.m in Sources */,
+				0BA87092198C5BA900236EBD /* UserData.m in Sources */,
+				7C89F8A31989C1B800F021EF /* PNBar.m in Sources */,
+				7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */,
 				BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */,
+				0B3758571989DE08004A9EB9 /* GoalTableCell.m in Sources */,
 				7CBD2C30197E4510002F23A5 /* ViewController.m in Sources */,
+				7C89F8B71989F01600F021EF /* ProfileViewController.m in Sources */,
 				7CBD2C5B197E4642002F23A5 /* TargetViewController.m in Sources */,
 				7CBD2C6C197E4651002F23A5 /* RootViewController.m in Sources */,
+				7C89F8A71989C1B800F021EF /* PNColor.m in Sources */,
 				7CBD2C6F197E4651002F23A5 /* REFrostedContainerViewController.m in Sources */,
+				7CE78A90198C5AE2002ED7E5 /* HealthData.m in Sources */,
+				7CE78A9F198D8AC0002ED7E5 /* FriendTableViewCell.m in Sources */,
 				7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */,
+				7C89F8BA198AFDB400F021EF /* LaunchViewController.m in Sources */,
 				7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */,
+				7C89F8AB1989C22F00F021EF /* DetailViewController.m in Sources */,
 				7CBD2C5A197E4642002F23A5 /* UIImage+REFrostedViewController.m in Sources */,
 				7CBD2C2A197E4510002F23A5 /* AppDelegate.m in Sources */,
+				7C89F8A51989C1B800F021EF /* PNChart.m in Sources */,
 				7CBD2C6D197E4651002F23A5 /* RewardViewController.m in Sources */,
 				7CBD2C70197E4651002F23A5 /* RECommonFunctions.m in Sources */,
 				7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */,
+				3B1CD2071989D75400282886 /* (null) in Sources */,
+				7C89F8B11989CB4A00F021EF /* TargetViewDetailController.m in Sources */,
 				7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */,
-				7C79580D198729D1008FB679 /* DashTableViewController.m in Sources */,
 				7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */,
+				7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */,
+				7CE78A96198CA42C002ED7E5 /* ImproveTableViewCell.m in Sources */,
 				7CBD2C59197E4642002F23A5 /* UIView+REFrostedViewController.m in Sources */,
-				7CBD2C71197E4651002F23A5 /* ProfileViewController.m in Sources */,
+				7C89F8A81989C1B800F021EF /* PNLineChart.m in Sources */,
+				7CE78A93198C8366002ED7E5 /* DashTableViewCell.m in Sources */,
 				7CBD2C58197E4642002F23A5 /* UIViewController+REFrostedViewController.m in Sources */,
+				7C89F8A61989C1B800F021EF /* PNChartLabel.m in Sources */,
+				7C89F8A41989C1B800F021EF /* PNBarChart.m in Sources */,
 				7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */,
+				7CE78A9C198D5F36002ED7E5 /* ProfileTableViewCell.m in Sources */,
 				7CBD2C26197E4510002F23A5 /* main.m in Sources */,
 				7CBD2C79197E4671002F23A5 /* FitbitViewController.m in Sources */,
 				7CBD2C6E197E4651002F23A5 /* REFrostedViewController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface RootViewController ()
 
@@ -16,6 +17,8 @@
 
 - (void)awakeFromNib
 {
+    //self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"launchController"];
+    
     self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentController"];
     self.menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"menuController"];
 }
@@ -31,9 +34,8 @@
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
-    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,6 +44,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-//
 @end
