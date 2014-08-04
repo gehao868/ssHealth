@@ -21,6 +21,7 @@
     NSArray *expected;
     NSArray *tableData;
     NSArray *thumbnails;
+    double healthScore;
 }
 
 
@@ -33,10 +34,6 @@
     return self;
 }
 
-//-(UIStatusBarStyle)preferredStatusBarStyle{
-//    return UIStatusBarStyleLightContent;
-//}
-
 - (void)viewDidLoad
 {
     
@@ -47,9 +44,6 @@
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:200.0f/255.0f green:230.0f/255.0f blue:220.0f/255.0f alpha:1]];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Apple SD Gothic Neo" size:19]}];
     
-//    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-//    [[UILabel appearance] setFont:[UIFont fontWithName:@"Apple SD Gothic Neo" size:19]];
-
     
     
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
@@ -88,22 +82,45 @@
     self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(67.0f, 110.0f, 180.0f, 180.0f)];
     [self.view addSubview: self.largestProgressView];
     
-    [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
-
     thumbnails = [NSArray arrayWithObjects:@"heart_green", @"sleep_green", @"steps", @"water_green", @"weight_green",nil];
     
     expected = [NSArray arrayWithObjects: [NSNumber numberWithInt:80], [NSNumber numberWithInt:8], [NSNumber numberWithInt:1200], [NSNumber numberWithInt:6],[NSNumber numberWithInt:20],nil];
-    tableData = [NSArray arrayWithObjects:@"heartrate", @"sleep", @"steps", @"water", @"weight",nil];
-}
+    tableData = [NSArray arrayWithObjects:@"heartrate", @"sleep", @"step", @"cups", @"weight",nil];
+
+    healthScore = [self calculateScore:finished :expected];
+    NSLog(@"health score is %f", healthScore);
+
+    [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
+
+
+    }
 
 - (void)progressChange
 {
-    _largestProgressView.progress += 0.003;
+    if (_largestProgressView.progress > healthScore){
+        _largestProgressView.progress += 0.000;
+    } else {
+        _largestProgressView.progress += 0.003;
+    }
     
     if (_largestProgressView.progress > 1.0f)
     {
         _largestProgressView.progress = 0.0f;
     }
+}
+
+
+-(double) calculateScore:(NSArray *) finish :(NSArray *)expect {
+//    int sum_finish = 0;
+//    int sum_expected = 0;
+//    for (NSNumber * n in finish) {
+//        sum_finish = [n integerValue];
+//    }
+//    for (NSNumber * m in expect) {
+//        sum_expected = [m integerValue];
+//    }
+   
+    return 0.7;
 }
 
 - (void)didReceiveMemoryWarning
@@ -138,6 +155,7 @@
     static NSString *simpleTableIdentifier = @"HealthDataCell";
     
     DashTableViewCell *cell = (DashTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+
     if (cell == nil)
     {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"HealthDataCell" owner:self options:nil];
@@ -161,13 +179,19 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath{
+    [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"HealthDataSegue"]) {
         
-          NSIndexPath *indexPath = [self.dashTable indexPathForSelectedRow];
+        NSIndexPath *indexPath = [self.dashTable indexPathForSelectedRow];
         
-          DetailViewController *destViewController = segue.destinationViewController;
-          NSString *healthDataName = [tableData objectAtIndex:indexPath.row];
+        DetailViewController *destViewController = segue.destinationViewController;
+        NSString *healthDataName = [tableData objectAtIndex:indexPath.row];
+        
+        destViewController.healthDataName = healthDataName;
         
         
 //        PFObject *object = [self.objects objectAtIndex:indexPath.row];

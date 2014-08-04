@@ -8,12 +8,18 @@
 
 #import "DetailViewController.h"
 #import "PNChart.h"
+#import "Time.h"
+#import <Parse/Parse.h>
+
 
 @interface DetailViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation DetailViewController {
+    NSMutableArray *barData;
+    NSMutableArray *barDate;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +34,36 @@
 {
     [super viewDidLoad];
     
+    // Parse query
+    
+    
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
+    
+    [components setHour:-[components hour]];
+    [components setMinute:-[components minute]];
+    [components setSecond:-[components second]];
+    
+    [components setHour:-24];
+    [components setMinute:0];
+    [components setSecond:0];
+    
+    components = [cal components:NSWeekdayCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[[NSDate alloc] init]];
+    
+    [components setDay:([components day] - ([components weekday] - 1))];
+    
+    NSDate *thisWeek  = [cal dateFromComponents:components];
+    
+    [components setDay:([components day] - 7)];
+    NSDate *lastWeek  = [cal dateFromComponents:components];
+
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
+    //[query whereKey:@"Time" lessThanOrEqualTo:thisWeek];
+    [query whereKey:@"Time" greaterThan:lastWeek];
+    
+
+    
 	//Add BarChart
 	
 	UILabel * barChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, SCREEN_WIDTH, 30)];
@@ -35,17 +71,37 @@
 	barChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
 	barChartLabel.textAlignment = NSTextAlignmentCenter;
 	
-	PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 70.0, SCREEN_WIDTH, 200.0)];
+	PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 50.0, SCREEN_WIDTH, 200.0)];
 	barChart.backgroundColor = [UIColor clearColor];
 	barChart.type = PNBarType;
-	[barChart setXLabels:@[@"SEP 1",@"SEP 2",@"SEP 3",@"SEP 4",@"SEP 5"]];
-	[barChart setYValues:@[@"1",@"10",@"2",@"6",@"3"]];
-	[barChart strokeChart];
+    
+    
+    barData = [[NSMutableArray alloc] init];
+    barDate = [[NSMutableArray alloc] init];
+
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    format.dateFormat = @"dd";
+    
+    NSArray* objects = [query findObjects];
+    for (PFObject *object in objects) {
+        NSNumber *step =[NSNumber numberWithInt:[[object objectForKey:self.healthDataName] intValue]];
+        [barData addObject:step];
+        NSString *date = [format stringFromDate:[object objectForKey:@"Time"]];
+        [barDate addObject:date];
+    }
+    
+    
+	[barChart setXLabels:barDate];
+	[barChart setYValues:barData];
+	
+    
+    [barChart strokeChart];
 	[self.view addSubview:barChartLabel];
 	[self.view addSubview:barChart];
 	
-	// Do any additional setup after loading the view.
-
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,15 +110,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -26,6 +26,7 @@
 		7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B31989CD9900F021EF /* CompeteViewController.m */; };
 		7C89F8B71989F01600F021EF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B61989F01600F021EF /* ProfileViewController.m */; };
 		7C89F8BA198AFDB400F021EF /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B9198AFDB400F021EF /* LaunchViewController.m */; };
+		7CA1D870199024720066CE40 /* Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA1D86F199024720066CE40 /* Time.m */; };
 		7CBD2C1A197E4510002F23A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C19197E4510002F23A5 /* Foundation.framework */; };
 		7CBD2C1C197E4510002F23A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */; };
 		7CBD2C1E197E4510002F23A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1D197E4510002F23A5 /* UIKit.framework */; };
@@ -118,6 +119,8 @@
 		7C89F8B61989F01600F021EF /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		7C89F8B8198AFDB400F021EF /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
 		7C89F8B9198AFDB400F021EF /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
+		7CA1D86E199024720066CE40 /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
+		7CA1D86F199024720066CE40 /* Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Time.m; sourceTree = "<group>"; };
 		7CBD2C16197E4510002F23A5 /* samsungHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = samsungHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBD2C19197E4510002F23A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -470,6 +473,8 @@
 				7CE78A8F198C5AE2002ED7E5 /* HealthData.m */,
 				0BA87090198C5BA900236EBD /* UserData.h */,
 				0BA87091198C5BA900236EBD /* UserData.m */,
+				7CA1D86E199024720066CE40 /* Time.h */,
+				7CA1D86F199024720066CE40 /* Time.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 				7CBD2C58197E4642002F23A5 /* UIViewController+REFrostedViewController.m in Sources */,
 				7C89F8A61989C1B800F021EF /* PNChartLabel.m in Sources */,
 				7C89F8A41989C1B800F021EF /* PNBarChart.m in Sources */,
+				7CA1D870199024720066CE40 /* Time.m in Sources */,
 				7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */,
 				7CE78A9C198D5F36002ED7E5 /* ProfileTableViewCell.m in Sources */,
 				7CBD2C26197E4510002F23A5 /* main.m in Sources */,
