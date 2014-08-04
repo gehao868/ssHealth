@@ -129,7 +129,7 @@
                                             <outlet property="healthIconImage" destination="eOu-mU-d3q" id="mqk-RF-ZG3"/>
                                             <outlet property="output" destination="4Nq-Fa-Xzq" id="ORR-VJ-O5X"/>
                                             <outlet property="progress" destination="J8u-mB-7DA" id="LP6-TL-zof"/>
-                                            <segue destination="7Wj-2K-5tN" kind="push" id="bHK-vB-idW"/>
+                                            <segue destination="7Wj-2K-5tN" kind="push" identifier="HealthDataSegue" id="bHK-vB-idW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
