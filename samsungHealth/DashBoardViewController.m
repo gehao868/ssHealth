@@ -33,10 +33,24 @@
     return self;
 }
 
+//-(UIStatusBarStyle)preferredStatusBarStyle{
+//    return UIStatusBarStyleLightContent;
+//}
+
 - (void)viewDidLoad
 {
     
     [super viewDidLoad];
+    
+    //UI modification
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:70.0f/255.0f green:160.0f/255.0f blue:100.0f/255.0f alpha:1.0f];
+    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:200.0f/255.0f green:230.0f/255.0f blue:220.0f/255.0f alpha:1]];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Apple SD Gothic Neo" size:19]}];
+    
+//    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+//    [[UILabel appearance] setFont:[UIFont fontWithName:@"Apple SD Gothic Neo" size:19]];
+
+    
     
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
     [query whereKey:@"UserID" equalTo:@1];
@@ -71,9 +85,6 @@
          finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:step],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight], nil];
      }
    
-    
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:70.0f/255.0f green:160.0f/255.0f blue:100.0f/255.0f alpha:1.0f];
-    
     self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(67.0f, 110.0f, 180.0f, 180.0f)];
     [self.view addSubview: self.largestProgressView];
     

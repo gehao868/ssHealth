@@ -24,6 +24,7 @@ NSUserDefaults *defaults;
     
     [FBLoginView class];
     [FBProfilePictureView class];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;
 }
@@ -161,9 +162,36 @@ NSUserDefaults *defaults;
     [FBRequestConnection startWithGraphPath:@"/me/picture" parameters:picturePara HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
         NSString *url = [[result objectForKey:@"data"] objectForKey:@"url"];
         //NSLog(@"%@", url);
-        [UserData setAvatar:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
         
+        [UserData setAvatar:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
         [defaults setObject:[UserData getAvatar] forKey:@"avatar"];
+    }];
+    
+    NSMutableDictionary *friendsPara = [[NSMutableDictionary alloc] init];
+    [picturePara setValue:@10 forKey:@"limit"];
+    [FBRequestConnection startWithGraphPath:@"/me/taggable_friends" parameters:friendsPara HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
+        NSArray *friends = [result objectForKey:@"data"];
+        
+        NSMutableArray *FBFriends = [[NSMutableArray alloc] init];
+        for (NSDictionary *dict in friends) {
+            NSMutableDictionary *elm = [[NSMutableDictionary alloc] init];
+            
+            [elm setValue:[dict objectForKey:@"name"] forKey:@"name"];
+            [elm setValue:[[[dict objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"] forKey:@"pic"];
+            
+            [FBFriends addObject:elm];
+        }
+        
+        NSSortDescriptor *descriptor =
+        [[NSSortDescriptor alloc] initWithKey:@"name"
+                                    ascending:YES
+                                     selector:@selector(localizedCaseInsensitiveCompare:)];
+        
+        NSArray *descriptors = [NSArray arrayWithObjects:descriptor, nil];
+        NSArray *sortedFriends = [FBFriends sortedArrayUsingDescriptors:descriptors];
+        
+        [UserData setFBFriends:sortedFriends];
+        [defaults setObject:[UserData getFBFriends] forKey:@"FBFriends"];
     }];
 }
 
