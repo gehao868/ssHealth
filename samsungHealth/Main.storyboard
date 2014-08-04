@@ -545,7 +545,7 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="CNN-34-lgC" kind="push" id="8n5-xL-KFE"/>
+                                    <action selector="addFriend:" destination="OSV-Jl-5cM" eventType="touchUpInside" id="QHg-29-MZB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giH-mj-nRJ">
@@ -635,7 +635,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="hDt-Dz-Z9b">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="Yb0-W7-DfJ"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="Yb0-W7-DfJ">
+                            <connections>
+                                <action selector="done:" destination="CNN-34-lgC" id="x6z-Fq-GbQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="UA0-IX-UR8" id="3NG-2o-VE0"/>

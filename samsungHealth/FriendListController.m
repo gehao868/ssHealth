@@ -10,6 +10,8 @@
 #import "FriendTableViewCell.h"
 #import "UserData.h"
 
+#import <FacebookSDK/FacebookSDK.h>
+
 @interface FriendListController ()
 
 @end
@@ -83,22 +85,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectRowAtIndexPath");
-    /*UIAlertView *messageAlert = [[UIAlertView alloc]
-     initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];*/
-    UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"Row Selected" message:[tableData objectAtIndex:indexPath.row] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    
-    // Display the Hello World Message
-    [messageAlert show];
-    
-    // Checked the selected row
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    [FBWebDialogs presentRequestsDialogModallyWithSession:nil
+                                                  message:@"invite"
+                                                    title:@"title"
+                                               parameters:nil
+                                                  handler:nil
+                                                  ];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-
-
+- (IBAction)done:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

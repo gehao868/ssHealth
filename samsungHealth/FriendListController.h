@@ -10,4 +10,6 @@
 
 @interface FriendListController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+- (IBAction)done:(id)sender;
+
 @end
