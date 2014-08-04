@@ -7,12 +7,14 @@
 //
 
 #import "RewardViewController.h"
+#import "UserData.h"
 
 @interface RewardViewController ()
 
 @end
 
 @implementation RewardViewController
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.userIcon.image = [UIImage imageWithData:[UserData getAvatar]];
+    self.userIcon.layer.masksToBounds = YES;
+    self.userIcon.layer.cornerRadius = 30.0;
+    self.userIcon.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.userIcon.layer.borderWidth = 3.0f;
+    self.userIcon.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    self.userIcon.layer.shouldRasterize = YES;
+    self.userIcon.clipsToBounds = YES;
+    
     // Do any additional setup after loading the view.
 }
 
