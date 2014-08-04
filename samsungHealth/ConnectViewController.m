@@ -7,6 +7,7 @@
 //
 
 #import "ConnectViewController.h"
+#import "UserData.h"
 
 #import <FacebookSDK/FacebookSDK.h>
 
@@ -53,6 +54,39 @@
 }
 
 - (IBAction)addFriend:(id)sender {
+    [FBWebDialogs presentRequestsDialogModallyWithSession:nil
+                                                  message:@"invite"
+                                                    title:@"title"
+                                               parameters:nil
+                                                  handler:nil
+     ];
 }
+
+//- (IBAction)addFriend:(id)sender {
+//    NSMutableDictionary *friendsPara = [[NSMutableDictionary alloc] init];
+//    [FBRequestConnection startWithGraphPath:@"/me/taggable_friends" parameters:friendsPara HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
+//        NSArray *friends = [result objectForKey:@"data"];
+//        
+//        NSMutableArray *FBFriends = [[NSMutableArray alloc] init];
+//        for (NSDictionary *dict in friends) {
+//            NSMutableDictionary *elm = [[NSMutableDictionary alloc] init];
+//            
+//            [elm setValue:[dict objectForKey:@"name"] forKey:@"name"];
+//            [elm setValue:[[[dict objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"] forKey:@"pic"];
+//            
+//            [FBFriends addObject:elm];
+//        }
+//        
+//        NSSortDescriptor *descriptor =
+//        [[NSSortDescriptor alloc] initWithKey:@"name"
+//                                    ascending:YES
+//                                     selector:@selector(localizedCaseInsensitiveCompare:)];
+//        
+//        NSArray *descriptors = [NSArray arrayWithObjects:descriptor, nil];
+//        NSArray *sortedFriends = [FBFriends sortedArrayUsingDescriptors:descriptors];
+//        
+//        [UserData setFBFriends:sortedFriends];
+//    }];
+//}
 
 @end
