@@ -156,7 +156,7 @@
     }
     
     if (indexPath.section == 0) {
-        NSArray *titles = @[@"DashBoard", @"Goal", @"Connect", @"Rewards", @"Profile", @"Manage Device"];
+        NSArray *titles = @[@"Dashboard", @"Goal", @"Connect", @"Rewards", @"Profile", @"Manage Device"];
         NSArray *images = @[[UIImage imageNamed:@"dashboard"],[UIImage imageNamed:@"target"],[UIImage imageNamed:@"connect"],[UIImage imageNamed:@"reward"],[UIImage imageNamed:@"profile"],[UIImage imageNamed:@"setting"]];
         cell.textLabel.text = titles[indexPath.row];
         cell.imageView.image = images[indexPath.row];

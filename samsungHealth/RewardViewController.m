@@ -57,6 +57,9 @@
 }
 */
 
+- (IBAction)play:(UIButton *)sender {
+}
+
 - (IBAction)showMenu:(id)sender {
         [self.frostedViewController presentMenuViewController];
 }

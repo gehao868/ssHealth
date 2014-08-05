@@ -74,6 +74,8 @@
 		7CE78A99198CA459002ED7E5 /* ImproveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A98198CA459002ED7E5 /* ImproveTableViewController.m */; };
 		7CE78A9C198D5F36002ED7E5 /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A9B198D5F36002ED7E5 /* ProfileTableViewCell.m */; };
 		7CE78A9F198D8AC0002ED7E5 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A9E198D8AC0002ED7E5 /* FriendTableViewCell.m */; };
+		BB93A1F819914E7D00AA1CED /* RedeemCouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB93A1F719914E7D00AA1CED /* RedeemCouponCell.m */; };
+		BB93A1FB19914FE100AA1CED /* RedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB93A1FA19914FE100AA1CED /* RedeemViewController.m */; };
 		BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC1B2CD198721E600DDEC78 /* FriendListController.m */; };
 /* End PBXBuildFile section */
 
@@ -197,6 +199,10 @@
 		7CE78A9B198D5F36002ED7E5 /* ProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
 		7CE78A9D198D8AC0002ED7E5 /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
 		7CE78A9E198D8AC0002ED7E5 /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
+		BB93A1F619914E7D00AA1CED /* RedeemCouponCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedeemCouponCell.h; sourceTree = "<group>"; };
+		BB93A1F719914E7D00AA1CED /* RedeemCouponCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedeemCouponCell.m; sourceTree = "<group>"; };
+		BB93A1F919914FE100AA1CED /* RedeemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedeemViewController.h; sourceTree = "<group>"; };
+		BB93A1FA19914FE100AA1CED /* RedeemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedeemViewController.m; sourceTree = "<group>"; };
 		BBC1B2CC198721E600DDEC78 /* FriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListController.h; sourceTree = "<group>"; };
 		BBC1B2CD198721E600DDEC78 /* FriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -316,6 +322,10 @@
 			children = (
 				7CBD2C5F197E4651002F23A5 /* RewardViewController.h */,
 				7CBD2C5E197E4651002F23A5 /* RewardViewController.m */,
+				BB93A1F619914E7D00AA1CED /* RedeemCouponCell.h */,
+				BB93A1F719914E7D00AA1CED /* RedeemCouponCell.m */,
+				BB93A1F919914FE100AA1CED /* RedeemViewController.h */,
+				BB93A1FA19914FE100AA1CED /* RedeemViewController.m */,
 			);
 			name = Reward;
 			sourceTree = "<group>";
@@ -598,6 +608,7 @@
 				7CBD2C30197E4510002F23A5 /* ViewController.m in Sources */,
 				7C89F8B71989F01600F021EF /* ProfileViewController.m in Sources */,
 				7CBD2C5B197E4642002F23A5 /* TargetViewController.m in Sources */,
+				BB93A1FB19914FE100AA1CED /* RedeemViewController.m in Sources */,
 				7CBD2C6C197E4651002F23A5 /* RootViewController.m in Sources */,
 				7C89F8A71989C1B800F021EF /* PNColor.m in Sources */,
 				7CBD2C6F197E4651002F23A5 /* REFrostedContainerViewController.m in Sources */,
@@ -615,6 +626,7 @@
 				7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */,
 				3B1CD2071989D75400282886 /* (null) in Sources */,
 				7C89F8B11989CB4A00F021EF /* TargetViewDetailController.m in Sources */,
+				BB93A1F819914E7D00AA1CED /* RedeemCouponCell.m in Sources */,
 				7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */,
 				7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */,
 				7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */,
