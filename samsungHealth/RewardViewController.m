@@ -154,8 +154,24 @@ double radians(float degrees) {
     
     NSLog(@"startValue = %f",startValue);
     NSLog(@"result = %@",result);
-    _label1.text = result;
     NSLog(@"endValue = %f\n",endValue);
+    if (![result  isEqual: @"try again"]) {
+        [[[UIAlertView alloc] initWithTitle:@"Congratulations!" message:@"You win 1st prize!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Detail", nil] show];
+    } else {
+        _label1.text = result;
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"buttonIndex is : %li",(long)buttonIndex);
+    switch (buttonIndex) {
+        case 0:{
+            
+        }break;
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning
