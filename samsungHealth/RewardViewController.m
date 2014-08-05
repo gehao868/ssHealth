@@ -156,7 +156,7 @@ double radians(float degrees) {
     NSLog(@"result = %@",result);
     NSLog(@"endValue = %f\n",endValue);
     if (![result  isEqual: @"try again"]) {
-        [[[UIAlertView alloc] initWithTitle:@"Congratulations!" message:@"You win 1st prize!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Detail", nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Congratulations!" message:[@"You win " stringByAppendingString:result] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Detail", nil] show];
     } else {
         _label1.text = result;
     }
