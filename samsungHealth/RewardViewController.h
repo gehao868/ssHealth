@@ -12,6 +12,9 @@
 @interface RewardViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *userIcon;
 @property (weak, nonatomic) IBOutlet UILabel *rewardPoint;
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UIImageView *plateImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *rotateStaticImageView;
 - (IBAction)play:(UIButton *)sender;
 
 - (IBAction)showMenu:(id)sender;
