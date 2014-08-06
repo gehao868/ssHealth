@@ -101,9 +101,9 @@
          
          
 -(void) setDefaultColor{
-    if (healthScore < 60) {
+    if (healthScore * 100 < 60) {
         defaultColor = [DEFAULT_COLOR_RED;
-    } else if (healthScore < 80) {
+    } else if (healthScore * 100 < 80) {
         defaultColor = [DEFAULT_COLOR_YELLOW;
     } else {
         defaultColor = [DEFAULT_COLOR_GREEN;
@@ -188,7 +188,13 @@
 
 
     cell.progress.progress =  x.doubleValue /y.doubleValue;
-    cell.progress.progressTintColor = [DEFAULT_COLOR_RED;
+    UIColor* tintColor = [DEFAULT_COLOR_GREEN;
+    if (z * 100 < 60) {
+        tintColor = [DEFAULT_COLOR_RED;
+    } else if (z * 100 < 80) {
+        tintColor = [DEFAULT_COLOR_YELLOW;
+    }
+    cell.progress.progressTintColor = tintColor;
     
     cell.healthIconImage.image = [UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
     [[cell healthIconImage]setTintColor:[UIColor lightGrayColor]];

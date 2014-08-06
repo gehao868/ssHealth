@@ -45,10 +45,6 @@
     return self;
 }
 
--(void)setColor:(UIColor*) color{
-    _trackTintColor = color;
-}
-
 - (void)drawRect:(CGRect)rect
 {    
     CGPoint centerPoint = CGPointMake(rect.size.height / 2, rect.size.width / 2);
@@ -66,7 +62,7 @@
     [self.trackTintColor setFill];
     CGMutablePathRef trackPath = CGPathCreateMutable();
     CGPathMoveToPoint(trackPath, NULL, centerPoint.x, centerPoint.y);
-    CGPathAddArc(trackPath, NULL, centerPoint.x, centerPoint.y, radius, DEGREES_2_RADIANS(270), DEGREES_2_RADIANS(-90), NO);
+    CGPathAddArc(trackPath, NULL, centerPoint.x, centerPoint.y, radius, DEGREES_2_RADIANS(-90), DEGREES_2_RADIANS(270), NO);
     CGPathCloseSubpath(trackPath);
     CGContextAddPath(context, trackPath);
     CGContextFillPath(context);
