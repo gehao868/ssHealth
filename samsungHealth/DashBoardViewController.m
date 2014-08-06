@@ -95,8 +95,19 @@
     tableData = [NSArray arrayWithObjects:@"heartrate", @"sleep", @"step", @"cups", @"weight",nil];
 
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
-    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(numberChange:) userInfo:nil repeats:YES];
-
+    [NSTimer scheduledTimerWithTimeInterval:0.17 target:self selector:@selector(numberChange:) userInfo:nil repeats:YES];
+                                                            //add shadow
+                                                            self.dashTable.layer.shadowColor = [UIColor darkGrayColor].CGColor;
+                                                            
+                                                            self.dashTable.layer.shadowOffset = CGSizeMake(5.0f, 5.0f);
+                                                            
+                                                            self.dashTable.layer.shadowOpacity = 0.4;
+                                                            
+                                                            self.dashTable.layer.shadowRadius = 5.0f;
+                                                            
+                                                            self.dashTable.clipsToBounds = NO;
+                                                            
+                                                            self.dashTable.layer.masksToBounds = NO;
 }
          
          
