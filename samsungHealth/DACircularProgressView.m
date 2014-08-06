@@ -68,6 +68,7 @@
     CGContextFillPath(context);
     CGPathRelease(trackPath);
     
+    
     [self.progressTintColor setFill];
     CGMutablePathRef progressPath = CGPathCreateMutable();
     CGPathMoveToPoint(progressPath, NULL, centerPoint.x, centerPoint.y);
@@ -79,12 +80,11 @@
     
     CGContextAddEllipseInRect(context, CGRectMake(centerPoint.x - pathWidth/2, 0, pathWidth, pathWidth));
     CGContextFillPath(context);
-    
     CGContextAddEllipseInRect(context, CGRectMake(endPoint.x - pathWidth/2, endPoint.y - pathWidth/2, pathWidth, pathWidth));
     CGContextFillPath(context);
     
     CGContextSetBlendMode(context, kCGBlendModeClear);;
-    CGFloat innerRadius = radius * 0.7;
+    CGFloat innerRadius = radius * 0.85;
 	CGPoint newCenterPoint = CGPointMake(centerPoint.x - innerRadius, centerPoint.y - innerRadius);    
 	CGContextAddEllipseInRect(context, CGRectMake(newCenterPoint.x, newCenterPoint.y, innerRadius*2, innerRadius*2));
 	CGContextFillPath(context);

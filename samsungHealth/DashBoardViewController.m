@@ -86,7 +86,7 @@
     [self setDefaultColor];
     _score.textColor = defaultColor;
     [[self largestProgressView]setProgressTintColor:defaultColor];
-       NSLog(@"health score is %f", healthScore);
+    NSLog(@"health score is %f", healthScore);
     [self.view addSubview: self.largestProgressView];
     
     thumbnails = [NSArray arrayWithObjects:@"heart_green", @"sleep_green", @"steps", @"water_green", @"weight_green",nil];
@@ -95,7 +95,8 @@
     tableData = [NSArray arrayWithObjects:@"heartrate", @"sleep", @"step", @"cups", @"weight",nil];
 
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
-
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(numberChange:) userInfo:nil repeats:YES];
+    
 
 }
          
@@ -113,9 +114,7 @@
 
 - (void)progressChange
 {
-    if (_largestProgressView.progress > healthScore){
-        _largestProgressView.progress += 0.000;
-    } else {
+    if (_largestProgressView.progress < healthScore){
         _largestProgressView.progress += 0.003;
     }
     
@@ -123,6 +122,17 @@
     {
         _largestProgressView.progress = 0.0f;
     }
+}
+                        
+- (void)numberChange:(NSTimer *)timer {
+    NSInteger value = _score.text.integerValue;
+    if (value > healthScore * 100){
+    } else if (value > healthScore * 100 - 3){
+        value = healthScore * 100;
+    } else {
+        value += 3;
+    }
+    _score.text = [NSString stringWithFormat:@"%ld",(long)value];
 }
 
 
