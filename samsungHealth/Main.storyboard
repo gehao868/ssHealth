@@ -148,6 +148,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Health Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4N4-VZ-pT9">
                                 <rect key="frame" x="108" y="170" width="104" height="21"/>
@@ -163,7 +164,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <size key="titleShadowOffset" width="270" height="45"/>
                                 <state key="normal" title="Improve">
-                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="ZUt-o8-i1O" kind="push" id="qq0-bQ-YKe"/>
