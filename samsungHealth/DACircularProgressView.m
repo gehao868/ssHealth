@@ -26,8 +26,7 @@
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self)
     {
@@ -44,6 +43,10 @@
         self.backgroundColor = [UIColor clearColor];
     }
     return self;
+}
+
+-(void)setColor:(UIColor*) color{
+    _trackTintColor = color;
 }
 
 - (void)drawRect:(CGRect)rect
@@ -102,6 +105,7 @@
     return _trackTintColor;
 }
 
+
 - (UIColor *)progressTintColor
 {
     if (!_progressTintColor)
@@ -109,6 +113,10 @@
         _progressTintColor = [UIColor colorWithRed:70.0f/255.0f green:160.0f/255.0f blue:100.0f/255.0f alpha:1.0f];
     }
     return _progressTintColor;
+}
+
+- (void)setProgressTintColor:(UIColor *)color{
+    _progressTintColor = color;
 }
 
 - (void)setProgress:(float)progress

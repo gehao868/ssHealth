@@ -84,7 +84,7 @@
             </objects>
             <point key="canvasLocation" x="-801" y="1876"/>
         </scene>
-        <!--Dash Board View Controller - DashBoard-->
+        <!--Dash Board View Controller - Dashboard-->
         <scene sceneID="4d1-Jz-tGk">
             <objects>
                 <viewController storyboardIdentifier="homeController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jsP-Dz-DYG" customClass="DashBoardViewController" sceneMemberID="viewController">
@@ -118,6 +118,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eOu-mU-d3q">
                                                     <rect key="frame" x="15" y="3" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="J8u-mB-7DA">
                                                     <rect key="frame" x="85" y="32" width="191" height="2"/>
@@ -148,7 +149,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9w-vY-iff">
                                 <rect key="frame" x="25" y="311" width="270" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.27450980390000002" green="0.62745098040000002" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.44705882352941173" green="0.80000000000000004" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <size key="titleShadowOffset" width="270" height="45"/>
                                 <state key="normal" title="Improve">
@@ -181,7 +182,7 @@
                             </label>
                         </subviews>
                     </view>
-                    <navigationItem key="navigationItem" title="DashBoard" id="HIf-bS-REK">
+                    <navigationItem key="navigationItem" title="Dashboard" id="HIf-bS-REK">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="SZg-Pf-I50">
                             <connections>
                                 <action selector="showMenu" destination="jsP-Dz-DYG" id="Soy-f1-SOW"/>
@@ -190,6 +191,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dashTable" destination="uPT-i6-wlo" id="Wzc-zN-nDf"/>
+                        <outlet property="score" destination="73S-fu-iWP" id="jr7-Cd-Zrg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Awc-v8-Z61" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -381,7 +383,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVG-9Y-6zL">
-                                <rect key="frame" x="261" y="67" width="35" height="35"/>
+                                <rect key="frame" x="278" y="68" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

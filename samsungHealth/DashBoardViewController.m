@@ -13,7 +13,7 @@
 
 
 @interface DashBoardViewController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *score;
 @end
 
 @implementation DashBoardViewController {
@@ -22,9 +22,10 @@
     NSArray *tableData;
     NSArray *thumbnails;
     double healthScore;
+    UIColor* defaultColor;
 }
 
-
+@synthesize score = _score;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -40,11 +41,11 @@
     [super viewDidLoad];
     
     //UI modification
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:70.0f/255.0f green:160.0f/255.0f blue:100.0f/255.0f alpha:1.0f];
-    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:200.0f/255.0f green:230.0f/255.0f blue:220.0f/255.0f alpha:1]];
+    self.navigationController.navigationBar.barTintColor = [DEFAULT_COLOR_GREEN;
+//    [self.navigationController.navigationBar setTranslucent:NO];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Apple SD Gothic Neo" size:19]}];
-    
-    
+        
     
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
     [query whereKey:@"UserID" equalTo:@1];
@@ -80,6 +81,12 @@
      }
    
     self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(67.0f, 110.0f, 180.0f, 180.0f)];
+                                                            
+    healthScore = [self calculateScore:finished :expected];
+    [self setDefaultColor];
+    _score.textColor = defaultColor;
+    [[self largestProgressView]setProgressTintColor:defaultColor];
+       NSLog(@"health score is %f", healthScore);
     [self.view addSubview: self.largestProgressView];
     
     thumbnails = [NSArray arrayWithObjects:@"heart_green", @"sleep_green", @"steps", @"water_green", @"weight_green",nil];
@@ -87,13 +94,22 @@
     expected = [NSArray arrayWithObjects: [NSNumber numberWithInt:80], [NSNumber numberWithInt:8], [NSNumber numberWithInt:1200], [NSNumber numberWithInt:6],[NSNumber numberWithInt:20],nil];
     tableData = [NSArray arrayWithObjects:@"heartrate", @"sleep", @"step", @"cups", @"weight",nil];
 
-    healthScore = [self calculateScore:finished :expected];
-    NSLog(@"health score is %f", healthScore);
-
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
 
 
+}
+         
+         
+-(void) setDefaultColor{
+    if (healthScore < 60) {
+        defaultColor = [DEFAULT_COLOR_RED;
+    } else if (healthScore < 80) {
+        defaultColor = [DEFAULT_COLOR_YELLOW;
+    } else {
+        defaultColor = [DEFAULT_COLOR_GREEN;
     }
+}
+                        
 
 - (void)progressChange
 {
@@ -172,10 +188,10 @@
 
 
     cell.progress.progress =  x.doubleValue /y.doubleValue;
-    cell.progress.progressTintColor = [UIColor redColor];
+    cell.progress.progressTintColor = [DEFAULT_COLOR_RED;
     
     cell.healthIconImage.image = [UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
-    
+    [[cell healthIconImage]setTintColor:[UIColor lightGrayColor]];
     return cell;
 }
 

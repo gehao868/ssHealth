@@ -29,11 +29,13 @@
 {
     [super viewDidLoad];
     
-    self.tableView.separatorColor = [UIColor colorWithRed:235/255.0f green:255/255.0f blue:170/255.0f alpha:1.0f];
+//    self.tableView.separatorColor = [UIColor colorWithRed:235/255.0f green:255/255.0f blue:170/255.0f alpha:1.0f];
+    self.tableView.separatorColor = [DEFAULT_COLOR_YELLOW;
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.opaque = NO;
-    self.tableView.backgroundColor = [UIColor colorWithRed:70.0f/255.0f green:160.0f/255.0f blue:100.0f/255.0f alpha:1.0f];
+    self.tableView.backgroundColor = [DEFAULT_COLOR_GREEN;
     self.tableView.tableHeaderView = ({
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
@@ -51,7 +53,7 @@
         label.text = [UserData getFirstName];
         label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
         label.backgroundColor = [UIColor clearColor];
-        label.textColor = [UIColor colorWithRed:235/255.0f green:255/255.0f blue:170/255.0f alpha:1.0f];
+        label.textColor = [UIColor whiteColor];
         [label sizeToFit];
         label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         
@@ -96,7 +98,7 @@
     if (sectionIndex == 0)
         return 0;
     
-    return 34;
+    return 6;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
