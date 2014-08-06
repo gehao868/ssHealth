@@ -67,9 +67,11 @@
     CGContextAddPath(context, trackPath);
     CGContextFillPath(context);
     CGPathRelease(trackPath);
-    
-    
-    [self.progressTintColor setFill];
+
+//gradient color
+    [[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient"]] setFill];
+//3 tint color based on score
+//    [self.progressTintColor setFill];
     CGMutablePathRef progressPath = CGPathCreateMutable();
     CGPathMoveToPoint(progressPath, NULL, centerPoint.x, centerPoint.y);
     CGPathAddArc(progressPath, NULL, centerPoint.x, centerPoint.y, radius, DEGREES_2_RADIANS(270), radians, NO);
