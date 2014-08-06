@@ -28,8 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    self.tableView.separatorColor = [UIColor colorWithRed:235/255.0f green:255/255.0f blue:170/255.0f alpha:1.0f];
+    //remove extra rows
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.separatorColor = [DEFAULT_COLOR_YELLOW;
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     self.tableView.delegate = self;
@@ -166,5 +166,6 @@
     
     return cell;
 }
+                                      
 
 @end
