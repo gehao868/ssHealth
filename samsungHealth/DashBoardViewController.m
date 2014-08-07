@@ -394,7 +394,6 @@
         
         destViewController.healthDataName = healthDataName;
         
-        
 //        PFObject *object = [self.objects objectAtIndex:indexPath.row];
         
 //        Recipe *recipe = [[Recipe alloc] init];
