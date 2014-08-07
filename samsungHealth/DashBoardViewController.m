@@ -8,6 +8,7 @@
 
 #import "DashBoardViewController.h"
 #import "HealthData.h"
+#import "UserData.h"
 #import "DashTableViewCell.h"
 #import "DetailViewController.h"
 
@@ -68,7 +69,7 @@
         
     
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
-    [query whereKey:@"UserID" equalTo:@1];
+    [query whereKey:@"UserID" equalTo:[UserData getFirstName]];
 
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
