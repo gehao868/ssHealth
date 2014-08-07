@@ -314,7 +314,7 @@
    
 //    return 0.7;
     srand48(time(0));
-    return drand48();
+    return 0.50f + drand48()/2.0f;
 }
 
 - (void)didReceiveMemoryWarning
