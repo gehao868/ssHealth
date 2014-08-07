@@ -393,7 +393,8 @@
         NSString *healthDataName = [tableData objectAtIndex:indexPath.row];
         
         destViewController.healthDataName = healthDataName;
-        
+        destViewController.type = segue.identifier;
+
 //        PFObject *object = [self.objects objectAtIndex:indexPath.row];
         
 //        Recipe *recipe = [[Recipe alloc] init];

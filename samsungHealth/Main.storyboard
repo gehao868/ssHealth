@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0XT-Lj-xhU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0XT-Lj-xhU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -349,7 +349,7 @@
                         <outlet property="bodyfat" destination="2pC-YX-h65" id="58v-rv-L8P"/>
                         <outlet property="cups" destination="T45-Ob-Oqr" id="ilv-aw-VvM"/>
                         <outlet property="dashTable" destination="uPT-i6-wlo" id="Wzc-zN-nDf"/>
-                        <outlet property="heartrate" destination="L3z-lD-Dc8" id="AnU-lQ-rZp"/>
+                        <outlet property="heartrate" destination="L3z-lD-Dc8" id="Snw-G9-jAQ"/>
                         <outlet property="score" destination="73S-fu-iWP" id="jr7-Cd-Zrg"/>
                         <outlet property="sleep" destination="3Fj-H2-pOq" id="28e-QS-WkP"/>
                         <outlet property="step" destination="RhN-Z8-JO5" id="HOj-K5-c71"/>

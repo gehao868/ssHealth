@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailViewController : UIViewController
-@property (nonatomic, strong) NSString *healthDataName;
-
+@property (strong, nonatomic) NSString *healthDataName;
+@property (strong, nonatomic) NSString *type;
+@property (strong, nonatomic) NSString *val;
 
 @end
