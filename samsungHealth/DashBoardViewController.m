@@ -129,7 +129,7 @@
             [subScore addObject:[NSNumber numberWithFloat:z]];
             NSString *text = [[NSString alloc] initWithFormat:@"%2.0f %%",(z*100)];
             [[subCircleLabel objectAtIndex:j*3+i] setText:text];
-            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(30.0f + i * 100, 365.0f + 90.0f * j, 60.0f, 60.0f)];
+            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(26.0f + i * 104, 368.0f + 105.0f * j, 60.0f, 60.0f)];
             [tmpView setProgress:z];
             [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN];
             [self.subProgessView addObject:tmpView];

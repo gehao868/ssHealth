@@ -69,9 +69,22 @@
     CGPathRelease(trackPath);
 
 //gradient color
-    [[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient"]] setFill];
-//3 tint color based on score
+    UIImage* image = [UIImage imageNamed:@"gradient"];
+    if(radius < 50){
+        CGSize newSize = CGSizeMake(60.0f, 60.0f);
+        UIGraphicsBeginImageContext( newSize );
+        [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        image = newImage;
+    }
+    [[UIColor colorWithPatternImage:image] setFill];
+//    else {
+//        if(self.progress < 0.6f) self.progressTintColor = [DEFAULT_COLOR_RED;
+//        else if (self.progress < 0.8f) self.progressTintColor = [DEFAULT_COLOR_YELLOW;
+////3 tint color based on score
 //    [self.progressTintColor setFill];
+//    }
     CGMutablePathRef progressPath = CGPathCreateMutable();
     CGPathMoveToPoint(progressPath, NULL, centerPoint.x, centerPoint.y);
     CGPathAddArc(progressPath, NULL, centerPoint.x, centerPoint.y, radius, DEGREES_2_RADIANS(270), radians, NO);
