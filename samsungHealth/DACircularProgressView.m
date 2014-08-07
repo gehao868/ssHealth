@@ -71,14 +71,24 @@
 //gradient color
     UIImage* image = [UIImage imageNamed:@"gradient"];
     if(radius < 50){
-        CGSize newSize = CGSizeMake(60.0f, 60.0f);
-        UIGraphicsBeginImageContext( newSize );
-        [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
-        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        image = newImage;
+        self.progressTintColor =[DEFAULT_COLOR_GREEN;
+        if(self.progress < 0.6f) {
+            self.progressTintColor = [DEFAULT_COLOR_RED;
+                                      } else if (self.progress < 0.8f) {
+                                          self.progressTintColor = [DEFAULT_COLOR_YELLOW;
+
+                                      }
+                                                                    [self.progressTintColor setFill];
+//     resize gradient
+//        CGSize newSize = CGSizeMake(60.0f, 60.0f);
+//        UIGraphicsBeginImageContext( newSize );
+//        [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+//        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+//        UIGraphicsEndImageContext();
+//        image = newImage;
+    } else {
+        [[UIColor colorWithPatternImage:image] setFill];
     }
-    [[UIColor colorWithPatternImage:image] setFill];
 //    else {
 //        if(self.progress < 0.6f) self.progressTintColor = [DEFAULT_COLOR_RED;
 //        else if (self.progress < 0.8f) self.progressTintColor = [DEFAULT_COLOR_YELLOW;
@@ -119,10 +129,10 @@
 
 - (UIColor *)progressTintColor
 {
-    if (!_progressTintColor)
-    {
-        _progressTintColor = [UIColor colorWithRed:70.0f/255.0f green:160.0f/255.0f blue:100.0f/255.0f alpha:1.0f];
-    }
+//    if (!_progressTintColor)
+//    {
+//        _progressTintColor = [UIColor colorWithRed:70.0f/255.0f green:160.0f/255.0f blue:100.0f/255.0f alpha:1.0f];
+//    }
     return _progressTintColor;
 }
 
