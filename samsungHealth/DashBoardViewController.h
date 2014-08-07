@@ -14,6 +14,7 @@
 
 
 @property (strong, nonatomic) DACircularProgressView *largestProgressView;
+@property (strong, nonatomic) NSMutableArray *subProgessView;
 
 - (IBAction)showMenu;
 @property (strong, nonatomic) IBOutlet UITableView *dashTable;

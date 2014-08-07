@@ -21,8 +21,11 @@
     NSArray *expected;
     NSArray *tableData;
     NSArray *thumbnails;
+    NSMutableArray *subScore;
+    NSMutableArray *subTimers;
     double healthScore;
     UIColor* defaultColor;
+    int healthScoreInt;
 }
 
 @synthesize score = _score;
@@ -83,31 +86,59 @@
     self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(67.0f, 110.0f, 180.0f, 180.0f)];
                                                             
     healthScore = [self calculateScore:finished :expected];
+    healthScoreInt = (int)roundf(healthScore * 100);
+//    [[self largestProgressView]setProgress:healthScore];
     [self setDefaultColor];
     _score.textColor = defaultColor;
     [[self largestProgressView]setProgressTintColor:defaultColor];
     NSLog(@"health score is %f", healthScore);
     [self.view addSubview: self.largestProgressView];
     
+                                                            
+    //add sub circle progress
+                                                            
+    self.subProgessView = [[NSMutableArray alloc]init];
+    subScore = [[NSMutableArray alloc] init];
+    for(int i = 0; i < 3; i++) {
+        for (int j = 0; j < 2; j++) {
+//            NSNumber *index = [NSNumber numberWithInt:j * 3 + 1];
+//            NSNumber *x = (NSNumber*)[finished objectAtIndex:index];
+//            NSNumber *y = (NSNumber*)[expected objectAtIndex:index];
+//            float z = x.floatValue /y.floatValue;
+            float z = (i + 78.0f) * (j + 79.0f) / (i + 83.0f) / (j + 81.0f) / (7- i - j) * 4;
+            [subScore addObject:[NSNumber numberWithFloat:z]];
+            NSString *text = [[NSString alloc] initWithFormat:@"%2.0f %%",(z*100)];
+            
+            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(33.3333333f + 300 / 6 * (i * 2), 360.0f + 100.0f * j, 60.0f, 60.0f)];
+            [tmpView setProgress:z];
+            [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN];
+            [self.subProgessView addObject:tmpView];
+            [self.view addSubview:tmpView];
+             NSString* selectorName = [NSString stringWithFormat:@"subProgressChange%d:",(j*3+1)];
+//             SEL selector = NSSelectorFromString(selectorName);
+//             [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:selector userInfo:[NSNumber numberWithInt:j*3+i] repeats:YES];
+        }
+    }
+    
+    
+                                                            
+                                                            
+    //sub circle progress ended
+             
     thumbnails = [NSArray arrayWithObjects:@"heart_green", @"sleep_green", @"steps", @"water_green", @"weight_green",nil];
     
     expected = [NSArray arrayWithObjects: [NSNumber numberWithInt:80], [NSNumber numberWithInt:8], [NSNumber numberWithInt:1200], [NSNumber numberWithInt:6],[NSNumber numberWithInt:20],nil];
     tableData = [NSArray arrayWithObjects:@"heartrate", @"sleep", @"step", @"cups", @"weight",nil];
-
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
-    [NSTimer scheduledTimerWithTimeInterval:0.17 target:self selector:@selector(numberChange:) userInfo:nil repeats:YES];
-                                                            //add shadow
-                                                            self.dashTable.layer.shadowColor = [UIColor darkGrayColor].CGColor;
-                                                            
-                                                            self.dashTable.layer.shadowOffset = CGSizeMake(5.0f, 5.0f);
-                                                            
-                                                            self.dashTable.layer.shadowOpacity = 0.4;
-                                                            
-                                                            self.dashTable.layer.shadowRadius = 5.0f;
-                                                            
-                                                            self.dashTable.clipsToBounds = NO;
-                                                            
-                                                            self.dashTable.layer.masksToBounds = NO;
+//    [NSTimer scheduledTimerWithTimeInterval:0.17 target:self selector:@selector(numberChange:) userInfo:nil repeats:YES];
+             
+    //add shadow
+    self.dashTable.layer.shadowColor = [UIColor darkGrayColor].CGColor;
+    self.dashTable.layer.shadowOffset = CGSizeMake(5.0f, 5.0f);
+    self.dashTable.layer.shadowOpacity = 0.4;
+    self.dashTable.layer.shadowRadius = 5.0f;
+    self.dashTable.clipsToBounds = NO;
+    self.dashTable.layer.masksToBounds = NO;
 }
          
          
@@ -124,15 +155,120 @@
 
 - (void)progressChange
 {
-    if (_largestProgressView.progress < healthScore){
-        _largestProgressView.progress += 0.003;
+    int score = (int)roundf(_largestProgressView.progress * 100);
+    
+    if (score > _score.text.intValue) {
+        score += 1;
+        _score.text = [NSString stringWithFormat:@"%d",score];
+    } else if (healthScoreInt < _score.text.intValue) {
+        _score.text = [NSString stringWithFormat:@"%d",healthScoreInt];
     }
     
+    if (_largestProgressView.progress < healthScore){
+        _largestProgressView.progress += 0.003f;
+    }
     if (_largestProgressView.progress > 1.0f)
     {
         _largestProgressView.progress = 0.0f;
     }
+    
 }
+
+- (void)subProgressChange1:(NSTimer*)timer
+{
+            NSNumber* index = (NSNumber*)[timer userInfo];
+            DACircularProgressView * tmpView= _subProgessView[index.intValue];
+    NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
+    
+            if (tmpView.progress < score.floatValue){
+                tmpView.progress += 0.003;
+            }
+            
+            if (tmpView.progress > 1.0f)
+            {
+                tmpView.progress = 0.0f;
+            }
+        }
+                        
+                        - (void)subProgressChange2:(NSTimer*)timer
+        {
+            NSNumber* index = (NSNumber*)[timer userInfo];
+            DACircularProgressView * tmpView= _subProgessView[index.intValue];
+            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
+            
+            if (tmpView.progress < score.floatValue){
+                tmpView.progress += 0.003;
+            }
+            
+            if (tmpView.progress > 1.0f)
+            {
+                tmpView.progress = 0.0f;
+            }
+        }
+                        
+                        - (void)subProgressChange3:(NSTimer*)timer
+        {
+            NSNumber* index = (NSNumber*)[timer userInfo];
+            DACircularProgressView * tmpView= _subProgessView[index.intValue];
+            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
+            
+            if (tmpView.progress < score.floatValue){
+                tmpView.progress += 0.003;
+            }
+            
+            if (tmpView.progress > 1.0f)
+            {
+                tmpView.progress = 0.0f;
+            }
+        }
+
+                        - (void)subProgressChange4:(NSTimer*)timer
+        {
+            NSNumber* index = (NSNumber*)[timer userInfo];
+            DACircularProgressView * tmpView= _subProgessView[index.intValue];
+            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
+            
+            if (tmpView.progress < score.floatValue){
+                tmpView.progress += 0.003;
+            }
+            
+            if (tmpView.progress > 1.0f)
+            {
+                tmpView.progress = 0.0f;
+            }
+        }
+                        - (void)subProgressChange5:(NSTimer*)timer
+        {
+            NSNumber* index = (NSNumber*)[timer userInfo];
+            DACircularProgressView * tmpView= _subProgessView[index.intValue];
+            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
+            
+            if (tmpView.progress < score.floatValue){
+                tmpView.progress += 0.003;
+            }
+            
+            if (tmpView.progress > 1.0f)
+            {
+                tmpView.progress = 0.0f;
+            }
+        }
+
+                        - (void)subProgressChange0:(NSTimer*)timer
+        {
+            NSNumber* index = (NSNumber*)[timer userInfo];
+            DACircularProgressView * tmpView= _subProgessView[index.intValue];
+            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
+            
+            if (tmpView.progress < score.floatValue){
+                tmpView.progress += 0.003;
+            }
+            
+            if (tmpView.progress > 1.0f)
+            {
+                tmpView.progress = 0.0f;
+            }
+        }
+
                         
 - (void)numberChange:(NSTimer *)timer {
     NSInteger value = _score.text.integerValue;
@@ -156,7 +292,9 @@
 //        sum_expected = [m integerValue];
 //    }
    
-    return 0.7;
+//    return 0.7;
+    srand48(time(0));
+    return drand48();
 }
 
 - (void)didReceiveMemoryWarning
