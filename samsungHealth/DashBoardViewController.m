@@ -13,7 +13,15 @@
 
 
 @interface DashBoardViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *score;
+@property (weak, nonatomic) IBOutlet UILabel *heartrate;
+@property (weak, nonatomic) IBOutlet UILabel *sleep;
+@property (weak, nonatomic) IBOutlet UILabel *step;
+@property (weak, nonatomic) IBOutlet UILabel *cups;
+@property (weak, nonatomic) IBOutlet UILabel *weight;
+@property (weak, nonatomic) IBOutlet UILabel *bodyfat;
+
 @end
 
 @implementation DashBoardViewController {
@@ -22,6 +30,7 @@
     NSArray *tableData;
     NSArray *thumbnails;
     NSMutableArray *subScore;
+    NSArray * subCircleLabel;
     NSMutableArray *subTimers;
     double healthScore;
     UIColor* defaultColor;
@@ -29,6 +38,14 @@
 }
 
 @synthesize score = _score;
+@synthesize heartrate = _heartrate;
+@synthesize sleep = _sleep;
+@synthesize step = _step;
+@synthesize cups = _cups;
+@synthesize weight = _weight;
+@synthesize bodyfat = _bodyfat;
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -71,6 +88,9 @@
     [query whereKey:@"Time" lessThanOrEqualTo:today];
     [query whereKey:@"Time" greaterThan:yesterday];
     
+    subCircleLabel = [NSArray arrayWithObjects:_heartrate,_sleep,_step, _cups, _weight, _bodyfat, nil];
+                                                            
+                                                            
     NSArray* objects = [query findObjects];
     for (PFObject *object in objects) {
          NSLog(@"%@", [object objectForKey:@"step"]);
@@ -108,8 +128,8 @@
             float z = (i + 78.0f) * (j + 79.0f) / (i + 83.0f) / (j + 81.0f) / (7- i - j) * 4;
             [subScore addObject:[NSNumber numberWithFloat:z]];
             NSString *text = [[NSString alloc] initWithFormat:@"%2.0f %%",(z*100)];
-            
-            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(33.3333333f + 300 / 6 * (i * 2), 360.0f + 100.0f * j, 60.0f, 60.0f)];
+            [[subCircleLabel objectAtIndex:j*3+i] setText:text];
+            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(30.0f + i * 100, 365.0f + 90.0f * j, 60.0f, 60.0f)];
             [tmpView setProgress:z];
             [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN];
             [self.subProgessView addObject:tmpView];
@@ -157,7 +177,7 @@
 {
     int score = (int)roundf(_largestProgressView.progress * 100);
     
-    if (score > _score.text.intValue) {
+    if (healthScoreInt > _score.text.intValue && score > _score.text.intValue) {
         score += 1;
         _score.text = [NSString stringWithFormat:@"%d",score];
     } else if (healthScoreInt < _score.text.intValue) {
