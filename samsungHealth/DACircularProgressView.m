@@ -59,6 +59,11 @@
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
+    if(radius < 50){
+        _trackTintColor = [UIColor clearColor];
+    } else {
+        _trackTintColor = [UIColor colorWithRed:98.0f/255.0f green:143.0f/255.0f blue:121.0f/255.0f alpha:0.7f];
+    }
     [self.trackTintColor setFill];
     CGMutablePathRef trackPath = CGPathCreateMutable();
     CGPathMoveToPoint(trackPath, NULL, centerPoint.x, centerPoint.y);
