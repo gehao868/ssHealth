@@ -87,7 +87,7 @@
         <!--Connection News Feed-->
         <scene sceneID="8Kn-fe-5Jk">
             <objects>
-                <viewController id="kF8-hC-3e8" customClass="ConnectionNewsFeed" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ConnectionNewsFeed" storyboardIdentifier="ConnectionNewsFeed" id="kF8-hC-3e8" customClass="ConnectionNewsFeed" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2P3-1A-lJu"/>
                         <viewControllerLayoutGuide type="bottom" id="4iy-63-xJ3"/>
