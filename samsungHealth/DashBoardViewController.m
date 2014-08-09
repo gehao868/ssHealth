@@ -70,7 +70,7 @@
     subIndexDict = [NSDictionary dictionaryWithObjectsAndKeys:@"heartrate", [NSNumber numberWithInt:0], @"sleep", [NSNumber numberWithInt:1], @"step", [NSNumber numberWithInt:2], @"cups", [NSNumber numberWithInt:3], @"weight", [NSNumber numberWithInt:4], @"bodyfat", [NSNumber numberWithInt:5], nil];
     
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
-    [query whereKey:@"UserID" equalTo:[UserData getFirstName]];
+    [query whereKey:@"UserID" equalTo:[UserData getUsername]];
 
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
