@@ -19,13 +19,12 @@
 
 @implementation SINavigationMenuView
 
-- (id)initWithFrame:(CGRect)frame title:(NSString *)title
+- (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         frame.origin.y += 1.0;
         self.menuButton = [[SIMenuButton alloc] initWithFrame:frame];
-        self.menuButton.title.text = title;
         [self.menuButton addTarget:self action:@selector(onHandleMenuTap:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.menuButton];
     }
@@ -35,6 +34,10 @@
 - (void)displayMenuInView:(UIView *)view
 {
     self.menuContainer = view;
+}
+
+- (void)setTitle:(NSString *)title {
+    self.menuButton.title.text = title;
 }
 
 #pragma mark -

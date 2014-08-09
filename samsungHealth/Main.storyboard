@@ -87,7 +87,7 @@
         <!--News Feed View Controller-->
         <scene sceneID="8Kn-fe-5Jk">
             <objects>
-                <viewController restorationIdentifier="ConnectionNewsFeed" storyboardIdentifier="ConnectionNewsFeed" id="kF8-hC-3e8" customClass="NewsFeedViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ConnectionNewsFeed" storyboardIdentifier="ConnectionNewsFeed" automaticallyAdjustsScrollViewInsets="NO" id="kF8-hC-3e8" customClass="NewsFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2P3-1A-lJu"/>
                         <viewControllerLayoutGuide type="bottom" id="4iy-63-xJ3"/>
@@ -96,23 +96,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="btC-4h-4kQ">
-                                <rect key="frame" x="0.0" y="174" width="320" height="456"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="isj-kq-DLs">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="isj-kq-DLs" id="Pez-71-qpF">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaM-kv-7GE">
-                                <rect key="frame" x="130" y="103" width="60" height="30"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="progress">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -128,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BuP-mH-Fpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="209" y="1402"/>
+            <point key="canvasLocation" x="399" y="1550"/>
         </scene>
         <!--Group News Feed-->
         <scene sceneID="3Yi-hC-RDC">
@@ -147,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Anw-Ki-cfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="1416"/>
+            <point key="canvasLocation" x="2046" y="1550"/>
         </scene>
         <!--Members-->
         <scene sceneID="4ac-dn-X7j">
@@ -179,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2VD-xU-Sgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="771" y="1402"/>
+            <point key="canvasLocation" x="961" y="1550"/>
         </scene>
         <!--Create Group-->
         <scene sceneID="eWo-oe-e9K">
@@ -228,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vE8-Pi-5zw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1295" y="1402"/>
+            <point key="canvasLocation" x="1485" y="1550"/>
         </scene>
         <!--Dash Board View Controller - Dashboard-->
         <scene sceneID="4d1-Jz-tGk">
@@ -866,6 +851,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addFriend:" destination="OSV-Jl-5cM" eventType="touchUpInside" id="QHg-29-MZB"/>
+                                    <segue destination="CLx-bs-EgF" kind="modal" id="HWY-W3-54r"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giH-mj-nRJ">
@@ -874,9 +860,6 @@
                                 <state key="normal" title="Friends(2)" backgroundImage="circle_yellow">
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="qRH-wj-9zJ" kind="push" id="0RN-Q7-YwE"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -894,7 +877,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGl-0u-xeG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4122" y="745"/>
+            <point key="canvasLocation" x="961" y="861"/>
         </scene>
         <!--Friend List Controller - Friends-->
         <scene sceneID="tFW-R5-hwo">
@@ -1432,5 +1415,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="sZd-ak-74z"/>
         <segue reference="aHY-Hd-sBd"/>
+        <segue reference="HWY-W3-54r"/>
     </inferredMetricsTieBreakers>
 </document>
