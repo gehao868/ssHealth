@@ -11,7 +11,8 @@
 @implementation Goal
 
 @synthesize type;
-@synthesize quota;
+@synthesize expected;
+@synthesize current;
 @synthesize des;
 
 @end

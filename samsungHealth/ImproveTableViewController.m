@@ -15,23 +15,76 @@
 
 @implementation ImproveTableViewController
 {
-    NSArray *tableData;
-    NSArray *thumbnails;
+    NSMutableArray *goalArray;
+    NSMutableArray *goalNumber;
+    NSMutableArray *goalType;
+    NSMutableArray *thumbnails;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    // check already added
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
+    [query whereKey:@"UserID" equalTo:@"Jichuan"];
     
     
-	// Initialize table data
-    tableData = [NSArray arrayWithObjects:@"1000", @"300", @"8", nil];
     
-    // Initialize thumbnails
-    thumbnails = [NSArray arrayWithObjects:@"steps", @"food_green", @"sleep_green", nil];
     
+    
+    // recomend step
+    
+    goalArray = [[NSMutableArray alloc] init];
+    thumbnails = [[NSMutableArray alloc] init];
+    goalNumber =[[NSMutableArray alloc] init];
+    goalType = [[NSMutableArray alloc] init];
+    
+    if ([[[self healthData] stepcount] intValue] < 8000) {
+        int quota =[[[self healthData] stepcount] intValue] + 1000;
+        [goalArray addObject:[NSString stringWithFormat:@"Walk %d steps", quota]];
+        [thumbnails addObject:@"steps"];
+        [goalNumber addObject:[NSNumber numberWithInt:quota]];
+        [goalType addObject:@"stepcount"];
+    }
+    
+    // recommend sleep
+    
+    if ([[[self healthData] sleep] intValue] < 7){
+        int quota =[[[self healthData] sleep] intValue] + 1;
+        [goalArray addObject:[NSString stringWithFormat:@"Sleep %d hours", quota]];
+        [thumbnails addObject:@"sleep_green"];
+        [goalNumber addObject:[NSNumber numberWithInt:quota]];
+        [goalType addObject:@"sleep"];
+        
+    } else if ([[[self healthData] sleep] intValue] > 9) {
+        int quota =[[[self healthData] sleep] intValue] - 1;
+        [goalArray addObject:[NSString stringWithFormat:@"Sleep %d hours", quota]];
+        [thumbnails addObject:@"sleep_green"];
+        [goalNumber addObject:[NSNumber numberWithInt:quota]];
+        [goalType addObject:@"sleep"];
+    }
+    
+    // recommend bodyfat
+    
+    if ([[[self healthData] fatratio] floatValue] > 31){
+        [goalArray addObject:[NSString stringWithFormat:@"Exercies 30 minutes"]];
+        [thumbnails addObject:@"bodyfat_goal"];
+        [goalNumber addObject:[NSNumber numberWithInt:30]];
+        [goalType addObject:@"fatratio"];
+    }
+    
+    // cups
+    if ([[[self healthData] cups] intValue] < 8){
+        int quota =[[[self healthData] cups] intValue] + 1;
+        [goalArray addObject:[NSString stringWithFormat:@"Drink %d cups of water", quota]];
+        [thumbnails addObject:@"water_goal"];
+        [goalNumber addObject:[NSNumber numberWithInt:quota]];
+        [goalType addObject:@"cups"];
+    }
 }
+
 
 - (void)viewDidUnload
 {
@@ -46,7 +99,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tableData count];
+    return [goalArray count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,7 +119,7 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.improveLabel.text = [tableData objectAtIndex:indexPath.row];
+    cell.improveLabel.text = [goalArray objectAtIndex:indexPath.row];
     cell.improveImage.image = [UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
     
     return cell;
@@ -74,21 +127,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   
+    
+    PFObject *goal =[PFObject objectWithClassName:@"Goal"];
+    goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
+    goal[@"type"] = [goalType objectAtIndex:indexPath.row];
+    goal[@"date"] = [[NSDate alloc] init];
+    goal[@"name"] = @"Jichuan";
+    
+    [goal saveInBackground];
 
-    /*UIAlertView *messageAlert = [[UIAlertView alloc]
-     initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];*/
-    
-    
-    UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"Goal added!" message:[tableData objectAtIndex:indexPath.row] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    
-    // Display the Hello World Message
-    [messageAlert show];
-    
-    // Checked the selected row
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
+    ImproveTableViewCell *cell = (ImproveTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+
+    cell.improveAdd.image = [UIImage imageNamed:@"checkmark_black"];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

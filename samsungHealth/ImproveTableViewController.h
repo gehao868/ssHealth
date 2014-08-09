@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HealthData.h"
+#import "Goal.h"
 
 @interface ImproveTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, strong) HealthData *healthData;
 
 
 @end
