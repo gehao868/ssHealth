@@ -109,7 +109,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9Pq-Ha-kpt"/>
+                    <navigationItem key="navigationItem" id="9Pq-Ha-kpt">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="IiN-S8-ZkD">
+                            <connections>
+                                <action selector="showMenu" destination="kF8-hC-3e8" id="xH1-pK-NWO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BuP-mH-Fpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

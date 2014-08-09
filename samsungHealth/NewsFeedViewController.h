@@ -10,5 +10,6 @@
 #import "SINavigationMenuView.h"
 
 @interface NewsFeedViewController : UIViewController <SINavigationMenuDelegate>
+- (IBAction)showMenu;
 
 @end

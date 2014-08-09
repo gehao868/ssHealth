@@ -89,6 +89,11 @@ SINavigationMenuView *menu;
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)showMenu
+{
+    [self.frostedViewController presentMenuViewController];
+}
+
 /*
 #pragma mark - Navigation
 
