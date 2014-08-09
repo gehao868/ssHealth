@@ -13,10 +13,17 @@
 
 }
 
-@synthesize step;
-@synthesize heartrate;
-@synthesize weight;
-@synthesize cups;
 
+@synthesize username;
+
+
+@synthesize calories;
+@synthesize cups;
+@synthesize fatratio;
+@synthesize heartrate;
+@synthesize height;
+@synthesize sleep;
+@synthesize stepcount;
+@synthesize weight;
 
 @end

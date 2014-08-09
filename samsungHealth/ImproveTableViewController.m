@@ -22,21 +22,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    
 	// Initialize table data
     tableData = [NSArray arrayWithObjects:@"1000", @"300", @"8", nil];
     
     // Initialize thumbnails
     thumbnails = [NSArray arrayWithObjects:@"steps", @"food_green", @"sleep_green", nil];
     
-
-    // Find out the path of recipes.plist
-    //NSString *path = [[NSBundle mainBundle] pathForResource:@"recipes" ofType:@"plist"];
-    
-    // Load the file content and read the data into arrays
-    //NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
-    //tableData = [dict objectForKey:@"RecipeName"];
-    //thumbnails = [dict objectForKey:@"Thumbnail"];
-
 }
 
 - (void)viewDidUnload

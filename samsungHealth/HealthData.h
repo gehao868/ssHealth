@@ -11,9 +11,16 @@
 
 @interface HealthData : NSObject
 
-@property (nonatomic) NSInteger *step; // name of recipe
-@property (nonatomic) NSInteger *heartrate;
-@property double weight;
+@property (nonatomic) NSString *username;
+
+@property (nonatomic) NSInteger *calories;
 @property (nonatomic) NSInteger *cups;
+@property (nonatomic) double *fatratio;
+@property (nonatomic) NSInteger *heartrate;
+@property (nonatomic) NSInteger *height;
+@property (nonatomic) NSInteger *sleep;
+@property (nonatomic) NSInteger *stepcount;
+@property double weight;
+
 
 @end
