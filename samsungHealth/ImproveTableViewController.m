@@ -30,8 +30,9 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
     [query whereKey:@"UserID" equalTo:@"Jichuan"];
     
+    NSArray* objects = [query findObjects];
     
-    
+    // continue
     
     
     // recomend step
