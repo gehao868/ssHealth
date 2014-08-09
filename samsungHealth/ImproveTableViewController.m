@@ -42,8 +42,8 @@
     goalNumber =[[NSMutableArray alloc] init];
     goalType = [[NSMutableArray alloc] init];
     
-    if ([[[self healthData] stepcount] intValue] < 8000) {
-        int quota =[[[self healthData] stepcount] intValue] + 1000;
+    if ([[[self healthData] step] intValue] < 8000) {
+        int quota =[[[self healthData] step] intValue] + 1000;
         [goalArray addObject:[NSString stringWithFormat:@"Walk %d steps", quota]];
         [thumbnails addObject:@"steps"];
         [goalNumber addObject:[NSNumber numberWithInt:quota]];

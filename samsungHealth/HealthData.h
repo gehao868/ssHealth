@@ -13,14 +13,14 @@
 
 @property (nonatomic) NSString *username;
 @property (nonatomic) NSDate *date;
-@property (nonatomic) NSInteger *calories;
-@property (nonatomic) NSInteger *step;
-@property (nonatomic) NSInteger *cups;
-@property (nonatomic) NSInteger *heartrate;
-@property (nonatomic) NSInteger *sleep;
-@property (nonatomic) NSInteger *asleep;
-@property (nonatomic) NSInteger *active;
-@property double weight;
-@property double fatratio;
+@property (nonatomic) NSNumber *calories;
+@property (nonatomic) NSNumber *step;
+@property (nonatomic) NSNumber *cups;
+@property (nonatomic) NSNumber *heartrate;
+@property (nonatomic) NSNumber *sleep;
+@property (nonatomic) NSNumber *asleep;
+@property (nonatomic) NSNumber *active;
+@property (nonatomic) NSNumber *weight;
+@property (nonatomic) NSNumber *fatratio;
 
 @end
