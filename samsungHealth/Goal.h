@@ -10,8 +10,9 @@
 
 @interface Goal : NSObject
 
-@property (nonatomic) NSInteger *type;
-@property (nonatomic) NSInteger *quota;
+@property (nonatomic) NSNumber *type;
+@property (nonatomic) NSNumber *expected;
+@property (nonatomic) NSNumber *current;
 @property (nonatomic) NSString *des;
 
 @end
