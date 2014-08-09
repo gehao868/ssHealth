@@ -18,11 +18,11 @@
 @synthesize calories;
 @synthesize step;
 @synthesize cups;
+@synthesize fatratio;
 @synthesize heartrate;
 @synthesize sleep;
 @synthesize asleep;
 @synthesize active;
 @synthesize weight;
-@synthesize fatratio;
 
 @end

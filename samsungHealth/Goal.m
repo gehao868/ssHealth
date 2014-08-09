@@ -10,9 +10,9 @@
 
 @implementation Goal
 
+@synthesize username;
 @synthesize type;
 @synthesize expected;
-@synthesize current;
-@synthesize des;
+@synthesize date;
 
 @end

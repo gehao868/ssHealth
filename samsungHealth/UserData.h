@@ -10,32 +10,32 @@
 
 @interface UserData : NSObject
 
-+ (NSString *)getUserID;
-+ (void)setUserID:(NSString *) newUserID;
-
-+ (NSString *)getBirthday;
-+ (void)setBirthday:(NSString *) newBirthday;
-
-+ (NSString *)getFirstName;
-+ (void)setFirstName:(NSString *) newFirstName;
-
-+ (NSString *)getLastName;
-+ (void)setLastName:(NSString *) newLastName;
-
-+ (NSString *)getEmail;
-+ (void)setEmail:(NSString *) newEmail;
-
-+ (NSString *)getGender;
-+ (void)setGender:(NSString *) newGender;
++ (NSString *)getUsername;
++ (void)setUsername:(NSString *) newUsername;
 
 + (NSData *)getAvatar;
 + (void)setAvatar:(NSData *) newAvatar;
 
++ (NSDate *)getBirthday;
++ (void)setBirthday:(NSDate *) newBirthday;
+
++ (NSString *)getGender;
++ (void)setGender:(NSString *) newGender;
+
++ (NSNumber *)getHeight;
++ (void)setHeight:(NSNumber *) newHeight;
+
++ (NSNumber *)getPoint;
++ (void)setPoint:(NSNumber *) newPoint;
+
 + (NSArray *)getAppFriends;
 + (void)setAppFriends:(NSArray *) newAppFriends;
 
-+ (NSArray *)getFBFriends;
-+ (void)setFBFriends:(NSArray *) newFBFriends;
++ (NSArray *)getRewards;
++ (void)setRewards:(NSArray *) newRewards;
+
++ (NSArray *)getGroups;
++ (void)setGroups:(NSArray *) newGroups;
 
 + (NSString *)getStateFileName;
 

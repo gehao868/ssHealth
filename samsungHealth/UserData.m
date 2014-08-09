@@ -9,55 +9,23 @@
 #import "UserData.h"
 
 static NSString *username;
+static NSData *avatar;
 static NSDate *birthday;
 static NSString *gender;
 static NSNumber *height;
-static NSData *avatar;
+static NSNumber *point;
 static NSArray *appFriends;
+static NSArray *rewards;
+static NSArray *groups;
 static NSString *stateFileName = @"stateFile";
 
 @implementation UserData
 
-+ (NSString *)getUserID {
-    return userID;
++ (NSString *)getUsername {
+    return username;
 }
-+ (void)setUserID:(NSString *) newUserID {
-    userID = newUserID;
-}
-
-+ (NSString *)getBirthday {
-    return birthday;
-}
-+ (void)setBirthday:(NSString *) newBirthday {
-    birthday = newBirthday;
-}
-
-+ (NSString *)getFirstName {
-    return firstName;
-}
-+ (void)setFirstName:(NSString *) newFirstName {
-    firstName = newFirstName;
-}
-
-+ (NSString *)getLastName {
-    return lastName;
-}
-+ (void)setLastName:(NSString *) newLastName {
-    lastName = newLastName;
-}
-
-+ (NSString *)getEmail {
-    return email;
-}
-+ (void)setEmail:(NSString *) newEmail {
-    email = newEmail;
-}
-
-+ (NSString *)getGender {
-    return gender;
-}
-+ (void)setGender:(NSString *) newGender {
-    gender = newGender;
++ (void)setUsername:(NSString *) newUsername {
+    username = newUsername;
 }
 
 + (NSData *)getAvatar {
@@ -67,6 +35,34 @@ static NSString *stateFileName = @"stateFile";
     avatar = newAvatar;
 }
 
++ (NSDate *)getBirthday {
+    return birthday;
+}
++ (void)setBirthday:(NSDate *) newBirthday {
+    birthday = newBirthday;
+}
+
++ (NSString *)getGender {
+    return gender;
+}
++ (void)setGender:(NSString *) newGender {
+    gender = newGender;
+}
+
++ (NSNumber *)getHeight {
+    return height;
+}
++ (void)setHeight:(NSNumber *) newHeight {
+    height = newHeight;
+}
+
++ (NSNumber *)getPoint {
+    return point;
+}
++ (void)setPoint:(NSNumber *) newPoint {
+    point = newPoint;
+}
+
 + (NSArray *)getAppFriends {
     return appFriends;
 }
@@ -74,11 +70,18 @@ static NSString *stateFileName = @"stateFile";
     appFriends = newAppFriends;
 }
 
-+ (NSArray *)getFBFriends {
-    return FBFriends;
++ (NSArray *)getRewards {
+    return rewards;
 }
-+ (void)setFBFriends:(NSArray *) newFBFriends {
-    FBFriends = newFBFriends;
++ (void)setRewards:(NSArray *) newRewards {
+    rewards = newRewards;
+}
+
++ (NSArray *)getGroups {
+    return groups;
+}
++ (void)setGroups:(NSArray *) newGroups {
+    groups = newGroups;
 }
 
 + (NSString *)getStateFileName {
