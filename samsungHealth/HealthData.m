@@ -13,17 +13,16 @@
 
 }
 
-
 @synthesize username;
-
-
+@synthesize date;
 @synthesize calories;
+@synthesize step;
 @synthesize cups;
 @synthesize fatratio;
 @synthesize heartrate;
-@synthesize height;
 @synthesize sleep;
-@synthesize stepcount;
+@synthesize asleep;
+@synthesize active;
 @synthesize weight;
 
 @end

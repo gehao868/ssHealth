@@ -19,6 +19,9 @@
 		0B0A241F19957B620086309E /* SIMenuTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A241219957B620086309E /* SIMenuTable.m */; };
 		0B0A242019957B620086309E /* SINavigationMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A241419957B620086309E /* SINavigationMenuView.m */; };
 		0B0A242119957B620086309E /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A241619957B620086309E /* UIColor+Extension.m */; };
+		0B0A24241995E2990086309E /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A24231995E2990086309E /* Group.m */; };
+		0B0A24271995E3280086309E /* Reward.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A24261995E3280086309E /* Reward.m */; };
+		0B0A242D1995E42E0086309E /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A242C1995E42E0086309E /* News.m */; };
 		0B3758501989D5D0004A9EB9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B37584F1989D5D0004A9EB9 /* FacebookSDK.framework */; };
 		0B3758521989D8FC004A9EB9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3758511989D8FC004A9EB9 /* Social.framework */; };
 		0B3758541989D90E004A9EB9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3758531989D90E004A9EB9 /* Accounts.framework */; };
@@ -123,6 +126,12 @@
 		0B0A241419957B620086309E /* SINavigationMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SINavigationMenuView.m; sourceTree = "<group>"; };
 		0B0A241519957B620086309E /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
 		0B0A241619957B620086309E /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		0B0A24221995E2990086309E /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		0B0A24231995E2990086309E /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		0B0A24251995E3280086309E /* Reward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reward.h; sourceTree = "<group>"; };
+		0B0A24261995E3280086309E /* Reward.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reward.m; sourceTree = "<group>"; };
+		0B0A242B1995E42E0086309E /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = News.h; path = ../News.h; sourceTree = "<group>"; };
+		0B0A242C1995E42E0086309E /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = News.m; path = ../News.m; sourceTree = "<group>"; };
 		0B37584F1989D5D0004A9EB9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		0B3758511989D8FC004A9EB9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		0B3758531989D90E004A9EB9 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -556,6 +565,12 @@
 				7CA1D86F199024720066CE40 /* Time.m */,
 				7C1A6CA019956E2500E307DA /* Goal.h */,
 				7C1A6CA119956E2500E307DA /* Goal.m */,
+				0B0A24221995E2990086309E /* Group.h */,
+				0B0A24231995E2990086309E /* Group.m */,
+				0B0A24251995E3280086309E /* Reward.h */,
+				0B0A24261995E3280086309E /* Reward.m */,
+				0B0A242B1995E42E0086309E /* News.h */,
+				0B0A242C1995E42E0086309E /* News.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -698,7 +713,9 @@
 				7CE78A9F198D8AC0002ED7E5 /* FriendTableViewCell.m in Sources */,
 				7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */,
 				7C89F8BA198AFDB400F021EF /* LaunchViewController.m in Sources */,
+				0B0A24241995E2990086309E /* Group.m in Sources */,
 				0B0A241B19957B620086309E /* SICellSelection.m in Sources */,
+				0B0A24271995E3280086309E /* Reward.m in Sources */,
 				7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */,
 				0B0A241D19957B620086309E /* SIMenuCell.m in Sources */,
 				7C89F8AB1989C22F00F021EF /* DetailViewController.m in Sources */,
@@ -724,6 +741,7 @@
 				7C89F8A61989C1B800F021EF /* PNChartLabel.m in Sources */,
 				7C89F8A41989C1B800F021EF /* PNBarChart.m in Sources */,
 				7CA1D870199024720066CE40 /* Time.m in Sources */,
+				0B0A242D1995E42E0086309E /* News.m in Sources */,
 				7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */,
 				7CE78A9C198D5F36002ED7E5 /* ProfileTableViewCell.m in Sources */,
 				7CBD2C26197E4510002F23A5 /* main.m in Sources */,

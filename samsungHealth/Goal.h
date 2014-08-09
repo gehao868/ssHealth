@@ -10,9 +10,9 @@
 
 @interface Goal : NSObject
 
-@property (nonatomic) NSNumber *type;
+@property (nonatomic) NSString *username;
+@property (nonatomic) NSString *type;
 @property (nonatomic) NSNumber *expected;
-@property (nonatomic) NSNumber *current;
-@property (nonatomic) NSString *des;
+@property (nonatomic) NSDate *date;
 
 @end

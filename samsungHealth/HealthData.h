@@ -12,15 +12,15 @@
 @interface HealthData : NSObject
 
 @property (nonatomic) NSString *username;
-
-@property (nonatomic) NSNumber *calories;
-@property (nonatomic) NSNumber *cups;
-@property (nonatomic) NSNumber *fatratio;
-@property (nonatomic) NSNumber *heartrate;
-@property (nonatomic) NSNumber *height;
-@property (nonatomic) NSNumber *sleep;
-@property (nonatomic) NSNumber *stepcount;
-@property NSNumber *weight;
-
+@property (nonatomic) NSDate *date;
+@property (nonatomic) NSInteger *calories;
+@property (nonatomic) NSInteger *step;
+@property (nonatomic) NSInteger *cups;
+@property (nonatomic) NSInteger *heartrate;
+@property (nonatomic) NSInteger *sleep;
+@property (nonatomic) NSInteger *asleep;
+@property (nonatomic) NSInteger *active;
+@property double weight;
+@property double fatratio;
 
 @end
