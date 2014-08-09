@@ -8,15 +8,12 @@
 
 #import "UserData.h"
 
-static NSString *userID;
-static NSString *birthday;
-static NSString *firstName;
-static NSString *lastName;
-static NSString *email;
+static NSString *username;
+static NSDate *birthday;
 static NSString *gender;
+static NSNumber *height;
 static NSData *avatar;
 static NSArray *appFriends;
-static NSArray *FBFriends; //dict[@"name", @"pic"]
 static NSString *stateFileName = @"stateFile";
 
 @implementation UserData
