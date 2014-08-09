@@ -131,18 +131,18 @@ NSUserDefaults *defaults;
     /* make the API call */
     [FBRequestConnection startWithGraphPath:@"/me" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* user, NSError *error) {
         //NSLog(@"%@", user);
-        [UserData setUserID:[user objectForKey:@"id"]];
+//        [UserData setUserID:[user objectForKey:@"id"]];
         [UserData setBirthday:[user objectForKey:@"birthday"]];
-        [UserData setFirstName:[user objectForKey:@"first_name"]];
-        [UserData setLastName:[user objectForKey:@"last_name"]];
-        [UserData setEmail:[user objectForKey:@"email"]];
+//        [UserData setFirstName:[user objectForKey:@"first_name"]];
+//        [UserData setLastName:[user objectForKey:@"last_name"]];
+//        [UserData setEmail:[user objectForKey:@"email"]];
         [UserData setGender:[user objectForKey:@"gender"]];
         
-        [defaults setObject:[UserData getUserID] forKey:@"id"];
+//        [defaults setObject:[UserData getUserID] forKey:@"id"];
         [defaults setObject:[UserData getBirthday] forKey:@"birthday"];
-        [defaults setObject:[UserData getFirstName] forKey:@"first_name"];
-        [defaults setObject:[UserData getLastName] forKey:@"last_name"];
-        [defaults setObject:[UserData getEmail] forKey:@"email"];
+//        [defaults setObject:[UserData getFirstName] forKey:@"first_name"];
+//        [defaults setObject:[UserData getLastName] forKey:@"last_name"];
+//        [defaults setObject:[UserData getEmail] forKey:@"email"];
         [defaults setObject:[UserData getGender] forKey:@"gender"];
     }];
     
