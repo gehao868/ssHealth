@@ -10,7 +10,7 @@
 
 @interface Reward : NSObject
 
-@property (nonatomic) NSNumber *rid;
+@property (nonatomic) NSString *rid;
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *pic;
 @property (nonatomic) NSString *detail;
