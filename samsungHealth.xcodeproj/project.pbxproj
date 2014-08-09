@@ -14,6 +14,7 @@
 		0BA87092198C5BA900236EBD /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA87091198C5BA900236EBD /* UserData.m */; };
 		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
 		3B1CD2071989D75400282886 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		7C1A6CA219956E2500E307DA /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A6CA119956E2500E307DA /* Goal.m */; };
 		7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */; };
 		7C89F8A31989C1B800F021EF /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8981989C1B800F021EF /* PNBar.m */; };
 		7C89F8A41989C1B800F021EF /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F89A1989C1B800F021EF /* PNBarChart.m */; };
@@ -97,6 +98,8 @@
 		0B3758561989DE08004A9EB9 /* GoalTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalTableCell.m; sourceTree = "<group>"; };
 		0BA87090198C5BA900236EBD /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		0BA87091198C5BA900236EBD /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
+		7C1A6CA019956E2500E307DA /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
+		7C1A6CA119956E2500E307DA /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
 		7C89F8931989A9F100F021EF /* AppDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDeviceTableViewCell.h; sourceTree = "<group>"; };
 		7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDeviceTableViewCell.m; sourceTree = "<group>"; };
 		7C89F8971989C1B800F021EF /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
@@ -485,6 +488,8 @@
 				0BA87091198C5BA900236EBD /* UserData.m */,
 				7CA1D86E199024720066CE40 /* Time.h */,
 				7CA1D86F199024720066CE40 /* Time.m */,
+				7C1A6CA019956E2500E307DA /* Goal.h */,
+				7C1A6CA119956E2500E307DA /* Goal.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -623,6 +628,7 @@
 				7C89F8A51989C1B800F021EF /* PNChart.m in Sources */,
 				7CBD2C6D197E4651002F23A5 /* RewardViewController.m in Sources */,
 				7CBD2C70197E4651002F23A5 /* RECommonFunctions.m in Sources */,
+				7C1A6CA219956E2500E307DA /* Goal.m in Sources */,
 				7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */,
 				3B1CD2071989D75400282886 /* (null) in Sources */,
 				7C89F8B11989CB4A00F021EF /* TargetViewDetailController.m in Sources */,
