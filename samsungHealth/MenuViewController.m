@@ -113,7 +113,7 @@
         TargetViewController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"secondController"];
         navigationController.viewControllers = @[secondViewController];
     }  else if(indexPath.section == 0 && indexPath.row == 2) {
-        ConnectViewController *connectController = [self.storyboard instantiateViewControllerWithIdentifier:@"connectController"];
+        ConnectViewController *connectController = [self.storyboard instantiateViewControllerWithIdentifier:@"ConnectionNewsFeed"];
         navigationController.viewControllers = @[connectController];
     } else if(indexPath.section == 0 && indexPath.row == 3) {
         RewardViewController *rewardController = [self.storyboard instantiateViewControllerWithIdentifier:@"rewardController"];
