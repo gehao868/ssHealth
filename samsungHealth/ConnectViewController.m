@@ -54,12 +54,13 @@
 }
 
 - (IBAction)addFriend:(id)sender {
+    /*
     [FBWebDialogs presentRequestsDialogModallyWithSession:nil
                                                   message:@"invite"
                                                     title:@"title"
                                                parameters:nil
-                                                  handler:nil
-     ];
+                                                  handler:nil];
+     */
 }
 
 //- (IBAction)addFriend:(id)sender {

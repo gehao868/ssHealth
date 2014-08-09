@@ -6,11 +6,16 @@
 //  Copyright (c) 2014 Hao Ge. All rights reserved.
 //
 
+#import "ConnectViewController.h"
 #import "NewsFeedViewController.h"
 
 @interface NewsFeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
+
+int currIndex = 1;
+UITableView *postTableView;
+SINavigationMenuView *menu;
 
 @implementation NewsFeedViewController
 
@@ -29,22 +34,24 @@
     
     if (self.navigationItem) {
         CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
-        SINavigationMenuView *menu = [[SINavigationMenuView alloc] initWithFrame:frame title:@"Menu"];
+        menu = [[SINavigationMenuView alloc] initWithFrame:frame];
         [menu displayMenuInView:self.navigationController.view];
-        menu.items = @[@"News", @"Top Articles", @"Messages", @"Account", @"Settings", @"Top Articles", @"Messages"];
+        menu.items = @[@"Manage Group", @"Family", @"Friends", @"Classmates"];
+        [menu setTitle:[menu.items objectAtIndex:currIndex]];
         menu.delegate = self;
         self.navigationItem.titleView = menu;
     }
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    [self.view addSubview:tableView];
+    postTableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+    postTableView.frame = CGRectMake(0, 165, self.view.frame.size.width, self.view.frame.size.height-165);
+    postTableView.delegate = self;
+    postTableView.dataSource = self;
+    [self.view addSubview:postTableView];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return currIndex * 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,13 +72,26 @@
 
 - (void)didSelectItemAtIndex:(NSUInteger)index
 {
-    NSLog(@"did selected item at index %d", index);
+    if (index == 0) {
+        ConnectViewController *next = [self.storyboard instantiateViewControllerWithIdentifier:@"connectController"];
+        [self.navigationController pushViewController:next animated:YES];
+    } else {
+        currIndex = index;
+        [menu setTitle:[menu.items objectAtIndex:currIndex]];
+        self.navigationItem.titleView = menu;
+        [postTableView reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)showMenu
+{
+    [self.frostedViewController presentMenuViewController];
 }
 
 /*
