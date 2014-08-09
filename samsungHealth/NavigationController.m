@@ -22,6 +22,7 @@
 {
     [super viewDidLoad];
     [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)]];
+    ;
     //[self loginWithFB];
 }
 
