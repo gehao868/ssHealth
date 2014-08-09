@@ -45,7 +45,7 @@ NSString *isLoggedin;
 //        [UserData setLastName:[defaults objectForKey:@"last_name"]];
 //        [UserData setEmail:[defaults objectForKey:@"email"]];
         
-        // quincy changed this. 
+        // quincy changed this.
         [UserData setUsername:@"username"];
         [UserData setGender:[defaults objectForKey:@"gender"]];
         [UserData setAppFriends:[defaults objectForKey:@"appFriends"]];
