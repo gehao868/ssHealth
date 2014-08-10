@@ -8,6 +8,7 @@
 
 #import "ImproveTableViewController.h"
 #import "ImproveTableViewCell.h"
+#import "UserData.h"
 
 @interface ImproveTableViewController ()
 
@@ -28,7 +29,9 @@
     // check already added
     
     PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
-    [query whereKey:@"username" equalTo:@"Jichuan"];
+    [query whereKey:@"username" equalTo:[UserData getUsername]];
+    
+    
     
     
     NSArray* objects = [query findObjects];
