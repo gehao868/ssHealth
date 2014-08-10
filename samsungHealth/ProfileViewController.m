@@ -81,15 +81,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"willSelectRowAtIndexPath");
-    if (indexPath.row == 0) {
-        return nil;
-    }
-    
-    return indexPath;
-}
+
 
 - (IBAction)showMenu
 {
