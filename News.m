@@ -12,7 +12,7 @@
 
 @synthesize file;
 @synthesize content;
-@synthesize portusername;
+@synthesize postusername;
 @synthesize likenum;
 @synthesize showlikenum;
 @synthesize type;
