@@ -199,7 +199,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendTableCell" id="lnG-bj-Rfy" customClass="FriendTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="FriendTableCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendTableCell" id="lnG-bj-Rfy" customClass="FriendTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lnG-bj-Rfy" id="zci-u2-ghH">
@@ -225,6 +225,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="CLx-bs-EgF" id="L8k-IB-NbA"/>
+                                    <outlet property="delegate" destination="CLx-bs-EgF" id="f1l-TC-mFJ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
