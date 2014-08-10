@@ -32,10 +32,7 @@
     
     NSArray* objects = [query findObjects];
     
-    
-    
     // continue
-    
     
     // recomend step
     

@@ -179,6 +179,14 @@ NSUserDefaults *defaults;
         
         [UserData setAvatar:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
         [defaults setObject:[UserData getAvatar] forKey:@"avatar"];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+        [query whereKey:@"username" equalTo:[UserData getUsername]];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
+            user[@"avatar"] = url;
+            [user saveInBackground];
+            
+        }];
     }];
 }
 
