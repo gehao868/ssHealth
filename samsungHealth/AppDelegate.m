@@ -183,7 +183,7 @@ NSUserDefaults *defaults;
         PFQuery *query = [PFQuery queryWithClassName:@"Users"];
         [query whereKey:@"username" equalTo:[UserData getUsername]];
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
-            user[@"cheatMode"] = [UserData getAvatar];
+            user[@"avatar"] = url;
             [user saveInBackground];
             
         }];
