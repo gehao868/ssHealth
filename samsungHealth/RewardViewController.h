@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "REFrostedViewController.h"
 
-@interface RewardViewController : UIViewController
+@interface RewardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UIImageView *userIcon;
 @property (weak, nonatomic) IBOutlet UILabel *rewardPoint;
 @property (weak, nonatomic) IBOutlet UILabel *label1;
@@ -18,5 +19,12 @@
 - (IBAction)play:(UIButton *)sender;
 
 - (IBAction)showMenu:(id)sender;
+- (IBAction)segmentControl:(UISegmentedControl *)sender;
+@property (strong, nonatomic) IBOutlet UILabel *user;
+@property (strong, nonatomic) IBOutlet UIButton *playBtn;
+@property (strong, nonatomic) IBOutlet UILabel *points;
+@property (strong, nonatomic) IBOutlet UIButton *startBtn;
+@property (strong, nonatomic) IBOutlet UITableView *table;
+
 
 @end

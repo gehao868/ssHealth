@@ -31,6 +31,7 @@
 		3B1CD2071989D75400282886 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3BD61A0319969E6600F2A528 /* Members.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A0219969E6600F2A528 /* Members.m */; };
 		3BD61A061996ED8800F2A528 /* CreateGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A051996ED8800F2A528 /* CreateGroup.m */; };
+		3BD61A09199715CD00F2A528 /* CouponDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A08199715CD00F2A528 /* CouponDetailCell.m */; };
 		7C1A6CA219956E2500E307DA /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A6CA119956E2500E307DA /* Goal.m */; };
 		7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */; };
 		7C89F8A31989C1B800F021EF /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8981989C1B800F021EF /* PNBar.m */; };
@@ -145,6 +146,8 @@
 		3BD61A0219969E6600F2A528 /* Members.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Members.m; sourceTree = "<group>"; };
 		3BD61A041996ED8800F2A528 /* CreateGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGroup.h; sourceTree = "<group>"; };
 		3BD61A051996ED8800F2A528 /* CreateGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGroup.m; sourceTree = "<group>"; };
+		3BD61A07199715CD00F2A528 /* CouponDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDetailCell.h; sourceTree = "<group>"; };
+		3BD61A08199715CD00F2A528 /* CouponDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDetailCell.m; sourceTree = "<group>"; };
 		7C1A6CA019956E2500E307DA /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
 		7C1A6CA119956E2500E307DA /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
 		7C89F8931989A9F100F021EF /* AppDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDeviceTableViewCell.h; sourceTree = "<group>"; };
@@ -409,6 +412,8 @@
 				BB93A1F719914E7D00AA1CED /* RedeemCouponCell.m */,
 				BB93A1F919914FE100AA1CED /* RedeemViewController.h */,
 				BB93A1FA19914FE100AA1CED /* RedeemViewController.m */,
+				3BD61A07199715CD00F2A528 /* CouponDetailCell.h */,
+				3BD61A08199715CD00F2A528 /* CouponDetailCell.m */,
 			);
 			name = Reward;
 			sourceTree = "<group>";
@@ -729,6 +734,7 @@
 				0B0A24271995E3280086309E /* Reward.m in Sources */,
 				7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */,
 				0B0A241D19957B620086309E /* SIMenuCell.m in Sources */,
+				3BD61A09199715CD00F2A528 /* CouponDetailCell.m in Sources */,
 				7C89F8AB1989C22F00F021EF /* DetailViewController.m in Sources */,
 				7CBD2C5A197E4642002F23A5 /* UIImage+REFrostedViewController.m in Sources */,
 				7CBD2C2A197E4510002F23A5 /* AppDelegate.m in Sources */,
