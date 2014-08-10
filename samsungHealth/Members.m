@@ -7,6 +7,8 @@
 //
 
 #import "Members.h"
+#import <Parse/Parse.h>
+#import "CreateGroup.h"
 
 @interface Members ()
 
@@ -14,10 +16,10 @@
 
 @implementation Members {
     NSMutableArray *members;
+    NSString *groupName;
 }
 
 @synthesize scrollView;
-@synthesize addButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,25 +34,58 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    members = [[NSMutableArray alloc] init];
-    [members addObject:@"u1"];
-    [members addObject:@"u2"];
-    [members addObject:@"u3"];
-    [members addObject:@"u4"];
-    [members addObject:@"u5"];
-    [members addObject:@"u6"];
+    groupName = @"family";
     
-    NSInteger width = 80;
+    members = [[NSMutableArray alloc] init];
+    scrollView.hidden = YES;
+    [self getMemberList];
+    
+}
+
+- (IBAction) show:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    NSLog(btn.titleLabel.text);
+    if ([btn.titleLabel.text isEqualToString:@"add"]) {
+        CreateGroup *next = [self.storyboard instantiateViewControllerWithIdentifier:@"createGroup"];
+        [self.navigationController pushViewController:next animated:YES];
+    }
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+- (void) getMemberList {
+    PFQuery *query = [PFQuery queryWithClassName:@"Group"];
+    [query whereKey:@"name" equalTo:groupName];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        PFObject *res = [objects objectAtIndex:0];
+        __block NSMutableArray *temp = [res objectForKey:@"users"];
+        for (NSObject *object in temp) {
+            NSString *userName = (NSString *)object;
+            [members addObject:userName];
+        }
+        [self fillMembers];
+    }];
+}
+
+
+- (void) fillMembers {
+    NSInteger width = 90;
     NSInteger height = 30;
     int numberPerLine = 3;
     int count = 2;
-    CGRect frame = CGRectMake(20.0f, 10.0f, width, height);
-//    UIButton *addFriendButton = [[UIButton alloc] initWithFrame:frame];
-    [addButton setFrame:frame];
-    [addButton setBackgroundColor:[UIColor blackColor]];
-//    [addFriendButton setTitle:@"add members" forState:UIControlStateNormal];
-//    [addFriendButton addTarget:self action:@selector(show:) forControlEvents:UIControlEventTouchUpInside];
-//    [scrollView addSubview:addFriendButton];
+    CGRect frame = CGRectMake(15.0f, 10.0f, width, height);
+    UIButton *addFriendButton = [[UIButton alloc] initWithFrame:frame];
+    [addFriendButton setFrame:frame];
+    [addFriendButton setBackgroundColor:[UIColor blackColor]];
+    [addFriendButton setTitle:@"add" forState:UIControlStateNormal];
+    [addFriendButton addTarget:self action:@selector(show:) forControlEvents:UIControlEventTouchUpInside];
+    [scrollView addSubview:addFriendButton];
     frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, width, height);
     
     for (int i = 0; i < [members count]; i++) {
@@ -62,23 +97,14 @@
         frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, width, height);
         if (count == numberPerLine)
         {
-            frame = CGRectMake(20.0f , frame.origin.y + height + 10.0f, width, height);
+            frame = CGRectMake(15.0f , frame.origin.y + height + 10.0f, width, height);
             count = 0;
         }
         count++;
-
+        
     }
-}
-
-- (IBAction) show:(id)sender {
-    UIButton *btn = (UIButton *)sender;
-    NSLog(btn.titleLabel.text);
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    scrollView.hidden = NO;
+    
 }
 
 /*

@@ -155,25 +155,13 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fac-Ak-5J7">
                                 <rect key="frame" x="0.0" y="65" width="320" height="553"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8T-0k-rI8">
-                                        <rect key="frame" x="35" y="113" width="78" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="add friends">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="CLx-bs-EgF" kind="push" id="mVZ-O3-buu"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="U72-6T-0o3"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
-                        <outlet property="addButton" destination="T8T-0k-rI8" id="16T-SX-aWZ"/>
                         <outlet property="scrollView" destination="fac-Ak-5J7" id="POW-AS-yvn"/>
                     </connections>
                 </viewController>
@@ -184,7 +172,7 @@
         <!--Create Group-->
         <scene sceneID="eWo-oe-e9K">
             <objects>
-                <viewController id="CLx-bs-EgF" customClass="CreateGroup" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createGroup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CLx-bs-EgF" customClass="CreateGroup" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xyo-pU-0aA"/>
                         <viewControllerLayoutGuide type="bottom" id="Wt9-ql-VzU"/>
@@ -833,7 +821,7 @@
         <!--Connect View Controller - Connect-->
         <scene sceneID="pDP-iZ-9fO">
             <objects>
-                <viewController storyboardIdentifier="connectController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OSV-Jl-5cM" customClass="ConnectViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="connectController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OSV-Jl-5cM" customClass="ConnectViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rFK-q0-2e8"/>
                         <viewControllerLayoutGuide type="bottom" id="6V4-wp-OIZ"/>
@@ -1416,6 +1404,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="sZd-ak-74z"/>
         <segue reference="ru9-4z-DP7"/>
-        <segue reference="mVZ-O3-buu"/>
     </inferredMetricsTieBreakers>
 </document>
