@@ -6,29 +6,35 @@
 //  Copyright (c) 2014 Hao Ge. All rights reserved.
 //
 
+#import "UserData.h"
 #import "CreateGroup.h"
 #import "FriendTableViewCell.h"
+#import <Parse/Parse.h>
 
 @interface CreateGroup ()
 
 @end
 
 @implementation CreateGroup{
-    NSArray *tableData;
-    NSArray *thumbnails;
+    NSMutableArray *tableData;
+    NSMutableArray *thumbnails;
 }
-
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Initialize table data
-    tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
     
-    // Initialize thumbnails
-    thumbnails = [NSArray arrayWithObjects:@"egg_benedict.jpg", @"mushroom_risotto.jpg", @"full_breakfast.jpg", @"hamburger.jpg", @"ham_and_egg_sandwich.jpg", @"creme_brelee.jpg", @"white_chocolate_donut.jpg", @"starbucks_coffee.jpg", @"vegetable_curry.jpg", @"instant_noodle_with_egg.jpg", @"noodle_with_bbq_pork.jpg", @"japanese_noodle_with_pork.jpg", @"green_tea.jpg", @"thai_shrimp_cake.jpg", @"angry_birds_cake.jpg", @"ham_and_cheese_panini.jpg", nil];
+    tableData = [[NSMutableArray alloc] init];
+    thumbnails = [[NSMutableArray alloc] init];
+    for (NSString *name in [UserData getAppFriends]) {
+        [tableData addObject:name];
+    }
     
+    NSDictionary *dict = [UserData getAppFriendAvatars];
+    NSLog(@"%@", dict);
+    for (NSString *key in dict) {
+        [thumbnails addObject:[dict objectForKey:key]];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -58,8 +64,9 @@
         cell = [nib objectAtIndex:0];
     }
     
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[thumbnails objectAtIndex:indexPath.row]]];
+    cell.pic.image = [UIImage imageWithData:imageData];
     cell.name.text = [tableData objectAtIndex:indexPath.row];
-    cell.pic.image = [UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
     
     return cell;
 }

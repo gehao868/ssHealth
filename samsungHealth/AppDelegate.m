@@ -185,7 +185,6 @@ NSUserDefaults *defaults;
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
             user[@"avatar"] = url;
             [user saveInBackground];
-            
         }];
     }];
 }
