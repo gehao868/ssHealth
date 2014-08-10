@@ -16,5 +16,7 @@
 @synthesize detail;
 @synthesize discount;
 @synthesize fromusername;
+@synthesize expiredate;
+@synthesize tousername;
 
 @end

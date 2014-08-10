@@ -16,5 +16,7 @@
 @property (nonatomic) NSString *detail;
 @property (nonatomic) NSString *discount;
 @property (nonatomic) NSString *fromusername;
+@property (nonatomic) NSString *tousername;
+@property (nonatomic) NSDate *expiredate;
 
 @end

@@ -47,6 +47,7 @@ NSString *isLoggedin;
         [UserData setAvatar:[defaults objectForKey:@"avatar"]];
         [UserData setHeight:[defaults objectForKey:@"height"]];
         
+//        [UserData setUsername:@"Quincy Yip"];
         PFQuery *query = [PFQuery queryWithClassName:@"Users"];
         [query whereKey:@"username" equalTo:[UserData getUsername]];
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
