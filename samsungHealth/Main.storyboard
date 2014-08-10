@@ -87,7 +87,7 @@
         <!--News Feed View Controller-->
         <scene sceneID="8Kn-fe-5Jk">
             <objects>
-                <viewController restorationIdentifier="ConnectionNewsFeed" storyboardIdentifier="ConnectionNewsFeed" automaticallyAdjustsScrollViewInsets="NO" id="kF8-hC-3e8" customClass="NewsFeedViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ConnectionNewsFeed" storyboardIdentifier="ConnectionNewsFeed" id="kF8-hC-3e8" customClass="NewsFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2P3-1A-lJu"/>
                         <viewControllerLayoutGuide type="bottom" id="4iy-63-xJ3"/>
@@ -821,7 +821,7 @@
         <!--Connect View Controller - Connect-->
         <scene sceneID="pDP-iZ-9fO">
             <objects>
-                <viewController storyboardIdentifier="connectController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OSV-Jl-5cM" customClass="ConnectViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="connectController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OSV-Jl-5cM" customClass="ConnectViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rFK-q0-2e8"/>
                         <viewControllerLayoutGuide type="bottom" id="6V4-wp-OIZ"/>
@@ -840,7 +840,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addFriend:" destination="OSV-Jl-5cM" eventType="touchUpInside" id="QHg-29-MZB"/>
-                                    <segue destination="CLx-bs-EgF" kind="modal" id="HWY-W3-54r"/>
+                                    <segue destination="CLx-bs-EgF" kind="push" id="lde-LE-2qZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giH-mj-nRJ">
