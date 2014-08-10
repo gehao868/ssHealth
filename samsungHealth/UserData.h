@@ -31,6 +31,9 @@
 + (NSArray *)getAppFriends;
 + (void)setAppFriends:(NSArray *) newAppFriends;
 
++ (NSMutableDictionary *)getAppFriendAvatars;
++ (void)setAppFriendAvatars:(NSString *)url forKey:(NSString *)key;
+
 + (NSArray *)getRewards;
 + (void)setRewards:(NSArray *) newRewards;
 

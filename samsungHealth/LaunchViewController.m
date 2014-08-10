@@ -50,10 +50,17 @@ NSString *isLoggedin;
 //        [UserData setUsername:@"Quincy Yip"];
         PFQuery *query = [PFQuery queryWithClassName:@"Users"];
         [query whereKey:@"username" equalTo:[UserData getUsername]];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             if (!error) {
-                for (PFObject *object in objects) {
-                    [UserData setPoint:[object objectForKey:@"point"]];
+                [UserData setPoint:[object objectForKey:@"point"]];
+                [UserData setAppFriends:[object objectForKey:@"appfriends"]];
+                
+                for (NSString *name in [object objectForKey:@"appfriends"]) {
+                PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+                    [query whereKey:@"username" equalTo:name];
+                    [query getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
+                        [UserData setAppFriendAvatars:[user objectForKey:@"avatar"] forKey:name];
+                    }];
                 }
             } else {
                 // Log details of the failure

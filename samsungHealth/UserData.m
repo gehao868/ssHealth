@@ -15,6 +15,7 @@ static NSString *gender;
 static NSNumber *height;
 static NSNumber *point;
 static NSArray *appFriends;
+static NSMutableDictionary *appFriendAvatars;
 static NSArray *rewards;
 static NSArray *groups;
 static NSString *stateFileName = @"stateFile";
@@ -68,6 +69,16 @@ static NSString *stateFileName = @"stateFile";
 }
 + (void)setAppFriends:(NSArray *) newAppFriends {
     appFriends = newAppFriends;
+}
+
++ (NSMutableDictionary *)getAppFriendAvatars {
+    return appFriendAvatars;
+}
++ (void)setAppFriendAvatars:(NSString *)url forKey:(NSString *)key {
+    if (appFriendAvatars == NULL) {
+        appFriendAvatars = [[NSMutableDictionary alloc] init];
+    }
+    [appFriendAvatars setObject:url forKey:key];
 }
 
 + (NSArray *)getRewards {
