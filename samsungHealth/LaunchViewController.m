@@ -48,7 +48,7 @@ NSString *isLoggedin;
         [UserData setHeight:[defaults objectForKey:@"height"]];
         
         PFQuery *query = [PFQuery queryWithClassName:@"Users"];
-        [query whereKey:@"username" equalTo:[defaults objectForKey:@"username"]];
+        [query whereKey:@"username" equalTo:[UserData getUsername]];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 for (PFObject *object in objects) {

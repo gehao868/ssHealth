@@ -131,8 +131,8 @@ NSUserDefaults *defaults;
     /* make the API call */
     [FBRequestConnection startWithGraphPath:@"/me" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* user, NSError *error) {
         //NSLog(@"%@", user);
-        NSString *tmpusername = [NSString stringWithFormat:@"%@ %@", [user objectForKey:@"first_name"], [user objectForKey:@"first_name"]];
-        NSLog(@".............%@", tmpusername);
+        NSString *tmpusername = [NSString stringWithFormat:@"%@ %@", [user objectForKey:@"first_name"], [user objectForKey:@"last_name"]];
+        
         [UserData setUsername:tmpusername];
         [UserData setBirthday:[user objectForKey:@"birthday"]];
         [UserData setGender:[user objectForKey:@"gender"]];

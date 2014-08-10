@@ -1402,8 +1402,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sZd-ak-74z"/>
         <segue reference="ru9-4z-DP7"/>
-        <segue reference="HWY-W3-54r"/>
+        <segue reference="sZd-ak-74z"/>
     </inferredMetricsTieBreakers>
 </document>
