@@ -13,6 +13,7 @@
 #import "UserData.h"
 
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
 
 @interface LaunchViewController ()
 
@@ -37,20 +38,27 @@ NSString *isLoggedin;
     
     NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
     isLoggedin = [defaults objectForKey:@"isLoggedin"];
+    
     if ([isLoggedin isEqual:@"true"]) {
         [self.view setHidden:YES];
-//        [UserData setUserID:[defaults objectForKey:@"id"]];
+        [UserData setUsername:[defaults objectForKey:@"username"]];
         [UserData setBirthday:[defaults objectForKey:@"birthday"]];
-//        [UserData setFirstName:[defaults objectForKey:@"first_name"]];
-//        [UserData setLastName:[defaults objectForKey:@"last_name"]];
-//        [UserData setEmail:[defaults objectForKey:@"email"]];
-        
-        // quincy changed this.
-        [UserData setUsername:@"username"];
         [UserData setGender:[defaults objectForKey:@"gender"]];
-        [UserData setAppFriends:[defaults objectForKey:@"appFriends"]];
         [UserData setAvatar:[defaults objectForKey:@"avatar"]];
-//        [UserData setFBFriends:[defaults objectForKey:@"FBFriends"]];
+        [UserData setHeight:[defaults objectForKey:@"height"]];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+        [query whereKey:@"username" equalTo:[defaults objectForKey:@"username"]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                for (PFObject *object in objects) {
+                    [UserData setPoint:[object objectForKey:@"point"]];
+                }
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
     }
 }
 
