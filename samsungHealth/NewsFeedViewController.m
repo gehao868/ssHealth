@@ -73,10 +73,12 @@ SINavigationMenuView *menu;
         }
         
         CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
+
         menu = [[SINavigationMenuView alloc] initWithFrame:frame];
         [menu displayMenuInView:self.navigationController.view];
         menu.items = groupnames;
         [menu setTitle:[menu.items objectAtIndex:currIndex]];
+        [UserData setCurrgroup:[menu.items objectAtIndex:currIndex]];
         menu.delegate = self;
         self.navigationItem.titleView = menu;
         
