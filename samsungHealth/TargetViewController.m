@@ -18,6 +18,7 @@
 @implementation TargetViewController {
     NSMutableArray *finished;
     NSMutableArray *expected;
+    
     CGRect progressFrame;
     CGRect numberFrame;
     CGRect imgFrame;
@@ -95,11 +96,20 @@
         
     }
     
-    NSLog(@"%d", [finished count]);
+    NSLog(@"end add");
     
     numberFrame = CGRectMake(20.0f, 5.0f, 120.0f, 20.0f);
     progressFrame = CGRectMake(20.0f, 5.0f + font.lineHeight + 2.0f, 120.0f, 20.0f);
     imgFrame = CGRectMake(0.0f, 2.0f, 60.0f, 20.0f);
+    
+    
+    [self.datepicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
+    
+    //    [self.datepicker fillDatesFromCurrentDate:14];
+    //    [self.datepicker fillCurrentWeek];
+    //    [self.datepicker fillCurrentMonth];
+    [self.datepicker fillCurrentYear];
+    [self.datepicker selectDateAtIndex:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -108,10 +118,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)updateSelectedDate
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEEddMMMM" options:0 locale:nil];
+    
+    self.selectedDateLabel.text = [formatter stringFromDate:self.datepicker.selectedDate];
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return [finished count];
 }
 
 
@@ -126,6 +144,7 @@
     NSNumber *x = (NSNumber*)[finished objectAtIndex:indexPath.row];
     NSNumber *y = (NSNumber*)[expected objectAtIndex:indexPath.row];
     
+    
     NSString *text = [NSString stringWithFormat:@"%d%@%d", [x intValue], @"/",[y intValue]];
     cell.number.text = text;
     [cell.number setFont:font];
@@ -135,6 +154,7 @@
     
     cell.image.image = [UIImage imageNamed:[imgList objectAtIndex:indexPath.row]];
     cell.image.frame = CGRectMake(cell.image.frame.origin.x, cell.image.frame.origin.x, 50, 50);
+    
 
     return cell;
 }

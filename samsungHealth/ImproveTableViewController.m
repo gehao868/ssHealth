@@ -9,6 +9,7 @@
 #import "ImproveTableViewController.h"
 #import "ImproveTableViewCell.h"
 #import "UserData.h"
+#import <EventKit/EventKit.h>
 
 @interface ImproveTableViewController ()
 
@@ -20,6 +21,7 @@
     NSMutableArray *goalNumber;
     NSMutableArray *goalType;
     NSMutableArray *thumbnails;
+    NSDate *today;
 }
 
 - (void)viewDidLoad
@@ -36,7 +38,7 @@
     [components setHour:-[components hour]];
     [components setMinute:-[components minute]];
     [components setSecond:-[components second]];
-    NSDate *today = [NSDate date];//This variable should now be pointing at a date object that is the start of today (midnight);
+    today = [NSDate date];//This variable should now be pointing at a date object that is the start of today (midnight);
     
     [components setHour:-24];
     [components setMinute:0];
@@ -170,8 +172,56 @@
     ImproveTableViewCell *cell = (ImproveTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
 
     cell.improveAdd.image = [UIImage imageNamed:@"checkmark_black"];
+
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    EKEventStore *eventStore = [[EKEventStore alloc] init];
+    if ([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)]){
+        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (error)
+                {
+                    // display error message here
+                }
+                else if (!granted)
+                {
+                    // display access denied error message here
+                }
+                else
+                {
+                    // access granted
+                    EKEvent *event  = [EKEvent eventWithEventStore:eventStore];
+                    event.title     =[goalArray objectAtIndex:indexPath.row];
+                    
+                    NSDateFormatter *tempFormatter = [[NSDateFormatter alloc]init];
+                    [tempFormatter setDateFormat:@"dd.MM.yyyy HH:mm"];
+                    
+                    event.startDate = today;
+                    event.endDate   = today;
+                    event.allDay = NO;
+                    
+                    [event addAlarm:[EKAlarm alarmWithRelativeOffset:60.0f * -60.0f * 24]];
+                    [event addAlarm:[EKAlarm alarmWithRelativeOffset:60.0f * -15.0f]];
+                    
+                    [event setCalendar:[eventStore defaultCalendarForNewEvents]];
+                    NSError *err;
+                    [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
+                    
+                    UIAlertView *alert = [[UIAlertView alloc]
+                                          initWithTitle:@"Goal Added"
+                                          message:@"Successfully mark to calendar"
+                                          delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+                    [alert show];
+                    
+                }
+            });
+        }];
+    }
+
+    
 }
 
 //- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath

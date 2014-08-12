@@ -11,5 +11,6 @@
 @interface CouponListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *table;
+- (IBAction)refresh:(id)sender;
 
 @end
