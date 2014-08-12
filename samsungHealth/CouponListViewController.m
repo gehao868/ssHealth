@@ -39,6 +39,9 @@
     self.table.hidden = YES;
     [self getCouponList];
     // Do any additional setup after loading the view.
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(yo:) forControlEvents:UIControlEventValueChanged];
+    [self.table addSubview:refreshControl];
 }
 
 - (void)didReceiveMemoryWarning
@@ -132,6 +135,8 @@
     [query orderByDescending:@"updatedAt"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        rewards = [[NSMutableArray alloc] init];
+        dic = [[NSMutableDictionary alloc] init];
         for (PFObject *object in objects) {
             __block Reward *reward = [[Reward alloc] init];
             reward.fromusername = [object objectForKey:@"fromusername"];
@@ -150,7 +155,9 @@
     }];
 }
 
-- (IBAction)refresh:(id)sender {
-    [self.table reloadData];
+- (void)yo:(UIRefreshControl *)refreshControl {
+    [self getCouponList];
+    [refreshControl endRefreshing];
 }
+
 @end
