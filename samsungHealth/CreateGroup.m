@@ -31,10 +31,12 @@
     }
     
     NSDictionary *dict = [UserData getAppFriendAvatars];
-    NSLog(@"%@", dict);
+
     for (NSString *key in dict) {
         [thumbnails addObject:[dict objectForKey:key]];
     }
+    
+    [self.groupname setText:[UserData getCurrgroup]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -51,7 +53,6 @@
 {
     return 50;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -73,13 +74,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectRowAtIndexPath");
-    /*UIAlertView *messageAlert = [[UIAlertView alloc]
-     initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];*/
     UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"Row Selected" message:[tableData objectAtIndex:indexPath.row] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    
-    // Display the Hello World Message
+                                 initWithTitle:@"Added Friend" message:[tableData objectAtIndex:indexPath.row] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [messageAlert show];
     
     // Checked the selected row

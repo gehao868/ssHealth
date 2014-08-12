@@ -10,5 +10,6 @@
 
 @interface CreateGroup : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) IBOutlet UITextField *groupname;
 
 @end

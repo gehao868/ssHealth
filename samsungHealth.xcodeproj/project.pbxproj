@@ -497,7 +497,6 @@
 		7CBD2C1F197E4510002F23A5 /* samsungHealth */ = {
 			isa = PBXGroup;
 			children = (
-				0B0A240319957B620086309E /* NavigationMenuView */,
 				7CE78A8D198C5A84002ED7E5 /* Data */,
 				7C89F8961989C1B800F021EF /* PNChart */,
 				7C79580A198725E3008FB679 /* Reward */,
@@ -589,6 +588,7 @@
 		BBC1B2CF1987228800DDEC78 /* Connect */ = {
 			isa = PBXGroup;
 			children = (
+				0B0A240319957B620086309E /* NavigationMenuView */,
 				7CBD2C7F197E467D002F23A5 /* ConnectViewController.h */,
 				7CBD2C7E197E467D002F23A5 /* ConnectViewController.m */,
 				BBC1B2CC198721E600DDEC78 /* FriendListController.h */,
