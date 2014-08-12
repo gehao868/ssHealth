@@ -29,7 +29,8 @@
     
     tableData = [[NSMutableArray alloc] init];
     thumbnails = [[NSMutableArray alloc] init];
-    for (NSString *name in [UserData getAppFriends]) {
+    NSArray *sortedArray = [[UserData getAppFriends] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    for (NSString *name in sortedArray) {
         if ([friendsingroup indexOfObject:name] == NSNotFound) {
             [tableData addObject:name];
             [thumbnails addObject:[dict objectForKey:name]];
