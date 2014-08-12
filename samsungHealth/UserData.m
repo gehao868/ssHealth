@@ -19,6 +19,7 @@ static NSMutableDictionary *appFriendAvatars;
 static NSArray *rewards;
 static NSArray *groups;
 static NSString *currgroup;
+static NSArray *currgroupusers;
 static NSString *stateFileName = @"stateFile";
 
 @implementation UserData
@@ -101,6 +102,13 @@ static NSString *stateFileName = @"stateFile";
 }
 + (void)setCurrgroup:(NSString *) newCurrgroup {
     currgroup = newCurrgroup;
+}
+
++ (NSArray *)getCurrgroupusers {
+    return currgroupusers;
+}
++ (void)setCurrgroupusers:(NSArray *) newCurrgroupusers {
+    currgroupusers = newCurrgroupusers;
 }
 
 + (NSString *)getStateFileName {

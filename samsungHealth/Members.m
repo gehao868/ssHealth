@@ -44,7 +44,6 @@
 
 - (IBAction) show:(id)sender {
     UIButton *btn = (UIButton *)sender;
-    NSLog(btn.titleLabel.text);
     if ([btn.titleLabel.text isEqualToString:@"add"]) {
         CreateGroup *next = [self.storyboard instantiateViewControllerWithIdentifier:@"createGroup"];
         [self.navigationController pushViewController:next animated:YES];

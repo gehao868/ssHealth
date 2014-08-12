@@ -86,15 +86,16 @@
     
     NSArray* healthObjects = [queryHealth findObjects];
 
-    //healthObjects[0] objectForKey:<#(id)#>
-    
     NSArray* objects = [query findObjects];
-    
     
     for (PFObject *object in objects) {
         [expected addObject:[object objectForKey:@"expected"]];
+        [finished addObject:[healthObjects[0] objectForKey:[object objectForKey:@"type"]]];
+        
         
     }
+    
+    NSLog(@"%d", [finished count]);
     
     numberFrame = CGRectMake(20.0f, 5.0f, 120.0f, 20.0f);
     progressFrame = CGRectMake(20.0f, 5.0f + font.lineHeight + 2.0f, 120.0f, 20.0f);
@@ -134,6 +135,7 @@
     
     cell.image.image = [UIImage imageNamed:[imgList objectAtIndex:indexPath.row]];
     cell.image.frame = CGRectMake(cell.image.frame.origin.x, cell.image.frame.origin.x, 50, 50);
+
     return cell;
 }
 

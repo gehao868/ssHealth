@@ -75,7 +75,7 @@
         [goalArray addObject:[NSString stringWithFormat:@"Walk %d steps", quota]];
         [thumbnails addObject:@"steps"];
         [goalNumber addObject:[NSNumber numberWithInt:quota]];
-        [goalType addObject:@"stepcount"];
+        [goalType addObject:@"step"];
     }
     
     // recommend sleep

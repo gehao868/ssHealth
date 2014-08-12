@@ -7,15 +7,23 @@
 //
 
 #import "RedeemViewController.h"
-#import "RedeemCouponCell.h"
+#import <Parse/Parse.h>
 
 @interface RedeemViewController ()
 
 @end
 
 @implementation RedeemViewController {
-    NSMutableArray *coupon;
+ 
 }
+
+@synthesize couponDetail;
+@synthesize couponDiscount;
+@synthesize couponTitle;
+@synthesize coupontImg;
+@synthesize reward;
+@synthesize expireDate;
+@synthesize dateLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +38,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    coupon = [NSMutableArray arrayWithObjects:@"Vitamin C", @"Message", @"Samsung Gear Fit 10% Off", @"Fitbit $10 Off", nil];
+    if (reward.title) {
+        [self setContent];
+    } else {
+        couponDetail.hidden = YES;
+        couponDiscount.hidden = YES;
+        couponTitle.hidden = YES;
+        coupontImg.hidden = YES;
+        expireDate.hidden = YES;
+        dateLabel.hidden = YES;
+        [self getCouponDetail];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,25 +57,50 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 4;
+- (void) getCouponDetail {
+    PFQuery *query = [PFQuery queryWithClassName:@"Reward"];
+    [query whereKey:@"type" equalTo:reward.type];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        for (PFObject *object in objects) {
+            reward.fromusername = [object objectForKey:@"fromusername"];
+            reward.tousername = [object objectForKey:@"tousername"];
+            reward.expiredate = [object objectForKey:@"expiredate"];
+            reward.pic = [object objectForKey:@"pic"];
+            reward.title = [object objectForKey:@"title"];
+            reward.detail = [object objectForKey:@"detail"];
+            reward.discount = [object objectForKey:@"discount"];
+            reward.type = [object objectForKey:@"type"];
+         }
+        [self setContent];
+        couponDetail.hidden = NO;
+        couponDiscount.hidden = NO;
+        couponTitle.hidden = NO;
+        coupontImg.hidden = NO;
+        expireDate.hidden = NO;
+        dateLabel.hidden = NO;
+   
+    }];
+   
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"RedeemCouponCell";
-    RedeemCouponCell *cell = (RedeemCouponCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"RedeemCouponCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+- (void) setContent {
+    if ([reward.type isEqualToString:@"gift"]) {
+        couponDiscount.text = [@"From: " stringByAppendingString:reward.fromusername];
+    } else {
+        couponDiscount.text = reward.discount;
     }
+    couponDetail.text = reward.detail;
+    couponTitle.text = reward.title;
     
-    NSString *couponContent = [coupon objectAtIndex:indexPath.row];
-
-    cell.text.text = couponContent;
-    return cell;
+    couponDiscount.backgroundColor = [UIColor lightGrayColor];
+    
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:reward.pic]];
+    coupontImg.image = [UIImage imageWithData:data];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    expireDate.text = [dateFormatter stringFromDate:reward.expiredate];
 }
 
 /*
@@ -70,5 +113,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

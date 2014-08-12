@@ -63,7 +63,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
     //[query whereKey:@"Time" lessThanOrEqualTo:thisWeek];
-    [query whereKey:@"Time" greaterThan:lastWeek];
+    [query whereKey:@"date" greaterThan:lastWeek];
     
 
     
@@ -90,7 +90,7 @@
     for (PFObject *object in objects) {
         NSNumber *step =[NSNumber numberWithInt:[[object objectForKey:self.healthDataName] intValue]];
         [barData addObject:step];
-        NSString *date = [format stringFromDate:[object objectForKey:@"Time"]];
+        NSString *date = [format stringFromDate:[object objectForKey:@"date"]];
         [barDate addObject:date];
     }
     
