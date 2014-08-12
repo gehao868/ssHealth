@@ -129,9 +129,9 @@
 //            float z = x.floatValue /y.floatValue;
             float z = (i + 78.0f) * (j + 79.0f) / (i + 83.0f) / (j + 81.0f) / (7- i - j) * 4;
             [subScore addObject:[NSNumber numberWithFloat:z]];
-            NSString *text = [[NSString alloc] initWithFormat:@"%2.0f %%",(z*100)];
+            NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",(z*100)];
             [[subCircleLabel objectAtIndex:j*3+i] setText:text];
-            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(26.0f + i * 104, 368.0f + 105.0f * j, 60.0f, 60.0f)];
+            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(12.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
             [tmpView setProgress:z];
             [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN];
             [self.subProgessView addObject:tmpView];
