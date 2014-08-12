@@ -1218,7 +1218,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Coupons" id="8eX-Kd-QiD"/>
+                    <navigationItem key="navigationItem" title="Coupons" id="8eX-Kd-QiD">
+                        <barButtonItem key="rightBarButtonItem" title="fresh" id="BJL-Yd-KSX">
+                            <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="refresh:" destination="Y1d-qK-Ybn" id="qKg-fF-3Fo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="table" destination="I6a-B9-ru6" id="ERM-E0-mgM"/>
                     </connections>

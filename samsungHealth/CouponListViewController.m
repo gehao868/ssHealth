@@ -127,6 +127,9 @@
 
 - (void) getCouponList {
     PFQuery *query = [PFQuery queryWithClassName:@"Reward"];
+    [query whereKey:@"tousername" equalTo:[UserData getUsername]];
+    [query whereKey:@"isredeemed" equalTo:@YES];
+    [query orderByDescending:@"updatedAt"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         for (PFObject *object in objects) {
@@ -139,9 +142,6 @@
             reward.detail = [object objectForKey:@"detail"];
             reward.discount = [object objectForKey:@"discount"];
             reward.type = [object objectForKey:@"type"];
-            if (reward.tousername && !([reward.tousername isEqualToString:[UserData getUsername]])) {
-                continue;
-            }
             [rewards addObject:reward];
             [dic setObject:reward forKey:reward.title];
         }
@@ -150,4 +150,7 @@
     }];
 }
 
+- (IBAction)refresh:(id)sender {
+    [self.table reloadData];
+}
 @end
