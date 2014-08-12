@@ -35,6 +35,7 @@ NSMutableArray *groupnumbers;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [UserData setCurrgroup:@"Group Name"];
+    [UserData setCurrgroupusers:[[NSArray alloc] init]];
     
     groupnames = [[NSMutableArray alloc] init];
     groupnumbers = [[NSMutableArray alloc] init];
@@ -51,7 +52,6 @@ NSMutableArray *groupnumbers;
             NSArray *users = [object objectForKey:@"users"];
             [groupnumbers addObject:[NSNumber numberWithInteger:users.count]];
         }
-        NSLog(@"%@ %@", groupnames, groupnumbers);
     } else {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }

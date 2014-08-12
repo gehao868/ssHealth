@@ -43,6 +43,9 @@
 + (NSString *)getCurrgroup;
 + (void)setCurrgroup:(NSString *) newCurrgroup;
 
++ (NSArray *)getCurrgroupusers;
++ (void)setCurrgroupusers:(NSArray *) newCurrgroupusers;
+
 + (NSString *)getStateFileName;
 
 @end
