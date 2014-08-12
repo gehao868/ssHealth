@@ -18,5 +18,6 @@
 @synthesize fromusername;
 @synthesize expiredate;
 @synthesize tousername;
+@synthesize type;
 
 @end

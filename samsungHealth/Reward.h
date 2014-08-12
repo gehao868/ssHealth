@@ -18,5 +18,6 @@
 @property (nonatomic) NSString *fromusername;
 @property (nonatomic) NSString *tousername;
 @property (nonatomic) NSDate *expiredate;
+@property (nonatomic) NSString *type;
 
 @end

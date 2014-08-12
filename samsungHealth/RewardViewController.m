@@ -11,6 +11,8 @@
 #import <Parse/Parse.h>
 #import "Reward.h"
 #import "CouponDetailCell.h"
+#import "RedeemViewController.h"
+#import "RedeemViewController.h"
 
 @interface RewardViewController ()
 
@@ -24,7 +26,7 @@
     NSArray *miss;
     NSArray *data;
     NSString *result;
-    NSMutableArray *rewards;
+    int pointNeeded;
 }
 
 
@@ -40,9 +42,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    rewards = [[NSMutableArray alloc] init];
-    self.table.hidden = YES;
-    [self getCouponList];
+    pointNeeded = 300;
     self.userIcon.image = [UIImage imageWithData:[UserData getAvatar]];
     self.userIcon.layer.masksToBounds = YES;
     self.userIcon.layer.cornerRadius = 30.0;
@@ -51,6 +51,8 @@
     self.userIcon.layer.rasterizationScale = [UIScreen mainScreen].scale;
     self.userIcon.layer.shouldRasterize = YES;
     self.userIcon.clipsToBounds = YES;
+    
+    self.rewardPoint.text = [[UserData getPoint] stringValue];
     
     data = @[@"1st prize",@"2nd prize",@"3rd prize",@"try again"];
     //中奖和没中奖之间的分隔线设有2个弧度的盲区，指针不会旋转到的，避免抽奖的时候起争议。
@@ -97,17 +99,35 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)start:(id)sender {
-    CABasicAnimation* rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    endValue = [self fetchResult];
-    rotationAnimation.delegate = self;
-    rotationAnimation.fromValue = @(startValue);
-    rotationAnimation.toValue = @(endValue);
-    rotationAnimation.duration = 2.0f;
-    rotationAnimation.autoreverses = NO;
-    rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    rotationAnimation.removedOnCompletion = NO;
-    rotationAnimation.fillMode = kCAFillModeBoth;
-    [_rotateStaticImageView.layer addAnimation:rotationAnimation forKey:@"revItUpAnimation"];
+    if ([[UserData getPoint] intValue] < pointNeeded) {
+        NSString *text = @"You at lease than ";
+        text = [text stringByAppendingString:[[NSNumber numberWithInt:pointNeeded] stringValue]];
+        text = [text stringByAppendingString:@" to play!"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Woops"
+                                                        message:text
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
+
+    } else {
+        CABasicAnimation* rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        endValue = [self fetchResult];
+        rotationAnimation.delegate = self;
+        rotationAnimation.fromValue = @(startValue);
+        rotationAnimation.toValue = @(endValue);
+        rotationAnimation.duration = 2.0f;
+        rotationAnimation.autoreverses = NO;
+        rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        rotationAnimation.removedOnCompletion = NO;
+        rotationAnimation.fillMode = kCAFillModeBoth;
+        [_rotateStaticImageView.layer addAnimation:rotationAnimation forKey:@"revItUpAnimation"];
+    
+        [self deducePoint];
+        self.rewardPoint.text = [@([[UserData getPoint] intValue] - pointNeeded) stringValue];
+        [UserData setPoint:@([[UserData getPoint] intValue] - pointNeeded)];
+    }
 }
 
 -(float)fetchResult{
@@ -172,12 +192,11 @@ double radians(float degrees) {
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"buttonIndex is : %li",(long)buttonIndex);
-    switch (buttonIndex) {
-        case 0:{
-            
-        }break;
-        default:
-            break;
+    if (buttonIndex == [alertView firstOtherButtonIndex]) {
+        RedeemViewController *next = [self.storyboard instantiateViewControllerWithIdentifier:@"RedeemCoupon"];
+        next.reward = [[Reward alloc] init];
+        next.reward.type = result;
+        [self.navigationController pushViewController:next animated:YES];
     }
 }
 
@@ -198,93 +217,21 @@ double radians(float degrees) {
 }
 */
 
+- (void) deducePoint {
+    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+    [query whereKey:@"username" equalTo:[UserData getUsername]];
+    
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        object[@"point"] = [UserData getPoint];
+        [object saveInBackground];
+    }];
+}
+
 - (IBAction)play:(UIButton *)sender {
 }
 
 - (IBAction)showMenu:(id)sender {
         [self.frostedViewController presentMenuViewController];
-}
-
-- (IBAction)segmentControl:(UISegmentedControl *)sender {
-    switch (sender.selectedSegmentIndex) {
-        case 0:
-            self.userIcon.hidden = NO;
-            self.rewardPoint.hidden = NO;
-            self.label1.hidden = NO;
-            self.plateImageView.hidden = NO;
-            self.rotateStaticImageView.hidden = NO;
-            self.user.hidden = NO;
-            self.playBtn.hidden = NO;
-            self.points.hidden = NO;
-            self.startBtn.hidden = NO;
-            self.table.hidden = YES;
-            break;
-        case 1:
-            self.userIcon.hidden = YES;
-            self.rewardPoint.hidden = YES;
-            self.label1.hidden = YES;
-            self.plateImageView.hidden = YES;
-            self.rotateStaticImageView.hidden = YES;
-            self.user.hidden = YES;
-            self.playBtn.hidden = YES;
-            self.points.hidden = YES;
-            self.startBtn.hidden = YES;
-            self.table.hidden = NO;
-            break;
-        default:
-            break;
-    }
-}
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [rewards count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *tableIdentifier = @"CouponDetailCell";
-    CouponDetailCell *cell = (CouponDetailCell *)[tableView dequeueReusableCellWithIdentifier:tableIdentifier];
-    
-    if (cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CouponDetailCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    
-    Reward *reward = (Reward *)[rewards objectAtIndex:indexPath.row];
-    cell.couponName.text = reward.title;
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    
-    NSString *date = [dateFormatter stringFromDate:reward.expiredate];
-    cell.expireDate.text = date;
-    return cell;
-    
-}
-
-- (void) getCouponList {
-    PFQuery *query = [PFQuery queryWithClassName:@"Reward"];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        for (PFObject *object in objects) {
-            __block Reward *reward = [[Reward alloc] init];
-            reward.fromusername = [object objectForKey:@"fromuername"];
-            reward.tousername = [object objectForKey:@"tousername"];
-            reward.expiredate = [object objectForKey:@"expiredate"];
-            reward.pic = [object objectForKey:@"pic"];
-            reward.title = [object objectForKey:@"title"];
-            reward.detail = [object objectForKey:@"detail"];
-            reward.discount = [object objectForKey:@"discount"];
-            
-            if (reward.tousername && !([reward.tousername isEqualToString:[UserData getUsername]])) {
-                continue;
-            }
-            [rewards addObject:reward];
-        }
-        [self.table reloadData];
-    }];
 }
 
 @end

@@ -32,6 +32,7 @@
 		3BD61A0319969E6600F2A528 /* Members.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A0219969E6600F2A528 /* Members.m */; };
 		3BD61A061996ED8800F2A528 /* CreateGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A051996ED8800F2A528 /* CreateGroup.m */; };
 		3BD61A09199715CD00F2A528 /* CouponDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A08199715CD00F2A528 /* CouponDetailCell.m */; };
+		3BE7C18D1999B46100FB30AE /* CouponListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7C18C1999B46100FB30AE /* CouponListViewController.m */; };
 		7C1A6CA219956E2500E307DA /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A6CA119956E2500E307DA /* Goal.m */; };
 		7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */; };
 		7C89F8A31989C1B800F021EF /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8981989C1B800F021EF /* PNBar.m */; };
@@ -93,7 +94,6 @@
 		7CE78A99198CA459002ED7E5 /* ImproveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A98198CA459002ED7E5 /* ImproveTableViewController.m */; };
 		7CE78A9C198D5F36002ED7E5 /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A9B198D5F36002ED7E5 /* ProfileTableViewCell.m */; };
 		7CE78A9F198D8AC0002ED7E5 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A9E198D8AC0002ED7E5 /* FriendTableViewCell.m */; };
-		BB93A1F819914E7D00AA1CED /* RedeemCouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB93A1F719914E7D00AA1CED /* RedeemCouponCell.m */; };
 		BB93A1FB19914FE100AA1CED /* RedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB93A1FA19914FE100AA1CED /* RedeemViewController.m */; };
 		BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC1B2CD198721E600DDEC78 /* FriendListController.m */; };
 /* End PBXBuildFile section */
@@ -148,6 +148,8 @@
 		3BD61A051996ED8800F2A528 /* CreateGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGroup.m; sourceTree = "<group>"; };
 		3BD61A07199715CD00F2A528 /* CouponDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDetailCell.h; sourceTree = "<group>"; };
 		3BD61A08199715CD00F2A528 /* CouponDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDetailCell.m; sourceTree = "<group>"; };
+		3BE7C18B1999B46100FB30AE /* CouponListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponListViewController.h; sourceTree = "<group>"; };
+		3BE7C18C1999B46100FB30AE /* CouponListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponListViewController.m; sourceTree = "<group>"; };
 		7C1A6CA019956E2500E307DA /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
 		7C1A6CA119956E2500E307DA /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
 		7C89F8931989A9F100F021EF /* AppDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDeviceTableViewCell.h; sourceTree = "<group>"; };
@@ -252,8 +254,6 @@
 		7CE78A9B198D5F36002ED7E5 /* ProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
 		7CE78A9D198D8AC0002ED7E5 /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
 		7CE78A9E198D8AC0002ED7E5 /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
-		BB93A1F619914E7D00AA1CED /* RedeemCouponCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedeemCouponCell.h; sourceTree = "<group>"; };
-		BB93A1F719914E7D00AA1CED /* RedeemCouponCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedeemCouponCell.m; sourceTree = "<group>"; };
 		BB93A1F919914FE100AA1CED /* RedeemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedeemViewController.h; sourceTree = "<group>"; };
 		BB93A1FA19914FE100AA1CED /* RedeemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedeemViewController.m; sourceTree = "<group>"; };
 		BBC1B2CC198721E600DDEC78 /* FriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListController.h; sourceTree = "<group>"; };
@@ -408,12 +408,12 @@
 			children = (
 				7CBD2C5F197E4651002F23A5 /* RewardViewController.h */,
 				7CBD2C5E197E4651002F23A5 /* RewardViewController.m */,
-				BB93A1F619914E7D00AA1CED /* RedeemCouponCell.h */,
-				BB93A1F719914E7D00AA1CED /* RedeemCouponCell.m */,
 				BB93A1F919914FE100AA1CED /* RedeemViewController.h */,
 				BB93A1FA19914FE100AA1CED /* RedeemViewController.m */,
 				3BD61A07199715CD00F2A528 /* CouponDetailCell.h */,
 				3BD61A08199715CD00F2A528 /* CouponDetailCell.m */,
+				3BE7C18B1999B46100FB30AE /* CouponListViewController.h */,
+				3BE7C18C1999B46100FB30AE /* CouponListViewController.m */,
 			);
 			name = Reward;
 			sourceTree = "<group>";
@@ -706,6 +706,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE7C18D1999B46100FB30AE /* CouponListViewController.m in Sources */,
 				7CE78A99198CA459002ED7E5 /* ImproveTableViewController.m in Sources */,
 				0BA87092198C5BA900236EBD /* UserData.m in Sources */,
 				7C89F8A31989C1B800F021EF /* PNBar.m in Sources */,
@@ -745,7 +746,6 @@
 				7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */,
 				3B1CD2071989D75400282886 /* (null) in Sources */,
 				7C89F8B11989CB4A00F021EF /* TargetViewDetailController.m in Sources */,
-				BB93A1F819914E7D00AA1CED /* RedeemCouponCell.m in Sources */,
 				7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */,
 				7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */,
 				7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */,
