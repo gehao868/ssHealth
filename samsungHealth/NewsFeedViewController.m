@@ -51,6 +51,11 @@ SINavigationMenuView *menu;
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [postTableView reloadData];
+}
+
 - (void)getNews:(NSArray *)objects error:(NSError *)error {
     if (!error) {
         for (PFObject *object in objects) {
@@ -87,6 +92,8 @@ SINavigationMenuView *menu;
         postTableView.delegate = self;
         postTableView.dataSource = self;
         [self.view addSubview:postTableView];
+        
+        [self.view bringSubviewToFront:_buttonView];
     } else {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }

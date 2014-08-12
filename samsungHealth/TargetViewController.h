@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DIDatepicker.h"
 #import "REFrostedViewController.h"
 
 @interface TargetViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
@@ -15,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *forward;
 @property (strong, nonatomic) IBOutlet UIButton *back;
 @property (strong, nonatomic) IBOutlet UIButton *calendar;
+@property (weak, nonatomic) IBOutlet DIDatepicker *datepicker;
+@property (weak, nonatomic) IBOutlet UILabel *selectedDateLabel;
 
 - (IBAction)showMenu;
 
