@@ -244,6 +244,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="vwo-J1-VTe"/>
+                    <connections>
+                        <outlet property="groupname" destination="YBR-Eu-Rfc" id="ZEU-kQ-EvL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vE8-Pi-5zw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

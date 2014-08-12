@@ -18,6 +18,7 @@ static NSArray *appFriends;
 static NSMutableDictionary *appFriendAvatars;
 static NSArray *rewards;
 static NSArray *groups;
+static NSString *currgroup;
 static NSString *stateFileName = @"stateFile";
 
 @implementation UserData
@@ -93,6 +94,13 @@ static NSString *stateFileName = @"stateFile";
 }
 + (void)setGroups:(NSArray *) newGroups {
     groups = newGroups;
+}
+
++ (NSString *)getCurrgroup {
+    return currgroup;
+}
++ (void)setCurrgroup:(NSString *) newCurrgroup {
+    currgroup = newCurrgroup;
 }
 
 + (NSString *)getStateFileName {

@@ -40,6 +40,9 @@
 + (NSArray *)getGroups;
 + (void)setGroups:(NSArray *) newGroups;
 
++ (NSString *)getCurrgroup;
++ (void)setCurrgroup:(NSString *) newCurrgroup;
+
 + (NSString *)getStateFileName;
 
 @end
