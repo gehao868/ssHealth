@@ -51,11 +51,6 @@ SINavigationMenuView *menu;
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [postTableView reloadData];
-}
-
 - (void)getNews:(NSArray *)objects error:(NSError *)error {
     if (!error) {
         for (PFObject *object in objects) {
@@ -64,11 +59,12 @@ SINavigationMenuView *menu;
     } else {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }
+    
+    [postTableView reloadData];
 }
 
 - (void)addView:(NSArray *)objects error:(NSError *)error {
     if (!error) {
-        
         [groupnames addObject:@"Manage Group"];
         for (PFObject *object in objects) {
             NSString *groupname = [object objectForKey:@"name"];
@@ -91,12 +87,24 @@ SINavigationMenuView *menu;
         postTableView.frame = CGRectMake(0, 165, self.view.frame.size.width, self.view.frame.size.height-165);
         postTableView.delegate = self;
         postTableView.dataSource = self;
+        
+        UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+        [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+        [postTableView addSubview:refreshControl];
+        
         [self.view addSubview:postTableView];
         
         [self.view bringSubviewToFront:_buttonView];
     } else {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }
+    
+    [postTableView reloadData];
+}
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    [self viewDidLoad];
+    [refreshControl endRefreshing];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
