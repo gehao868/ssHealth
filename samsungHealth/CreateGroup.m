@@ -11,7 +11,7 @@
 #import "FriendTableViewCell.h"
 #import <Parse/Parse.h>
 
-@interface CreateGroup ()
+@interface CreateGroup () <UITextFieldDelegate>
 
 @end
 
@@ -24,17 +24,37 @@
 {
     [super viewDidLoad];
     
+    NSDictionary *dict = [UserData getAppFriendAvatars];
+    NSArray *friendsingroup = [UserData getCurrgroupusers];
+    
     tableData = [[NSMutableArray alloc] init];
     thumbnails = [[NSMutableArray alloc] init];
     for (NSString *name in [UserData getAppFriends]) {
-        [tableData addObject:name];
+        if ([friendsingroup indexOfObject:name] == NSNotFound) {
+            [tableData addObject:name];
+            [thumbnails addObject:[dict objectForKey:name]];
+        }
     }
     
-    NSDictionary *dict = [UserData getAppFriendAvatars];
-    NSLog(@"%@", dict);
-    for (NSString *key in dict) {
-        [thumbnails addObject:[dict objectForKey:key]];
-    }
+    [self.groupname setText:[UserData getCurrgroup]];
+    [self.groupname setDelegate:self];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done"
+                                   style:UIBarButtonItemStyleBordered
+                                   target:self
+                                   action:@selector(doneView)];
+    self.navigationItem.rightBarButtonItem = doneButton;
+    //[doneButton release];
+}
+
+-(IBAction)doneView {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{    
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -51,7 +71,6 @@
 {
     return 50;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -73,13 +92,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectRowAtIndexPath");
-    /*UIAlertView *messageAlert = [[UIAlertView alloc]
-     initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];*/
     UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"Row Selected" message:[tableData objectAtIndex:indexPath.row] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    
-    // Display the Hello World Message
+                                 initWithTitle:@"Added Friend" message:[tableData objectAtIndex:indexPath.row] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [messageAlert show];
     
     // Checked the selected row
@@ -87,6 +101,25 @@
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Group"];
+    [query whereKey:@"name" equalTo:_groupname.text];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *group, NSError *error) {
+        if (!error) {
+            NSMutableArray *array = [group objectForKey:@"users"];
+            [array addObject:[tableData objectAtIndex:indexPath.row]];
+            group[@"users"] = array;
+            [group saveInBackground];
+        } else {
+            NSMutableArray *array = [[NSMutableArray alloc] init];
+            [array addObject:[tableData objectAtIndex:indexPath.row]];
+            
+            PFObject *newgroup = [PFObject objectWithClassName:@"Group"];
+            newgroup[@"name"] = _groupname.text;
+            newgroup[@"users"] = array;
+            [newgroup saveInBackground];
+        }
+    }];
 }
 
 @end

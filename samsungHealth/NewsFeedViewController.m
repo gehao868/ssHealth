@@ -6,8 +6,11 @@
 //  Copyright (c) 2014 Hao Ge. All rights reserved.
 //
 
+#import "UserData.h"
 #import "ConnectViewController.h"
 #import "NewsFeedViewController.h"
+
+#import <Parse/Parse.h>
 
 @interface NewsFeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -15,6 +18,8 @@
 
 int currIndex = 1;
 UITableView *postTableView;
+NSMutableDictionary *groups;
+NSMutableArray *groupnames;
 SINavigationMenuView *menu;
 
 @implementation NewsFeedViewController
@@ -33,25 +38,47 @@ SINavigationMenuView *menu;
     [super viewDidLoad];
     
     if (self.navigationItem) {
+        groups = [[NSMutableDictionary alloc] init];
+        groupnames = [[NSMutableArray alloc] init];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Group"];
+        [query findObjectsInBackgroundWithTarget:self selector:@selector(addView:error:)];
+    }
+}
+
+- (void)addView:(NSArray *)objects error:(NSError *)error {
+    if (!error) {
+        
+        [groupnames addObject:@"Manage Group"];
+        for (PFObject *object in objects) {
+            NSString *groupname = [object objectForKey:@"name"];
+            [groupnames addObject:groupname];
+            NSArray *users = [object objectForKey:@"users"];
+            [groups setObject:users forKey:groupname];
+        }
+        
         CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
         menu = [[SINavigationMenuView alloc] initWithFrame:frame];
         [menu displayMenuInView:self.navigationController.view];
-        menu.items = @[@"Manage Group", @"Family", @"Friends", @"Classmates"];
+        menu.items = groupnames;
         [menu setTitle:[menu.items objectAtIndex:currIndex]];
         menu.delegate = self;
         self.navigationItem.titleView = menu;
+        
+        postTableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+        postTableView.frame = CGRectMake(0, 165, self.view.frame.size.width, self.view.frame.size.height-165);
+        postTableView.delegate = self;
+        postTableView.dataSource = self;
+        [self.view addSubview:postTableView];
+    } else {
+        NSLog(@"Error: %@ %@", error, [error userInfo]);
     }
-    
-    postTableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
-    postTableView.frame = CGRectMake(0, 165, self.view.frame.size.width, self.view.frame.size.height-165);
-    postTableView.delegate = self;
-    postTableView.dataSource = self;
-    [self.view addSubview:postTableView];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return currIndex * 5;
+    NSDictionary *dict = [groups objectForKey:[groupnames objectAtIndex:currIndex]];
+    return dict.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,7 +92,8 @@ SINavigationMenuView *menu;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Cell %d",indexPath.row];
+    NSArray *array = [groups objectForKey:[menu.items objectAtIndex:currIndex]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", [array objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -78,6 +106,18 @@ SINavigationMenuView *menu;
     } else {
         currIndex = index;
         [menu setTitle:[menu.items objectAtIndex:currIndex]];
+        [UserData setCurrgroup:[menu.items objectAtIndex:currIndex]];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Group"];
+        [query whereKey:@"name" equalTo:[UserData getCurrgroup]];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *group, NSError *error) {
+            if (!error) {
+                [UserData setCurrgroupusers:[group objectForKey:@"users"]];
+            } else {
+                // ignore
+            }
+        }];
+        
         self.navigationItem.titleView = menu;
         [postTableView reloadData];
     }

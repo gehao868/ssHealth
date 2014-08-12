@@ -10,10 +10,14 @@
 #import "UserData.h"
 
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
 
 @interface ConnectViewController() <FBFriendPickerDelegate>
 
 @end
+
+NSMutableArray *groupnames;
+NSMutableArray *groupnumbers;
 
 @implementation ConnectViewController
 
@@ -30,6 +34,27 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [UserData setCurrgroup:@"Group Name"];
+    [UserData setCurrgroupusers:[[NSArray alloc] init]];
+    
+    groupnames = [[NSMutableArray alloc] init];
+    groupnumbers = [[NSMutableArray alloc] init];
+    PFQuery *query = [PFQuery queryWithClassName:@"Group"];
+    [query findObjectsInBackgroundWithTarget:self selector:@selector(getGroups:error:)];
+}
+
+- (void)getGroups:(NSArray *)objects error:(NSError *)error {
+    if (!error) {
+        [groupnames addObject:@"+"];
+        for (PFObject *object in objects) {
+            NSString *groupname = [object objectForKey:@"name"];
+            [groupnames addObject:groupname];
+            NSArray *users = [object objectForKey:@"users"];
+            [groupnumbers addObject:[NSNumber numberWithInteger:users.count]];
+        }
+    } else {
+        NSLog(@"Error: %@ %@", error, [error userInfo]);
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,32 +80,5 @@
 
 - (IBAction)addFriend:(id)sender {
 }
-
-//- (IBAction)addFriend:(id)sender {
-//    NSMutableDictionary *friendsPara = [[NSMutableDictionary alloc] init];
-//    [FBRequestConnection startWithGraphPath:@"/me/taggable_friends" parameters:friendsPara HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
-//        NSArray *friends = [result objectForKey:@"data"];
-//        
-//        NSMutableArray *FBFriends = [[NSMutableArray alloc] init];
-//        for (NSDictionary *dict in friends) {
-//            NSMutableDictionary *elm = [[NSMutableDictionary alloc] init];
-//            
-//            [elm setValue:[dict objectForKey:@"name"] forKey:@"name"];
-//            [elm setValue:[[[dict objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"] forKey:@"pic"];
-//            
-//            [FBFriends addObject:elm];
-//        }
-//        
-//        NSSortDescriptor *descriptor =
-//        [[NSSortDescriptor alloc] initWithKey:@"name"
-//                                    ascending:YES
-//                                     selector:@selector(localizedCaseInsensitiveCompare:)];
-//        
-//        NSArray *descriptors = [NSArray arrayWithObjects:descriptor, nil];
-//        NSArray *sortedFriends = [FBFriends sortedArrayUsingDescriptors:descriptors];
-//        
-//        [UserData setFBFriends:sortedFriends];
-//    }];
-//}
 
 @end
