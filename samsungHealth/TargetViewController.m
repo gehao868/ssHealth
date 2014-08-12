@@ -79,7 +79,6 @@
     finished = [[NSMutableArray alloc] init];
     expected = [[NSMutableArray alloc] init];
     
-    NSMutableDictionary *mutableDict = [[NSMutableDictionary alloc] init];
     
     PFQuery *queryHealth = [PFQuery queryWithClassName:@"HealthData"];
     [queryHealth whereKey:@"username" equalTo:[UserData getUsername]];
@@ -87,15 +86,7 @@
     
     NSArray* healthObjects = [queryHealth findObjects];
 
-    
-    int heartrate = [[healthObjects[0] objectForKey:@"heartrate"] intValue];
-    int sleep = [[healthObjects[0] objectForKey:@"sleep"] intValue];
-    int step = [[healthObjects[0] objectForKey:@"step"] intValue];
-    int cups = [[healthObjects[0] objectForKey:@"cups"] intValue];
-    int losedWeight = [[object objectForKey:@"weight"] intValue];
-    
-    //[mutableDict setValue:[] forKeyPath:<#(NSString *)#>]
-
+    //healthObjects[0] objectForKey:<#(id)#>
     
     NSArray* objects = [query findObjects];
     
