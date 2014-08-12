@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0XT-Lj-xhU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0XT-Lj-xhU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -97,7 +97,7 @@
         <!--News Feed View Controller-->
         <scene sceneID="8Kn-fe-5Jk">
             <objects>
-                <viewController restorationIdentifier="ConnectionNewsFeed" storyboardIdentifier="ConnectionNewsFeed" id="kF8-hC-3e8" customClass="NewsFeedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConnectionNewsFeed" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kF8-hC-3e8" customClass="NewsFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2P3-1A-lJu"/>
                         <viewControllerLayoutGuide type="bottom" id="4iy-63-xJ3"/>
@@ -116,6 +116,24 @@
                                     <segue destination="kwW-EH-jpE" kind="push" id="1SQ-CJ-xDk"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XIa-iq-fIG">
+                                <rect key="frame" x="191" y="414" width="109" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNv-NZ-plv">
+                                        <rect key="frame" x="22" y="17" width="64" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.24819362540000001" green="0.73656728319999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Add Post">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="DKI-eR-fEu" kind="push" id="ltK-ks-Nce"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -126,6 +144,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="buttonView" destination="XIa-iq-fIG" id="Ele-y8-02J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BuP-mH-Fpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -799,6 +820,52 @@
             </objects>
             <point key="canvasLocation" x="876" y="131"/>
         </scene>
+        <!--New Post View Controller-->
+        <scene sceneID="dSr-kv-nHt">
+            <objects>
+                <viewController storyboardIdentifier="NewPostViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DKI-eR-fEu" customClass="NewPostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7aa-lL-8hl"/>
+                        <viewControllerLayoutGuide type="bottom" id="JrJ-1Y-n17"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FKp-sB-uG4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Your new post here" translatesAutoresizingMaskIntoConstraints="NO" id="NuR-FN-e7K">
+                                <rect key="frame" x="20" y="83" width="280" height="153"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.14263999829999999" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vqo-u8-a6f">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="PtE-cd-kQx">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gAt-fB-ggQ">
+                                <rect key="frame" x="233" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Post">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="send:" destination="DKI-eR-fEu" eventType="touchUpInside" id="Vcv-Td-gTN"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="postText" destination="NuR-FN-e7K" id="Qbq-rh-4u7"/>
+                        <outlet property="sendPost" destination="gAt-fB-ggQ" id="Frf-VC-jIH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JrC-dM-HB0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="525" y="861"/>
+        </scene>
         <!--Connect View Controller - Connect-->
         <scene sceneID="pDP-iZ-9fO">
             <objects>
@@ -1435,7 +1502,7 @@
     </scenes>
     <resources>
         <image name="add" width="12" height="12"/>
-        <image name="bodyfat" width="44" height="44"/>
+        <image name="bodyfat" width="230" height="230"/>
         <image name="circle_yellow" width="100" height="100"/>
         <image name="coupon_white" width="33" height="33"/>
         <image name="heart_green" width="22" height="22"/>

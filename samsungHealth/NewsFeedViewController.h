@@ -11,5 +11,8 @@
 
 @interface NewsFeedViewController : UIViewController <SINavigationMenuDelegate>
 - (IBAction)showMenu;
+@property (strong, nonatomic) IBOutlet UIButton *addPost;
+@property (strong, nonatomic) IBOutlet UIView *buttonView;
+
 
 @end
