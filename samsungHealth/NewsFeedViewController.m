@@ -107,6 +107,17 @@ SINavigationMenuView *menu;
         currIndex = index;
         [menu setTitle:[menu.items objectAtIndex:currIndex]];
         [UserData setCurrgroup:[menu.items objectAtIndex:currIndex]];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Group"];
+        [query whereKey:@"name" equalTo:[UserData getCurrgroup]];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *group, NSError *error) {
+            if (!error) {
+                [UserData setCurrgroupusers:[group objectForKey:@"users"]];
+            } else {
+                // ignore
+            }
+        }];
+        
         self.navigationItem.titleView = menu;
         [postTableView reloadData];
     }
