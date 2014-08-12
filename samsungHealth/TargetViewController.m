@@ -8,14 +8,16 @@
 
 #import "TargetViewController.h"
 #import "GoalTableCell.h"
+#import "UserData.h"
+#import <Parse/Parse.h>
 
 @interface TargetViewController ()
 
 @end
 
 @implementation TargetViewController {
-    NSArray *finished;
-    NSArray *expected;
+    NSMutableArray *finished;
+    NSMutableArray *expected;
     CGRect progressFrame;
     CGRect numberFrame;
     CGRect imgFrame;
@@ -49,10 +51,51 @@
     [back setTitle:@"" forState:UIControlStateNormal];
     
     
+    
     font = [UIFont systemFontOfSize:20.0f];
+    
     imgList = [NSMutableArray arrayWithObjects:@"steps", @"food_green", @"sleep_green", nil];
-    finished = [NSArray arrayWithObjects: [NSNumber numberWithInt:2700], [NSNumber numberWithInt:800], [NSNumber numberWithInt:1800], nil];
-    expected = [NSArray arrayWithObjects: [NSNumber numberWithInt:3000], [NSNumber numberWithInt:1000], [NSNumber numberWithInt:2000], nil];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
+    [query whereKey:@"name" equalTo:[UserData getUsername]];
+    
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
+    
+    [components setHour:-[components hour]];
+    [components setMinute:-[components minute]];
+    [components setSecond:-[components second]];
+    NSDate *today = [NSDate date];//This variable should now be pointing at a date object that is the start of today (midnight);
+    
+    [components setHour:-24];
+    [components setMinute:0];
+    [components setSecond:0];
+    
+    
+    NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];
+    
+    [query whereKey:@"date" greaterThan:yesterday];
+    
+    finished = [[NSMutableArray alloc] init];
+    expected = [[NSMutableArray alloc] init];
+    
+    
+    PFQuery *queryHealth = [PFQuery queryWithClassName:@"HealthData"];
+    [queryHealth whereKey:@"username" equalTo:[UserData getUsername]];
+    [query whereKey:@"date" greaterThan:yesterday];
+    
+    NSArray* healthObjects = [queryHealth findObjects];
+
+    //healthObjects[0] objectForKey:<#(id)#>
+    
+    NSArray* objects = [query findObjects];
+    
+    
+    for (PFObject *object in objects) {
+        [expected addObject:[object objectForKey:@"expected"]];
+        
+    }
+    
     numberFrame = CGRectMake(20.0f, 5.0f, 120.0f, 20.0f);
     progressFrame = CGRectMake(20.0f, 5.0f + font.lineHeight + 2.0f, 120.0f, 20.0f);
     imgFrame = CGRectMake(0.0f, 2.0f, 60.0f, 20.0f);
