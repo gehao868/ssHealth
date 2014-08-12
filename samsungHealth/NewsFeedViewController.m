@@ -20,6 +20,7 @@ int currIndex = 1;
 UITableView *postTableView;
 NSMutableDictionary *groups;
 NSMutableArray *groupnames;
+NSMutableArray *news;
 SINavigationMenuView *menu;
 
 @implementation NewsFeedViewController
@@ -40,9 +41,23 @@ SINavigationMenuView *menu;
     if (self.navigationItem) {
         groups = [[NSMutableDictionary alloc] init];
         groupnames = [[NSMutableArray alloc] init];
+        news = [[NSMutableArray alloc] init];
         
         PFQuery *query = [PFQuery queryWithClassName:@"Group"];
         [query findObjectsInBackgroundWithTarget:self selector:@selector(addView:error:)];
+        
+        PFQuery *query1 = [PFQuery queryWithClassName:@"News"];
+        [query1 findObjectsInBackgroundWithTarget:self selector:@selector(getNews:error:)];
+    }
+}
+
+- (void)getNews:(NSArray *)objects error:(NSError *)error {
+    if (!error) {
+        for (PFObject *object in objects) {
+            [news addObject:object];
+        }
+    } else {
+        NSLog(@"Error: %@ %@", error, [error userInfo]);
     }
 }
 
@@ -77,8 +92,15 @@ SINavigationMenuView *menu;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSDictionary *dict = [groups objectForKey:[groupnames objectAtIndex:currIndex]];
-    return dict.count;
+    int count = 0;
+    NSString *gname = [menu.items objectAtIndex:currIndex];
+    for (PFObject *object in news) {
+        NSString *currgname = [object objectForKey:@"groupname"];
+        if ([gname isEqualToString:currgname]) {
+            count++;
+        }
+    }
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,8 +114,18 @@ SINavigationMenuView *menu;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
     
-    NSArray *array = [groups objectForKey:[menu.items objectAtIndex:currIndex]];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", [array objectAtIndex:indexPath.row]];
+    int count = 0;
+    NSString *gname = [menu.items objectAtIndex:currIndex];
+    for (PFObject *object in news) {
+        NSString *currgname = [object objectForKey:@"groupname"];
+        if ([gname isEqualToString:currgname]) {
+            if (count == indexPath.row) {
+                cell.textLabel.text = [NSString stringWithFormat:@"%@", [object objectForKey:@"content"]];
+                break;
+            }
+            count++;
+        }
+    }
     
     return cell;
 }
