@@ -8,6 +8,7 @@
 
 #import "ImproveTableViewController.h"
 #import "ImproveTableViewCell.h"
+#import "UserData.h"
 
 @interface ImproveTableViewController ()
 
@@ -28,10 +29,38 @@
     // check already added
     
     PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
-    [query whereKey:@"UserID" equalTo:@"Jichuan"];
+    [query whereKey:@"name" equalTo:[UserData getUsername]];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
+    
+    [components setHour:-[components hour]];
+    [components setMinute:-[components minute]];
+    [components setSecond:-[components second]];
+    NSDate *today = [NSDate date];//This variable should now be pointing at a date object that is the start of today (midnight);
+    
+    [components setHour:-24];
+    [components setMinute:0];
+    [components setSecond:0];
+    
+    
+    NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];
+    //[query whereKey:@"date" lessThanOrEqualTo:today];
+    [query whereKey:@"date" greaterThan:yesterday];
     
     NSArray* objects = [query findObjects];
     
+    NSMutableDictionary *mutableDict = [[NSMutableDictionary alloc] init];
+    
+    NSLog(@"ENTER FOR LOOP");
+    
+    for (PFObject *object in objects) {
+        NSLog(@"inSIDE  LOOP");
+        NSLog(@"%@", [object objectForKey:@"type"]);
+        [mutableDict setValue:@"yes"forKey:[object objectForKey:@"type"]];
+    }
+    
+    
+    NSLog(@"END FOR LOOP");
     // continue
     
     // recomend step
@@ -41,7 +70,7 @@
     goalNumber =[[NSMutableArray alloc] init];
     goalType = [[NSMutableArray alloc] init];
     
-    if ([[[self healthData] step] intValue] < 8000) {
+    if ([[[self healthData] step] intValue] < 8000 && [mutableDict objectForKey:@"stepcount"] == nil) {
         int quota =[[[self healthData] step] intValue] + 1000;
         [goalArray addObject:[NSString stringWithFormat:@"Walk %d steps", quota]];
         [thumbnails addObject:@"steps"];
@@ -51,14 +80,14 @@
     
     // recommend sleep
     
-    if ([[[self healthData] sleep] intValue] < 7){
+    if ([[[self healthData] sleep] intValue] < 7 && [mutableDict objectForKey:@"sleep"]== nil){
         int quota =[[[self healthData] sleep] intValue] + 1;
         [goalArray addObject:[NSString stringWithFormat:@"Sleep %d hours", quota]];
         [thumbnails addObject:@"sleep_green"];
         [goalNumber addObject:[NSNumber numberWithInt:quota]];
         [goalType addObject:@"sleep"];
         
-    } else if ([[[self healthData] sleep] intValue] > 9) {
+    } else if ([[[self healthData] sleep] intValue] > 9 &&[mutableDict objectForKey:@"sleep"]== nil) {
         int quota =[[[self healthData] sleep] intValue] - 1;
         [goalArray addObject:[NSString stringWithFormat:@"Sleep %d hours", quota]];
         [thumbnails addObject:@"sleep_green"];
@@ -68,7 +97,7 @@
     
     // recommend bodyfat
     
-    if ([[[self healthData] fatratio] floatValue] > 31){
+    if ([[[self healthData] fatratio] floatValue] > 31 && [mutableDict objectForKey:@"fatratio"]== nil){
         [goalArray addObject:[NSString stringWithFormat:@"Exercies 30 minutes"]];
         [thumbnails addObject:@"bodyfat_goal"];
         [goalNumber addObject:[NSNumber numberWithInt:30]];
@@ -76,7 +105,7 @@
     }
     
     // cups
-    if ([[[self healthData] cups] intValue] < 8){
+    if ([[[self healthData] cups] intValue] < 8 && [mutableDict objectForKey:@"cups"]== nil){
         int quota =[[[self healthData] cups] intValue] + 1;
         [goalArray addObject:[NSString stringWithFormat:@"Drink %d cups of water", quota]];
         [thumbnails addObject:@"water_goal"];
@@ -132,8 +161,8 @@
     PFObject *goal =[PFObject objectWithClassName:@"Goal"];
     goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
     goal[@"type"] = [goalType objectAtIndex:indexPath.row];
-    goal[@"date"] = [[NSDate alloc] init];
-    goal[@"name"] = @"Jichuan";
+    goal[@"date"] = [NSDate date];
+    goal[@"name"] = [UserData getUsername];
     
     [goal saveInBackground];
 
