@@ -19,5 +19,6 @@
 @synthesize expiredate;
 @synthesize tousername;
 @synthesize type;
+@synthesize isredeemed;
 
 @end
