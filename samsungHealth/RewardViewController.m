@@ -27,6 +27,7 @@
     NSArray *data;
     NSString *result;
     int pointNeeded;
+    __block Reward *reward;
 }
 
 
@@ -42,6 +43,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    reward = [[Reward alloc] init];
+    
     pointNeeded = 300;
     self.userIcon.image = [UIImage imageWithData:[UserData getAvatar]];
     self.userIcon.layer.masksToBounds = YES;
@@ -184,6 +187,8 @@ double radians(float degrees) {
     NSLog(@"endValue = %f\n",endValue);
     if (![result  isEqual: @"try again"]) {
         [[[UIAlertView alloc] initWithTitle:@"Congratulations!" message:[@"You win " stringByAppendingString:result] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Detail", nil] show];
+        [self getCouponDetail];
+        
     } else {
         _label1.text = result;
     }
@@ -216,6 +221,44 @@ double radians(float degrees) {
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void) getCouponDetail {
+    PFQuery *query = [PFQuery queryWithClassName:@"Reward"];
+    [query whereKey:@"type" equalTo:result];
+    [query whereKey:@"isredeemed" equalTo:@NO];
+    
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!object) {
+            NSLog(@"The getFirstObject request failed.");
+        } else {
+            reward.fromusername = [object objectForKey:@"fromusername"];
+            reward.tousername = [object objectForKey:@"tousername"];
+            reward.pic = [object objectForKey:@"pic"];
+            reward.type = [object objectForKey:@"type"];
+            reward.isredeemed = YES;
+            reward.expiredate = [object objectForKey:@"expiredate"];
+            reward.detail = [object objectForKey:@"detail"];
+            reward.title = [object objectForKey:@"title"];
+            reward.discount = [object objectForKey:@"discount"];
+            [self saveCoupon];
+        }
+    }];
+    
+}
+
+- (void) saveCoupon {
+    PFObject *object = [PFObject objectWithClassName:@"Reward"];
+    object[@"fromusername"] = reward.fromusername;
+    object[@"tousername"] = [UserData getUsername];
+    object[@"pic"] = reward.pic;
+    object[@"type"] = reward.type;
+    object[@"isredeemed"] = @YES;
+    object[@"expiredate"] = reward.expiredate;
+    object[@"detail"] = reward.detail;
+    object[@"title"] = reward.title;
+    object[@"discount"] = reward.discount;
+    [object saveInBackground];
+}
 
 - (void) deducePoint {
     PFQuery *query = [PFQuery queryWithClassName:@"Users"];

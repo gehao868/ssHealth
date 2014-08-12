@@ -19,5 +19,6 @@
 @property (nonatomic) NSString *tousername;
 @property (nonatomic) NSDate *expiredate;
 @property (nonatomic) NSString *type;
+@property (nonatomic) BOOL isredeemed;
 
 @end
