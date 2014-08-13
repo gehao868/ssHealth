@@ -64,9 +64,9 @@
     [super viewDidLoad];
     
     //UI modification
-    self.navigationController.navigationBar.barTintColor = [DEFAULT_COLOR_GREEN;
-//    [self.navigationController.navigationBar setTranslucent:NO];
-                                                  
+    self.navigationController.navigationBar.barTintColor = [DEFAULT_COLOR_THEME;
+//    self.navigationController.navigationBar.translucent = NO;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Apple SD Gothic Neo" size:19]}];
     subIndexDict = [NSDictionary dictionaryWithObjectsAndKeys:@"heartrate", [NSNumber numberWithInt:0], @"sleep", [NSNumber numberWithInt:1], @"step", [NSNumber numberWithInt:2], @"cups", [NSNumber numberWithInt:3], @"weight", [NSNumber numberWithInt:4], @"bodyfat", [NSNumber numberWithInt:5], nil];
@@ -173,7 +173,7 @@
     } else if (healthScore * 100 < 80) {
         defaultColor = [DEFAULT_COLOR_YELLOW;
     } else {
-        defaultColor = [DEFAULT_COLOR_GREEN;
+        defaultColor = [DEFAULT_COLOR_THEME;
     }
 }
                         
