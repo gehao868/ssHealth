@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *cups;
 @property (weak, nonatomic) IBOutlet UILabel *weight;
 @property (weak, nonatomic) IBOutlet UILabel *bodyfat;
+@property (weak, nonatomic) IBOutlet UIView *buttonView;
 
 @end
 
@@ -65,6 +66,7 @@
     //UI modification
     self.navigationController.navigationBar.barTintColor = [DEFAULT_COLOR_GREEN;
 //    [self.navigationController.navigationBar setTranslucent:NO];
+                                                  
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Apple SD Gothic Neo" size:19]}];
     subIndexDict = [NSDictionary dictionaryWithObjectsAndKeys:@"heartrate", [NSNumber numberWithInt:0], @"sleep", [NSNumber numberWithInt:1], @"step", [NSNumber numberWithInt:2], @"cups", [NSNumber numberWithInt:3], @"weight", [NSNumber numberWithInt:4], @"bodyfat", [NSNumber numberWithInt:5], nil];
@@ -105,7 +107,7 @@
          finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:step],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight], nil];
      }
    
-    self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(67.0f, 110.0f, 180.0f, 180.0f)];
+    self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(67.0f, 115.0f, 180.0f, 180.0f)];
                                                             
     healthScore = [self calculateScore:finished :expected];
     healthScoreInt = (int)roundf(healthScore * 100);
@@ -137,6 +139,7 @@
             [self.subProgessView addObject:tmpView];
             [self.view addSubview:tmpView];
              NSString* selectorName = [NSString stringWithFormat:@"subProgressChange%d:",(j*3+1)];
+             [self.view bringSubviewToFront:self.buttonView];
 //             SEL selector = NSSelectorFromString(selectorName);
 //             [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:selector userInfo:[NSNumber numberWithInt:j*3+i] repeats:YES];
         }

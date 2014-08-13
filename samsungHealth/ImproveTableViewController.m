@@ -101,7 +101,7 @@
     
     if ([[[self healthData] fatratio] floatValue] > 31 && [mutableDict objectForKey:@"fatratio"]== nil){
         [goalArray addObject:[NSString stringWithFormat:@"Exercies 30 minutes"]];
-        [thumbnails addObject:@"bodyfat_goal"];
+        [thumbnails addObject:@"bodyfat"];
         [goalNumber addObject:[NSNumber numberWithInt:30]];
         [goalType addObject:@"fatratio"];
     }
@@ -110,7 +110,7 @@
     if ([[[self healthData] cups] intValue] < 8 && [mutableDict objectForKey:@"cups"]== nil){
         int quota =[[[self healthData] cups] intValue] + 1;
         [goalArray addObject:[NSString stringWithFormat:@"Drink %d cups of water", quota]];
-        [thumbnails addObject:@"water_goal"];
+        [thumbnails addObject:@"water_green"];
         [goalNumber addObject:[NSNumber numberWithInt:quota]];
         [goalType addObject:@"cups"];
     }
@@ -120,6 +120,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    
     // Release any retained subviews of the main view.
 }
 

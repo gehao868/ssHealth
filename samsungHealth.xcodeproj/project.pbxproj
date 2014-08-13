@@ -26,6 +26,7 @@
 		0B3758521989D8FC004A9EB9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3758511989D8FC004A9EB9 /* Social.framework */; };
 		0B3758541989D90E004A9EB9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3758531989D90E004A9EB9 /* Accounts.framework */; };
 		0B3758571989DE08004A9EB9 /* GoalTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3758561989DE08004A9EB9 /* GoalTableCell.m */; };
+		0BA067AD199AB19400D7CD21 /* NewPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA067AC199AB19400D7CD21 /* NewPostViewController.m */; };
 		0BA87092198C5BA900236EBD /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA87091198C5BA900236EBD /* UserData.m */; };
 		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
 		3B1CD2071989D75400282886 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -142,6 +143,8 @@
 		0B3758531989D90E004A9EB9 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		0B3758551989DE08004A9EB9 /* GoalTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalTableCell.h; sourceTree = "<group>"; };
 		0B3758561989DE08004A9EB9 /* GoalTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalTableCell.m; sourceTree = "<group>"; };
+		0BA067AB199AB19400D7CD21 /* NewPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPostViewController.h; sourceTree = "<group>"; };
+		0BA067AC199AB19400D7CD21 /* NewPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostViewController.m; sourceTree = "<group>"; };
 		0BA87090198C5BA900236EBD /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		0BA87091198C5BA900236EBD /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		3BD61A0119969E6600F2A528 /* Members.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Members.h; sourceTree = "<group>"; };
@@ -615,6 +618,8 @@
 				7CE78A9E198D8AC0002ED7E5 /* FriendTableViewCell.m */,
 				0B0A240019957AAB0086309E /* NewsFeedViewController.h */,
 				0B0A240119957AAB0086309E /* NewsFeedViewController.m */,
+				0BA067AB199AB19400D7CD21 /* NewPostViewController.h */,
+				0BA067AC199AB19400D7CD21 /* NewPostViewController.m */,
 				3BD61A0119969E6600F2A528 /* Members.h */,
 				3BD61A0219969E6600F2A528 /* Members.m */,
 				3BD61A041996ED8800F2A528 /* CreateGroup.h */,
@@ -748,6 +753,7 @@
 				7CE78A9F198D8AC0002ED7E5 /* FriendTableViewCell.m in Sources */,
 				7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */,
 				7C89F8BA198AFDB400F021EF /* LaunchViewController.m in Sources */,
+				0BA067AD199AB19400D7CD21 /* NewPostViewController.m in Sources */,
 				0B0A24241995E2990086309E /* Group.m in Sources */,
 				0B0A241B19957B620086309E /* SICellSelection.m in Sources */,
 				0B0A24271995E3280086309E /* Reward.m in Sources */,
