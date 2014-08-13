@@ -34,6 +34,7 @@
 		3BD61A061996ED8800F2A528 /* CreateGroupViewControllor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A051996ED8800F2A528 /* CreateGroupViewControllor.m */; };
 		3BD61A09199715CD00F2A528 /* CouponDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A08199715CD00F2A528 /* CouponDetailCell.m */; };
 		3BE7C18D1999B46100FB30AE /* CouponListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7C18C1999B46100FB30AE /* CouponListViewController.m */; };
+		3BE7C199199B0A3600FB30AE /* SendGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7C198199B0A3600FB30AE /* SendGiftViewController.m */; };
 		7C1A6CA219956E2500E307DA /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A6CA119956E2500E307DA /* Goal.m */; };
 		7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */; };
 		7C89F8A31989C1B800F021EF /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8981989C1B800F021EF /* PNBar.m */; };
@@ -155,6 +156,8 @@
 		3BD61A08199715CD00F2A528 /* CouponDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDetailCell.m; sourceTree = "<group>"; };
 		3BE7C18B1999B46100FB30AE /* CouponListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponListViewController.h; sourceTree = "<group>"; };
 		3BE7C18C1999B46100FB30AE /* CouponListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponListViewController.m; sourceTree = "<group>"; };
+		3BE7C197199B0A3600FB30AE /* SendGiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendGiftViewController.h; sourceTree = "<group>"; };
+		3BE7C198199B0A3600FB30AE /* SendGiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendGiftViewController.m; sourceTree = "<group>"; };
 		7C1A6CA019956E2500E307DA /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
 		7C1A6CA119956E2500E307DA /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
 		7C89F8931989A9F100F021EF /* AppDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDeviceTableViewCell.h; sourceTree = "<group>"; };
@@ -622,6 +625,8 @@
 				0BA067AC199AB19400D7CD21 /* NewPostViewController.m */,
 				3BD61A0119969E6600F2A528 /* MembersViewControllor.h */,
 				3BD61A0219969E6600F2A528 /* MembersViewControllor.m */,
+				3BE7C197199B0A3600FB30AE /* SendGiftViewController.h */,
+				3BE7C198199B0A3600FB30AE /* SendGiftViewController.m */,
 				3BD61A041996ED8800F2A528 /* CreateGroupViewControllor.h */,
 				3BD61A051996ED8800F2A528 /* CreateGroupViewControllor.m */,
 			);
@@ -735,6 +740,7 @@
 				7C89F8A31989C1B800F021EF /* PNBar.m in Sources */,
 				0B0A241F19957B620086309E /* SIMenuTable.m in Sources */,
 				0B0A242119957B620086309E /* UIColor+Extension.m in Sources */,
+				3BE7C199199B0A3600FB30AE /* SendGiftViewController.m in Sources */,
 				7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */,
 				BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */,
 				0B3758571989DE08004A9EB9 /* GoalTableCell.m in Sources */,
