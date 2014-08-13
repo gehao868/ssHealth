@@ -10,6 +10,5 @@
 
 @interface MembersViewControllor : UIViewController
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) IBOutlet UIButton *addButton;
 
 @end

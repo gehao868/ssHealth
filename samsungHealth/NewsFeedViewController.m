@@ -39,8 +39,6 @@ SINavigationMenuView *menu;
 {
     [super viewDidLoad];
     
-    [self.moreView setHidden:moreIsHidden];
-    
     if (self.navigationItem) {
         groups = [[NSMutableDictionary alloc] init];
         groupnames = [[NSMutableArray alloc] init];
@@ -52,6 +50,11 @@ SINavigationMenuView *menu;
         PFQuery *query1 = [PFQuery queryWithClassName:@"News"];
         [query1 findObjectsInBackgroundWithTarget:self selector:@selector(getNews:error:)];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    moreIsHidden = YES;
+    [self.moreView setHidden:moreIsHidden];
 }
 
 - (void)getNews:(NSArray *)objects error:(NSError *)error {
