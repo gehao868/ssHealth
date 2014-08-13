@@ -10,13 +10,13 @@
 #import <Parse/Parse.h>
 #import "UserData.h"
 
-@interface SendGiftViewController () <UITextFieldDelegate, UITextViewDelegate>
+@interface SendGiftViewController () <UITextViewDelegate>
 
 @end
 
 @implementation SendGiftViewController
 
-
+@synthesize giftDetail;
 @synthesize giftTitle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,6 +32,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    giftDetail.layer.borderWidth = 5.0f;
+    giftDetail.layer.borderColor = [[UIColor grayColor] CGColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,6 +47,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dismissKeyboard {
+    [giftDetail endEditing:YES];
+    [giftDetail resignFirstResponder];
+}
 /*
  #pragma mark - Navigation
  
@@ -56,6 +67,16 @@
     return YES;
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
+
+
 - (IBAction)submit:(id)sender {
     PFObject *object = [PFObject objectWithClassName:@"Reward"];
     object[@"fromusername"] = [UserData getUsername];
@@ -64,10 +85,13 @@
     object[@"type"] = @"gift";
     object[@"isredeemed"] = @NO;
 //    object[@"expiredate"] = [expireDate date];
-//    object[@"detail"] = giftDetail.text;
+    object[@"detail"] = giftDetail.text;
     object[@"title"] = giftTitle.text;
     object[@"discount"] = @"This is a gift";
     [object saveInBackground];
 
+}
+- (IBAction)exit:(id)sender {
+//    UITextField *temp = (UITextField*)sender;
 }
 @end
