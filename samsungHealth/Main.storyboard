@@ -931,7 +931,7 @@
         <!--Send Gift View Controller-->
         <scene sceneID="EnW-hV-DnF">
             <objects>
-                <viewController id="fcY-jn-ZHG" customClass="SendGiftViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SendGiftViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fcY-jn-ZHG" customClass="SendGiftViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qqg-yH-bB6"/>
                         <viewControllerLayoutGuide type="bottom" id="2bt-bI-plM"/>

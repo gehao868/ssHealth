@@ -259,7 +259,7 @@ UIRefreshControl *currRC;
 }
 
 - (IBAction)sendgift:(id)sender {
-    ConnectViewController *next = [self.storyboard instantiateViewControllerWithIdentifier:@"connectController"];
+    ConnectViewController *next = [self.storyboard instantiateViewControllerWithIdentifier:@"SendGiftViewController"];
     [self.navigationController pushViewController:next animated:YES];
     self.navigationItem.hidesBackButton = NO;
 }
