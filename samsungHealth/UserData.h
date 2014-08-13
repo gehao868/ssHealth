@@ -13,8 +13,8 @@
 + (NSString *)getUsername;
 + (void)setUsername:(NSString *) newUsername;
 
-+ (NSData *)getAvatar;
-+ (void)setAvatar:(NSData *) newAvatar;
++ (NSString *)getAvatar;
++ (void)setAvatar:(NSString *) newAvatar;
 
 + (NSDate *)getBirthday;
 + (void)setBirthday:(NSDate *) newBirthday;

@@ -9,7 +9,7 @@
 #import "UserData.h"
 
 static NSString *username;
-static NSData *avatar;
+static NSString *avatar;
 static NSDate *birthday;
 static NSString *gender;
 static NSNumber *height;
@@ -31,10 +31,10 @@ static NSString *stateFileName = @"stateFile";
     username = newUsername;
 }
 
-+ (NSData *)getAvatar {
++ (NSString *)getAvatar {
     return avatar;
 }
-+ (void)setAvatar:(NSData *) newAvatar {
++ (void)setAvatar:(NSString *) newAvatar {
     avatar = newAvatar;
 }
 
