@@ -101,6 +101,7 @@
                };
     // Do any additional setup after loading the view.
 }
+
 - (IBAction)start:(id)sender {
     if ([[UserData getPoint] intValue] < pointNeeded) {
         NSString *text = @"You at lease than ";
@@ -275,6 +276,33 @@ double radians(float degrees) {
 
 - (IBAction)showMenu:(id)sender {
         [self.frostedViewController presentMenuViewController];
+}
+
+
+// --------------shaking---------------
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self becomeFirstResponder];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self resignFirstResponder];
+    [super viewWillAppear:animated];
+}
+
+-(BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+- (void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (motion == UIEventSubtypeMotionShake) {
+        //NSLog(@"shaking.........");
+        [self start:nil];
+    }
 }
 
 @end
