@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Hao Ge. All rights reserved.
 //
 
-#import "Members.h"
+#import "MembersViewControllor.h"
 #import <Parse/Parse.h>
-#import "CreateGroup.h"
+#import "CreateGroupViewControllor.h"
 
-@interface Members ()
+@interface MembersViewControllor ()
 
 @end
 
-@implementation Members {
+@implementation MembersViewControllor {
     NSMutableArray *members;
     NSString *groupName;
 }
@@ -45,7 +45,7 @@
 - (IBAction) show:(id)sender {
     UIButton *btn = (UIButton *)sender;
     if ([btn.titleLabel.text isEqualToString:@"add"]) {
-        CreateGroup *next = [self.storyboard instantiateViewControllerWithIdentifier:@"createGroup"];
+        CreateGroupViewControllor *next = [self.storyboard instantiateViewControllerWithIdentifier:@"createGroup"];
         [self.navigationController pushViewController:next animated:YES];
     }
 }

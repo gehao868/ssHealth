@@ -7,15 +7,15 @@
 //
 
 #import "UserData.h"
-#import "CreateGroup.h"
+#import "CreateGroupViewControllor.h"
 #import "FriendTableViewCell.h"
 #import <Parse/Parse.h>
 
-@interface CreateGroup () <UITextFieldDelegate>
+@interface CreateGroupViewControllor () <UITextFieldDelegate>
 
 @end
 
-@implementation CreateGroup{
+@implementation CreateGroupViewControllor{
     NSMutableArray *tableData;
     NSMutableArray *thumbnails;
 }

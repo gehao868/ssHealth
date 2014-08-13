@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CreateGroup : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface CreateGroupViewControllor : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITextField *groupname;
 
