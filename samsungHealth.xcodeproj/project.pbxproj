@@ -91,6 +91,10 @@
 		7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */; };
 		7CBFE94A199A9FD6006331E4 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBFE947199A9FD6006331E4 /* DIDatepicker.m */; };
 		7CBFE94B199A9FD6006331E4 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBFE949199A9FD6006331E4 /* DIDatepickerDateView.m */; };
+		7CBFE97A199AFFDC006331E4 /* libKal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBFE979199AFFDC006331E4 /* libKal.a */; };
+		7CBFE97E199B064E006331E4 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBFE97D199B064E006331E4 /* EventKit.framework */; };
+		7CBFE980199B0654006331E4 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBFE97F199B0654006331E4 /* EventKitUI.framework */; };
+		7CCA4CC9199B10D10086AF91 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCA4CC8199B10D10086AF91 /* CalendarView.m */; };
 		7CE78A90198C5AE2002ED7E5 /* HealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A8F198C5AE2002ED7E5 /* HealthData.m */; };
 		7CE78A93198C8366002ED7E5 /* DashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A92198C8366002ED7E5 /* DashTableViewCell.m */; };
 		7CE78A96198CA42C002ED7E5 /* ImproveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A95198CA42C002ED7E5 /* ImproveTableViewCell.m */; };
@@ -251,6 +255,11 @@
 		7CBFE947199A9FD6006331E4 /* DIDatepicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepicker.m; sourceTree = "<group>"; };
 		7CBFE948199A9FD6006331E4 /* DIDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepickerDateView.h; sourceTree = "<group>"; };
 		7CBFE949199A9FD6006331E4 /* DIDatepickerDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepickerDateView.m; sourceTree = "<group>"; };
+		7CBFE979199AFFDC006331E4 /* libKal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKal.a; path = "samsungHealth/build/Debug-iphoneos/libKal.a"; sourceTree = "<group>"; };
+		7CBFE97D199B064E006331E4 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		7CBFE97F199B0654006331E4 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		7CCA4CC7199B10D10086AF91 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarView.h; sourceTree = "<group>"; };
+		7CCA4CC8199B10D10086AF91 /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarView.m; sourceTree = "<group>"; };
 		7CE78A8E198C5AE2002ED7E5 /* HealthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthData.h; sourceTree = "<group>"; };
 		7CE78A8F198C5AE2002ED7E5 /* HealthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthData.m; sourceTree = "<group>"; };
 		7CE78A91198C8366002ED7E5 /* DashTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashTableViewCell.h; sourceTree = "<group>"; };
@@ -274,6 +283,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CBFE980199B0654006331E4 /* EventKitUI.framework in Frameworks */,
+				7CBFE97E199B064E006331E4 /* EventKit.framework in Frameworks */,
+				7CBFE97A199AFFDC006331E4 /* libKal.a in Frameworks */,
 				0B3758541989D90E004A9EB9 /* Accounts.framework in Frameworks */,
 				0B3758521989D8FC004A9EB9 /* Social.framework in Frameworks */,
 				0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */,
@@ -481,6 +493,9 @@
 		7CBD2C18197E4510002F23A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7CBFE97F199B0654006331E4 /* EventKitUI.framework */,
+				7CBFE97D199B064E006331E4 /* EventKit.framework */,
+				7CBFE979199AFFDC006331E4 /* libKal.a */,
 				0B3758531989D90E004A9EB9 /* Accounts.framework */,
 				0B3758511989D8FC004A9EB9 /* Social.framework */,
 				0B37584F1989D5D0004A9EB9 /* FacebookSDK.framework */,
@@ -506,6 +521,7 @@
 		7CBD2C1F197E4510002F23A5 /* samsungHealth */ = {
 			isa = PBXGroup;
 			children = (
+				7CCA4CC6199B10710086AF91 /* Calendar */,
 				7CBFE945199A9FBA006331E4 /* DatePicker */,
 				7CE78A8D198C5A84002ED7E5 /* Data */,
 				7C89F8961989C1B800F021EF /* PNChart */,
@@ -583,6 +599,15 @@
 				7CBFE949199A9FD6006331E4 /* DIDatepickerDateView.m */,
 			);
 			name = DatePicker;
+			sourceTree = "<group>";
+		};
+		7CCA4CC6199B10710086AF91 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				7CCA4CC7199B10D10086AF91 /* CalendarView.h */,
+				7CCA4CC8199B10D10086AF91 /* CalendarView.m */,
+			);
+			name = Calendar;
 			sourceTree = "<group>";
 		};
 		7CE78A8D198C5A84002ED7E5 /* Data */ = {
@@ -759,6 +784,7 @@
 				0B0A24271995E3280086309E /* Reward.m in Sources */,
 				7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */,
 				0B0A241D19957B620086309E /* SIMenuCell.m in Sources */,
+				7CCA4CC9199B10D10086AF91 /* CalendarView.m in Sources */,
 				7CBFE94B199A9FD6006331E4 /* DIDatepickerDateView.m in Sources */,
 				3BD61A09199715CD00F2A528 /* CouponDetailCell.m in Sources */,
 				7C89F8AB1989C22F00F021EF /* DetailViewController.m in Sources */,
@@ -915,6 +941,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "samsungHealth/samsungHealth-Prefix.pch";
 				INFOPLIST_FILE = "samsungHealth/samsungHealth-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/samsungHealth/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -932,6 +962,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "samsungHealth/samsungHealth-Prefix.pch";
 				INFOPLIST_FILE = "samsungHealth/samsungHealth-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/samsungHealth/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

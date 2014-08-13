@@ -685,11 +685,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="GoalTableCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoalTableCell" rowHeight="69" id="q35-2T-Keo" customClass="GoalTableCell">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="GoalTableCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="GoalTableCell" rowHeight="69" id="q35-2T-Keo" customClass="GoalTableCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="69"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q35-2T-Keo" id="MIe-tY-MAv">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkU-ZX-aSy">
@@ -713,6 +713,7 @@
                                             <outlet property="image" destination="bPT-Op-Yp4" id="GCT-pY-vwq"/>
                                             <outlet property="number" destination="wkU-ZX-aSy" id="J2J-re-b2L"/>
                                             <outlet property="progress" destination="bgB-kD-L7g" id="u49-ws-YCF"/>
+                                            <segue destination="AMr-HN-7ph" kind="push" id="aHb-vK-86e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
