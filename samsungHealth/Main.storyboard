@@ -106,7 +106,7 @@
             </objects>
             <point key="canvasLocation" x="-801" y="1876"/>
         </scene>
-        <!--News Feed View Controller - Title-->
+        <!--News Feed View Controller - Connect-->
         <scene sceneID="8Kn-fe-5Jk">
             <objects>
                 <viewController storyboardIdentifier="ConnectionNewsFeed" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kF8-hC-3e8" customClass="NewsFeedViewController" sceneMemberID="viewController">
@@ -189,7 +189,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="FJV-W2-Ugv">
+                    <navigationItem key="navigationItem" title="Connect" id="FJV-W2-Ugv">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="da4-No-hK4">
+                            <connections>
+                                <action selector="showMenu" destination="kF8-hC-3e8" id="fc3-aa-8e3"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="..." id="X1c-cX-6pz">
                             <connections>
                                 <action selector="more:" destination="kF8-hC-3e8" id="26F-ea-vIA"/>
@@ -224,10 +229,10 @@
             </objects>
             <point key="canvasLocation" x="2046" y="1550"/>
         </scene>
-        <!--Members-->
+        <!--Members View Controllor-->
         <scene sceneID="4ac-dn-X7j">
             <objects>
-                <viewController id="kwW-EH-jpE" customClass="Members" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MembersViewControllor" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kwW-EH-jpE" customClass="MembersViewControllor" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qId-GR-lq6"/>
                         <viewControllerLayoutGuide type="bottom" id="QiZ-cN-KmN"/>
@@ -246,17 +251,17 @@
                     <navigationItem key="navigationItem" id="U72-6T-0o3"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
-                        <outlet property="scrollView" destination="fac-Ak-5J7" id="POW-AS-yvn"/>
+                        <outlet property="scrollView" destination="fac-Ak-5J7" id="YqN-Ck-XpQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2VD-xU-Sgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="961" y="1550"/>
         </scene>
-        <!--Create Group-->
+        <!--Create Group View Controllor-->
         <scene sceneID="eWo-oe-e9K">
             <objects>
-                <viewController storyboardIdentifier="createGroup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CLx-bs-EgF" customClass="CreateGroup" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createGroup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CLx-bs-EgF" customClass="CreateGroupViewControllor" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mUs-px-JH0"/>
                         <viewControllerLayoutGuide type="bottom" id="jRb-f8-rnQ"/>
@@ -273,7 +278,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Group name" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YBR-Eu-Rfc">
-                                <rect key="frame" x="151" y="87" width="140" height="30"/>
+                                <rect key="frame" x="151" y="87" width="149" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -319,7 +324,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vwo-J1-VTe"/>
                     <connections>
-                        <outlet property="groupname" destination="YBR-Eu-Rfc" id="ZEU-kQ-EvL"/>
+                        <outlet property="groupname" destination="YBR-Eu-Rfc" id="GhA-mS-V2H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vE8-Pi-5zw" userLabel="First Responder" sceneMemberID="firstResponder"/>

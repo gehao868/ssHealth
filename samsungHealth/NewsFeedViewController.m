@@ -39,8 +39,6 @@ SINavigationMenuView *menu;
 {
     [super viewDidLoad];
     
-    [self.moreView setHidden:moreIsHidden];
-    
     if (self.navigationItem) {
         groups = [[NSMutableDictionary alloc] init];
         groupnames = [[NSMutableArray alloc] init];
@@ -48,22 +46,12 @@ SINavigationMenuView *menu;
         
         PFQuery *query = [PFQuery queryWithClassName:@"Group"];
         [query findObjectsInBackgroundWithTarget:self selector:@selector(addView:error:)];
-        
-        PFQuery *query1 = [PFQuery queryWithClassName:@"News"];
-        [query1 findObjectsInBackgroundWithTarget:self selector:@selector(getNews:error:)];
     }
 }
 
-- (void)getNews:(NSArray *)objects error:(NSError *)error {
-    if (!error) {
-        for (PFObject *object in objects) {
-            [news addObject:object];
-        }
-    } else {
-        NSLog(@"Error: %@ %@", error, [error userInfo]);
-    }
-    
-    [postTableView reloadData];
+- (void)viewWillAppear:(BOOL)animated {
+    moreIsHidden = YES;
+    [self.moreView setHidden:moreIsHidden];
 }
 
 - (void)addView:(NSArray *)objects error:(NSError *)error {
@@ -96,6 +84,19 @@ SINavigationMenuView *menu;
         [self.view addSubview:postTableView];
         
         [self.view bringSubviewToFront:self.buttonView];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"News"];
+        [query findObjectsInBackgroundWithTarget:self selector:@selector(getNews:error:)];
+    } else {
+        NSLog(@"Error: %@ %@", error, [error userInfo]);
+    }
+}
+
+- (void)getNews:(NSArray *)objects error:(NSError *)error {
+    if (!error) {
+        for (PFObject *object in objects) {
+            [news addObject:object];
+        }
     } else {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }
