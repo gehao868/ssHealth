@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0XT-Lj-xhU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0XT-Lj-xhU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -94,7 +94,7 @@
             </objects>
             <point key="canvasLocation" x="-801" y="1876"/>
         </scene>
-        <!--News Feed View Controller-->
+        <!--News Feed View Controller - Title-->
         <scene sceneID="8Kn-fe-5Jk">
             <objects>
                 <viewController storyboardIdentifier="ConnectionNewsFeed" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kF8-hC-3e8" customClass="NewsFeedViewController" sceneMemberID="viewController">
@@ -134,18 +134,59 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQA-cn-zwM">
+                                <rect key="frame" x="191" y="65" width="129" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hk-jc-mbm">
+                                        <rect key="frame" x="0.0" y="50" width="129" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.24819362540000001" green="0.73656728319999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Manage Group">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="managegroup:" destination="kF8-hC-3e8" eventType="touchUpInside" id="cuu-9U-Fvf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FA-cP-2bF">
+                                        <rect key="frame" x="0.0" y="108" width="129" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.24819362540000001" green="0.73656728319999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Send a Gift">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendgift:" destination="kF8-hC-3e8" eventType="touchUpInside" id="VFC-N6-wak"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SM7-Yy-u3y">
+                                        <rect key="frame" x="0.0" y="0.0" width="129" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.24819362540000001" green="0.73656728319999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Manage Friend">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="managefriend:" destination="kF8-hC-3e8" eventType="touchUpInside" id="Lnr-75-RP9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9Pq-Ha-kpt">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="IiN-S8-ZkD">
+                    <navigationItem key="navigationItem" title="Title" id="FJV-W2-Ugv">
+                        <barButtonItem key="rightBarButtonItem" title="..." id="X1c-cX-6pz">
                             <connections>
-                                <action selector="showMenu" destination="kF8-hC-3e8" id="xH1-pK-NWO"/>
+                                <action selector="more:" destination="kF8-hC-3e8" id="26F-ea-vIA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="buttonView" destination="XIa-iq-fIG" id="Ele-y8-02J"/>
+                        <outlet property="moreView" destination="XQA-cn-zwM" id="eWK-KF-w8R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BuP-mH-Fpy" userLabel="First Responder" sceneMemberID="firstResponder"/>

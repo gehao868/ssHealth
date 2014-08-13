@@ -16,7 +16,8 @@
 
 @end
 
-int currIndex = 1;
+int currIndex = 0;
+BOOL moreIsHidden = YES;
 UITableView *postTableView;
 NSMutableDictionary *groups;
 NSMutableArray *groupnames;
@@ -37,6 +38,8 @@ SINavigationMenuView *menu;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.moreView setHidden:moreIsHidden];
     
     if (self.navigationItem) {
         groups = [[NSMutableDictionary alloc] init];
@@ -65,7 +68,6 @@ SINavigationMenuView *menu;
 
 - (void)addView:(NSArray *)objects error:(NSError *)error {
     if (!error) {
-        [groupnames addObject:@"Manage Group"];
         for (PFObject *object in objects) {
             NSString *groupname = [object objectForKey:@"name"];
             [groupnames addObject:groupname];
@@ -73,9 +75,8 @@ SINavigationMenuView *menu;
             [groups setObject:users forKey:groupname];
         }
         
-        CGRect frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
-
-        menu = [[SINavigationMenuView alloc] initWithFrame:frame];
+        CGRect menuFrame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
+        menu = [[SINavigationMenuView alloc] initWithFrame:menuFrame];
         [menu displayMenuInView:self.navigationController.view];
         menu.items = groupnames;
         [menu setTitle:[menu.items objectAtIndex:currIndex]];
@@ -94,7 +95,7 @@ SINavigationMenuView *menu;
         
         [self.view addSubview:postTableView];
         
-        [self.view bringSubviewToFront:_buttonView];
+        [self.view bringSubviewToFront:self.buttonView];
     } else {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }
@@ -149,28 +150,22 @@ SINavigationMenuView *menu;
 
 - (void)didSelectItemAtIndex:(NSUInteger)index
 {
-    if (index == 0) {
-        ConnectViewController *next = [self.storyboard instantiateViewControllerWithIdentifier:@"connectController"];
-        [self.navigationController pushViewController:next animated:YES];
-        self.navigationItem.hidesBackButton = NO;
-    } else {
-        currIndex = index;
-        [menu setTitle:[menu.items objectAtIndex:currIndex]];
-        [UserData setCurrgroup:[menu.items objectAtIndex:currIndex]];
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"Group"];
-        [query whereKey:@"name" equalTo:[UserData getCurrgroup]];
-        [query getFirstObjectInBackgroundWithBlock:^(PFObject *group, NSError *error) {
-            if (!error) {
-                [UserData setCurrgroupusers:[group objectForKey:@"users"]];
-            } else {
-                // ignore
-            }
-        }];
-        
-        self.navigationItem.titleView = menu;
-        [postTableView reloadData];
-    }
+    currIndex = index;
+    [menu setTitle:[menu.items objectAtIndex:currIndex]];
+    [UserData setCurrgroup:[menu.items objectAtIndex:currIndex]];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Group"];
+    [query whereKey:@"name" equalTo:[UserData getCurrgroup]];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *group, NSError *error) {
+        if (!error) {
+            [UserData setCurrgroupusers:[group objectForKey:@"users"]];
+        } else {
+            // ignore
+        }
+    }];
+    
+    self.navigationItem.titleView = menu;
+    [postTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -195,4 +190,24 @@ SINavigationMenuView *menu;
 }
 */
 
+- (IBAction)more:(id)sender {
+    moreIsHidden = !moreIsHidden;
+    [self.moreView setHidden:moreIsHidden];
+    [self.view bringSubviewToFront:self.moreView];
+}
+
+- (IBAction)managegroup:(id)sender {
+    ConnectViewController *next = [self.storyboard instantiateViewControllerWithIdentifier:@"connectController"];
+    [self.navigationController pushViewController:next animated:YES];
+    self.navigationItem.hidesBackButton = NO;
+}
+
+- (IBAction)sendgift:(id)sender {
+    ConnectViewController *next = [self.storyboard instantiateViewControllerWithIdentifier:@"connectController"];
+    [self.navigationController pushViewController:next animated:YES];
+    self.navigationItem.hidesBackButton = NO;
+}
+
+- (IBAction)managefriend:(id)sender {
+}
 @end
