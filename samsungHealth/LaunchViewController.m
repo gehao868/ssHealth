@@ -242,7 +242,7 @@ NSUserDefaults *defaults;
         NSString *url = [[result objectForKey:@"data"] objectForKey:@"url"];
         //NSLog(@"%@", url);
         
-        [UserData setAvatar:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
+        [UserData setAvatar:url];
         [defaults setObject:[UserData getAvatar] forKey:@"avatar"];
         
         PFQuery *query = [PFQuery queryWithClassName:@"Users"];

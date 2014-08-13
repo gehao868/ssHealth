@@ -23,6 +23,7 @@ NSMutableDictionary *groups;
 NSMutableArray *groupnames;
 NSMutableArray *news;
 SINavigationMenuView *menu;
+UIRefreshControl *currRC;
 
 @implementation NewsFeedViewController
 
@@ -46,6 +47,9 @@ SINavigationMenuView *menu;
         
         PFQuery *query = [PFQuery queryWithClassName:@"Group"];
         [query findObjectsInBackgroundWithTarget:self selector:@selector(addView:error:)];
+        
+        PFQuery *query1 = [PFQuery queryWithClassName:@"News"];
+        [query1 findObjectsInBackgroundWithTarget:self selector:@selector(getNews:error:)];
     }
 }
 
@@ -84,9 +88,6 @@ SINavigationMenuView *menu;
         [self.view addSubview:postTableView];
         
         [self.view bringSubviewToFront:self.buttonView];
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"News"];
-        [query findObjectsInBackgroundWithTarget:self selector:@selector(getNews:error:)];
     } else {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }
@@ -100,13 +101,67 @@ SINavigationMenuView *menu;
     } else {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }
-    
-    [postTableView reloadData];
 }
 
 - (void)refresh:(UIRefreshControl *)refreshControl {
-    [self viewDidLoad];
-    [refreshControl endRefreshing];
+    groups = [[NSMutableDictionary alloc] init];
+    groupnames = [[NSMutableArray alloc] init];
+    news = [[NSMutableArray alloc] init];
+    currRC = refreshControl;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Group"];
+    [query findObjectsInBackgroundWithTarget:self selector:@selector(addViewRefresh:error:)];
+}
+
+- (void)addViewRefresh:(NSArray *)objects error:(NSError *)error {
+    if (!error) {
+        for (PFObject *object in objects) {
+            NSString *groupname = [object objectForKey:@"name"];
+            [groupnames addObject:groupname];
+            NSArray *users = [object objectForKey:@"users"];
+            [groups setObject:users forKey:groupname];
+        }
+        
+        CGRect menuFrame = CGRectMake(0.0, 0.0, 200.0, self.navigationController.navigationBar.bounds.size.height);
+        menu = [[SINavigationMenuView alloc] initWithFrame:menuFrame];
+        [menu displayMenuInView:self.navigationController.view];
+        menu.items = groupnames;
+        [menu setTitle:[menu.items objectAtIndex:currIndex]];
+        [UserData setCurrgroup:[menu.items objectAtIndex:currIndex]];
+        menu.delegate = self;
+        self.navigationItem.titleView = menu;
+        
+        postTableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+        postTableView.frame = CGRectMake(0, 165, self.view.frame.size.width, self.view.frame.size.height-165);
+        postTableView.delegate = self;
+        postTableView.dataSource = self;
+        
+        UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+        [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+        [postTableView addSubview:refreshControl];
+        
+        [self.view addSubview:postTableView];
+        
+        [self.view bringSubviewToFront:self.buttonView];
+        
+        PFQuery *query1 = [PFQuery queryWithClassName:@"News"];
+        [query1 findObjectsInBackgroundWithTarget:self selector:@selector(getNewsRefresh:error:)];
+    } else {
+        NSLog(@"Error: %@ %@", error, [error userInfo]);
+    }
+}
+
+- (void)getNewsRefresh:(NSArray *)objects error:(NSError *)error {
+    if (!error) {
+        for (PFObject *object in objects) {
+            [news addObject:object];
+        }
+    } else {
+        NSLog(@"Error: %@ %@", error, [error userInfo]);
+    }
+    
+    [postTableView reloadData];
+    [currRC endRefreshing];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -210,5 +265,6 @@ SINavigationMenuView *menu;
 }
 
 - (IBAction)managefriend:(id)sender {
+    // TODO
 }
 @end

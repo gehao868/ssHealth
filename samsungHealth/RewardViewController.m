@@ -46,7 +46,7 @@
     reward = [[Reward alloc] init];
     
     pointNeeded = 300;
-    self.userIcon.image = [UIImage imageWithData:[UserData getAvatar]];
+    self.userIcon.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[UserData getAvatar]]]];
     self.userIcon.layer.masksToBounds = YES;
     self.userIcon.layer.cornerRadius = 30.0;
     self.userIcon.layer.borderColor = [UIColor whiteColor].CGColor;

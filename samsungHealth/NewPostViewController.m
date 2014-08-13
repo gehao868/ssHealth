@@ -53,6 +53,7 @@
 - (IBAction)send:(id)sender {
     PFObject *post = [PFObject objectWithClassName:@"News"];
     post[@"content"] = self.postText.text;
+    post[@"postusername"] = [UserData getUsername];
     post[@"likenum"] = @0;
     post[@"showlikenum"] = @0;
     post[@"groupname"] = [UserData getCurrgroup];
