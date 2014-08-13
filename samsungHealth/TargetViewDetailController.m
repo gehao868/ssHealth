@@ -44,6 +44,7 @@
     [_sampleView setBackgroundColor:[UIColor whiteColor]];
     _sampleView.calendarDate = [NSDate date];
     [self.view addSubview:_sampleView];
+    
     // Do any additional setup after loading the view.
 
     
