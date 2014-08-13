@@ -660,6 +660,9 @@
                         <color key="tintColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Be better" id="RYJ-Cb-uWv"/>
+                    <connections>
+                        <outlet property="tableView" destination="7EV-js-kUF" id="H0q-Np-KG5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHY-ao-Q2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
