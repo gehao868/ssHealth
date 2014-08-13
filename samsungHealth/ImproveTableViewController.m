@@ -13,6 +13,7 @@
 
 @interface ImproveTableViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation ImproveTableViewController
@@ -27,9 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     // check already added
-    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
     [query whereKey:@"name" equalTo:[UserData getUsername]];
     NSCalendar *cal = [NSCalendar currentCalendar];
