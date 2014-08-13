@@ -125,11 +125,19 @@
     
     NSArray* objects = [query findObjects];
     
-    for (PFObject *object in objects) {
-        [expected addObject:[object objectForKey:@"expected"]];
-        [finished addObject:[healthObjects[0] objectForKey:[object objectForKey:@"type"]]];
-        
+    if ([healthObjects count] == 0) {
+        for (PFObject *object in objects) {
+            [expected addObject:[object objectForKey:@"expected"]];
+        }
+    } else {
+        for (PFObject *object in objects) {
+            [expected addObject:[object objectForKey:@"expected"]];
+            [finished addObject:[healthObjects[0] objectForKey:[object objectForKey:@"type"]]];
+            
+        }
     }
+    
+    
     NSLog(@"the count is %d", [finished count]);
    [self.goalTable reloadData];
 }
@@ -137,7 +145,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [finished count];
+    return [expected count];
 }
 
 
