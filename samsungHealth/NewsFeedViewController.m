@@ -152,6 +152,7 @@ SINavigationMenuView *menu;
     if (index == 0) {
         ConnectViewController *next = [self.storyboard instantiateViewControllerWithIdentifier:@"connectController"];
         [self.navigationController pushViewController:next animated:YES];
+        self.navigationItem.hidesBackButton = NO;
     } else {
         currIndex = index;
         [menu setTitle:[menu.items objectAtIndex:currIndex]];
