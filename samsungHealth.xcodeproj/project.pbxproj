@@ -30,10 +30,11 @@
 		0BA87092198C5BA900236EBD /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA87091198C5BA900236EBD /* UserData.m */; };
 		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
 		3B1CD2071989D75400282886 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		3BD61A0319969E6600F2A528 /* Members.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A0219969E6600F2A528 /* Members.m */; };
-		3BD61A061996ED8800F2A528 /* CreateGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A051996ED8800F2A528 /* CreateGroup.m */; };
+		3BD61A0319969E6600F2A528 /* MembersViewControllor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A0219969E6600F2A528 /* MembersViewControllor.m */; };
+		3BD61A061996ED8800F2A528 /* CreateGroupViewControllor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A051996ED8800F2A528 /* CreateGroupViewControllor.m */; };
 		3BD61A09199715CD00F2A528 /* CouponDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A08199715CD00F2A528 /* CouponDetailCell.m */; };
 		3BE7C18D1999B46100FB30AE /* CouponListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7C18C1999B46100FB30AE /* CouponListViewController.m */; };
+		3BE7C199199B0A3600FB30AE /* SendGiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7C198199B0A3600FB30AE /* SendGiftViewController.m */; };
 		7C1A6CA219956E2500E307DA /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A6CA119956E2500E307DA /* Goal.m */; };
 		7C89F8951989A9F100F021EF /* AppDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8941989A9F100F021EF /* AppDeviceTableViewCell.m */; };
 		7C89F8A31989C1B800F021EF /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8981989C1B800F021EF /* PNBar.m */; };
@@ -91,6 +92,9 @@
 		7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD2CA3197EF612002F23A5 /* DACircularProgressView.m */; };
 		7CBFE94A199A9FD6006331E4 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBFE947199A9FD6006331E4 /* DIDatepicker.m */; };
 		7CBFE94B199A9FD6006331E4 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBFE949199A9FD6006331E4 /* DIDatepickerDateView.m */; };
+		7CBFE97E199B064E006331E4 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBFE97D199B064E006331E4 /* EventKit.framework */; };
+		7CBFE980199B0654006331E4 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBFE97F199B0654006331E4 /* EventKitUI.framework */; };
+		7CCA4CC9199B10D10086AF91 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCA4CC8199B10D10086AF91 /* CalendarView.m */; };
 		7CE78A90198C5AE2002ED7E5 /* HealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A8F198C5AE2002ED7E5 /* HealthData.m */; };
 		7CE78A93198C8366002ED7E5 /* DashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A92198C8366002ED7E5 /* DashTableViewCell.m */; };
 		7CE78A96198CA42C002ED7E5 /* ImproveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A95198CA42C002ED7E5 /* ImproveTableViewCell.m */; };
@@ -147,14 +151,16 @@
 		0BA067AC199AB19400D7CD21 /* NewPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostViewController.m; sourceTree = "<group>"; };
 		0BA87090198C5BA900236EBD /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		0BA87091198C5BA900236EBD /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
-		3BD61A0119969E6600F2A528 /* Members.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Members.h; sourceTree = "<group>"; };
-		3BD61A0219969E6600F2A528 /* Members.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Members.m; sourceTree = "<group>"; };
-		3BD61A041996ED8800F2A528 /* CreateGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGroup.h; sourceTree = "<group>"; };
-		3BD61A051996ED8800F2A528 /* CreateGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGroup.m; sourceTree = "<group>"; };
+		3BD61A0119969E6600F2A528 /* MembersViewControllor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersViewControllor.h; sourceTree = "<group>"; };
+		3BD61A0219969E6600F2A528 /* MembersViewControllor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersViewControllor.m; sourceTree = "<group>"; };
+		3BD61A041996ED8800F2A528 /* CreateGroupViewControllor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGroupViewControllor.h; sourceTree = "<group>"; };
+		3BD61A051996ED8800F2A528 /* CreateGroupViewControllor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateGroupViewControllor.m; sourceTree = "<group>"; };
 		3BD61A07199715CD00F2A528 /* CouponDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDetailCell.h; sourceTree = "<group>"; };
 		3BD61A08199715CD00F2A528 /* CouponDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDetailCell.m; sourceTree = "<group>"; };
 		3BE7C18B1999B46100FB30AE /* CouponListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponListViewController.h; sourceTree = "<group>"; };
 		3BE7C18C1999B46100FB30AE /* CouponListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponListViewController.m; sourceTree = "<group>"; };
+		3BE7C197199B0A3600FB30AE /* SendGiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendGiftViewController.h; sourceTree = "<group>"; };
+		3BE7C198199B0A3600FB30AE /* SendGiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendGiftViewController.m; sourceTree = "<group>"; };
 		7C1A6CA019956E2500E307DA /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
 		7C1A6CA119956E2500E307DA /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
 		7C89F8931989A9F100F021EF /* AppDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDeviceTableViewCell.h; sourceTree = "<group>"; };
@@ -251,6 +257,11 @@
 		7CBFE947199A9FD6006331E4 /* DIDatepicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepicker.m; sourceTree = "<group>"; };
 		7CBFE948199A9FD6006331E4 /* DIDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepickerDateView.h; sourceTree = "<group>"; };
 		7CBFE949199A9FD6006331E4 /* DIDatepickerDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepickerDateView.m; sourceTree = "<group>"; };
+		7CBFE979199AFFDC006331E4 /* libKal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKal.a; path = "samsungHealth/build/Debug-iphoneos/libKal.a"; sourceTree = "<group>"; };
+		7CBFE97D199B064E006331E4 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		7CBFE97F199B0654006331E4 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		7CCA4CC7199B10D10086AF91 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarView.h; sourceTree = "<group>"; };
+		7CCA4CC8199B10D10086AF91 /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarView.m; sourceTree = "<group>"; };
 		7CE78A8E198C5AE2002ED7E5 /* HealthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthData.h; sourceTree = "<group>"; };
 		7CE78A8F198C5AE2002ED7E5 /* HealthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthData.m; sourceTree = "<group>"; };
 		7CE78A91198C8366002ED7E5 /* DashTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashTableViewCell.h; sourceTree = "<group>"; };
@@ -274,6 +285,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CBFE980199B0654006331E4 /* EventKitUI.framework in Frameworks */,
+				7CBFE97E199B064E006331E4 /* EventKit.framework in Frameworks */,
 				0B3758541989D90E004A9EB9 /* Accounts.framework in Frameworks */,
 				0B3758521989D8FC004A9EB9 /* Social.framework in Frameworks */,
 				0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */,
@@ -481,6 +494,9 @@
 		7CBD2C18197E4510002F23A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7CBFE97F199B0654006331E4 /* EventKitUI.framework */,
+				7CBFE97D199B064E006331E4 /* EventKit.framework */,
+				7CBFE979199AFFDC006331E4 /* libKal.a */,
 				0B3758531989D90E004A9EB9 /* Accounts.framework */,
 				0B3758511989D8FC004A9EB9 /* Social.framework */,
 				0B37584F1989D5D0004A9EB9 /* FacebookSDK.framework */,
@@ -506,6 +522,7 @@
 		7CBD2C1F197E4510002F23A5 /* samsungHealth */ = {
 			isa = PBXGroup;
 			children = (
+				7CCA4CC6199B10710086AF91 /* Calendar */,
 				7CBFE945199A9FBA006331E4 /* DatePicker */,
 				7CE78A8D198C5A84002ED7E5 /* Data */,
 				7C89F8961989C1B800F021EF /* PNChart */,
@@ -585,6 +602,15 @@
 			name = DatePicker;
 			sourceTree = "<group>";
 		};
+		7CCA4CC6199B10710086AF91 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				7CCA4CC7199B10D10086AF91 /* CalendarView.h */,
+				7CCA4CC8199B10D10086AF91 /* CalendarView.m */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
 		7CE78A8D198C5A84002ED7E5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -620,10 +646,12 @@
 				0B0A240119957AAB0086309E /* NewsFeedViewController.m */,
 				0BA067AB199AB19400D7CD21 /* NewPostViewController.h */,
 				0BA067AC199AB19400D7CD21 /* NewPostViewController.m */,
-				3BD61A0119969E6600F2A528 /* Members.h */,
-				3BD61A0219969E6600F2A528 /* Members.m */,
-				3BD61A041996ED8800F2A528 /* CreateGroup.h */,
-				3BD61A051996ED8800F2A528 /* CreateGroup.m */,
+				3BD61A0119969E6600F2A528 /* MembersViewControllor.h */,
+				3BD61A0219969E6600F2A528 /* MembersViewControllor.m */,
+				3BE7C197199B0A3600FB30AE /* SendGiftViewController.h */,
+				3BE7C198199B0A3600FB30AE /* SendGiftViewController.m */,
+				3BD61A041996ED8800F2A528 /* CreateGroupViewControllor.h */,
+				3BD61A051996ED8800F2A528 /* CreateGroupViewControllor.m */,
 			);
 			name = Connect;
 			sourceTree = "<group>";
@@ -735,6 +763,7 @@
 				7C89F8A31989C1B800F021EF /* PNBar.m in Sources */,
 				0B0A241F19957B620086309E /* SIMenuTable.m in Sources */,
 				0B0A242119957B620086309E /* UIColor+Extension.m in Sources */,
+				3BE7C199199B0A3600FB30AE /* SendGiftViewController.m in Sources */,
 				7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */,
 				BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */,
 				0B3758571989DE08004A9EB9 /* GoalTableCell.m in Sources */,
@@ -749,7 +778,7 @@
 				7CBD2C6F197E4651002F23A5 /* REFrostedContainerViewController.m in Sources */,
 				7CE78A90198C5AE2002ED7E5 /* HealthData.m in Sources */,
 				0B0A242019957B620086309E /* SINavigationMenuView.m in Sources */,
-				3BD61A0319969E6600F2A528 /* Members.m in Sources */,
+				3BD61A0319969E6600F2A528 /* MembersViewControllor.m in Sources */,
 				7CE78A9F198D8AC0002ED7E5 /* FriendTableViewCell.m in Sources */,
 				7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */,
 				7C89F8BA198AFDB400F021EF /* LaunchViewController.m in Sources */,
@@ -759,6 +788,7 @@
 				0B0A24271995E3280086309E /* Reward.m in Sources */,
 				7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */,
 				0B0A241D19957B620086309E /* SIMenuCell.m in Sources */,
+				7CCA4CC9199B10D10086AF91 /* CalendarView.m in Sources */,
 				7CBFE94B199A9FD6006331E4 /* DIDatepickerDateView.m in Sources */,
 				3BD61A09199715CD00F2A528 /* CouponDetailCell.m in Sources */,
 				7C89F8AB1989C22F00F021EF /* DetailViewController.m in Sources */,
@@ -787,7 +817,7 @@
 				0B0A242D1995E42E0086309E /* News.m in Sources */,
 				7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */,
 				7CE78A9C198D5F36002ED7E5 /* ProfileTableViewCell.m in Sources */,
-				3BD61A061996ED8800F2A528 /* CreateGroup.m in Sources */,
+				3BD61A061996ED8800F2A528 /* CreateGroupViewControllor.m in Sources */,
 				7CBD2C26197E4510002F23A5 /* main.m in Sources */,
 				7CBD2C79197E4671002F23A5 /* FitbitViewController.m in Sources */,
 				7CBD2C6E197E4651002F23A5 /* REFrostedViewController.m in Sources */,
@@ -915,6 +945,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "samsungHealth/samsungHealth-Prefix.pch";
 				INFOPLIST_FILE = "samsungHealth/samsungHealth-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/samsungHealth/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -932,6 +966,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "samsungHealth/samsungHealth-Prefix.pch";
 				INFOPLIST_FILE = "samsungHealth/samsungHealth-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/samsungHealth/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

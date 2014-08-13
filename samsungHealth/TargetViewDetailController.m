@@ -12,6 +12,10 @@
 
 
 @interface TargetViewDetailController ()
+{
+    CalendarView *_sampleView;
+}
+
 
 @end
 
@@ -33,13 +37,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.view setBackgroundColor:[UIColor brownColor]];
+    _sampleView= [[CalendarView alloc]initWithFrame:CGRectMake(0, 40, self.view.bounds.size.width, self.view.bounds.size.height-80)];
+    _sampleView.delegate = self;
+    [_sampleView setBackgroundColor:[UIColor whiteColor]];
+    _sampleView.calendarDate = [NSDate date];
+    [self.view addSubview:_sampleView];
+    // Do any additional setup after loading the view.
 
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:70.0f/255.0f green:160.0f/255.0f blue:100.0f/255.0f alpha:1.0f];
-    
-    self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(60.0f, 80.0f, 200.0f, 200.0f)];
-    [self.view addSubview: self.largestProgressView];
-    
-    [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
     
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
@@ -83,6 +89,11 @@
     {
         _largestProgressView.progress = 0.0f;
     }
+}
+
+-(void)tappedOnDate:(NSDate *)selectedDate
+{
+    NSLog(@"tappedOnDate %@(GMT)",selectedDate);
 }
 
 /*

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Members : UIViewController
+@interface MembersViewControllor : UIViewController
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIButton *addButton;
 

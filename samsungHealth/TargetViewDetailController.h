@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "REFrostedViewController.h"
 #import "DACircularProgressView.h"
+#import "CalendarView.h"
 
-@interface TargetViewDetailController : UIViewController
+
+@interface TargetViewDetailController : UIViewController<CalendarDelegate>
 
 @property (strong, nonatomic) DACircularProgressView *largestProgressView;
 

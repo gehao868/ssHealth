@@ -11,8 +11,15 @@
 
 @interface NewsFeedViewController : UIViewController <SINavigationMenuDelegate>
 - (IBAction)showMenu;
+
 @property (strong, nonatomic) IBOutlet UIButton *addPost;
 @property (strong, nonatomic) IBOutlet UIView *buttonView;
+@property (strong, nonatomic) IBOutlet UIView *moreView;
+
+- (IBAction)more:(id)sender;
+- (IBAction)managefriend:(id)sender;
+- (IBAction)managegroup:(id)sender;
+- (IBAction)sendgift:(id)sender;
 
 
 @end
