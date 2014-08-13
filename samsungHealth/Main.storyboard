@@ -129,14 +129,14 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XIa-iq-fIG">
-                                <rect key="frame" x="191" y="414" width="109" height="64"/>
+                                <rect key="frame" x="240" y="485" width="55" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNv-NZ-plv">
-                                        <rect key="frame" x="22" y="17" width="64" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNv-NZ-plv">
+                                        <rect key="frame" x="-38" y="0.0" width="130" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.24819362540000001" green="0.73656728319999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Add Post">
+                                        <state key="normal" image="addPost">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -202,6 +202,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPost" destination="FNv-NZ-plv" id="Ayi-9T-ICb"/>
                         <outlet property="buttonView" destination="XIa-iq-fIG" id="Ele-y8-02J"/>
                         <outlet property="moreView" destination="XQA-cn-zwM" id="eWK-KF-w8R"/>
                     </connections>
@@ -1587,6 +1588,7 @@
     </scenes>
     <resources>
         <image name="add" width="12" height="12"/>
+        <image name="addPost" width="55" height="55"/>
         <image name="bodyfat" width="230" height="230"/>
         <image name="circle_yellow" width="100" height="100"/>
         <image name="coupon_white" width="33" height="33"/>
