@@ -18,11 +18,14 @@
 @implementation TargetViewController {
     NSMutableArray *finished;
     NSMutableArray *expected;
+    NSDate *yesterday;
+    NSDate *today;
     
     CGRect progressFrame;
     CGRect numberFrame;
     CGRect imgFrame;
     UIFont *font;
+    
     NSMutableArray *imgList;
     
 }
@@ -44,21 +47,7 @@
 {
     [super viewDidLoad];
     
-    [calendar setBackgroundImage:[UIImage imageNamed:@"calendar"] forState:UIControlStateNormal];
-    [calendar setTitle:@"" forState:UIControlStateNormal];
-    [forward setBackgroundImage:[UIImage imageNamed:@"forward_grey"] forState:UIControlStateNormal];
-    [forward setTitle:@"" forState:UIControlStateNormal];
-    [back setBackgroundImage:[UIImage imageNamed:@"back_grey"] forState:UIControlStateNormal];
-    [back setTitle:@"" forState:UIControlStateNormal];
-    
-    
-    
     font = [UIFont systemFontOfSize:20.0f];
-    
-    imgList = [NSMutableArray arrayWithObjects:@"steps", @"food_green", @"sleep_green", nil];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
-    [query whereKey:@"name" equalTo:[UserData getUsername]];
     
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
@@ -66,51 +55,34 @@
     [components setHour:-[components hour]];
     [components setMinute:-[components minute]];
     [components setSecond:-[components second]];
-    NSDate *today = [NSDate date];//This variable should now be pointing at a date object that is the start of today (midnight);
+    today = [NSDate date];//This variable should now be pointing at a date object that is the start of today (midnight);
     
     [components setHour:-24];
     [components setMinute:0];
     [components setSecond:0];
     
-    
-    NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];
-    
-    [query whereKey:@"date" greaterThan:yesterday];
-    
-    finished = [[NSMutableArray alloc] init];
-    expected = [[NSMutableArray alloc] init];
-    
-    
-    PFQuery *queryHealth = [PFQuery queryWithClassName:@"HealthData"];
-    [queryHealth whereKey:@"username" equalTo:[UserData getUsername]];
-    [query whereKey:@"date" greaterThan:yesterday];
-    
-    NSArray* healthObjects = [queryHealth findObjects];
+    yesterday = [cal dateByAddingComponents:components toDate: today options:0];
 
-    NSArray* objects = [query findObjects];
-    
-    for (PFObject *object in objects) {
-        [expected addObject:[object objectForKey:@"expected"]];
-        [finished addObject:[healthObjects[0] objectForKey:[object objectForKey:@"type"]]];
-        
-        
-    }
-    
-    NSLog(@"end add");
     
     numberFrame = CGRectMake(20.0f, 5.0f, 120.0f, 20.0f);
     progressFrame = CGRectMake(20.0f, 5.0f + font.lineHeight + 2.0f, 120.0f, 20.0f);
     imgFrame = CGRectMake(0.0f, 2.0f, 60.0f, 20.0f);
     
-    
     [self.datepicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
     
-    //    [self.datepicker fillDatesFromCurrentDate:14];
+    //[self.datepicker fillDatesFromCurrentDate:14];
     //    [self.datepicker fillCurrentWeek];
-    //    [self.datepicker fillCurrentMonth];
-    [self.datepicker fillCurrentYear];
-    [self.datepicker selectDateAtIndex:0];
+    [self.datepicker fillCurrentMonth];
+    //[self.datepicker fillCurrentYear];
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"d"];
+    NSInteger day = [[dateFormat stringFromDate:[NSDate date]] intValue];
+    
+    [self.datepicker selectDateAtIndex:day-1];
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -120,10 +92,46 @@
 
 - (void)updateSelectedDate
 {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"EEEEddMMMM" options:0 locale:nil];
+
+    NSDate *date = self.datepicker.selectedDate;
+    if ( date == nil) {
+        date = yesterday;
+    }
+    [self getTime:date];
+}
+
+-(void) getTime: (NSDate*) date {
+    NSLog(@"date is %@",date);
     
-    self.selectedDateLabel.text = [formatter stringFromDate:self.datepicker.selectedDate];
+    PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
+    [query whereKey:@"name" equalTo:[UserData getUsername]];
+    
+    [query whereKey:@"date" greaterThanOrEqualTo:date];
+    
+    [query whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*24*1]];
+    
+    finished = [[NSMutableArray alloc] init];
+    expected = [[NSMutableArray alloc] init];
+    
+    
+    PFQuery *queryHealth = [PFQuery queryWithClassName:@"HealthData"];
+    [queryHealth whereKey:@"username" equalTo:[UserData getUsername]];
+    
+    
+    [queryHealth whereKey:@"date" greaterThanOrEqualTo:date];
+    [queryHealth whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*24*1]];
+    
+    NSArray* healthObjects = [queryHealth findObjects];
+    
+    NSArray* objects = [query findObjects];
+    
+    for (PFObject *object in objects) {
+        [expected addObject:[object objectForKey:@"expected"]];
+        [finished addObject:[healthObjects[0] objectForKey:[object objectForKey:@"type"]]];
+        
+    }
+    NSLog(@"the count is %d", [finished count]);
+   [self.goalTable reloadData];
 }
 
 
@@ -158,6 +166,8 @@
 
     return cell;
 }
+
+
 
 - (IBAction)showMenu
 {
