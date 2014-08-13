@@ -30,8 +30,8 @@
     if (self) {
         self.items = [NSArray arrayWithArray:items];
         
-        self.layer.backgroundColor = [UIColor color:[SIMenuConfiguration mainColor] withAlpha:0.0].CGColor;
-//        self.layer.backgroundColor = [DEFAULT_COLOR_THEME.CGColor;
+//        self.layer.backgroundColor = [UIColor color:[SIMenuConfiguration mainColor] withAlpha:0.0].CGColor;
+        self.layer.backgroundColor = [DEFAULT_COLOR_THEME.CGColor;
         self.clipsToBounds = YES;
         
         endFrame = self.bounds;
