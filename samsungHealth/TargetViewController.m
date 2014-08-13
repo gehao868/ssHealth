@@ -128,6 +128,7 @@
     if ([healthObjects count] == 0) {
         for (PFObject *object in objects) {
             [expected addObject:[object objectForKey:@"expected"]];
+            [finished addObject:[NSNumber numberWithInt:0]];
         }
     } else {
         for (PFObject *object in objects) {
@@ -137,9 +138,7 @@
         }
     }
     
-    
-    NSLog(@"the count is %d", [finished count]);
-   [self.goalTable reloadData];
+    [self.goalTable reloadData];
 }
 
 
