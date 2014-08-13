@@ -121,6 +121,19 @@
             [newgroup saveInBackground];
         }
     }];
+    
+    PFQuery *query1 = [PFQuery queryWithClassName:@"Users"];
+    [query1 whereKey:@"username" equalTo:[tableData objectAtIndex:indexPath.row]];
+    [query1 getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
+        if (!error) {
+            NSMutableArray *array = [user objectForKey:@"groups"];
+            [array addObject:_groupname.text];
+            user[@"groups"] = array;
+            [user saveInBackground];
+        } else {
+            // ignore
+        }
+    }];
 }
 
 @end
