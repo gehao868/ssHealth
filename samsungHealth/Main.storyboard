@@ -336,7 +336,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9w-vY-iff">
                                 <rect key="frame" x="13" y="306" width="292" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.44705882352941173" green="0.80000000000000004" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.42745098471641541" green="0.83921569585800171" blue="0.67843139171600342" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <size key="titleShadowOffset" width="270" height="45"/>
                                 <state key="normal" title="Be better">
@@ -557,7 +557,7 @@
                                 </subviews>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.32156863808631897" green="0.38823530077934265" blue="0.44705882668495178" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="HIf-bS-REK">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="SZg-Pf-I50">
