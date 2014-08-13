@@ -94,7 +94,7 @@
             </objects>
             <point key="canvasLocation" x="-801" y="1876"/>
         </scene>
-        <!--News Feed View Controller - Title-->
+        <!--News Feed View Controller - Connect-->
         <scene sceneID="8Kn-fe-5Jk">
             <objects>
                 <viewController storyboardIdentifier="ConnectionNewsFeed" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kF8-hC-3e8" customClass="NewsFeedViewController" sceneMemberID="viewController">
@@ -177,7 +177,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="FJV-W2-Ugv">
+                    <navigationItem key="navigationItem" title="Connect" id="FJV-W2-Ugv">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="da4-No-hK4">
+                            <connections>
+                                <action selector="showMenu" destination="kF8-hC-3e8" id="fc3-aa-8e3"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="..." id="X1c-cX-6pz">
                             <connections>
                                 <action selector="more:" destination="kF8-hC-3e8" id="26F-ea-vIA"/>
