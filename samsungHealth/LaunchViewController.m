@@ -16,6 +16,8 @@
 #import <Parse/Parse.h>
 
 @interface LaunchViewController ()
+@property (weak, nonatomic) IBOutlet UIView *coverView;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
 @end
 
@@ -74,6 +76,12 @@ NSUserDefaults *defaults;
     if ([isLoggedin isEqual:@"true"]) {
         [self performSegueWithIdentifier:@"skipLogin" sender:self];
     }
+    CGPoint newCneter = CGPointMake(self.loginBtn.center.x, self.loginBtn.center.y - 140.0f);
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1.0];
+    self.loginBtn.center = newCneter;
+    [self.coverView setAlpha:1];
+    [UIView commitAnimations];
 }
 
 - (IBAction)FBLogin:(id)sender {
