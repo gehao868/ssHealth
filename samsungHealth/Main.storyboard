@@ -249,7 +249,7 @@
                                             <outlet property="likeNum" destination="rHk-5o-Esw" id="9hf-eB-Dgg"/>
                                             <outlet property="newsContent" destination="1oQ-n6-JRC" id="HrW-lq-dTM"/>
                                             <outlet property="postUser" destination="bhr-LQ-XYA" id="TPq-yA-lyQ"/>
-                                            <outlet property="userName" destination="GgD-ss-tHb" id="zHF-ih-1lh"/>
+                                            <outlet property="userName" destination="GgD-ss-tHb" id="wza-H3-Zv4"/>
                                             <outlet property="userPic" destination="7Tl-kW-Xwz" id="UuM-cg-8bz"/>
                                         </connections>
                                     </tableViewCell>
@@ -924,13 +924,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Your new post here." translatesAutoresizingMaskIntoConstraints="NO" id="NuR-FN-e7K">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NuR-FN-e7K">
                                 <rect key="frame" x="20" y="83" width="280" height="153"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.14263999829999999" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7d-fk-mii">
+                                <rect key="frame" x="20" y="263" width="87" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add picture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.32156863810000003" green="0.38823530080000002" blue="0.44705882670000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
