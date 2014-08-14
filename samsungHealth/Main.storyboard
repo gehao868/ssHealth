@@ -786,7 +786,7 @@
                                             <outlet property="image" destination="3Bi-N4-nPA" id="Tns-Vr-uag"/>
                                             <outlet property="number" destination="wkU-ZX-aSy" id="J2J-re-b2L"/>
                                             <outlet property="progress" destination="bgB-kD-L7g" id="u49-ws-YCF"/>
-                                            <segue destination="AMr-HN-7ph" kind="push" id="aHb-vK-86e"/>
+                                            <segue destination="AMr-HN-7ph" kind="push" identifier="showCalendar" id="aHb-vK-86e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

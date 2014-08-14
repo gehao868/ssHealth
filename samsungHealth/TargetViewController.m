@@ -7,6 +7,7 @@
 //
 
 #import "TargetViewController.h"
+#import "TargetViewDetailController.h"
 #import "GoalTableCell.h"
 #import "UserData.h"
 #import <Parse/Parse.h>
@@ -181,6 +182,14 @@
     
 
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showCalendar"]) {
+        NSIndexPath *indexPath = [self.goalTable indexPathForSelectedRow];
+        TargetViewDetailController *destViewController = segue.destinationViewController;
+        destViewController.type = [imgList objectAtIndex:indexPath.row];
+    }
 }
 
 
