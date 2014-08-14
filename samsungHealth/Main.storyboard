@@ -853,7 +853,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Your new post here" translatesAutoresizingMaskIntoConstraints="NO" id="NuR-FN-e7K">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Your new post here." translatesAutoresizingMaskIntoConstraints="NO" id="NuR-FN-e7K">
                                 <rect key="frame" x="20" y="83" width="280" height="153"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.14263999829999999" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
@@ -871,7 +871,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="postText" destination="NuR-FN-e7K" id="Qbq-rh-4u7"/>
+                        <outlet property="postText" destination="NuR-FN-e7K" id="pd2-5f-LFc"/>
                         <outlet property="sendButton" destination="PtE-cd-kQx" id="jJ0-3g-YKD"/>
                     </connections>
                 </viewController>
