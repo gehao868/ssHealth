@@ -14,5 +14,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *postUser;
 
 @property (strong, nonatomic) IBOutlet UILabel *likeNum;
+@property (weak, nonatomic) IBOutlet UIImageView *userPic;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
 
 @end
