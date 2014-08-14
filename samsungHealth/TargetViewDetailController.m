@@ -43,7 +43,7 @@
     _sampleView= [[CalendarView alloc]initWithFrame:CGRectMake(0, 40, self.view.bounds.size.width, self.view.bounds.size.height-80)];
     _sampleView.delegate = self;
     
-    [_sampleView setBackgroundColor:[UIColor whiteColor]];
+    [_sampleView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:_sampleView];
     
     // Do any additional setup after loading the view.

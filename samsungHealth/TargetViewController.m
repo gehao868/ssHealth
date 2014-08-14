@@ -66,8 +66,8 @@
 
     
     numberFrame = CGRectMake(20.0f, 5.0f, 120.0f, 20.0f);
-    progressFrame = CGRectMake(20.0f, 5.0f + font.lineHeight + 2.0f, 120.0f, 20.0f);
-    imgFrame = CGRectMake(0.0f, 2.0f, 60.0f, 20.0f);
+    progressFrame = CGRectMake(20.0f, 5.0f + font.lineHeight + 2.0f, 110.0f, 20.0f);
+    imgFrame = CGRectMake(0.0f, 2.0f, 44.0f, 44.0f);
     
     [self.datepicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
     
@@ -178,7 +178,7 @@
     NSLog(@"image is %@",[imgList objectAtIndex:indexPath.row] );
     
     cell.image.image = [UIImage imageNamed:[imgList objectAtIndex:indexPath.row]];
-    cell.image.frame = CGRectMake(cell.image.frame.origin.x, cell.image.frame.origin.x, 50, 50);
+    cell.image.frame = CGRectMake(cell.image.frame.origin.x, cell.image.frame.origin.y, 44, 44);
     
 
     return cell;

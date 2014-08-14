@@ -23,15 +23,15 @@
         UISwipeGestureRecognizer * swipeRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swiperight:)];
         swipeRight.direction=UISwipeGestureRecognizerDirectionRight;
         [self addGestureRecognizer:swipeRight];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.size.height-100, self.bounds.size.width, 44)];
-        [label setBackgroundColor:[UIColor brownColor]];
-        [label setTextColor:[UIColor whiteColor]];
-        label.textAlignment = NSTextAlignmentCenter;
-        [self addSubview:label];
-        [UILabel beginAnimations:NULL context:nil];
-        [UILabel setAnimationDuration:2.0];
-        [label setAlpha:0];
-        [UILabel commitAnimations];
+//        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.size.height-100, self.bounds.size.width, 44)];
+//        [label setBackgroundColor:[DEFAULT_COLOR_THEME];
+//        [label setTextColor:[UIColor whiteColor]];
+//        label.textAlignment = NSTextAlignmentCenter;
+//        [self addSubview:label];
+//        [UILabel beginAnimations:NULL context:nil];
+//        [UILabel setAnimationDuration:2.0];
+//        [label setAlpha:0];
+//        [UILabel commitAnimations];
 
     }
     return self;
@@ -71,8 +71,8 @@
     [format setDateFormat:@"MMMM yyyy"];
     NSString *dateString = [[format stringFromDate:self.calendarDate] uppercaseString];
     [titleText setText:dateString];
-    [titleText setFont:[UIFont fontWithName:@"Helvetica-Bold" size:15.0f]];
-    [titleText setTextColor:[UIColor brownColor]];
+    [titleText setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]];
+    [titleText setTextColor:[UIColor whiteColor]];
     [self addSubview:titleText];
     
     for (int i =0; i<_weekNames.count; i++) {
@@ -80,8 +80,8 @@
         weekNameLabel.titleLabel.text = [_weekNames objectAtIndex:i];
         [weekNameLabel setTitle:[_weekNames objectAtIndex:i] forState:UIControlStateNormal];
         [weekNameLabel setFrame:CGRectMake(originX+(width*(i%columns)), originY, width, width)];
-        [weekNameLabel setTitleColor:[UIColor brownColor] forState:UIControlStateNormal];
-        [weekNameLabel.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:15.0f]];
+        [weekNameLabel setTitleColor:[DEFAULT_COLOR_THEME forState:UIControlStateNormal];
+        [weekNameLabel.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]];
         weekNameLabel.userInteractionEnabled = NO;
         [self addSubview:weekNameLabel];
     }
@@ -93,43 +93,43 @@
         button.tag = i+1;
         button.titleLabel.text = [NSString stringWithFormat:@"%d",i+1];
         [button setTitle:[NSString stringWithFormat:@"%d",i+1] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor brownColor] forState:UIControlStateNormal];
-        [button.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:15.0f]];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]];
         [button addTarget:self action:@selector(tappedDate:) forControlEvents:UIControlEventTouchUpInside];
         NSInteger offsetX = (width*((i+weekday)%columns));
         NSInteger offsetY = (width *((i+weekday)/columns));
         [button setFrame:CGRectMake(originX+offsetX, originY+40+offsetY, width, width)];
-        [button.layer setBorderColor:[[UIColor brownColor] CGColor]];
-        [button.layer setBorderWidth:2.0];
+        [button.layer setBorderColor:[[DEFAULT_COLOR_THEME CGColor]];
+        [button.layer setBorderWidth:0.5];
         UIView *lineView = [[UIView alloc] init];
-        lineView.backgroundColor = [UIColor brownColor];
+        lineView.backgroundColor = [DEFAULT_COLOR_THEME;
         if(((i+weekday)/columns)==0)
         {
-            [lineView setFrame:CGRectMake(0, 0, button.frame.size.width, 4)];
+            [lineView setFrame:CGRectMake(0, 0, button.frame.size.width, 1)];
             [button addSubview:lineView];
         }
 
         if(((i+weekday)/columns)==((monthLength+weekday-1)/columns))
         {
-            [lineView setFrame:CGRectMake(0, button.frame.size.width-4, button.frame.size.width, 4)];
+            [lineView setFrame:CGRectMake(0, button.frame.size.width - 1, button.frame.size.width, 1)];
             [button addSubview:lineView];
         }
         
         UIView *columnView = [[UIView alloc]init];
-        [columnView setBackgroundColor:[UIColor brownColor]];
+        [columnView setBackgroundColor:[DEFAULT_COLOR_THEME];
         if((i+weekday)%7==0)
         {
-            [columnView setFrame:CGRectMake(0, 0, 4, button.frame.size.width)];
+            [columnView setFrame:CGRectMake(0, 0, 1, button.frame.size.width)];
             [button addSubview:columnView];
         }
         else if((i+weekday)%7==6)
         {
-            [columnView setFrame:CGRectMake(button.frame.size.width-4, 0, 4, button.frame.size.width)];
+            [columnView setFrame:CGRectMake(button.frame.size.width-1, 0, 1, button.frame.size.width)];
             [button addSubview:columnView];
         }
         if(i+1 ==_selectedDate && components.month == _selectedMonth && components.year == _selectedYear)
         {
-            [button setBackgroundColor:[UIColor brownColor]];
+            [button setBackgroundColor:[DEFAULT_COLOR_THEME];
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             
         }
@@ -143,7 +143,7 @@
             int day = [mycomponents day];
             
             if (i+1 == day && components.month == month && components.year == year) {
-                [button setBackgroundColor:[UIColor brownColor]];
+                [button setBackgroundColor:[DEFAULT_COLOR_THEME];
                 [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             }
         }
@@ -169,21 +169,21 @@
         NSInteger offsetX = (width*(i%columns));
         NSInteger offsetY = (width *(i/columns));
         [button setFrame:CGRectMake(originX+offsetX, originY+40+offsetY, width, width)];
-        [button.layer setBorderWidth:2.0];
-        [button.layer setBorderColor:[[UIColor brownColor] CGColor]];
+        [button.layer setBorderWidth:0.5];
+        [button.layer setBorderColor:[[DEFAULT_COLOR_THEME CGColor]];
         UIView *columnView = [[UIView alloc]init];
-        [columnView setBackgroundColor:[UIColor brownColor]];
+        [columnView setBackgroundColor:[DEFAULT_COLOR_THEME];
         if(i==0)
         {
-            [columnView setFrame:CGRectMake(0, 0, 4, button.frame.size.width)];
+            [columnView setFrame:CGRectMake(0, 0, 1, button.frame.size.width)];
             [button addSubview:columnView];
         }
 
         UIView *lineView = [[UIView alloc]init];
-        [lineView setBackgroundColor:[UIColor brownColor]];
-        [lineView setFrame:CGRectMake(0, 0, button.frame.size.width, 4)];
+        [lineView setBackgroundColor:[DEFAULT_COLOR_THEME];
+        [lineView setFrame:CGRectMake(0, 0, button.frame.size.width, 1)];
         [button addSubview:lineView];
-        [button setTitleColor:[UIColor colorWithRed:229.0/255.0 green:231.0/255.0 blue:233.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor colorWithRed:150.0/255.0 green:150.0/255.0 blue:150.0/255.0 alpha:1.0] forState:UIControlStateNormal];
         [button.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:15.0f]];
         [button setEnabled:NO];
         [self addSubview:button];
@@ -198,18 +198,18 @@
             NSInteger offsetX = (width*((i) %columns));
             NSInteger offsetY = (width *((monthLength+weekday)/columns));
             [button setFrame:CGRectMake(originX+offsetX, originY+40+offsetY, width, width)];
-            [button.layer setBorderWidth:2.0];
-            [button.layer setBorderColor:[[UIColor brownColor] CGColor]];
+            [button.layer setBorderWidth:0.5];
+            [button.layer setBorderColor:[[DEFAULT_COLOR_THEME CGColor]];
             UIView *columnView = [[UIView alloc]init];
-            [columnView setBackgroundColor:[UIColor brownColor]];
+            [columnView setBackgroundColor:[DEFAULT_COLOR_THEME];
             if(i==columns - 1)
             {
-                [columnView setFrame:CGRectMake(button.frame.size.width-4, 0, 4, button.frame.size.width)];
+                [columnView setFrame:CGRectMake(button.frame.size.width-1, 0, 1, button.frame.size.width)];
                 [button addSubview:columnView];
             }
             UIView *lineView = [[UIView alloc]init];
-            [lineView setBackgroundColor:[UIColor brownColor]];
-            [lineView setFrame:CGRectMake(0, button.frame.size.width-4, button.frame.size.width, 4)];
+            [lineView setBackgroundColor:[DEFAULT_COLOR_THEME];
+            [lineView setFrame:CGRectMake(0, button.frame.size.width-1, button.frame.size.width, 1)];
             [button addSubview:lineView];
             [button setTitleColor:[UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1.0] forState:UIControlStateNormal];
             [button.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:15.0f]];
@@ -230,11 +230,11 @@
         {
             UIButton *previousSelected =(UIButton *) [self viewWithTag:_selectedDate];
             [previousSelected setBackgroundColor:[UIColor clearColor]];
-            [previousSelected setTitleColor:[UIColor brownColor] forState:UIControlStateNormal];
+            [previousSelected setTitleColor:[DEFAULT_COLOR_THEME forState:UIControlStateNormal];
             
         }
         
-        [sender setBackgroundColor:[UIColor brownColor]];
+        [sender setBackgroundColor:[UIColor clearColor]];
         [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _selectedDate = sender.tag;
         NSDateComponents *components = [gregorian components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:self.calendarDate];
