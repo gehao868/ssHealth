@@ -35,10 +35,11 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"NewsFeedCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+
     
     News *news = (News *)[[Global getNewsFeed] objectAtIndex:indexPath.row];
     cell.newsContent.text = news.content;
-    cell.likeNum.text = [[news.likenum stringValue] stringByAppendingString:@" likes"];
+    cell.likeNum.text = [[news.showlikenum stringValue] stringByAppendingString:@" likes"];
     cell.postUser.text = news.postusername;
     return cell;
 }

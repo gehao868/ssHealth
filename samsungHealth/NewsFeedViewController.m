@@ -50,6 +50,10 @@ UIRefreshControl *currRC;
     [self.table setDelegate:myTableDelegate];
     [self.table setDataSource:myTableDelegate];
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
+    [self.table addSubview:refreshControl];
+
     if (self.navigationItem) {
         groups = [[NSMutableDictionary alloc] init];
         groupnames = [[NSMutableArray alloc] init];
@@ -261,11 +265,12 @@ UIRefreshControl *currRC;
 - (void) getNewsFeed:(int) index {
     PFQuery *query = [PFQuery queryWithClassName:@"News"];
     [query whereKey:@"groupname" equalTo:[groupnames objectAtIndex:index]];
+    [query orderByDescending:@"updatedAt"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         __block NSMutableArray *array = [[NSMutableArray alloc] init];
-        __block News *news = [[News alloc] init];
         for (PFObject *object in objects) {
+            __block News *news = [[News alloc] init];
             news.groupname = [object objectForKey:@"groupname"];
             news.content = [object objectForKey:@"content"];
             news.likenum = [object objectForKey:@"likenum"];
@@ -274,10 +279,14 @@ UIRefreshControl *currRC;
             news.type = [object objectForKey:@"type"];
             [array addObject:news];
         }
-        
         [Global setNewsFeed:array];
         [self.table reloadData];
     }];
+}
+
+- (void)refreshData:(UIRefreshControl *)refreshControl {
+    [self getNewsFeed:currIndex];
+    [refreshControl endRefreshing];
 }
 
 - (IBAction)more:(id)sender {
