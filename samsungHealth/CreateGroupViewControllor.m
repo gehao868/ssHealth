@@ -127,6 +127,9 @@
     [query1 getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
         if (!error) {
             NSMutableArray *array = [user objectForKey:@"groups"];
+            if (array == nil) {
+                array = [[NSMutableArray alloc] init];
+            }
             [array addObject:_groupname.text];
             user[@"groups"] = array;
             [user saveInBackground];
