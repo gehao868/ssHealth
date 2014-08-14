@@ -61,12 +61,12 @@
 //Items color in menu
 + (UIColor *)itemsColor
 {
-    return [UIColor blackColor];
+    return [DEFAULT_COLOR_DARKTHEME;
 }
 
 + (UIColor *)mainColor
 {
-    return [UIColor blackColor];
+    return [DEFAULT_COLOR_DARKCANYON;
 }
 
 + (float)selectionSpeed
@@ -81,6 +81,7 @@
 
 + (UIColor *)selectionColor
 {
-    return [UIColor colorWithRed:45.0/255.0 green:105.0/255.0 blue:166.0/255.0 alpha:1.0];
+//    return [UIColor colorWithRed:45.0/255.0 green:105.0/255.0 blue:166.0/255.0 alpha:1.0];
+    return [DEFAULT_COLOR_THEME;
 }
 @end

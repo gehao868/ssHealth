@@ -908,10 +908,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMB-m2-5Mj">
-                                <rect key="frame" x="20" y="141" width="130" height="130"/>
+                                <rect key="frame" x="20" y="141" width="140" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="+" backgroundImage="circle_yellow">
+                                <state key="normal" title="+" backgroundImage="circle_cyan">
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -920,9 +920,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giH-mj-nRJ">
-                                <rect key="frame" x="170" y="141" width="130" height="130"/>
+                                <rect key="frame" x="160" y="141" width="140" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Friends(2)" backgroundImage="circle_yellow">
+                                <state key="normal" title="Friends" backgroundImage="circle_red">
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -930,9 +930,23 @@
                                 <rect key="frame" x="0.0" y="18" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="faz-Xo-d4E"/>
+                                    <navigationItem title="Manage Group" id="faz-Xo-d4E"/>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIR-8t-Ijc">
+                                <rect key="frame" x="20" y="310" width="140" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Practicum" backgroundImage="circle_orange">
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEd-9c-3jf">
+                                <rect key="frame" x="160" y="310" width="140" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Test" backgroundImage="circle_yellow">
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.32156863810000003" green="0.38823530080000002" blue="0.44705882670000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1619,7 +1633,10 @@
         <image name="add" width="12" height="12"/>
         <image name="addPost" width="55" height="55"/>
         <image name="bodyfat" width="230" height="230"/>
-        <image name="circle_yellow" width="100" height="100"/>
+        <image name="circle_cyan" width="70" height="70"/>
+        <image name="circle_orange" width="70" height="70"/>
+        <image name="circle_red" width="70" height="70"/>
+        <image name="circle_yellow" width="70" height="70"/>
         <image name="coupon_white" width="33" height="33"/>
         <image name="heart_green" width="22" height="22"/>
         <image name="launch@R4" width="640" height="1136"/>
