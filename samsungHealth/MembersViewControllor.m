@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Hao Ge. All rights reserved.
 //
 
+#import "Global.h"
 #import "MembersViewControllor.h"
 #import <Parse/Parse.h>
 #import "CreateGroupViewControllor.h"
@@ -34,7 +35,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    groupName = @"family";
+    groupName = [Global getCurrGroup];
     
     members = [[NSMutableArray alloc] init];
     scrollView.hidden = YES;

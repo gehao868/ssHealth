@@ -7,6 +7,7 @@
 //
 
 #import "UserData.h"
+#import "Global.h"
 #import "CreateGroupViewControllor.h"
 #import "FriendTableViewCell.h"
 #import <Parse/Parse.h>
@@ -37,7 +38,7 @@
         }
     }
     
-    [self.groupname setText:[UserData getCurrgroup]];
+    [self.groupname setText:[Global getCurrGroup]];
     [self.groupname setDelegate:self];
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]

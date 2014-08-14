@@ -10,6 +10,7 @@
 #import "NewsFeedViewController.h"
 
 #import "UserData.h"
+#import "Global.h"
 #import <Parse/Parse.h>
 
 @interface NewPostViewController ()
@@ -57,7 +58,7 @@
     post[@"postusername"] = [UserData getUsername];
     post[@"likenum"] = @0;
     post[@"showlikenum"] = @0;
-    post[@"groupname"] = [UserData getCurrgroup];
+    post[@"groupname"] = [Global getCurrGroup];
     [post saveInBackground];
     
     UIAlertView *messageAlert = [[UIAlertView alloc]

@@ -7,6 +7,7 @@
 //
 
 #import "UserData.h"
+#import "Global.h"
 #import "ConnectViewController.h"
 #import "NewsFeedViewController.h"
 
@@ -72,7 +73,7 @@ UIRefreshControl *currRC;
         [menu displayMenuInView:self.navigationController.view];
         menu.items = groupnames;
         [menu setTitle:[menu.items objectAtIndex:currIndex]];
-        [UserData setCurrgroup:[menu.items objectAtIndex:currIndex]];
+        [Global setCurrGroup:[menu.items objectAtIndex:currIndex]];
         menu.delegate = self;
         self.navigationItem.titleView = menu;
         
@@ -127,7 +128,7 @@ UIRefreshControl *currRC;
         [menu displayMenuInView:self.navigationController.view];
         menu.items = groupnames;
         [menu setTitle:[menu.items objectAtIndex:currIndex]];
-        [UserData setCurrgroup:[menu.items objectAtIndex:currIndex]];
+        [Global setCurrGroup:[menu.items objectAtIndex:currIndex]];
         menu.delegate = self;
         self.navigationItem.titleView = menu;
         
@@ -208,10 +209,10 @@ UIRefreshControl *currRC;
 {
     currIndex = index;
     [menu setTitle:[menu.items objectAtIndex:currIndex]];
-    [UserData setCurrgroup:[menu.items objectAtIndex:currIndex]];
+    [Global setCurrGroup:[menu.items objectAtIndex:currIndex]];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Group"];
-    [query whereKey:@"name" equalTo:[UserData getCurrgroup]];
+    [query whereKey:@"name" equalTo:[Global getCurrGroup]];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *group, NSError *error) {
         if (!error) {
             [UserData setCurrgroupusers:[group objectForKey:@"users"]];

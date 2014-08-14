@@ -40,9 +40,6 @@
 + (NSArray *)getGroups;
 + (void)setGroups:(NSArray *) newGroups;
 
-+ (NSString *)getCurrgroup;
-+ (void)setCurrgroup:(NSString *) newCurrgroup;
-
 + (NSArray *)getCurrgroupusers;
 + (void)setCurrgroupusers:(NSArray *) newCurrgroupusers;
 
