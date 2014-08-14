@@ -16,5 +16,6 @@
 @synthesize likenum;
 @synthesize showlikenum;
 @synthesize type;
+@synthesize groupname;
 
 @end

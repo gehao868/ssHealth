@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SINavigationMenuView.h"
+#import "TableDelegate.h"
 
 @interface NewsFeedViewController : UIViewController <SINavigationMenuDelegate>
 - (IBAction)showMenu;
@@ -15,11 +16,13 @@
 @property (strong, nonatomic) IBOutlet UIButton *addPost;
 @property (strong, nonatomic) IBOutlet UIView *buttonView;
 @property (strong, nonatomic) IBOutlet UIView *moreView;
+@property (strong, nonatomic) TableDelegate *myTableDelegate;
 
 - (IBAction)more:(id)sender;
 - (IBAction)managefriend:(id)sender;
 - (IBAction)managegroup:(id)sender;
 - (IBAction)sendgift:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UITableView *table;
 
 @end

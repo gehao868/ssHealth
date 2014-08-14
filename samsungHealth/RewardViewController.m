@@ -43,6 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    srand((unsigned)time(0));
     reward = [[Reward alloc] init];
     
     pointNeeded = 300;
@@ -57,9 +58,9 @@
     
     self.rewardPoint.text = [[UserData getPoint] stringValue];
     
-    data = @[@"1st prize",@"2nd prize",@"3rd prize",@"try again"];
+    data = @[@"1st prize",@"2nd prize",@"3rd prize",@"gift",@"try again"];
     //中奖和没中奖之间的分隔线设有2个弧度的盲区，指针不会旋转到的，避免抽奖的时候起争议。
-    miss = @[
+    /*miss = @[
              @{@"min": @47,
                @"max":@89
                },
@@ -95,6 +96,79 @@
                        @{
                            @"min": @2,
                            @"max":@43
+                           }
+                       ],
+               @"try again":miss
+               };*/
+    miss = @[
+             @{@"min": @292,
+               @"max":@315
+               },
+             @{@"min": @343,
+               @"max":@359
+               },
+             @{@"min": @25,
+               @"max":@50
+               },
+             @{@"min": @87,
+               @"max":@114
+               },
+             @{@"min": @151,
+               @"max":@188
+               },
+             @{@"min": @207,
+               @"max":@259
+               }
+             ];
+    
+    
+    awards = @{
+               @"1st prize": @[
+                       @{
+                           @"min": @260,
+                           @"max":@276
+                           }
+                       ],
+               @"2nd prize": @[
+                       @{
+                           @"min": @325,
+                           @"max":@342
+                           },
+                       @{
+                           @"min": @51,
+                           @"max":@68
+                           }
+                       ],
+               @"3rd prize": @[
+                       @{
+                           @"min": @18,
+                           @"max":@35
+                           },
+                       @{
+                           @"min": @133,
+                           @"max":@150
+                           },
+                       @{
+                           @"min": @189,
+                           @"max":@206
+                           }
+                       ],
+               @"gift": @[
+                       @{
+                           @"min": @277,
+                           @"max":@291
+                           },
+                       @{
+                           @"min": @0,
+                           @"max":@17
+                           },
+                       @{
+                           @"min": @69,
+                           @"max":@86
+                           },
+                       @{
+                           @"min": @115,
+                           @"max":@132
                            }
                        ],
                @"try again":miss
@@ -137,7 +211,7 @@
 -(float)fetchResult{
     
     //todo: fetch result from remote service
-    srand((unsigned)time(0));
+    
     random = rand() %4;
     int i = random;
     result = data[i];  //TEST DATA ,shoud fetch result from remote service
