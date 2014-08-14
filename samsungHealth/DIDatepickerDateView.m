@@ -54,20 +54,22 @@ const CGFloat kDIDatepickerSelectionLineWidth = 51.;
 
     [dateString addAttributes:@{
                                 NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:20],
-                                NSForegroundColorAttributeName: [UIColor blackColor]
+                                NSForegroundColorAttributeName: [UIColor whiteColor]
                                 }
                         range:NSMakeRange(0, dayFormattedString.length)];
 
     [dateString addAttributes:@{
                                 NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:8],
-                                NSForegroundColorAttributeName: [UIColor blackColor]
+                                NSForegroundColorAttributeName: [UIColor whiteColor]
                                 }
                         range:NSMakeRange(dayFormattedString.length + 1, dayInWeekFormattedString.length)];
 
-    [dateString addAttributes:@{
+   [dateString addAttributes:@{
                                 NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:8],
-                                NSForegroundColorAttributeName: [UIColor colorWithRed:153./255. green:153./255. blue:153./255. alpha:1.]
+                                NSForegroundColorAttributeName: [UIColor whiteColor]
                                 }
+    
+     
                         range:NSMakeRange(dateString.string.length - monthFormattedString.length, monthFormattedString.length)];
 
     if ([self isWeekday:date]) {
@@ -103,7 +105,7 @@ const CGFloat kDIDatepickerSelectionLineWidth = 51.;
     if (!_selectionView) {
         _selectionView = [[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width - 51) / 2, self.frame.size.height - 3, 51, 3)];
         _selectionView.alpha = 0;
-        _selectionView.backgroundColor = [UIColor colorWithRed:242./255. green:93./255. blue:28./255. alpha:1.];
+        _selectionView.backgroundColor = [UIColor greenColor];
         [self addSubview:_selectionView];
     }
 
