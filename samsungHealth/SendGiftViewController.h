@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SendGiftViewController : UIViewController
+@interface SendGiftViewController : UIViewController <UITextViewDelegate>
 
 - (IBAction)submit:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextField *giftTitle;
+- (IBAction)exit:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextView *giftDetail;
 
 @end
