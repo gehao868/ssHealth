@@ -98,7 +98,7 @@
 - (IBAction)submit:(id)sender {
     PFObject *object = [PFObject objectWithClassName:@"Reward"];
     object[@"fromusername"] = [UserData getUsername];
-    object[@"tousername"] = @"Quincy Yip";
+    object[@"tousername"] = [Global getToUserName];
     object[@"pic"] = [UserData getAvatar];
     object[@"type"] = @"gift";
     object[@"isredeemed"] = @NO;

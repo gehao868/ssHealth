@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "PNChart.h"
 #import "Time.h"
+#import "UserData.h"
 #import <Parse/Parse.h>
 
 
@@ -37,8 +38,6 @@
 {
     [super viewDidLoad];
     
-    // Parse query
-    
     
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
@@ -55,16 +54,15 @@
     
     [components setDay:([components day] - ([components weekday] - 1))];
     
-    NSDate *thisWeek  = [cal dateFromComponents:components];
-    
     [components setDay:([components day] - 7)];
     NSDate *lastWeek  = [cal dateFromComponents:components];
 
     
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
-    //[query whereKey:@"Time" lessThanOrEqualTo:thisWeek];
+    [query whereKey:@"username" equalTo:[UserData getUsername]];
     [query whereKey:@"date" greaterThan:lastWeek];
     
+
 
     
 	//Add BarChart
@@ -87,6 +85,7 @@
     format.dateFormat = @"dd";
     
     NSArray* objects = [query findObjects];
+    NSLog(@"health data name is %@", self.healthDataName);
     for (PFObject *object in objects) {
         NSNumber *step =[NSNumber numberWithInt:[[object objectForKey:self.healthDataName] intValue]];
         [barData addObject:step];
