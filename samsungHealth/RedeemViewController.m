@@ -79,12 +79,11 @@
         coupontImg.hidden = NO;
         if ([reward.type isEqualToString:@"gift"]) {
             dateLabel.hidden = YES;
-            
         } else {
             expireDate.hidden = NO;
             dateLabel.hidden = NO;
         }
-   
+        NSLog(@"%d", dateLabel.hidden);
     }];
    
 }
@@ -92,6 +91,8 @@
 - (void) setContent {
     if ([reward.type isEqualToString:@"gift"]) {
         couponDiscount.text = [@"From: " stringByAppendingString:reward.fromusername];
+        dateLabel.hidden = YES;
+        expireDate.hidden = YES;
     } else {
         couponDiscount.text = reward.discount;
     }
