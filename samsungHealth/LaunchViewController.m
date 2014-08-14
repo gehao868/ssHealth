@@ -49,6 +49,7 @@ NSUserDefaults *defaults;
         [UserData setGender:[defaults objectForKey:@"gender"]];
         [UserData setAvatar:[defaults objectForKey:@"avatar"]];
         [UserData setHeight:[defaults objectForKey:@"height"]];
+        [UserData setAppFriendAvatars:[UserData getAvatar] forKey:[UserData getUsername]];
         
         PFQuery *query = [PFQuery queryWithClassName:@"Users"];
         [query whereKey:@"username" equalTo:[UserData getUsername]];

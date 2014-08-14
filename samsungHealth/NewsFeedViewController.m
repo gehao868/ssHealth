@@ -29,10 +29,7 @@ SINavigationMenuView *menu;
 UIRefreshControl *currRC;
 
 @implementation NewsFeedViewController
-{
-    NSMutableArray *userPicArray;
-    NSMutableArray *userNameArray;
-}
+
 @synthesize myTableDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -220,9 +217,6 @@ UIRefreshControl *currRC;
             count++;
         }
     }
-    
-    cell.userPic.image =[UIImage imageNamed:[userPicArray objectAtIndex:indexPath.row]];
-    cell.userName.text = [userNameArray objectAtIndex:indexPath.row];
     
     return cell;
 }
