@@ -9,15 +9,22 @@
 #import "Global.h"
 
 static NSString * toUserName;
+static NSString * currGroup;
 
 @implementation Global
 
 + (NSString*) getToUserName {
     return toUserName;
 }
-
 + (void) setToUserName:(NSString *)newToUserName {
     toUserName = newToUserName;
+}
+
++(NSString *) getCurrGroup {
+    return currGroup;
+}
++(void) setCurrGroup:(NSString *) newCurrGroup {
+    currGroup = newCurrGroup;
 }
 
 @end

@@ -13,4 +13,7 @@
 +(NSString *) getToUserName;
 +(void) setToUserName:(NSString *) newToUserName;
 
++(NSString *) getCurrGroup;
++(void) setCurrGroup:(NSString *) newCurrGroup;
+
 @end

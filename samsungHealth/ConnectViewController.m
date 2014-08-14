@@ -8,6 +8,7 @@
 
 #import "ConnectViewController.h"
 #import "UserData.h"
+#import "Global.h"
 
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
@@ -34,7 +35,7 @@ NSMutableArray *groupnumbers;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [UserData setCurrgroup:@"Group Name"];
+    [Global setCurrGroup:@"Group Name"];
     [UserData setCurrgroupusers:[[NSArray alloc] init]];
     
     groupnames = [[NSMutableArray alloc] init];
