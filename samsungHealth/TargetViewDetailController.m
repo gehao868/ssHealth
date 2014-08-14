@@ -54,23 +54,35 @@
     [components setHour:-[components hour]];
     [components setMinute:-[components minute]];
     [components setSecond:-[components second]];
-    
+
+    NSDate *today = [NSDate date];
+
     [components setHour:-24];
     [components setMinute:0];
     [components setSecond:0];
     
-    components = [cal components:NSWeekdayCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[[NSDate alloc] init]];
     
-    [components setDay:([components day] - ([components weekday] - 1))];
-    NSDate *today = [NSDate date];
-    NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];
+    NSDate *yesterday = [cal dateByAddingComponents:components toDate:today options:0];
 
     
     
+    NSMutableArray *records = [[NSMutableArray alloc] init];
+    [records addObject:today];
+    [records addObject:yesterday];
+    
+    _sampleView.recordDates = records;
+    
+    
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
+    
     //[query whereKey:@"Time" lessThanOrEqualTo:thisWeek];
+    
     [query whereKey:@"date" lessThanOrEqualTo:today];
+    
+    
     _sampleView.calendarDate = [NSDate date];
+    
+    
     //_sampleView.calendarDate = yesterday;
     
 }
