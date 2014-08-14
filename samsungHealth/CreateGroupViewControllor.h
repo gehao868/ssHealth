@@ -11,5 +11,6 @@
 @interface CreateGroupViewControllor : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITextField *groupname;
+@property (strong, nonatomic) IBOutlet UITableView *friends;
 
 @end

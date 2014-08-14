@@ -343,6 +343,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vwo-J1-VTe"/>
                     <connections>
+                        <outlet property="friends" destination="kJ2-FE-3gz" id="tJq-fg-O6B"/>
                         <outlet property="groupname" destination="YBR-Eu-Rfc" id="GhA-mS-V2H"/>
                     </connections>
                 </viewController>

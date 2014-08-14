@@ -19,6 +19,7 @@
 @implementation CreateGroupViewControllor{
     NSMutableArray *tableData;
     NSMutableArray *thumbnails;
+    NSMutableSet *selectedRows;
 }
 
 - (void)viewDidLoad
@@ -28,6 +29,7 @@
     NSDictionary *dict = [UserData getAppFriendAvatars];
     NSArray *friendsingroup = [UserData getCurrgroupusers];
     
+    selectedRows = [[NSMutableSet alloc] init];
     tableData = [[NSMutableArray alloc] init];
     thumbnails = [[NSMutableArray alloc] init];
     NSArray *sortedArray = [[UserData getAppFriends] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
@@ -47,11 +49,8 @@
                                    target:self
                                    action:@selector(doneView)];
     self.navigationItem.rightBarButtonItem = doneButton;
-    //[doneButton release];
-}
-
--(IBAction)doneView {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    self.friends.allowsMultipleSelection = YES;
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{    
@@ -94,27 +93,39 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
+    if (tableViewCell.accessoryType == UITableViewCellAccessoryNone) {
+        tableViewCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [selectedRows addObject:indexPath];
+    } else {
+        tableViewCell.accessoryType = UITableViewCellAccessoryNone;
+        [selectedRows removeObject:indexPath];
+    }
+}
+
+-(IBAction)doneView {
     UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"Added Friend" message:[tableData objectAtIndex:indexPath.row] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                 initWithTitle:@"Group Member Added" message:@"Success" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [messageAlert show];
     
-    // Checked the selected row
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Group"];
     [query whereKey:@"name" equalTo:_groupname.text];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *group, NSError *error) {
         if (!error) {
             NSMutableArray *array = [group objectForKey:@"users"];
-            [array addObject:[tableData objectAtIndex:indexPath.row]];
+            for (NSIndexPath *indexPath in selectedRows) {
+                [array addObject:[tableData objectAtIndex:indexPath.row]];
+            }
             group[@"users"] = array;
             [group saveInBackground];
         } else {
             NSMutableArray *array = [[NSMutableArray alloc] init];
-            [array addObject:[tableData objectAtIndex:indexPath.row]];
+            for (NSIndexPath *indexPath in selectedRows) {
+                [array addObject:[tableData objectAtIndex:indexPath.row]];
+            }
             
             PFObject *newgroup = [PFObject objectWithClassName:@"Group"];
             newgroup[@"name"] = _groupname.text;
@@ -122,22 +133,26 @@
             [newgroup saveInBackground];
         }
     }];
-    
-    PFQuery *query1 = [PFQuery queryWithClassName:@"Users"];
-    [query1 whereKey:@"username" equalTo:[tableData objectAtIndex:indexPath.row]];
-    [query1 getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
-        if (!error) {
-            NSMutableArray *array = [user objectForKey:@"groups"];
-            if (array == nil) {
-                array = [[NSMutableArray alloc] init];
+        
+    for (NSIndexPath *indexPath in selectedRows) {
+        PFQuery *query1 = [PFQuery queryWithClassName:@"Users"];
+        [query1 whereKey:@"username" equalTo:[tableData objectAtIndex:indexPath.row]];
+        [query1 getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
+            if (!error) {
+                NSMutableArray *array = [user objectForKey:@"groups"];
+                if (array == nil) {
+                    array = [[NSMutableArray alloc] init];
+                }
+                [array addObject:_groupname.text];
+                user[@"groups"] = array;
+                [user saveInBackground];
+            } else {
+                // ignore
             }
-            [array addObject:_groupname.text];
-            user[@"groups"] = array;
-            [user saveInBackground];
-        } else {
-            // ignore
-        }
-    }];
+        }];
+    }
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

@@ -20,7 +20,7 @@
 {
     NSMutableArray *tableData;
     NSMutableArray *thumbnails;
-    int currRow;
+    NSIndexPath *currRow;
 }
 
 - (void)viewDidLoad
@@ -29,7 +29,7 @@
     
     tableData = [[NSMutableArray alloc] init];
     thumbnails = [[NSMutableArray alloc] init];
-    currRow = -1;
+    currRow = nil;
     
     NSDictionary *dict = [UserData getAppFriendAvatars];
     NSArray *sortedArray = [[UserData getAppFriends] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
@@ -84,18 +84,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:currRow inSection:0]];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:currRow];
     tableViewCell.accessoryType = UITableViewCellAccessoryNone;
  
-    currRow = indexPath.row;
-    UITableViewCell *tableViewCell1 = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:currRow inSection:0]];
+    currRow = indexPath;
+    UITableViewCell *tableViewCell1 = [tableView cellForRowAtIndexPath:currRow];
     tableViewCell1.accessoryType = UITableViewCellAccessoryCheckmark;
 }
 
 - (IBAction)OK:(id)sender {
     [Global setToUserSet:YES];
-    if (currRow != -1) {
-        [Global setToUserName:[tableData objectAtIndex:currRow]];
+    if (currRow != nil) {
+        [Global setToUserName:[tableData objectAtIndex:currRow.row]];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
