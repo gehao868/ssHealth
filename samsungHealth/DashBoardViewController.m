@@ -389,26 +389,25 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"HealthDataSegue"]) {
-        
-        NSIndexPath *indexPath = [self.dashTable indexPathForSelectedRow];
-        
-        DetailViewController *destViewController = segue.destinationViewController;
-        NSString *healthDataName = [tableData objectAtIndex:indexPath.row];
-        
-        destViewController.healthDataName = healthDataName;
-        destViewController.type = segue.identifier;
-
-//        PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        
-//        Recipe *recipe = [[Recipe alloc] init];
-//        recipe.name = [object objectForKey:@"name"];
-//        recipe.imageFile = [object objectForKey:@"imageFile"];
-//        recipe.prepTime = [object objectForKey:@"prepTime"];
-//        recipe.ingredients = [object objectForKey:@"ingredients"];
-//        destViewController.recipe = recipe;
-        
+    DetailViewController *destViewController = segue.destinationViewController;
+    NSLog(@"SEGUE ID IS %@", segue.identifier);
+    
+    if ([segue.identifier isEqualToString:@"sleep"]) {
+        destViewController.healthDataName = @"sleep";
+    } else if ([segue.identifier isEqualToString:@"step"]) {
+        destViewController.healthDataName = @"step";
+    } else if ([segue.identifier isEqualToString:@"weight"]) {
+        destViewController.healthDataName = @"weight";
+    } else if ([segue.identifier isEqualToString:@"fatratio"]) {
+        destViewController.healthDataName = @"fatratio";
+    } else if ([segue.identifier isEqualToString:@"heartrate"]) {
+        destViewController.healthDataName = @"heartrate";
+    } else if ([segue.identifier isEqualToString:@"cups"]) {
+        destViewController.healthDataName = @"cups";
     }
+
+
+   
 }
 
 
