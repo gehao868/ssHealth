@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0XT-Lj-xhU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0XT-Lj-xhU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -857,10 +857,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="vqo-u8-a6f">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="PtE-cd-kQx"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="PtE-cd-kQx">
+                            <connections>
+                                <action selector="send:" destination="DKI-eR-fEu" id="5N1-hw-ASH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="postText" destination="NuR-FN-e7K" id="Qbq-rh-4u7"/>
+                        <outlet property="sendButton" destination="PtE-cd-kQx" id="jJ0-3g-YKD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JrC-dM-HB0" userLabel="First Responder" sceneMemberID="firstResponder"/>
