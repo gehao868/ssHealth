@@ -23,3 +23,4 @@
 #define DEFAULT_COLOR_DARKGREY UIColor colorWithRed:80.0f/255.0f green:80.0f/255.0f blue:80.0f/255.0f alpha:1.0f]
 #define DEFAULT_COLOR_THEME UIColor colorWithRed:109.0f/255.0f green:214.0f/255.0f blue:173.0f/255.0f alpha:1.0f]
 #define DEFAULT_COLOR_DARKTHEME UIColor colorWithRed:8.0f/255.0f green:96.0f/255.0f blue:108.0f/255.0f alpha:1.0f]
+#define DEFAULT_COLOR_DARKCANYON UIColor colorWithRed:82.0f/255.0f green:99.0f/255.0f blue:114.0f/255.0f alpha:1.0f]
