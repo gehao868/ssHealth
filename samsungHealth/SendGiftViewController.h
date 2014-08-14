@@ -14,5 +14,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *giftTitle;
 - (IBAction)exit:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextView *giftDetail;
+@property (strong, nonatomic) IBOutlet UIButton *selectFriend;
+@property (strong, nonatomic) IBOutlet UILabel *friendName;
+- (IBAction)select:(id)sender;
 
 @end
