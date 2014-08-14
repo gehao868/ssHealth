@@ -7,6 +7,7 @@
 //
 
 #import "ConnectViewController.h"
+#import "CreateGroupViewControllor.h"
 #import "UserData.h"
 #import "Global.h"
 
@@ -17,10 +18,12 @@
 
 @end
 
-NSMutableArray *groupnames;
-NSMutableArray *groupnumbers;
-
-@implementation ConnectViewController
+@implementation ConnectViewController {
+    NSMutableArray *groupnames;
+    NSMutableArray *groupnumbers;
+    NSString *preGroup;
+    int scrollHeight;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,8 +38,8 @@ NSMutableArray *groupnumbers;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [Global setCurrGroup:@"Group Name"];
     [UserData setCurrgroupusers:[[NSArray alloc] init]];
+    preGroup = [Global getCurrGroup];
     
     groupnames = [[NSMutableArray alloc] init];
     groupnumbers = [[NSMutableArray alloc] init];
@@ -44,18 +47,67 @@ NSMutableArray *groupnumbers;
     [query findObjectsInBackgroundWithTarget:self selector:@selector(getGroups:error:)];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [Global setCurrGroup:preGroup];
+}
+
 - (void)getGroups:(NSArray *)objects error:(NSError *)error {
     if (!error) {
-        [groupnames addObject:@"+"];
         for (PFObject *object in objects) {
             NSString *groupname = [object objectForKey:@"name"];
             [groupnames addObject:groupname];
             NSArray *users = [object objectForKey:@"users"];
             [groupnumbers addObject:[NSNumber numberWithInteger:users.count]];
+            [self fillGroups];
         }
     } else {
         NSLog(@"Error: %@ %@", error, [error userInfo]);
     }
+}
+
+- (void)fillGroups {
+    NSArray *colorArray = [[NSArray alloc] initWithObjects:@"circle_cyan", @"circle_red", @"circle_orange", @"circle_yellow", nil];
+    
+    NSInteger width = 140;
+    NSInteger height = 140;
+    int numberPerLine = 2;
+    int count = 1;
+    
+    CGRect frame = CGRectMake(20.0f, 20.0f, width, height);
+    UIButton *addFriendButton = [[UIButton alloc] initWithFrame:frame];
+    [addFriendButton setFrame:frame];
+    [addFriendButton setBackgroundImage:[UIImage imageNamed:[colorArray objectAtIndex:colorArray.count-1]] forState:UIControlStateNormal];
+    [addFriendButton setTitle:@"Create(+)" forState:UIControlStateNormal];
+    [addFriendButton addTarget:self action:@selector(addFriend:) forControlEvents:UIControlEventTouchUpInside];
+    [_groupsView addSubview:addFriendButton];
+    frame = CGRectMake(frame.origin.x + width, frame.origin.y, width, height);
+    
+    for (int i = 0; i < [groupnames count]; i++) {
+        UIButton *btn = [[UIButton alloc] initWithFrame:frame];
+        [btn setBackgroundImage:[UIImage imageNamed:[colorArray objectAtIndex:i%colorArray.count]] forState:UIControlStateNormal];
+        NSString *title = [[NSString alloc] initWithFormat:@"%@(%@)", [groupnames objectAtIndex:i], [groupnumbers objectAtIndex:i]];
+        [btn setTitle:title forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(friendDetail:) forControlEvents:UIControlEventTouchUpInside];
+        [_groupsView addSubview:btn];
+        frame = CGRectMake(frame.origin.x + width, frame.origin.y, width, height);
+        count++;
+        if (count == numberPerLine)
+        {
+            frame = CGRectMake(20.0f, frame.origin.y + height + 10.0f, width, height);
+            count = 0;
+        }
+    }
+    
+    if (count == 0) {
+        scrollHeight = frame.origin.y + height + 10.0f;
+    } else {
+        scrollHeight = frame.origin.y + (height + 10.0f) * 2;
+    }
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.groupsView.contentSize = CGSizeMake(320, scrollHeight);
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,6 +132,15 @@ NSMutableArray *groupnumbers;
 }
 
 - (IBAction)addFriend:(id)sender {
+    [Global setCurrGroup:@"New Group Name"];
+    UIButton *btn = (UIButton *)sender;
+    if ([btn.titleLabel.text isEqualToString:@"Create(+)"]) {
+        CreateGroupViewControllor *next = [self.storyboard instantiateViewControllerWithIdentifier:@"createGroup"];
+        [self.navigationController pushViewController:next animated:YES];
+    }
+}
+
+- (IBAction)friendDetail:(id)sender {
 }
 
 @end
