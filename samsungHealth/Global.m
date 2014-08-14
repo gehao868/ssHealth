@@ -11,6 +11,7 @@
 static NSString * toUserName;
 static NSString * currGroup;
 static BOOL isToUserName;
+static NSMutableArray *newsFeed;
 
 @implementation Global
 
@@ -36,6 +37,14 @@ static BOOL isToUserName;
 
 + (void) setToUserSet:(BOOL)set {
     isToUserName = set;
+}
+
++ (NSMutableArray *) getNewsFeed {
+    return  newsFeed;
+}
+
++ (void) setNewsFeed:(NSMutableArray *)array {
+    newsFeed = array;
 }
 
 @end

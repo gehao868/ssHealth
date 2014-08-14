@@ -19,4 +19,7 @@
 + (BOOL) getToUserSet;
 + (void) setToUserSet: (BOOL) set;
 
++ (NSMutableArray *) getNewsFeed;
++ (void) setNewsFeed : (NSMutableArray *) array;
+
 @end

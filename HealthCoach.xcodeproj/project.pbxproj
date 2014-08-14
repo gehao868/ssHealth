@@ -31,6 +31,8 @@
 		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
 		3B1CD2071989D75400282886 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3B609FC5199C520D0048FD3C /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B609FC4199C520D0048FD3C /* Global.m */; };
+		3B609FC8199C653D0048FD3C /* TableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B609FC7199C653D0048FD3C /* TableDelegate.m */; };
+		3B609FCB199C65EC0048FD3C /* NewsFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B609FCA199C65EC0048FD3C /* NewsFeedCell.m */; };
 		3BA8B934199C419900003268 /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8B933199C419900003268 /* FriendListViewController.m */; };
 		3BD61A0319969E6600F2A528 /* MembersViewControllor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A0219969E6600F2A528 /* MembersViewControllor.m */; };
 		3BD61A061996ED8800F2A528 /* CreateGroupViewControllor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A051996ED8800F2A528 /* CreateGroupViewControllor.m */; };
@@ -156,6 +158,10 @@
 		0BA87091198C5BA900236EBD /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		3B609FC3199C520D0048FD3C /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		3B609FC4199C520D0048FD3C /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
+		3B609FC6199C653D0048FD3C /* TableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDelegate.h; sourceTree = "<group>"; };
+		3B609FC7199C653D0048FD3C /* TableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDelegate.m; sourceTree = "<group>"; };
+		3B609FC9199C65EC0048FD3C /* NewsFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedCell.h; sourceTree = "<group>"; };
+		3B609FCA199C65EC0048FD3C /* NewsFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedCell.m; sourceTree = "<group>"; };
 		3BA8B932199C419900003268 /* FriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
 		3BA8B933199C419900003268 /* FriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
 		3BD61A0119969E6600F2A528 /* MembersViewControllor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersViewControllor.h; sourceTree = "<group>"; };
@@ -667,6 +673,10 @@
 				3BA8B933199C419900003268 /* FriendListViewController.m */,
 				7CC76537199C5A6100C8C111 /* FriendListViewCell.h */,
 				7CC76538199C5A6100C8C111 /* FriendListViewCell.m */,
+				3B609FC6199C653D0048FD3C /* TableDelegate.h */,
+				3B609FC7199C653D0048FD3C /* TableDelegate.m */,
+				3B609FC9199C65EC0048FD3C /* NewsFeedCell.h */,
+				3B609FCA199C65EC0048FD3C /* NewsFeedCell.m */,
 			);
 			name = Connect;
 			sourceTree = "<group>";
@@ -785,6 +795,7 @@
 				0B0A241C19957B620086309E /* SIMenuButton.m in Sources */,
 				7CBD2C30197E4510002F23A5 /* ViewController.m in Sources */,
 				7C89F8B71989F01600F021EF /* ProfileViewController.m in Sources */,
+				3B609FC8199C653D0048FD3C /* TableDelegate.m in Sources */,
 				0B0A241E19957B620086309E /* SIMenuConfiguration.m in Sources */,
 				7CBD2C5B197E4642002F23A5 /* TargetViewController.m in Sources */,
 				BB93A1FB19914FE100AA1CED /* RedeemViewController.m in Sources */,
@@ -829,6 +840,7 @@
 				3B609FC5199C520D0048FD3C /* Global.m in Sources */,
 				7C89F8A61989C1B800F021EF /* PNChartLabel.m in Sources */,
 				7C89F8A41989C1B800F021EF /* PNBarChart.m in Sources */,
+				3B609FCB199C65EC0048FD3C /* NewsFeedCell.m in Sources */,
 				7CA1D870199024720066CE40 /* Time.m in Sources */,
 				7CBFE94A199A9FD6006331E4 /* DIDatepicker.m in Sources */,
 				0B0A242D1995E42E0086309E /* News.m in Sources */,

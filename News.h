@@ -16,5 +16,6 @@
 @property (nonatomic) NSNumber *likenum;
 @property (nonatomic) NSNumber *showlikenum;
 @property (nonatomic) NSString *type;
+@property (nonatomic) NSString *groupname;
 
 @end
