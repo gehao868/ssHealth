@@ -77,8 +77,13 @@
         couponDiscount.hidden = NO;
         couponTitle.hidden = NO;
         coupontImg.hidden = NO;
-        expireDate.hidden = NO;
-        dateLabel.hidden = NO;
+        if ([reward.type isEqualToString:@"gift"]) {
+            dateLabel.hidden = YES;
+            
+        } else {
+            expireDate.hidden = NO;
+            dateLabel.hidden = NO;
+        }
    
     }];
    

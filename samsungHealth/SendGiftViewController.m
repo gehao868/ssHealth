@@ -84,7 +84,6 @@
     object[@"pic"] = [UserData getAvatar];
     object[@"type"] = @"gift";
     object[@"isredeemed"] = @NO;
-//    object[@"expiredate"] = [expireDate date];
     object[@"detail"] = giftDetail.text;
     object[@"title"] = giftTitle.text;
     object[@"discount"] = @"This is a gift";

@@ -73,6 +73,10 @@
     
     NSString *date = [dateFormatter stringFromDate:reward.expiredate];
     cell.expireDate.text = date;
+    if ([reward.type isEqualToString:@"gift"]) {
+        cell.expireDate.text = @"--";
+        cell.expireDate.textAlignment = UIControlContentHorizontalAlignmentCenter;
+    }
     return cell;
     
 }
