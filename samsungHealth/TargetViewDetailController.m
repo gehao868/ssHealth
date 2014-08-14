@@ -38,11 +38,11 @@
 {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor brownColor]];
+   
     _sampleView= [[CalendarView alloc]initWithFrame:CGRectMake(0, 40, self.view.bounds.size.width, self.view.bounds.size.height-80)];
     _sampleView.delegate = self;
+    
     [_sampleView setBackgroundColor:[UIColor whiteColor]];
-    _sampleView.calendarDate = [NSDate date];
     [self.view addSubview:_sampleView];
     
     // Do any additional setup after loading the view.
@@ -62,17 +62,16 @@
     components = [cal components:NSWeekdayCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[[NSDate alloc] init]];
     
     [components setDay:([components day] - ([components weekday] - 1))];
-    
-    NSDate *thisWeek  = [cal dateFromComponents:components];
-    
-    [components setDay:([components day] - 7)];
-    NSDate *lastWeek  = [cal dateFromComponents:components];
+    NSDate *today = [NSDate date];
+    NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];
+
     
     
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
     //[query whereKey:@"Time" lessThanOrEqualTo:thisWeek];
-    [query whereKey:@"date" greaterThan:lastWeek];
-
+    [query whereKey:@"date" lessThanOrEqualTo:today];
+    _sampleView.calendarDate = [NSDate date];
+    //_sampleView.calendarDate = yesterday;
     
 }
 
@@ -82,30 +81,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)progressChange
-{
-    _largestProgressView.progress += 0.003;
-    
-    if (_largestProgressView.progress > 1.0f)
-    {
-        _largestProgressView.progress = 0.0f;
-    }
-}
 
 -(void)tappedOnDate:(NSDate *)selectedDate
 {
     NSLog(@"tappedOnDate %@(GMT)",selectedDate);
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
