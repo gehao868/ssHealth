@@ -9,6 +9,7 @@
 #import "SendGiftViewController.h"
 #import <Parse/Parse.h>
 #import "UserData.h"
+#import "FriendListViewController.h"
 
 @interface SendGiftViewController () <UITextViewDelegate>
 
@@ -18,6 +19,9 @@
 
 @synthesize giftDetail;
 @synthesize giftTitle;
+@synthesize selectFriend;
+@synthesize friendName;
+@synthesize name;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,6 +43,7 @@
     [self.view addGestureRecognizer:tap];
     giftDetail.layer.borderWidth = 5.0f;
     giftDetail.layer.borderColor = [[UIColor grayColor] CGColor];
+//    name = @"adasd";
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,5 +97,25 @@
 }
 - (IBAction)exit:(id)sender {
 //    UITextField *temp = (UITextField*)sender;
+}
+
+- (IBAction)select:(id)sender {
+    // Create the root view controller for the navigation controller
+    // The new view controller configures a Cancel and Done button for the
+    // navigation bar.
+//    FriendListViewController *controller = [[FriendListViewController alloc] init];
+    
+    // Configure the RecipeAddViewController. In this case, it reports any
+    // changes to a custom delegate object.
+    
+    // Create the navigation controller and present it.
+//    UINavigationController *navigationController = [[UINavigationController alloc]
+//                                                    initWithRootViewController:controller];
+//    [self presentViewController:controller animated:YES completion: nil];
+    if (name) {
+        NSLog(@"%@", name);
+    } else {
+        NSLog(@"%@", @"nothing");
+    }
 }
 @end

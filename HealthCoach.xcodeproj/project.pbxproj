@@ -30,6 +30,7 @@
 		0BA87092198C5BA900236EBD /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA87091198C5BA900236EBD /* UserData.m */; };
 		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
 		3B1CD2071989D75400282886 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		3BA8B934199C419900003268 /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8B933199C419900003268 /* FriendListViewController.m */; };
 		3BD61A0319969E6600F2A528 /* MembersViewControllor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A0219969E6600F2A528 /* MembersViewControllor.m */; };
 		3BD61A061996ED8800F2A528 /* CreateGroupViewControllor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A051996ED8800F2A528 /* CreateGroupViewControllor.m */; };
 		3BD61A09199715CD00F2A528 /* CouponDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD61A08199715CD00F2A528 /* CouponDetailCell.m */; };
@@ -151,6 +152,8 @@
 		0BA067AC199AB19400D7CD21 /* NewPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostViewController.m; sourceTree = "<group>"; };
 		0BA87090198C5BA900236EBD /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		0BA87091198C5BA900236EBD /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
+		3BA8B932199C419900003268 /* FriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
+		3BA8B933199C419900003268 /* FriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
 		3BD61A0119969E6600F2A528 /* MembersViewControllor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersViewControllor.h; sourceTree = "<group>"; };
 		3BD61A0219969E6600F2A528 /* MembersViewControllor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersViewControllor.m; sourceTree = "<group>"; };
 		3BD61A041996ED8800F2A528 /* CreateGroupViewControllor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateGroupViewControllor.h; sourceTree = "<group>"; };
@@ -652,6 +655,8 @@
 				3BE7C198199B0A3600FB30AE /* SendGiftViewController.m */,
 				3BD61A041996ED8800F2A528 /* CreateGroupViewControllor.h */,
 				3BD61A051996ED8800F2A528 /* CreateGroupViewControllor.m */,
+				3BA8B932199C419900003268 /* FriendListViewController.h */,
+				3BA8B933199C419900003268 /* FriendListViewController.m */,
 			);
 			name = Connect;
 			sourceTree = "<group>";
@@ -817,6 +822,7 @@
 				0B0A242D1995E42E0086309E /* News.m in Sources */,
 				7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */,
 				7CE78A9C198D5F36002ED7E5 /* ProfileTableViewCell.m in Sources */,
+				3BA8B934199C419900003268 /* FriendListViewController.m in Sources */,
 				3BD61A061996ED8800F2A528 /* CreateGroupViewControllor.m in Sources */,
 				7CBD2C26197E4510002F23A5 /* main.m in Sources */,
 				7CBD2C79197E4671002F23A5 /* FitbitViewController.m in Sources */,
