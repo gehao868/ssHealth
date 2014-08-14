@@ -599,7 +599,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="7Wj-2K-5tN" kind="push" identifier="weight" id="421-AL-Bkg"/>
+                                            <segue destination="7Wj-2K-5tN" kind="push" identifier="fatratio" id="421-AL-Bkg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8n-qF-eGP">
@@ -609,7 +609,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="7Wj-2K-5tN" kind="push" identifier="bodyfat" id="6II-hd-gZu"/>
+                                            <segue destination="7Wj-2K-5tN" kind="push" identifier="heartrate" id="6II-hd-gZu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gey-73-Vmo">
@@ -1137,17 +1137,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6tl-SG-5Tp">
-                                                    <rect key="frame" x="20" y="0.0" width="53" height="43"/>
+                                                    <rect key="frame" x="20" y="0.0" width="43" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAB-Nm-gFs">
-                                                    <rect key="frame" x="112" y="11" width="150" height="21"/>
+                                                    <rect key="frame" x="83" y="9" width="217" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.32549020649999999" green="0.49803924560000001" blue="0.2941176593" alpha="1" colorSpace="deviceRGB"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="name" destination="VAB-Nm-gFs" id="RzI-Cg-UMQ"/>
@@ -1797,6 +1798,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="RqK-Om-hBt"/>
-        <segue reference="ru9-4z-DP7"/>
+        <segue reference="ALd-n6-pw0"/>
     </inferredMetricsTieBreakers>
 </document>

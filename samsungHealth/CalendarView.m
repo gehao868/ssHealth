@@ -26,7 +26,6 @@
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.size.height-100, self.bounds.size.width, 44)];
         [label setBackgroundColor:[UIColor brownColor]];
         [label setTextColor:[UIColor whiteColor]];
-        [label setText:@"swipe to change months"];
         label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:label];
         [UILabel beginAnimations:NULL context:nil];
