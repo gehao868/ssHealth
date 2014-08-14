@@ -8,6 +8,7 @@
 
 #import "FriendListViewController.h"
 #import "SendGiftViewController.h"
+#import "Global.h"
 
 @interface FriendListViewController ()
 
@@ -49,10 +50,12 @@
 }
 */
 
-- (IBAction)canceal:(id)sender {
-    SendGiftViewController *parentView = [[SendGiftViewController alloc] init];
-    
-    parentView.name = @"ggggg";
+- (IBAction)OK:(id)sender {
+    [Global setToUserName:label.text];
     [self dismissViewControllerAnimated:YES completion:nil];
-   }
+}
+
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

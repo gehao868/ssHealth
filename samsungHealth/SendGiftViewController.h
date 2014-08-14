@@ -18,6 +18,4 @@
 @property (strong, nonatomic) IBOutlet UILabel *friendName;
 - (IBAction)select:(id)sender;
 
-@property (strong, nonatomic) NSString *name;
-
 @end

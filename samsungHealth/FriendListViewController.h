@@ -10,6 +10,7 @@
 
 @interface FriendListViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *label;
-- (IBAction)canceal:(id)sender;
+- (IBAction)OK:(id)sender;
+- (IBAction)cancel:(id)sender;
 
 @end
