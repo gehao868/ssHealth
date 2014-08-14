@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NewPostViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIButton *sendPost;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *sendButton;
 - (IBAction)send:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UITextView *postText;

@@ -46,7 +46,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.goalTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     font = [UIFont systemFontOfSize:20.0f];
     
     NSCalendar *cal = [NSCalendar currentCalendar];
