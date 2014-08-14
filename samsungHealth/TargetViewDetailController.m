@@ -22,6 +22,7 @@
 @implementation TargetViewDetailController{
     NSMutableArray *barData;
     NSMutableArray *barDate;
+    NSMutableArray *records;
 }
 
 
@@ -47,50 +48,29 @@
     
     // Do any additional setup after loading the view.
 
-    
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
-    
-    [components setHour:-[components hour]];
-    [components setMinute:-[components minute]];
-    [components setSecond:-[components second]];
-
     NSDate *today = [NSDate date];
 
-    [components setHour:-24];
-    [components setMinute:0];
-    [components setSecond:0];
-    
-    
-    NSDate *yesterday = [cal dateByAddingComponents:components toDate:today options:0];
+    records = [[NSMutableArray alloc] init];
 
-    
-    
-    NSMutableArray *records = [[NSMutableArray alloc] init];
-    [records addObject:today];
-    [records addObject:yesterday];
-    
     _sampleView.recordDates = records;
+    _sampleView.calendarDate = today;
     
+    PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
+    [query whereKey:@"type" equalTo:self.type];
+    [query whereKey:@"done" equalTo:@"yes"];
     
-    //[query whereKey:@"Time" lessThanOrEqualTo:thisWeek];
+    NSArray* objects = [query findObjects];
     
-    [query whereKey:@"date" lessThanOrEqualTo:today];
-    
-    
-    _sampleView.calendarDate = [NSDate date];
-    
-    
-    //_sampleView.calendarDate = yesterday;
+    for (PFObject *object in objects) {
+        [records addObject:[object objectForKey:@"date"]];
+    }
     
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

@@ -9,6 +9,8 @@
 #import "SendGiftViewController.h"
 #import <Parse/Parse.h>
 #import "UserData.h"
+#import "FriendListViewController.h"
+#import "Global.h"
 
 @interface SendGiftViewController () <UITextViewDelegate>
 
@@ -18,6 +20,8 @@
 
 @synthesize giftDetail;
 @synthesize giftTitle;
+@synthesize selectFriend;
+@synthesize friendName;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,6 +43,10 @@
     [self.view addGestureRecognizer:tap];
     giftDetail.layer.borderWidth = 5.0f;
     giftDetail.layer.borderColor = [[UIColor grayColor] CGColor];
+    if ([Global getToUserSet])
+        friendName.text = [Global getToUserName];
+    
+    friendName.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,9 +55,19 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)dismissKeyboard {
+- (void)dismissKeyboard {
     [giftDetail endEditing:YES];
     [giftDetail resignFirstResponder];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    if ([Global getToUserSet]) {
+        friendName.text = [Global getToUserName];
+        friendName.hidden = NO;
+        selectFriend.enabled = NO;
+        selectFriend.hidden = YES;
+        [Global setToUserSet:NO];
+    }
 }
 /*
  #pragma mark - Navigation
@@ -92,5 +110,9 @@
 }
 - (IBAction)exit:(id)sender {
 //    UITextField *temp = (UITextField*)sender;
+}
+
+- (IBAction)select:(id)sender {
+
 }
 @end

@@ -15,6 +15,6 @@
 @interface TargetViewDetailController : UIViewController<CalendarDelegate>
 
 @property (strong, nonatomic) DACircularProgressView *largestProgressView;
-
+@property (nonatomic, strong) NSString *type;
 
 @end
