@@ -135,7 +135,21 @@
             
         }
         
+        for (NSDate *mydate in self.recordDates) {
+            NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+            NSDateComponents *mycomponents = [cal components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:mydate];
+            
+            int year = [mycomponents year];
+            int month = [mycomponents month];
+            int day = [mycomponents day];
+            
+            if (i+1 == day && components.month == month && components.year == year) {
+                [button setBackgroundColor:[UIColor brownColor]];
+                [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            }
+        }
         
+        [button setEnabled:NO];
             
         [self addSubview:button];
     }

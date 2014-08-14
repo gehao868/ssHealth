@@ -112,6 +112,7 @@
     
     finished = [[NSMutableArray alloc] init];
     expected = [[NSMutableArray alloc] init];
+    imgList =[[NSMutableArray alloc] init];
     
     
     PFQuery *queryHealth = [PFQuery queryWithClassName:@"HealthData"];
@@ -128,11 +129,17 @@
     if ([healthObjects count] == 0) {
         for (PFObject *object in objects) {
             [expected addObject:[object objectForKey:@"expected"]];
+            
+            [imgList addObject:[object objectForKey:@"type"]];
+
             [finished addObject:[NSNumber numberWithInt:0]];
         }
     } else {
         for (PFObject *object in objects) {
             [expected addObject:[object objectForKey:@"expected"]];
+            
+            [imgList addObject:[object objectForKey:@"type"]];
+            
             [finished addObject:[healthObjects[0] objectForKey:[object objectForKey:@"type"]]];
             
         }
@@ -166,6 +173,8 @@
     
     cell.progress.progress =x.doubleValue / y.doubleValue;
     cell.progress.progressTintColor = [UIColor redColor];
+    
+    NSLog(@"image is %@",[imgList objectAtIndex:indexPath.row] );
     
     cell.image.image = [UIImage imageNamed:[imgList objectAtIndex:indexPath.row]];
     cell.image.frame = CGRectMake(cell.image.frame.origin.x, cell.image.frame.origin.x, 50, 50);
