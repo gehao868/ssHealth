@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FriendListViewController : UIViewController
+@interface FriendListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UILabel *label;
 - (IBAction)OK:(id)sender;
 - (IBAction)cancel:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *friendTable;
 
 @end

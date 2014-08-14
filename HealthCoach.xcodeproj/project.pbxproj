@@ -96,6 +96,7 @@
 		7CBFE94B199A9FD6006331E4 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBFE949199A9FD6006331E4 /* DIDatepickerDateView.m */; };
 		7CBFE97E199B064E006331E4 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBFE97D199B064E006331E4 /* EventKit.framework */; };
 		7CBFE980199B0654006331E4 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBFE97F199B0654006331E4 /* EventKitUI.framework */; };
+		7CC76539199C5A6100C8C111 /* FriendListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC76538199C5A6100C8C111 /* FriendListViewCell.m */; };
 		7CCA4CC9199B10D10086AF91 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCA4CC8199B10D10086AF91 /* CalendarView.m */; };
 		7CE78A90198C5AE2002ED7E5 /* HealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A8F198C5AE2002ED7E5 /* HealthData.m */; };
 		7CE78A93198C8366002ED7E5 /* DashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A92198C8366002ED7E5 /* DashTableViewCell.m */; };
@@ -266,6 +267,8 @@
 		7CBFE979199AFFDC006331E4 /* libKal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKal.a; path = "samsungHealth/build/Debug-iphoneos/libKal.a"; sourceTree = "<group>"; };
 		7CBFE97D199B064E006331E4 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		7CBFE97F199B0654006331E4 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		7CC76537199C5A6100C8C111 /* FriendListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListViewCell.h; sourceTree = "<group>"; };
+		7CC76538199C5A6100C8C111 /* FriendListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListViewCell.m; sourceTree = "<group>"; };
 		7CCA4CC7199B10D10086AF91 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarView.h; sourceTree = "<group>"; };
 		7CCA4CC8199B10D10086AF91 /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarView.m; sourceTree = "<group>"; };
 		7CE78A8E198C5AE2002ED7E5 /* HealthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthData.h; sourceTree = "<group>"; };
@@ -662,6 +665,8 @@
 				3BD61A051996ED8800F2A528 /* CreateGroupViewControllor.m */,
 				3BA8B932199C419900003268 /* FriendListViewController.h */,
 				3BA8B933199C419900003268 /* FriendListViewController.m */,
+				7CC76537199C5A6100C8C111 /* FriendListViewCell.h */,
+				7CC76538199C5A6100C8C111 /* FriendListViewCell.m */,
 			);
 			name = Connect;
 			sourceTree = "<group>";
@@ -797,6 +802,7 @@
 				0B0A241B19957B620086309E /* SICellSelection.m in Sources */,
 				0B0A24271995E3280086309E /* Reward.m in Sources */,
 				7CBD2C73197E4651002F23A5 /* MenuViewController.m in Sources */,
+				7CC76539199C5A6100C8C111 /* FriendListViewCell.m in Sources */,
 				0B0A241D19957B620086309E /* SIMenuCell.m in Sources */,
 				7CCA4CC9199B10D10086AF91 /* CalendarView.m in Sources */,
 				7CBFE94B199A9FD6006331E4 /* DIDatepickerDateView.m in Sources */,
