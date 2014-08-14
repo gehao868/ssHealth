@@ -10,6 +10,7 @@
 
 static NSString * toUserName;
 static NSString * currGroup;
+static BOOL isToUserName;
 
 @implementation Global
 
@@ -25,6 +26,16 @@ static NSString * currGroup;
 }
 +(void) setCurrGroup:(NSString *) newCurrGroup {
     currGroup = newCurrGroup;
+}
+
++ (BOOL) getToUserSet {
+    if (isToUserName)
+        return isToUserName;
+    return false;
+}
+
++ (void) setToUserSet:(BOOL)set {
+    isToUserName = set;
 }
 
 @end

@@ -43,8 +43,10 @@
     [self.view addGestureRecognizer:tap];
     giftDetail.layer.borderWidth = 5.0f;
     giftDetail.layer.borderColor = [[UIColor grayColor] CGColor];
-    if ([Global getToUserName])
+    if ([Global getToUserSet])
         friendName.text = [Global getToUserName];
+    
+    friendName.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,9 +61,12 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    if ([Global getToUserName]) {
-        NSLog(@"%@", [Global getToUserName]);
+    if ([Global getToUserSet]) {
         friendName.text = [Global getToUserName];
+        friendName.hidden = NO;
+        selectFriend.enabled = NO;
+        selectFriend.hidden = YES;
+        [Global setToUserSet:NO];
     }
 }
 /*

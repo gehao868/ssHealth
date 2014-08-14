@@ -51,11 +51,13 @@
 */
 
 - (IBAction)OK:(id)sender {
+    [Global setToUserSet:YES];
     [Global setToUserName:label.text];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cancel:(id)sender {
+    [Global setToUserSet:NO];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

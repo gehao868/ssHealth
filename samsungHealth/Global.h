@@ -10,10 +10,13 @@
 
 @interface Global : NSObject
 
-+(NSString *) getToUserName;
-+(void) setToUserName:(NSString *) newToUserName;
++ (NSString *) getToUserName;
++ (void) setToUserName:(NSString *) newToUserName;
 
-+(NSString *) getCurrGroup;
-+(void) setCurrGroup:(NSString *) newCurrGroup;
++ (NSString *) getCurrGroup;
++ (void) setCurrGroup:(NSString *) newCurrGroup;
+
++ (BOOL) getToUserSet;
++ (void) setToUserSet: (BOOL) set;
 
 @end
