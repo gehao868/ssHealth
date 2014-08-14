@@ -34,9 +34,9 @@
     CGFloat brightness;
     CGFloat alpha;
     
-    if([self.baseColor getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha]){
-        brightness -= 0.35;
-    }
+//    if([self.baseColor getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha]){
+//        brightness -= 0.35;
+//    }
     
     UIColor * highColor = self.baseColor;
     UIColor * lowColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:alpha];
