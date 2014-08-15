@@ -57,138 +57,139 @@ NSUserDefaults *defaults;
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-// This method will handle ALL the session state changes in the app
-- (void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error
-{
-    // If the session was opened successfully
-    if (!error && state == FBSessionStateOpen){
-        NSLog(@"Session opened");
-        // Show the user the logged-in UI
-        [self userLoggedIn];
-        return;
-    }
-    if (state == FBSessionStateClosed || state == FBSessionStateClosedLoginFailed){
-        // If the session is closed
-        NSLog(@"Session closed");
-        // Show the user the logged-out UI
-        [self userLoggedOut];
-    }
-    
-    // Handle errors
-    if (error){
-        NSLog(@"Error");
-        NSString *alertText;
-        NSString *alertTitle;
-        // If the error requires people using an app to make an action outside of the app in order to recover
-        if ([FBErrorUtility shouldNotifyUserForError:error] == YES){
-            alertTitle = @"Something went wrong";
-            alertText = [FBErrorUtility userMessageForError:error];
-            [self showMessage:alertText withTitle:alertTitle];
-        } else {
-            
-            // If the user cancelled login, do nothing
-            if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryUserCancelled) {
-                NSLog(@"User cancelled login");
-                
-                // Handle session closures that happen outside of the app
-            } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryAuthenticationReopenSession){
-                alertTitle = @"Session Error";
-                alertText = @"Your current session is no longer valid. Please log in again.";
-                [self showMessage:alertText withTitle:alertTitle];
-                
-                // For simplicity, here we just show a generic message for all other errors
-                // To handle other errors using: https://developers.facebook.com/docs/ios/errors
-            } else {
-                //Get more error information from the error
-                NSDictionary *errorInformation = [[[error.userInfo objectForKey:@"com.facebook.sdk:ParsedJSONResponseKey"] objectForKey:@"body"] objectForKey:@"error"];
-                
-                // Show the user an error message
-                alertTitle = @"Something went wrong";
-                alertText = [NSString stringWithFormat:@"Please retry. \n\n If the problem persists contact us and mention this error code: %@", [errorInformation objectForKey:@"message"]];
-                [self showMessage:alertText withTitle:alertTitle];
-            }
-        }
-        // Clear this token
-        [FBSession.activeSession closeAndClearTokenInformation];
-        // Show the user the logged-out UI
-        [self userLoggedOut];
-    }
-}
+//// This method will handle ALL the session state changes in the app
+//- (void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error
+//{
+//    // If the session was opened successfully
+//    if (!error && state == FBSessionStateOpen){
+//        NSLog(@"Session opened");
+//        // Show the user the logged-in UI
+//        [self userLoggedIn];
+//        return;
+//    }
+//    if (state == FBSessionStateClosed || state == FBSessionStateClosedLoginFailed){
+//        // If the session is closed
+//        NSLog(@"Session closed");
+//        // Show the user the logged-out UI
+//        [self userLoggedOut];
+//    }
+//    
+//    // Handle errors
+//    if (error){
+//        NSLog(@"Error");
+//        NSString *alertText;
+//        NSString *alertTitle;
+//        // If the error requires people using an app to make an action outside of the app in order to recover
+//        if ([FBErrorUtility shouldNotifyUserForError:error] == YES){
+//            alertTitle = @"Something went wrong";
+//            alertText = [FBErrorUtility userMessageForError:error];
+//            [self showMessage:alertText withTitle:alertTitle];
+//        } else {
+//            
+//            // If the user cancelled login, do nothing
+//            if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryUserCancelled) {
+//                NSLog(@"User cancelled login");
+//                
+//                // Handle session closures that happen outside of the app
+//            } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryAuthenticationReopenSession){
+//                alertTitle = @"Session Error";
+//                alertText = @"Your current session is no longer valid. Please log in again.";
+//                [self showMessage:alertText withTitle:alertTitle];
+//                
+//                // For simplicity, here we just show a generic message for all other errors
+//                // To handle other errors using: https://developers.facebook.com/docs/ios/errors
+//            } else {
+//                //Get more error information from the error
+//                NSDictionary *errorInformation = [[[error.userInfo objectForKey:@"com.facebook.sdk:ParsedJSONResponseKey"] objectForKey:@"body"] objectForKey:@"error"];
+//                
+//                // Show the user an error message
+//                alertTitle = @"Something went wrong";
+//                alertText = [NSString stringWithFormat:@"Please retry. \n\n If the problem persists contact us and mention this error code: %@", [errorInformation objectForKey:@"message"]];
+//                [self showMessage:alertText withTitle:alertTitle];
+//            }
+//        }
+//        // Clear this token
+//        [FBSession.activeSession closeAndClearTokenInformation];
+//        // Show the user the logged-out UI
+//        [self userLoggedOut];
+//    }
+//}
 
-// Show the user the logged-out UI
-- (void)userLoggedOut
-{
-    // Confirm logout message
-    //[self showMessage:@"You're now logged out" withTitle:@""];
-}
+//// Show the user the logged-out UI
+//- (void)userLoggedOut
+//{
+//    // Confirm logout message
+//    //[self showMessage:@"You're now logged out" withTitle:@""];
+//}
 
-// Show the user the logged-in UI
-- (void)userLoggedIn
-{
-    defaults =[NSUserDefaults standardUserDefaults];
-    [defaults setObject:@"true" forKey:@"isLoggedin"];
-    
-    /* make the API call */
-    [FBRequestConnection startWithGraphPath:@"/me" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* user, NSError *error) {
-        //NSLog(@"%@", user);
-        NSString *tmpusername = [NSString stringWithFormat:@"%@ %@", [user objectForKey:@"first_name"], [user objectForKey:@"last_name"]];
-        
-        [UserData setUsername:tmpusername];
-        [UserData setBirthday:[user objectForKey:@"birthday"]];
-        [UserData setGender:[user objectForKey:@"gender"]];
-        
-        [defaults setObject:[UserData getUsername] forKey:@"username"];
-        [defaults setObject:[UserData getBirthday] forKey:@"birthday"];
-        [defaults setObject:[UserData getGender] forKey:@"gender"];
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"Users"];
-        [query whereKey:@"username" equalTo:[defaults objectForKey:@"username"]];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                for (PFObject *object in objects) {
-                    [UserData setHeight:[object objectForKey:@"height"]];
-                    [UserData setPoint:[object objectForKey:@"point"]];
-                    
-                    [defaults setObject:[UserData getHeight] forKey:@"height"];
-                }
-            } else {
-                // Log details of the failure
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
-            }
-        }];
-    }];
-    
-    /*
-    [FBRequestConnection startWithGraphPath:@"/me/friends" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
-        NSArray *friends = [result objectForKey:@"data"];
-        //NSLog(@"%@", friends);
-        [UserData setAppFriends:friends];
-        
-        [defaults setObject:[UserData getAppFriends] forKey:@"appFriends"];
-    }];
-    */
-    
-    NSMutableDictionary *picturePara = [[NSMutableDictionary alloc] init];
-    [picturePara setValue:@"false" forKey:@"redirect"];
-    [picturePara setValue:@"large" forKey:@"type"];
-    [picturePara setValue:@"500" forKey:@"height"];
-    [picturePara setValue:@"500" forKey:@"width"];
-    [FBRequestConnection startWithGraphPath:@"/me/picture" parameters:picturePara HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
-        NSString *url = [[result objectForKey:@"data"] objectForKey:@"url"];
-        //NSLog(@"%@", url);
-        
-        [UserData setAvatar:url];
-        [defaults setObject:[UserData getAvatar] forKey:@"avatar"];
-        [UserData setAppFriendAvatars:[UserData getAvatar] forKey:[UserData getUsername]];
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"Users"];
-        [query whereKey:@"username" equalTo:[UserData getUsername]];
-        [query getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
-            user[@"avatar"] = url;
-            [user saveInBackground];
-        }];
-    }];
-}
+//
+//// Show the user the logged-in UI
+//- (void)userLoggedIn
+//{
+//    defaults =[NSUserDefaults standardUserDefaults];
+//    [defaults setObject:@"true" forKey:@"isLoggedin"];
+//    
+//    /* make the API call */
+//    [FBRequestConnection startWithGraphPath:@"/me" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* user, NSError *error) {
+//        //NSLog(@"%@", user);
+//        NSString *tmpusername = [NSString stringWithFormat:@"%@ %@", [user objectForKey:@"first_name"], [user objectForKey:@"last_name"]];
+//        
+//        [UserData setUsername:tmpusername];
+//        [UserData setBirthday:[user objectForKey:@"birthday"]];
+//        [UserData setGender:[user objectForKey:@"gender"]];
+//        
+//        [defaults setObject:[UserData getUsername] forKey:@"username"];
+//        [defaults setObject:[UserData getBirthday] forKey:@"birthday"];
+//        [defaults setObject:[UserData getGender] forKey:@"gender"];
+//        
+//        PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+//        [query whereKey:@"username" equalTo:[defaults objectForKey:@"username"]];
+//        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//            if (!error) {
+//                for (PFObject *object in objects) {
+//                    [UserData setHeight:[object objectForKey:@"height"]];
+//                    [UserData setPoint:[object objectForKey:@"point"]];
+//                    
+//                    [defaults setObject:[UserData getHeight] forKey:@"height"];
+//                }
+//            } else {
+//                // Log details of the failure
+//                NSLog(@"Error: %@ %@", error, [error userInfo]);
+//            }
+//        }];
+//    }];
+//    
+//    /*
+//    [FBRequestConnection startWithGraphPath:@"/me/friends" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
+//        NSArray *friends = [result objectForKey:@"data"];
+//        //NSLog(@"%@", friends);
+//        [UserData setAppFriends:friends];
+//        
+//        [defaults setObject:[UserData getAppFriends] forKey:@"appFriends"];
+//    }];
+//    */
+//    
+//    NSMutableDictionary *picturePara = [[NSMutableDictionary alloc] init];
+//    [picturePara setValue:@"false" forKey:@"redirect"];
+//    [picturePara setValue:@"large" forKey:@"type"];
+//    [picturePara setValue:@"500" forKey:@"height"];
+//    [picturePara setValue:@"500" forKey:@"width"];
+//    [FBRequestConnection startWithGraphPath:@"/me/picture" parameters:picturePara HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
+//        NSString *url = [[result objectForKey:@"data"] objectForKey:@"url"];
+//        //NSLog(@"%@", url);
+//        
+//        [UserData setAvatar:url];
+//        [defaults setObject:[UserData getAvatar] forKey:@"avatar"];
+//        [UserData setAppFriendAvatars:[UserData getAvatar] forKey:[UserData getUsername]];
+//        
+//        PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+//        [query whereKey:@"username" equalTo:[UserData getUsername]];
+//        [query getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
+//            user[@"avatar"] = url;
+//            [user saveInBackground];
+//        }];
+//    }];
+//}
 
 // Show an alert message
 - (void)showMessage:(NSString *)text withTitle:(NSString *)title

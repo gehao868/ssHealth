@@ -29,6 +29,9 @@
     
     NSMutableArray *imgList;
     
+    NSArray* healthObjects;
+    NSArray* goalObjects;
+    NSDate *theDate;
 }
 
 @synthesize back;
@@ -81,6 +84,9 @@
     NSInteger day = [[dateFormat stringFromDate:[NSDate date]] intValue];
     
     [self.datepicker selectDateAtIndex:day-1];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
+    [self.goalTable addSubview:refreshControl];
 }
 
 
@@ -98,6 +104,7 @@
     if ( date == nil) {
         date = yesterday;
     }
+    theDate = date;
     [self getTime:date];
 }
 
@@ -110,12 +117,24 @@
     [query whereKey:@"date" greaterThanOrEqualTo:date];
     
     [query whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*24*1]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        goalObjects = objects;
+        [self getHealthData:date];
+    }];
+    
+//    NSArray* healthObjects = [queryHealth findObjects];
+    
+//    NSArray* objects = [query findObjects];
+    
+}
+
+- (void) getHealthData: (NSDate*) date {
     
     finished = [[NSMutableArray alloc] init];
     expected = [[NSMutableArray alloc] init];
     imgList =[[NSMutableArray alloc] init];
     
-    
+
     PFQuery *queryHealth = [PFQuery queryWithClassName:@"HealthData"];
     [queryHealth whereKey:@"username" equalTo:[UserData getUsername]];
     
@@ -123,20 +142,20 @@
     [queryHealth whereKey:@"date" greaterThanOrEqualTo:date];
     [queryHealth whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*24*1]];
     
-    NSArray* healthObjects = [queryHealth findObjects];
-    
-    NSArray* objects = [query findObjects];
+    [queryHealth findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        healthObjects                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 = objects;
+    }];
     
     if ([healthObjects count] == 0) {
-        for (PFObject *object in objects) {
+        for (PFObject *object in goalObjects) {
             [expected addObject:[object objectForKey:@"expected"]];
             
             [imgList addObject:[object objectForKey:@"type"]];
-
+            
             [finished addObject:[NSNumber numberWithInt:0]];
         }
     } else {
-        for (PFObject *object in objects) {
+        for (PFObject *object in goalObjects) {
             [expected addObject:[object objectForKey:@"expected"]];
             
             [imgList addObject:[object objectForKey:@"type"]];
@@ -147,8 +166,8 @@
     }
     
     [self.goalTable reloadData];
-}
 
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -192,6 +211,10 @@
     }
 }
 
+- (void)refreshData:(UIRefreshControl *)refreshControl {
+    [self getTime:theDate];
+    [refreshControl endRefreshing];
+}
 
 
 - (IBAction)showMenu
