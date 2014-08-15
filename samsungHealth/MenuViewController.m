@@ -30,7 +30,7 @@
     [super viewDidLoad];
     //remove extra rows
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tableView.separatorColor = [DEFAULT_COLOR_YELLOW;
+    self.tableView.separatorColor = [UIColor colorWithRed:195.0/255.0 green:233.0/255.0 blue:210.0/255.0 alpha:1];
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

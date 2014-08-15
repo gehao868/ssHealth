@@ -66,7 +66,7 @@
 
 + (UIColor *)mainColor
 {
-    return [DEFAULT_COLOR_DARKCANYON;
+    return [DEFAULT_COLOR_DARKCYAN;
 }
 
 + (float)selectionSpeed

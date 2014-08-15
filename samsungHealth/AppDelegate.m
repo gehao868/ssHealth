@@ -179,6 +179,7 @@ NSUserDefaults *defaults;
         
         [UserData setAvatar:url];
         [defaults setObject:[UserData getAvatar] forKey:@"avatar"];
+        [UserData setAppFriendAvatars:[UserData getAvatar] forKey:[UserData getUsername]];
         
         PFQuery *query = [PFQuery queryWithClassName:@"Users"];
         [query whereKey:@"username" equalTo:[UserData getUsername]];
