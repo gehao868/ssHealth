@@ -52,6 +52,8 @@
     
     components = [cal components:NSWeekdayCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[[NSDate alloc] init]];
     
+    NSInteger thisMonth = [components month];
+    
     [components setDay:([components day] - ([components weekday] - 1))];
     
     [components setDay:([components day] - 7)];
@@ -68,19 +70,17 @@
 	//Add BarChart
 	
 	UILabel * barChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, SCREEN_WIDTH, 30)];
-	barChartLabel.textColor = PNFreshGreen;
+	barChartLabel.textColor = PNCloudWhite;
 	barChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
 	barChartLabel.textAlignment = NSTextAlignmentCenter;
 	
-	PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 50.0, SCREEN_WIDTH, 200.0)];
+	PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 50.0, SCREEN_WIDTH, 230.0)];
 	barChart.backgroundColor = [UIColor clearColor];
 	barChart.type = PNBarType;
-    
     
     barData = [[NSMutableArray alloc] init];
     barDate = [[NSMutableArray alloc] init];
 
-    
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     format.dateFormat = @"dd";
     
@@ -93,17 +93,57 @@
         [barDate addObject:date];
     }
     
-    
 	[barChart setXLabels:barDate];
 	[barChart setYValues:barData];
 	
-    
     [barChart strokeChart];
 	[self.view addSubview:barChartLabel];
 	[self.view addSubview:barChart];
-	
+    self.title = [self healthDataName];
+    self.monthLabel.text = [self getMonthName:thisMonth];
+}
+
+- (NSString* )getMonthName:(int)thisMonth {
     
-    
+    switch (thisMonth) {
+        case 1:
+            return @"January";
+            break;
+        case 2:
+            return @"February";
+            break;
+        case 3:
+            return @"March";
+            break;
+        case 4:
+            return @"April";
+            break;
+        case 5:
+            return @"May";
+            break;
+        case 6:
+            return @"June";
+            break;
+        case 7:
+            return @"July";
+            break;
+        case 8:
+            return @"August";
+            break;
+        case 9:
+            return @"September";
+            break;
+        case 10:
+            return @"October";
+            break;
+        case 11:
+            return @"November";
+            break;
+        case 12:
+            return @"December";
+            break;
+    }
+    return @"";
 }
 
 - (void)didReceiveMemoryWarning
