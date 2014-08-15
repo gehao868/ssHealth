@@ -66,7 +66,8 @@
     //UI modification
     self.navigationController.navigationBar.barTintColor = [DEFAULT_COLOR_THEME;
 //    self.navigationController.navigationBar.translucent = NO;
-//    self.automaticallyAdjustsScrollViewInsets = NO;
+                                                            
+//    [self.navigationController.navigationBar setTintColor:[DEFAULT_COLOR_DARKTHEME];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Apple SD Gothic Neo" size:19]}];
     subIndexDict = [NSDictionary dictionaryWithObjectsAndKeys:@"heartrate", [NSNumber numberWithInt:0], @"sleep", [NSNumber numberWithInt:1], @"step", [NSNumber numberWithInt:2], @"cups", [NSNumber numberWithInt:3], @"weight", [NSNumber numberWithInt:4], @"bodyfat", [NSNumber numberWithInt:5], nil];
@@ -107,7 +108,7 @@
          finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:step],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight], nil];
      }
    
-    self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(67.0f, 115.0f, 180.0f, 180.0f)];
+    self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(70.0f, 115.0f, 180.0f, 180.0f)];
                                                             
     healthScore = [self calculateScore:finished :expected];
     healthScoreInt = (int)roundf(healthScore * 100);
@@ -133,7 +134,7 @@
             [subScore addObject:[NSNumber numberWithFloat:z]];
             NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",(z*100)];
             [[subCircleLabel objectAtIndex:j*3+i] setText:text];
-            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(12.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
+            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(10.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
             [tmpView setProgress:z];
             [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN];
             [self.subProgessView addObject:tmpView];
