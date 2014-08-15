@@ -11,7 +11,6 @@
 @interface NewsFeedCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UITextView *newsContent;
-@property (strong, nonatomic) IBOutlet UILabel *postUser;
 
 @property (strong, nonatomic) IBOutlet UILabel *likeNum;
 @property (weak, nonatomic) IBOutlet UIImageView *userPic;

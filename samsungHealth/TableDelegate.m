@@ -41,7 +41,6 @@
     News *news = (News *)[[Global getNewsFeed] objectAtIndex:indexPath.row];
     cell.newsContent.text = news.content;
     cell.likeNum.text = [[news.showlikenum stringValue] stringByAppendingString:@" likes"];
-    cell.postUser.text = news.postusername;
     cell.userName.text = news.postusername;
     cell.userPic.image =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendAvatars objectForKey:news.postusername]]]];
     
