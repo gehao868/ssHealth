@@ -221,6 +221,26 @@ NSUserDefaults *defaults;
             }
         }];
         
+        PFQuery *query1 = [PFQuery queryWithClassName:@"Users"];
+        [query1 whereKey:@"username" equalTo:[UserData getUsername]];
+        [query1 getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if (!error) {
+                [UserData setPoint:[object objectForKey:@"point"]];
+                [UserData setAppFriends:[object objectForKey:@"appfriends"]];
+                
+                for (NSString *name in [object objectForKey:@"appfriends"]) {
+                    PFQuery *query2 = [PFQuery queryWithClassName:@"Users"];
+                    [query2 whereKey:@"username" equalTo:name];
+                    [query2 getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
+                        [UserData setAppFriendAvatars:[user objectForKey:@"avatar"] forKey:name];
+                    }];
+                }
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+        
         [self performSegueWithIdentifier:@"skipLogin" sender:nil];
     }];
     
