@@ -141,6 +141,11 @@
 }
 
 - (IBAction)friendDetail:(id)sender {
+    UIButton *button = (UIButton*)sender;
+    [Global setCurrGroup:[button.titleLabel.text substringToIndex:[button.titleLabel.text rangeOfString:@"("].location]];
+    ConnectViewController *next = [self.storyboard instantiateViewControllerWithIdentifier:@"MembersViewControllor"];
+    [self.navigationController pushViewController:next animated:YES];
+    self.navigationItem.hidesBackButton = NO;
 }
 
 @end
