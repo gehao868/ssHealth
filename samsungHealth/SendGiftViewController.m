@@ -11,6 +11,7 @@
 #import "UserData.h"
 #import "FriendListViewController.h"
 #import "Global.h"
+#import "Util.h"
 
 @interface SendGiftViewController () <UITextViewDelegate>
 
@@ -36,6 +37,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"Send Gift";
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -47,6 +49,9 @@
         friendName.text = [Global getToUserName];
     
     friendName.hidden = YES;
+    [Util formatTextField:giftTitle];
+    [[giftDetail layer] setBorderColor:[[DEFAULT_COLOR_GREEN CGColor]];
+    [[giftDetail layer] setBorderWidth:1.0];
 }
 
 - (void)didReceiveMemoryWarning
