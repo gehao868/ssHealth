@@ -7,6 +7,7 @@
 //
 
 #import "Global.h"
+#import "UserData.h"
 #import "MembersViewControllor.h"
 #import <Parse/Parse.h>
 #import "CreateGroupViewControllor.h"
@@ -18,6 +19,8 @@
 @implementation MembersViewControllor {
     NSMutableArray *members;
     NSString *groupName;
+    NSMutableArray *deleteBtns;
+    BOOL isDeleting;
     int scrollHeight;
 }
 
@@ -39,16 +42,11 @@
     groupName = [Global getCurrGroup];
     
     members = [[NSMutableArray alloc] init];
+    deleteBtns = [[NSMutableArray alloc] init];
+    isDeleting = NO;
+    
     //scrollView.hidden = YES;
     [self getMemberList];
-}
-
-- (IBAction) show:(id)sender {
-    UIButton *btn = (UIButton *)sender;
-    if ([btn.titleLabel.text isEqualToString:@"add"]) {
-        CreateGroupViewControllor *next = [self.storyboard instantiateViewControllerWithIdentifier:@"createGroup"];
-        [self.navigationController pushViewController:next animated:YES];
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,7 +73,9 @@
 
 - (void) fillMembers {
     NSInteger width = 90;
-    NSInteger height = 30;
+    NSInteger height = 90;
+    NSInteger dwidth = 20;
+    NSInteger dheight = 20;
     int numberPerLine = 3;
     int count = 2;
     
@@ -86,23 +86,42 @@
     [addFriendButton setTitle:@"add" forState:UIControlStateNormal];
     [addFriendButton addTarget:self action:@selector(show:) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:addFriendButton];
+    
+    NSDictionary *friendsAvatar = [UserData getAppFriendAvatars];
     frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, width, height);
+    CGRect dframe = CGRectMake(frame.origin.x - 7.0f, frame.origin.y - 7.0f, dwidth, dheight);
     
     for (int i = 0; i < [members count]; i++) {
         UIButton *btn = [[UIButton alloc] initWithFrame:frame];
+        [btn setBackgroundImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendsAvatar objectForKey:[members objectAtIndex:i]]]]] forState:UIControlStateNormal];
         [btn setBackgroundColor:[UIColor blackColor]];
-        [btn setTitle:[members objectAtIndex:i] forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(show:) forControlEvents:UIControlEventTouchUpInside];
+        //[btn setTitle:[members objectAtIndex:i] forState:UIControlStateNormal];
+        [btn addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
+        
+        UIButton *dbtn = [[UIButton alloc] initWithFrame:dframe];
+        [dbtn setBackgroundColor:[UIColor redColor]];
+        [dbtn setHidden:YES];
+        [deleteBtns addObject:dbtn];
+        
         [scrollView addSubview:btn];
+        [scrollView addSubview:dbtn];
+        
+        dframe = CGRectMake(frame.origin.x + width + 10.0f - 7.0f, frame.origin.y - 7.0f, dwidth, dheight);
         frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, width, height);
         if (count == numberPerLine)
         {
+            dframe = CGRectMake(15.0f - 7.0f , frame.origin.y + height + 10.0f - 7.0f, dwidth, dheight);
             frame = CGRectMake(15.0f , frame.origin.y + height + 10.0f, width, height);
             count = 0;
         }
         count++;
-        
     }
+    
+    UIButton *deleteFriendBUtton = [[UIButton alloc] initWithFrame:frame];
+    [deleteFriendBUtton setBackgroundColor:[UIColor blackColor]];
+    [deleteFriendBUtton setTitle:@"delete" forState:UIControlStateNormal];
+    [deleteFriendBUtton addTarget:self action:@selector(deleteFriend:) forControlEvents:UIControlEventTouchUpInside];
+    [scrollView addSubview:deleteFriendBUtton];
     
     if (count == 1) {
         scrollHeight = frame.origin.y + height + 10.0f;
@@ -111,6 +130,24 @@
     }
     
     //scrollView.hidden = NO;
+}
+
+- (IBAction) show:(id)sender {
+    CreateGroupViewControllor *next = [self.storyboard instantiateViewControllerWithIdentifier:@"createGroup"];
+    [self.navigationController pushViewController:next animated:YES];
+}
+
+- (IBAction) deleteFriend:(id)sender {
+    isDeleting = !isDeleting;
+    if (isDeleting) {
+        for (UIButton *btn in deleteBtns) {
+            [btn setHidden:NO];
+        }
+    } else {
+        for (UIButton *btn in deleteBtns) {
+            [btn setHidden:YES];
+        }
+    }
 }
 
 - (void)viewDidLayoutSubviews {

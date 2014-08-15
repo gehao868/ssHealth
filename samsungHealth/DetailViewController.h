@@ -12,5 +12,6 @@
 @property (strong, nonatomic) NSString *healthDataName;
 @property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) NSString *val;
+@property (weak, nonatomic) IBOutlet UILabel *monthLabel;
 
 @end
