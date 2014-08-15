@@ -139,7 +139,7 @@
             [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN];
             [self.subProgessView addObject:tmpView];
             [self.view addSubview:tmpView];
-             NSString* selectorName = [NSString stringWithFormat:@"subProgressChange%d:",(j*3+1)];
+             //NSString* selectorName = [NSString stringWithFormat:@"subProgressChange%d:",(j*3+1)];
              [self.view bringSubviewToFront:self.buttonView];
 //             SEL selector = NSSelectorFromString(selectorName);
 //             [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:selector userInfo:[NSNumber numberWithInt:j*3+i] repeats:YES];

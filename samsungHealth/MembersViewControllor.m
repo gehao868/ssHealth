@@ -18,6 +18,7 @@
 @implementation MembersViewControllor {
     NSMutableArray *members;
     NSString *groupName;
+    int scrollHeight;
 }
 
 @synthesize scrollView;
@@ -38,9 +39,8 @@
     groupName = [Global getCurrGroup];
     
     members = [[NSMutableArray alloc] init];
-    scrollView.hidden = YES;
+    //scrollView.hidden = YES;
     [self getMemberList];
-    
 }
 
 - (IBAction) show:(id)sender {
@@ -73,12 +73,12 @@
     }];
 }
 
-
 - (void) fillMembers {
     NSInteger width = 90;
     NSInteger height = 30;
     int numberPerLine = 3;
     int count = 2;
+    
     CGRect frame = CGRectMake(15.0f, 10.0f, width, height);
     UIButton *addFriendButton = [[UIButton alloc] initWithFrame:frame];
     [addFriendButton setFrame:frame];
@@ -103,7 +103,19 @@
         count++;
         
     }
-    scrollView.hidden = NO;
+    
+    if (count == 1) {
+        scrollHeight = frame.origin.y + height + 10.0f;
+    } else {
+        scrollHeight = frame.origin.y + (height + 10.0f) * 2;
+    }
+    
+    //scrollView.hidden = NO;
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.scrollView.contentSize = CGSizeMake(320, scrollHeight);
 }
 
 /*

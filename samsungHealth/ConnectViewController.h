@@ -12,5 +12,8 @@
 @interface ConnectViewController : UIViewController
 - (IBAction)showMenu:(id)sender;
 - (IBAction)addFriend:(id)sender;
+- (IBAction)friendDetail:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIScrollView *groupsView;
 
 @end

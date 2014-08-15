@@ -13,6 +13,7 @@
 #import "TableDelegate.h"
 #import <Parse/Parse.h>
 #import "News.h"
+#import "NewsFeedCell.h"
 
 @interface NewsFeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -28,6 +29,7 @@ SINavigationMenuView *menu;
 UIRefreshControl *currRC;
 
 @implementation NewsFeedViewController
+
 @synthesize myTableDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -196,11 +198,11 @@ UIRefreshControl *currRC;
 {
     static NSString *cellId = @"CellId";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    NewsFeedCell *cell = (NewsFeedCell*)[tableView dequeueReusableCellWithIdentifier:cellId];
     
     if (nil == cell)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        cell = [[NewsFeedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
     
     int count = 0;

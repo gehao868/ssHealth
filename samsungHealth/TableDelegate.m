@@ -9,6 +9,7 @@
 #import "TableDelegate.h"
 #import "NewsFeedCell.h"
 #import "Global.h"
+#import "UserData.h"
 #import "News.h"
 
 @implementation TableDelegate 
@@ -35,12 +36,15 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"NewsFeedCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-
     
+    NSDictionary *friendAvatars = [UserData getAppFriendAvatars];
     News *news = (News *)[[Global getNewsFeed] objectAtIndex:indexPath.row];
     cell.newsContent.text = news.content;
     cell.likeNum.text = [[news.showlikenum stringValue] stringByAppendingString:@" likes"];
     cell.postUser.text = news.postusername;
+    cell.userName.text = news.postusername;
+    cell.userPic.image =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendAvatars objectForKey:news.postusername]]]];
+    
     return cell;
 }
 
