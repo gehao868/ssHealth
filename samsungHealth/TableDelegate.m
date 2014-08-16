@@ -27,7 +27,7 @@
     
     UIFont *font =  [UIFont systemFontOfSize:14.0f];
     float imgHeight = 47.0f;
-    float likesHeight = 44.0f;
+    float likesHeight = 38.0f;
     
     News *news = (News *)[[Global getNewsFeed] objectAtIndex:indexPath.row];
     
