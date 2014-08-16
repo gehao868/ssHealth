@@ -24,6 +24,7 @@
 - (void)awakeFromNib
 {
     // Initialization code
+    [self.likeButton setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -37,7 +38,7 @@
     UIButton *btn = (UIButton *)sender;
     [btn setEnabled:NO];
     
-    [btn setImage:[UIImage imageNamed:@"circle_red"] forState:UIControlStateNormal];
+    [btn setBackgroundImage:[UIImage imageNamed:@"heart_filled"] forState:UIControlStateNormal];
     self.likeNum.text = [NSString stringWithFormat:@"%d likes", [self.likeNum.text intValue] + 1];
     
     PFQuery *query = [PFQuery queryWithClassName:@"News"];
