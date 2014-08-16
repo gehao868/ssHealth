@@ -29,8 +29,8 @@
     
     NSMutableArray *imgList;
     
-    NSArray* healthObjects;
-    NSArray* goalObjects;
+    NSMutableArray* healthObjects;
+    NSMutableArray* goalObjects;
     NSDate *theDate;
 }
 
@@ -74,6 +74,8 @@
     
     [self.datepicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
     
+    self.goalTable.hidden = YES;
+    
     //[self.datepicker fillDatesFromCurrentDate:14];
     //    [self.datepicker fillCurrentWeek];
     [self.datepicker fillCurrentMonth];
@@ -109,32 +111,8 @@
 }
 
 -(void) getTime: (NSDate*) date {
-    NSLog(@"date is %@",date);
+//    NSLog(@"date is %@",date);
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
-    [query whereKey:@"name" equalTo:[UserData getUsername]];
-    
-    [query whereKey:@"date" greaterThanOrEqualTo:date];
-    
-    [query whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*24*1]];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        goalObjects = objects;
-        [self getHealthData:date];
-    }];
-    
-//    NSArray* healthObjects = [queryHealth findObjects];
-    
-//    NSArray* objects = [query findObjects];
-    
-}
-
-- (void) getHealthData: (NSDate*) date {
-    
-    finished = [[NSMutableArray alloc] init];
-    expected = [[NSMutableArray alloc] init];
-    imgList =[[NSMutableArray alloc] init];
-    
-
     PFQuery *queryHealth = [PFQuery queryWithClassName:@"HealthData"];
     [queryHealth whereKey:@"username" equalTo:[UserData getUsername]];
     
@@ -143,30 +121,53 @@
     [queryHealth whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*24*1]];
     
     [queryHealth findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        healthObjects                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 = objects;
+        healthObjects = [[NSMutableArray alloc] init];
+        for (PFObject *object in objects) {
+            [healthObjects addObject:object];
+        }
+        [self getHealthData:date];
     }];
     
-    if ([healthObjects count] == 0) {
-        for (PFObject *object in goalObjects) {
-            [expected addObject:[object objectForKey:@"expected"]];
-            
-            [imgList addObject:[object objectForKey:@"type"]];
-            
-            [finished addObject:[NSNumber numberWithInt:0]];
-        }
-    } else {
-        for (PFObject *object in goalObjects) {
-            [expected addObject:[object objectForKey:@"expected"]];
-            
-            [imgList addObject:[object objectForKey:@"type"]];
-            
-            [finished addObject:[healthObjects[0] objectForKey:[object objectForKey:@"type"]]];
-            
-        }
-    }
-    
-    [self.goalTable reloadData];
 
+}
+
+- (void) getHealthData: (NSDate*) date {
+    PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
+    [query whereKey:@"name" equalTo:[UserData getUsername]];
+    
+    [query whereKey:@"date" greaterThanOrEqualTo:date];
+    
+    [query whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*24*1]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        finished = [[NSMutableArray alloc] init];
+        expected = [[NSMutableArray alloc] init];
+        imgList =[[NSMutableArray alloc] init];
+        goalObjects = [[NSMutableArray alloc] init];
+        for (PFObject *object in objects) {
+            [goalObjects addObject:object];
+        }
+        if ([healthObjects count] == 0) {
+            for (PFObject *object in goalObjects) {
+                [expected addObject:[object objectForKey:@"expected"]];
+                
+                [imgList addObject:[object objectForKey:@"type"]];
+                
+                [finished addObject:[NSNumber numberWithInt:0]];
+            }
+        } else {
+            for (PFObject *object in goalObjects) {
+                [expected addObject:[object objectForKey:@"expected"]];
+                
+                [imgList addObject:[object objectForKey:@"type"]];
+                
+                [finished addObject:[healthObjects[0] objectForKey:[object objectForKey:@"type"]]];
+                
+            }
+        }
+        
+        [self.goalTable reloadData];
+        self.goalTable.hidden = NO;
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -194,7 +195,7 @@
     cell.progress.progress =x.doubleValue / y.doubleValue;
     cell.progress.progressTintColor = [UIColor redColor];
     
-    NSLog(@"image is %@",[imgList objectAtIndex:indexPath.row] );
+//    NSLog(@"image is %@",[imgList objectAtIndex:indexPath.row] );
     
     cell.image.image = [UIImage imageNamed:[imgList objectAtIndex:indexPath.row]];
     cell.image.frame = CGRectMake(cell.image.frame.origin.x, cell.image.frame.origin.y, 44, 44);
