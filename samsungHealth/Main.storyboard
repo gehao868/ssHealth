@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="0XT-Lj-xhU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="0XT-Lj-xhU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -574,7 +574,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="7Wj-2K-5tN" kind="push" identifier="sleep" id="hGK-bJ-8dh"/>
+                                            <segue destination="7Wj-2K-5tN" kind="push" identifier="step" id="hGK-bJ-8dh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EMS-N3-7Kg">
@@ -594,7 +594,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="7Wj-2K-5tN" kind="push" identifier="fatratio" id="421-AL-Bkg"/>
+                                            <segue destination="7Wj-2K-5tN" kind="push" identifier="weight" id="421-AL-Bkg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u8n-qF-eGP">
@@ -604,7 +604,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="7Wj-2K-5tN" kind="push" identifier="heartrate" id="6II-hd-gZu"/>
+                                            <segue destination="7Wj-2K-5tN" kind="push" identifier="fatratio" id="6II-hd-gZu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gey-73-Vmo">
@@ -624,7 +624,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="7Wj-2K-5tN" kind="push" identifier="step" id="ru9-4z-DP7"/>
+                                            <segue destination="7Wj-2K-5tN" kind="push" identifier="sleep" id="ru9-4z-DP7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1707,6 +1707,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="RqK-Om-hBt"/>
-        <segue reference="6II-hd-gZu"/>
+        <segue reference="ALd-n6-pw0"/>
     </inferredMetricsTieBreakers>
 </document>

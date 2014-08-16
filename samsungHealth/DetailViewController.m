@@ -98,7 +98,19 @@
         [self.view addSubview:barChartLabel];
         [self.view addSubview:barChart];
     } else {
+        UILabel * lineChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, 30)];
+        lineChartLabel.text = @"Line Chart";
+        lineChartLabel.textColor = PNFreshGreen;
+        lineChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
+        lineChartLabel.textAlignment = NSTextAlignmentCenter;
         
+        PNChart * lineChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 75.0, SCREEN_WIDTH, 200.0)];
+        lineChart.backgroundColor = [UIColor clearColor];
+        [lineChart setXLabels:barDate];
+        [lineChart setYValues:barData];
+        [lineChart strokeChart];
+        [self.view addSubview:lineChartLabel];
+        [self.view addSubview:lineChart];
     }
     
     self.title = [self healthDataName];
