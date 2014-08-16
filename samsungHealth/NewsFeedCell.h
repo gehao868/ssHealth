@@ -11,10 +11,10 @@
 @interface NewsFeedCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UITextView *newsContent;
-
 @property (strong, nonatomic) IBOutlet UILabel *likeNum;
 @property (weak, nonatomic) IBOutlet UIImageView *userPic;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
-//@property (strong, nonatomic) IBOutlet UILabel *newsContent;
+@property (strong, nonatomic) IBOutlet UIButton *likeButton;
+- (IBAction)liked:(id)sender;
 
 @end

@@ -58,6 +58,7 @@
     post[@"postusername"] = [UserData getUsername];
     post[@"likenum"] = @0;
     post[@"showlikenum"] = @0;
+    post[@"likedby"] = [];
     post[@"groupname"] = [Global getCurrGroup];
     [post saveInBackground];
     

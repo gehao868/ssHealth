@@ -8,7 +8,9 @@
 
 #import "NewsFeedCell.h"
 
-@implementation NewsFeedCell
+@implementation NewsFeedCell {
+    BOOL isLiked;
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -31,4 +33,9 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)liked:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    [btn setImage:[UIImage imageNamed:@"circle_red"] forState:UIControlStateNormal];
+    //btn.backgroundColor = [UIColor redColor];
+}
 @end
