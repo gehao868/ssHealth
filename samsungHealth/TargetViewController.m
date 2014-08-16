@@ -78,6 +78,14 @@
     imgFrame = CGRectMake(0.0f, 2.0f, 44.0f, 44.0f);
     
     
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"d"];
+    NSInteger day = [[dateFormat stringFromDate:[NSDate date]] intValue];
+    
+    [self.datepicker selectDateAtIndex:day-1];
+    
+   
+    
     [self.datepicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
     
     self.goalTable.hidden = YES;
@@ -86,12 +94,6 @@
     //    [self.datepicker fillCurrentWeek];
     [self.datepicker fillCurrentMonth];
     //[self.datepicker fillCurrentYear];
-    
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"d"];
-//    NSInteger day = [[dateFormat stringFromDate:[NSDate date]] intValue];
-    
-//    [self.datepicker selectDateAtIndex:day-1];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
