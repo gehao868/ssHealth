@@ -97,14 +97,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
-    if (tableViewCell.accessoryType == UITableViewCellAccessoryNone) {
-        tableViewCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    FriendTableViewCell *tableViewCell = (FriendTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    if (![selectedRows containsObject:indexPath]) {
+        tableViewCell.checkmark.image = [UIImage imageNamed:@"checkmark_black"];
         [selectedRows addObject:indexPath];
     } else {
-        tableViewCell.accessoryType = UITableViewCellAccessoryNone;
+        tableViewCell.checkmark.image = nil;
         [selectedRows removeObject:indexPath];
     }
 }
