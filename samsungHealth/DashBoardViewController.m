@@ -63,11 +63,8 @@
     
     [super viewDidLoad];
     
-    //UI modification
     self.navigationController.navigationBar.barTintColor = [DEFAULT_COLOR_THEME;
-//    self.navigationController.navigationBar.translucent = NO;
-                                                            
-//    [self.navigationController.navigationBar setTintColor:[DEFAULT_COLOR_DARKTHEME];
+
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Apple SD Gothic Neo" size:19]}];
     subIndexDict = [NSDictionary dictionaryWithObjectsAndKeys:@"heartrate", [NSNumber numberWithInt:0], @"sleep", [NSNumber numberWithInt:1], @"step", [NSNumber numberWithInt:2], @"cups", [NSNumber numberWithInt:3], @"weight", [NSNumber numberWithInt:4], @"bodyfat", [NSNumber numberWithInt:5], nil];
@@ -106,57 +103,71 @@
          } else {
              [subScore addObject:[NSNumber numberWithFloat:0]];
          }
+        
+        int cups = [[object objectForKey:@"cups"] intValue];
+        
+        if ([[UserData getGender] isEqualToString:@"male"]) {
+            if (cups >=13) {
+                [subScore addObject:[NSNumber numberWithFloat:1]];
+            } else {
+                NSLog(@"CUPS IS %f", fabsf(1.0 *(cups - 13)/13));
+                [subScore addObject:[NSNumber numberWithFloat:0.4]];
+            }
+        } else {
+            if (cups >= 9 ) {
+                [subScore addObject:[NSNumber numberWithFloat:1]];
+            } else {
+                [subScore addObject:[NSNumber numberWithFloat:fabsf(1.0 * (cups - 9)/9)]];
+            }
+        }
+        
+        int step = [[object objectForKey:@"step"] intValue];
+        
+        if (step >= 8000) {
+            [subScore addObject:[NSNumber numberWithFloat:1]];
+        } else {
+            [subScore addObject:[NSNumber numberWithFloat:1.0 * step/8000]];
+        }
+        
+        int losedWeight = [[object objectForKey:@"weight"] intValue];
+        float bmi = 1.0 * losedWeight / [[UserData getHeight] intValue] * [[UserData getHeight] intValue];
+        
+        if (bmi < 18) {
+            [subScore addObject:[NSNumber numberWithFloat:0.7]];
+        } else if (bmi > 30) {
+            [subScore addObject:[NSNumber numberWithFloat:0.5]];
+        } else if (bmi >25 && bmi <= 30) {
+            [subScore addObject:[NSNumber numberWithFloat:0.7]];
+        } else {
+            [subScore addObject:[NSNumber numberWithFloat:1]];
+        }
+        
          int sleep = [[object objectForKey:@"sleep"] intValue];
         
-         if (sleep <= 9 && sleep >=7) {
+         if (sleep <= 540 && sleep >=420) {
             [subScore addObject:[NSNumber numberWithFloat:1]];
-         } else if (sleep > 13 || sleep < 4){
+         } else if (sleep > 780 || sleep < 240){
             [subScore addObject:[NSNumber numberWithFloat:0]];
-         } else if (sleep >9 && sleep <=13) {
-            [subScore addObject:[NSNumber numberWithFloat:(13-sleep)/4]];
-         } else if (sleep >= 4 && sleep <7){
-            [subScore addObject:[NSNumber numberWithFloat:(sleep - 4)/4]];
+         } else if (sleep >540 && sleep <=780) {
+            [subScore addObject:[NSNumber numberWithFloat:1.0 * (780-sleep)/240]];
+         } else if (sleep >= 240 && sleep <420){
+            [subScore addObject:[NSNumber numberWithFloat:1.0 * (sleep - 240)/240]];
          }
-        
-         int step = [[object objectForKey:@"step"] intValue];
-         if (step >= 8000) {
-            [subScore addObject:[NSNumber numberWithFloat:1]];
-         } else {
-            [subScore addObject:[NSNumber numberWithFloat:step/8000]];
-         }
-        
-         int cups = [[object objectForKey:@"cups"] intValue];
-         if ([[UserData getGender] isEqualToString:@"male"]) {
-             if (cups >=13) {
-                 [subScore addObject:[NSNumber numberWithFloat:1]];
-             } else {
-                 [subScore addObject:[NSNumber numberWithFloat:abs((cups - 13)/13)]];
-             }
-         } else {
-             if (cups >= 9 ) {
-                 [subScore addObject:[NSNumber numberWithFloat:1]];
-             } else {
-                 [subScore addObject:[NSNumber numberWithFloat:abs((cups - 9)/9)]];
-             }
-         }
-        
-         int losedWeight = [[object objectForKey:@"weight"] intValue];
-        
-        
+
          int fatratio = [[object objectForKey:@"fatratio"] intValue];
          if ([[UserData getGender] isEqualToString:@"male"]) {
              if (fatratio < 18) {
-                 [subScore addObject:[NSNumber numberWithFloat:fatratio/18]];
+                 [subScore addObject:[NSNumber numberWithFloat:1.0 * fatratio/18]];
              } else if (fatratio > 24){
-                 [subScore addObject:[NSNumber numberWithFloat:(100-fatratio)/76]];
+                 [subScore addObject:[NSNumber numberWithFloat:1.0 * (100-fatratio)/76]];
              } else {
                  [subScore addObject:[NSNumber numberWithFloat:1]];
              }
          } else {
              if (fatratio < 25) {
-                 [subScore addObject:[NSNumber numberWithFloat:fatratio/25]];
+                 [subScore addObject:[NSNumber numberWithFloat:1.0 * fatratio/25]];
              } else if (fatratio > 31){
-                 [subScore addObject:[NSNumber numberWithFloat:(100-fatratio)/69]];
+                 [subScore addObject:[NSNumber numberWithFloat:1.0 * (100-fatratio)/69]];
 
              } else {
                  [subScore addObject:[NSNumber numberWithFloat:1]];
@@ -165,31 +176,26 @@
         
          finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:step],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight],[NSNumber numberWithInt:fatratio], nil];
      }
-   
+
+                                                            
     self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(70.0f, 115.0f, 180.0f, 180.0f)];
                                                             
     healthScore = [self calculateScore:finished :expected];
     healthScoreInt = (int)roundf(healthScore * 100);
+                                                            
 //    [[self largestProgressView]setProgress:healthScore];
+                                                            
     [self setDefaultColor];
     _score.textColor = defaultColor;
     [[self largestProgressView]setProgressTintColor:defaultColor];
     NSLog(@"health score is %f", healthScore);
     [self.view addSubview: self.largestProgressView];
-    
-    //add sub circle progress
-    //          NSNumber *index = [NSNumber numberWithInt:j * 3 + 1];
-    //          NSNumber *x = (NSNumber*)[finished objectAtIndex:index];
-    //          NSNumber *y = (NSNumber*)[expected objectAtIndex:index];
-    //          float z = x.floatValue /y.floatValue;
                                                             
     self.subProgessView = [[NSMutableArray alloc]init];
 
     int index = 0;
     for(int i = 0; i < 3; i++) {
         for (int j = 0; j < 2; j++) {
-            float z = (i + 78.0f) * (j + 79.0f) / (i + 83.0f) / (j + 81.0f) / (7- i - j) * 4;
-            [subScore addObject:[NSNumber numberWithFloat:z]];
             NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",([[subScore objectAtIndex:index] floatValue]*100)];
             [[subCircleLabel objectAtIndex:j*3+i] setText:text];
             DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(10.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
@@ -201,9 +207,6 @@
             index++;
         }
     }
-             
-//SEL selector = NSSelectorFromString(selectorName);
-// [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:selector userInfo:[NSNumber numberWithInt:j*3+i]repeats:YES];
 
     thumbnails = [NSArray arrayWithObjects:@"heart_green", @"sleep_green", @"steps", @"water_green", @"weight_green",nil];
     
