@@ -111,6 +111,15 @@
     object[@"title"] = giftTitle.text;
     object[@"discount"] = @"This is a gift";
     [object saveInBackground];
+    
+    NSString *text = giftTitle.text;
+    text = [text stringByAppendingString:@" has been successfully sent to "];
+    text = [text stringByAppendingString:[Global getToUserName]];
+    text = [text stringByAppendingString:@"!"];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congratulation!" message:text delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+    [alert show];
 
 }
 - (IBAction)exit:(id)sender {
