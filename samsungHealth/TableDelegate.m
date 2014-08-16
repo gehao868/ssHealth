@@ -26,6 +26,7 @@
 //}
 
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"NewsFeedCell";
@@ -39,7 +40,17 @@
     
     NSDictionary *friendAvatars = [UserData getAppFriendAvatars];
     News *news = (News *)[[Global getNewsFeed] objectAtIndex:indexPath.row];
+    
+    
     cell.newsContent.text = news.content;
+    NSLog(@"%f", cell.newsContent.contentSize.height);
+    NSLog(@"%f", cell.newsContent.frame.size.height);
+    CGRect frame = cell.newsContent.frame;
+    frame.size.height = cell.newsContent.contentSize.height;
+    cell.newsContent.frame = frame;
+    NSLog(@"%f", cell.newsContent.contentSize.height);
+    NSLog(@"%f", cell.newsContent.frame.size.height);
+    
     cell.likeNum.text = [[news.showlikenum stringValue] stringByAppendingString:@" likes"];
     cell.userName.text = news.postusername;
     cell.userPic.image =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendAvatars objectForKey:news.postusername]]]];
