@@ -70,6 +70,7 @@
     NSDateComponents *components = [[NSCalendar currentCalendar]
                                     components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit
                                     fromDate:[NSDate date]];
+    [components setHour:-4];
     today = [[NSCalendar currentCalendar]
                          dateFromComponents:components];
     
