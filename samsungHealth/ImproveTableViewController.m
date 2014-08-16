@@ -46,24 +46,16 @@
     
     
     NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];
-    //[query whereKey:@"date" lessThanOrEqualTo:today];
+
     [query whereKey:@"date" greaterThan:yesterday];
     
     NSArray* objects = [query findObjects];
     
     NSMutableDictionary *mutableDict = [[NSMutableDictionary alloc] init];
     
-    NSLog(@"ENTER FOR LOOP");
-    
     for (PFObject *object in objects) {
-        NSLog(@"inSIDE  LOOP");
-        NSLog(@"%@", [object objectForKey:@"type"]);
         [mutableDict setValue:@"yes"forKey:[object objectForKey:@"type"]];
     }
-    
-    
-    NSLog(@"END FOR LOOP");
-    // continue
     
     // recomend step
     
@@ -72,7 +64,7 @@
     goalNumber =[[NSMutableArray alloc] init];
     goalType = [[NSMutableArray alloc] init];
     
-    if ([[[self healthData] step] intValue] < 8000 && [mutableDict objectForKey:@"stepcount"] == nil) {
+    if ([[[self healthData] step] intValue] < 8000 && [mutableDict objectForKey:@"step"] == nil) {
         int quota =[[[self healthData] step] intValue] + 1000;
         [goalArray addObject:[NSString stringWithFormat:@"Walk %d steps", quota]];
         [thumbnails addObject:@"steps"];
@@ -159,8 +151,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
-    
     PFObject *goal =[PFObject objectWithClassName:@"Goal"];
     goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
     goal[@"type"] = [goalType objectAtIndex:indexPath.row];
@@ -172,22 +162,10 @@
     ImproveTableViewCell *cell = (ImproveTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
 
     cell.improveAdd.image = [UIImage imageNamed:@"checkmark_black"];
-
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    
-}
 
-//- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    NSLog(@"willSelectRowAtIndexPath");
-//    if (indexPath.row == 0) {
-//        return nil;
-//    }
-//    
-//    return indexPath;
-//}
+}
 
 
 @end
