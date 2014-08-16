@@ -11,6 +11,7 @@
 #import "SendGiftViewController.h"
 #import "Global.h"
 #import "UserData.h"
+#import "Util.h"
 
 @interface FriendListViewController ()
 
@@ -30,6 +31,7 @@
     tableData = [[NSMutableArray alloc] init];
     thumbnails = [[NSMutableArray alloc] init];
     currRow = nil;
+    [Util formatTable:self.friendTable];
     
     NSDictionary *dict = [UserData getAppFriendAvatars];
     NSArray *sortedArray = [[UserData getAppFriends] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
@@ -77,6 +79,7 @@
     
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[thumbnails objectAtIndex:indexPath.row]]];
     cell.pic.image = [UIImage imageWithData:imageData];
+    [Util addCircleForImage:cell.pic :20.0f];
     cell.name.text = [tableData objectAtIndex:indexPath.row];
     
     return cell;
@@ -84,14 +87,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:currRow];
-    tableViewCell.accessoryType = UITableViewCellAccessoryNone;
+    FriendListViewCell *tableViewCell = (FriendListViewCell *)[tableView cellForRowAtIndexPath:currRow];
+    tableViewCell.checkmark.image = nil;
  
     currRow = indexPath;
-    UITableViewCell *tableViewCell1 = [tableView cellForRowAtIndexPath:currRow];
-    tableViewCell1.accessoryType = UITableViewCellAccessoryCheckmark;
+    FriendListViewCell *tableViewCell1 = (FriendListViewCell *)[tableView cellForRowAtIndexPath:currRow];
+    tableViewCell1.checkmark.image = [UIImage imageNamed:@"checkmark_black"];
 }
 
 - (IBAction)OK:(id)sender {
