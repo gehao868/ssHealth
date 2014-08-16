@@ -106,7 +106,7 @@
         [btn addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
         
         UIButton *dbtn = [[UIButton alloc] initWithFrame:dframe];
-        [dbtn setBackgroundColor:[UIColor redColor]];
+        [dbtn setBackgroundImage:[UIImage imageNamed:@"deleteBtn"] forState:UIControlStateNormal];
         [dbtn setHidden:YES];
         [deleteBtns addObject:dbtn];
         

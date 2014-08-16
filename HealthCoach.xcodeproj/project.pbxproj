@@ -29,6 +29,7 @@
 		0BA067AD199AB19400D7CD21 /* NewPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA067AC199AB19400D7CD21 /* NewPostViewController.m */; };
 		0BA87092198C5BA900236EBD /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA87091198C5BA900236EBD /* UserData.m */; };
 		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
+		0BE4C45919A00B87008E4396 /* VioceTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE4C45819A00B87008E4396 /* VioceTestViewController.m */; };
 		3B1CD2071989D75400282886 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3B609FC5199C520D0048FD3C /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B609FC4199C520D0048FD3C /* Global.m */; };
 		3B609FC8199C653D0048FD3C /* TableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B609FC7199C653D0048FD3C /* TableDelegate.m */; };
@@ -157,6 +158,8 @@
 		0BA067AC199AB19400D7CD21 /* NewPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostViewController.m; sourceTree = "<group>"; };
 		0BA87090198C5BA900236EBD /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		0BA87091198C5BA900236EBD /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
+		0BE4C45719A00B86008E4396 /* VioceTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VioceTestViewController.h; sourceTree = "<group>"; };
+		0BE4C45819A00B87008E4396 /* VioceTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VioceTestViewController.m; sourceTree = "<group>"; };
 		3B609FC3199C520D0048FD3C /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		3B609FC4199C520D0048FD3C /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		3B609FC6199C653D0048FD3C /* TableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDelegate.h; sourceTree = "<group>"; };
@@ -567,6 +570,8 @@
 				7C89F8B8198AFDB400F021EF /* LaunchViewController.h */,
 				7C89F8B9198AFDB400F021EF /* LaunchViewController.m */,
 				7CBD2C4E197E4538002F23A5 /* Main.storyboard */,
+				0BE4C45719A00B86008E4396 /* VioceTestViewController.h */,
+				0BE4C45819A00B87008E4396 /* VioceTestViewController.m */,
 				7CBD2C31197E4510002F23A5 /* Images.xcassets */,
 				7CBD2C20197E4510002F23A5 /* Supporting Files */,
 			);
@@ -804,6 +809,7 @@
 				3B609FC8199C653D0048FD3C /* TableDelegate.m in Sources */,
 				0B0A241E19957B620086309E /* SIMenuConfiguration.m in Sources */,
 				7CBD2C5B197E4642002F23A5 /* TargetViewController.m in Sources */,
+				0BE4C45919A00B87008E4396 /* VioceTestViewController.m in Sources */,
 				BB93A1FB19914FE100AA1CED /* RedeemViewController.m in Sources */,
 				7CBD2C6C197E4651002F23A5 /* RootViewController.m in Sources */,
 				7C89F8A71989C1B800F021EF /* PNColor.m in Sources */,
