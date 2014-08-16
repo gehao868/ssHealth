@@ -8,6 +8,7 @@
 
 #import "NewsFeedCell.h"
 #import <Parse/Parse.h>
+#import "UserData.h"
 
 @implementation NewsFeedCell
 
@@ -38,5 +39,18 @@
     
     [btn setImage:[UIImage imageNamed:@"circle_red"] forState:UIControlStateNormal];
     self.likeNum.text = [NSString stringWithFormat:@"%d likes", [self.likeNum.text intValue] + 1];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"News"];
+    
+    // Retrieve the object by id
+    [query getObjectInBackgroundWithId:self.objid.text block:^(PFObject *news, NSError *error) {
+        NSMutableArray *arr = [news objectForKey:@"likedby"];
+        [arr addObject:[UserData getUsername]];
+        NSNumber *showlikenum = [news objectForKey:@"showlikenum"];
+        
+        news[@"likedby"] = arr;
+        news[@"showlikenum"] = [NSNumber numberWithInteger:[showlikenum integerValue] + 1];
+        [news saveInBackground];
+    }];
 }
 @end

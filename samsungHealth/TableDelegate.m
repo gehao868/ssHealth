@@ -77,6 +77,7 @@
     cell.userName.text = news.postusername;
     cell.userPic.image =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendAvatars objectForKey:news.postusername]]]];
     
+    cell.objid.text = news.objecid;
     
     CGRect likeFrame = cell.likeNum.frame;
 //    NSLog(@"like starting point is %f" @" index at %ld", cell.likeNum.frame.origin.y ,(long)indexPath.row);
