@@ -58,47 +58,61 @@
     
     [components setDay:([components day] - 7)];
     NSDate *lastWeek  = [cal dateFromComponents:components];
-
+    
+    barData = [[NSMutableArray alloc] init];
+    barDate = [[NSMutableArray alloc] init];
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    format.dateFormat = @"dd";
     
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
     [query whereKey:@"username" equalTo:[UserData getUsername]];
     [query whereKey:@"date" greaterThan:lastWeek];
     
-
-
-    
-	//Add BarChart
-	
-	UILabel * barChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, SCREEN_WIDTH, 30)];
-	barChartLabel.textColor = PNCloudWhite;
-	barChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
-	barChartLabel.textAlignment = NSTextAlignmentCenter;
-	
-	PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 50.0, SCREEN_WIDTH, 230.0)];
-	barChart.backgroundColor = [UIColor clearColor];
-	barChart.type = PNBarType;
-    
-    barData = [[NSMutableArray alloc] init];
-    barDate = [[NSMutableArray alloc] init];
-
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    format.dateFormat = @"dd";
-    
     NSArray* objects = [query findObjects];
-    NSLog(@"health data name is %@", self.healthDataName);
+    
     for (PFObject *object in objects) {
         NSNumber *step =[NSNumber numberWithInt:[[object objectForKey:self.healthDataName] intValue]];
         [barData addObject:step];
         NSString *date = [format stringFromDate:[object objectForKey:@"date"]];
         [barDate addObject:date];
     }
+
+	//Add BarChart
+	if ([self.healthDataName isEqualToString:@"step"] ||[self.healthDataName isEqualToString:@"sleep"] ||[self.healthDataName isEqualToString:@"water"]) {
+        
+        UILabel * barChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, SCREEN_WIDTH, 30)];
+        barChartLabel.textColor = PNCloudWhite;
+        barChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
+        barChartLabel.textAlignment = NSTextAlignmentCenter;
+        
+        PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 50.0, SCREEN_WIDTH, 230.0)];
+        barChart.backgroundColor = [UIColor clearColor];
+        barChart.type = PNBarType;
+        
+        [barChart setXLabels:barDate];
+        [barChart setYValues:barData];
+        
+        
+        [barChart strokeChart];
+        [self.view addSubview:barChartLabel];
+        [self.view addSubview:barChart];
+    } else {
+        UILabel * lineChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, 30)];
+        lineChartLabel.text = @"Line Chart";
+        lineChartLabel.textColor = PNFreshGreen;
+        lineChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
+        lineChartLabel.textAlignment = NSTextAlignmentCenter;
+        
+        PNChart * lineChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 75.0, SCREEN_WIDTH, 200.0)];
+        lineChart.backgroundColor = [UIColor clearColor];
+        [lineChart setXLabels:barDate];
+        [lineChart setYValues:barData];
+        [lineChart strokeChart];
+        [self.view addSubview:lineChartLabel];
+        [self.view addSubview:lineChart];
+    }
     
-	[barChart setXLabels:barDate];
-	[barChart setYValues:barData];
-	
-    [barChart strokeChart];
-	[self.view addSubview:barChartLabel];
-	[self.view addSubview:barChart];
     self.title = [self healthDataName];
     self.monthLabel.text = [self getMonthName:thisMonth];
 }
