@@ -77,14 +77,12 @@
     progressFrame = CGRectMake(20.0f, 5.0f + font.lineHeight + 2.0f, 110.0f, 20.0f);
     imgFrame = CGRectMake(0.0f, 2.0f, 44.0f, 44.0f);
     
-    
+    [self.datepicker fillCurrentMonth];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"d"];
-    NSInteger day = [[dateFormat stringFromDate:[NSDate date]] intValue];
+    NSInteger day = [[dateFormat stringFromDate:yesterday] intValue];
     
-    [self.datepicker selectDateAtIndex:day-1];
-    
-   
+    [self.datepicker selectDateAtIndex:day];
     
     [self.datepicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
     
@@ -92,8 +90,9 @@
     
     //[self.datepicker fillDatesFromCurrentDate:14];
     //    [self.datepicker fillCurrentWeek];
-    [self.datepicker fillCurrentMonth];
     //[self.datepicker fillCurrentYear];
+    
+    [self getTime:today];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
