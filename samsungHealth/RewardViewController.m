@@ -28,6 +28,7 @@
     NSString *result;
     int pointNeeded;
     __block Reward *reward;
+    BOOL isRewarding;
 }
 
 
@@ -45,6 +46,7 @@
     [super viewDidLoad];
     srand((unsigned)time(0));
     reward = [[Reward alloc] init];
+    isRewarding = NO;
     
     pointNeeded = 300;
     self.userIcon.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[UserData getAvatar]]]];
@@ -177,6 +179,11 @@
 }
 
 - (IBAction)start:(id)sender {
+    if (isRewarding) {
+        return;
+    }
+    
+    isRewarding = YES;
     if ([[UserData getPoint] intValue] < pointNeeded) {
         NSString *text = @"You at lease than ";
         text = [text stringByAppendingString:[[NSNumber numberWithInt:pointNeeded] stringValue]];
@@ -267,6 +274,8 @@ double radians(float degrees) {
     } else {
         _label1.text = result;
     }
+    
+    isRewarding = NO;
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -315,6 +324,8 @@ double radians(float degrees) {
             reward.detail = [object objectForKey:@"detail"];
             reward.title = [object objectForKey:@"title"];
             reward.discount = [object objectForKey:@"discount"];
+            
+            NSLog(@"%@", reward.expiredate);
             [self saveCoupon];
         }
     }];
@@ -328,7 +339,10 @@ double radians(float degrees) {
     object[@"pic"] = reward.pic;
     object[@"type"] = reward.type;
     object[@"isredeemed"] = @YES;
-    object[@"expiredate"] = reward.expiredate;
+    
+    if (reward.expiredate != NULL) {
+        object[@"expiredate"] = reward.expiredate;
+    }
     object[@"detail"] = reward.detail;
     object[@"title"] = reward.title;
     object[@"discount"] = reward.discount;
