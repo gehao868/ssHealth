@@ -32,6 +32,7 @@
     NSMutableArray* healthObjects;
     NSMutableArray* goalObjects;
     NSDate *theDate;
+    
 }
 
 @synthesize back;
@@ -54,23 +55,34 @@
     font = [UIFont systemFontOfSize:20.0f];
     
     NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
+    NSDateComponents *newComponents = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
     
-    [components setHour:-[components hour]];
-    [components setMinute:-[components minute]];
-    [components setSecond:-[components second]];
+    [newComponents setHour:-[newComponents hour]];
+    [newComponents setMinute:-[newComponents minute]];
+    [newComponents setSecond:-[newComponents second]];
     today = [NSDate date];//This variable should now be pointing at a date object that is the start of today (midnight);
     
-    [components setHour:-24];
-    [components setMinute:0];
-    [components setSecond:0];
+    [newComponents setHour:-24];
+    [newComponents setMinute:0];
+    [newComponents setSecond:0];
     
-    yesterday = [cal dateByAddingComponents:components toDate: today options:0];
-
+    yesterday = [cal dateByAddingComponents:newComponents toDate: today options:0];
+    NSDateComponents *components = [[NSCalendar currentCalendar]
+                                    components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit
+                                    fromDate:[NSDate date]];
+    today = [[NSCalendar currentCalendar]
+                         dateFromComponents:components];
     
     numberFrame = CGRectMake(20.0f, 5.0f, 120.0f, 20.0f);
     progressFrame = CGRectMake(20.0f, 5.0f + font.lineHeight + 2.0f, 110.0f, 20.0f);
     imgFrame = CGRectMake(0.0f, 2.0f, 44.0f, 44.0f);
+    
+    [self.datepicker fillCurrentMonth];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"d"];
+    NSInteger day = [[dateFormat stringFromDate:yesterday] intValue];
+    
+    [self.datepicker selectDateAtIndex:day];
     
     [self.datepicker addTarget:self action:@selector(updateSelectedDate) forControlEvents:UIControlEventValueChanged];
     
@@ -78,14 +90,10 @@
     
     //[self.datepicker fillDatesFromCurrentDate:14];
     //    [self.datepicker fillCurrentWeek];
-    [self.datepicker fillCurrentMonth];
     //[self.datepicker fillCurrentYear];
     
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"d"];
-    NSInteger day = [[dateFormat stringFromDate:[NSDate date]] intValue];
+    [self getTime:today];
     
-    [self.datepicker selectDateAtIndex:day-1];
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
     [self.goalTable addSubview:refreshControl];
@@ -103,16 +111,14 @@
 {
 
     NSDate *date = self.datepicker.selectedDate;
-    if ( date == nil) {
-        date = yesterday;
+    if (date == nil) {
+        date = today;
     }
     theDate = date;
     [self getTime:date];
 }
 
 -(void) getTime: (NSDate*) date {
-//    NSLog(@"date is %@",date);
-    
     PFQuery *queryHealth = [PFQuery queryWithClassName:@"HealthData"];
     [queryHealth whereKey:@"username" equalTo:[UserData getUsername]];
     
@@ -126,6 +132,8 @@
             [healthObjects addObject:object];
         }
         [self getHealthData:date];
+        NSLog(@"health object count is %lu", (unsigned long)[healthObjects count]);
+        NSLog(@"The date is %@", date);
     }];
     
 
@@ -148,6 +156,7 @@
         }
         if ([healthObjects count] == 0) {
             for (PFObject *object in goalObjects) {
+                
                 [expected addObject:[object objectForKey:@"expected"]];
                 
                 [imgList addObject:[object objectForKey:@"type"]];
