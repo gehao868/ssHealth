@@ -18,5 +18,6 @@
 @synthesize showlikenum;
 @synthesize type;
 @synthesize groupname;
+@synthesize objecid;
 
 @end

@@ -287,6 +287,7 @@ UIRefreshControl *currRC;
             news.postusername = [object objectForKey:@"postusername"];
             news.showlikenum = [object objectForKey:@"showlikenum"];
             news.type = [object objectForKey:@"type"];
+            news.objecid = object.objectId;
             [array addObject:news];
         }
         [Global setNewsFeed:array];

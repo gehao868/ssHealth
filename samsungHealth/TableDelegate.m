@@ -27,7 +27,7 @@
     
     UIFont *font =  [UIFont systemFontOfSize:14.0f];
     float imgHeight = 47.0f;
-    float likesHeight = 21.0f;
+    float likesHeight = 44.0f;
     
     News *news = (News *)[[Global getNewsFeed] objectAtIndex:indexPath.row];
     
@@ -56,6 +56,15 @@
     
     NSDictionary *friendAvatars = [UserData getAppFriendAvatars];
     News *news = (News *)[[Global getNewsFeed] objectAtIndex:indexPath.row];
+
+    if ([news.likedby containsObject:[UserData getUsername]]) {
+        [cell.likeButton setBackgroundImage:[UIImage imageNamed:@"heart_filled"] forState:UIControlStateNormal];
+        [cell.likeButton setEnabled:NO];
+    } else {
+        [cell.likeButton setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
+        [cell.likeButton setEnabled:YES];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.newsContent.text = news.content;
     CGRect frame = cell.newsContent.frame;
@@ -77,16 +86,21 @@
     cell.userName.text = news.postusername;
     cell.userPic.image =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendAvatars objectForKey:news.postusername]]]];
     
+    cell.objid.text = news.objecid;
     
     CGRect likeFrame = cell.likeNum.frame;
 //    NSLog(@"like starting point is %f" @" index at %ld", cell.likeNum.frame.origin.y ,(long)indexPath.row);
     likeFrame.origin.y = cell.newsContent.frame.origin.y + cell.newsContent.frame.size.height + gap;
-    
+    cell.likeNum.frame = likeFrame;
 //    NSLog(@"news height is %f" @" index at %ld", cell.newsContent.frame.size.height, (long)indexPath.row);
 //    NSLog(@"news size width %f" @" index at %ld", textSize.width, (long)indexPath.row);
     
-    cell.likeNum.frame = likeFrame;
 //    NSLog(@"like starting point is %f" @" index at %ld", cell.likeNum.frame.origin.y ,(long)indexPath.row);
+    
+    CGRect likeImgFrame = cell.likeButton.frame;
+    likeImgFrame.origin.y = likeFrame.origin.y;
+    cell.likeButton.frame = likeImgFrame;
+    
     return cell;
 }
 

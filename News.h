@@ -18,5 +18,5 @@
 @property (nonatomic) NSNumber *showlikenum;
 @property (nonatomic) NSString *type;
 @property (nonatomic) NSString *groupname;
-
+@property (nonatomic) NSString *objecid;
 @end
