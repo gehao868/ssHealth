@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UIImageView *pic;
+@property (strong, nonatomic) IBOutlet UIImageView *checkmark;
 
 @end
