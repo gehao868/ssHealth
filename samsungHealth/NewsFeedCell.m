@@ -24,7 +24,6 @@
 - (void)awakeFromNib
 {
     // Initialization code
-    [self.likeButton setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

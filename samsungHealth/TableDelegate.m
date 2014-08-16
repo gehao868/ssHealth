@@ -56,6 +56,15 @@
     
     NSDictionary *friendAvatars = [UserData getAppFriendAvatars];
     News *news = (News *)[[Global getNewsFeed] objectAtIndex:indexPath.row];
+
+    if ([news.likedby containsObject:[UserData getUsername]]) {
+        [cell.likeButton setBackgroundImage:[UIImage imageNamed:@"heart_filled"] forState:UIControlStateNormal];
+        [cell.likeButton setEnabled:NO];
+    } else {
+        [cell.likeButton setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
+        [cell.likeButton setEnabled:YES];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.newsContent.text = news.content;
     CGRect frame = cell.newsContent.frame;
