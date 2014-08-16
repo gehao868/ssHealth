@@ -7,6 +7,7 @@
 //
 
 #import "NewsFeedCell.h"
+#import <Parse/Parse.h>
 
 @implementation NewsFeedCell
 
@@ -31,4 +32,11 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)liked:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    [btn setEnabled:NO];
+    
+    [btn setImage:[UIImage imageNamed:@"circle_red"] forState:UIControlStateNormal];
+    self.likeNum.text = [NSString stringWithFormat:@"%d likes", [self.likeNum.text intValue] + 1];
+}
 @end

@@ -77,6 +77,7 @@
     NSInteger height = 90;
     NSInteger dwidth = 20;
     NSInteger dheight = 20;
+    double offset = -1.0;
     int numberPerLine = 3;
     int count = 2;
    
@@ -93,7 +94,7 @@
     
     NSDictionary *friendsAvatar = [UserData getAppFriendAvatars];
     frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, width, height);
-    CGRect dframe = CGRectMake(frame.origin.x - 7.0f, frame.origin.y - 7.0f, dwidth, dheight);
+    CGRect dframe = CGRectMake(frame.origin.x - offset, frame.origin.y - offset, dwidth, dheight);
     
     for (int i = 0; i < [members count]; i++) {
         UIButton *btn = [[UIButton alloc] initWithFrame:frame];
@@ -112,11 +113,11 @@
         [scrollView addSubview:btn];
         [scrollView addSubview:dbtn];
         
-        dframe = CGRectMake(frame.origin.x + width + 10.0f - 7.0f, frame.origin.y - 7.0f, dwidth, dheight);
+        dframe = CGRectMake(frame.origin.x + width + 10.0f - offset, frame.origin.y - offset, dwidth, dheight);
         frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, width, height);
         if (count == numberPerLine)
         {
-            dframe = CGRectMake(15.0f - 7.0f , frame.origin.y + height + 10.0f - 7.0f, dwidth, dheight);
+            dframe = CGRectMake(15.0f - offset , frame.origin.y + height + 10.0f - offset, dwidth, dheight);
             frame = CGRectMake(15.0f , frame.origin.y + height + 10.0f, width, height);
             count = 0;
         }

@@ -56,8 +56,8 @@
     PFObject *post = [PFObject objectWithClassName:@"News"];
     post[@"content"] = self.postText.text;
     post[@"postusername"] = [UserData getUsername];
-    post[@"likenum"] = @0;
     post[@"showlikenum"] = @0;
+    post[@"likedby"] = [[NSArray alloc] init];
     post[@"groupname"] = [Global getCurrGroup];
     [post saveInBackground];
     
