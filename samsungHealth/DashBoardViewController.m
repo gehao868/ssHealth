@@ -119,44 +119,48 @@
     NSLog(@"health score is %f", healthScore);
     [self.view addSubview: self.largestProgressView];
     
-                                                            
     //add sub circle progress
+    //          NSNumber *index = [NSNumber numberWithInt:j * 3 + 1];
+    //          NSNumber *x = (NSNumber*)[finished objectAtIndex:index];
+    //          NSNumber *y = (NSNumber*)[expected objectAtIndex:index];
+    //          float z = x.floatValue /y.floatValue;
                                                             
     self.subProgessView = [[NSMutableArray alloc]init];
     subScore = [[NSMutableArray alloc] init];
-    for(int i = 0; i < 3; i++) {
-        for (int j = 0; j < 2; j++) {
-//            NSNumber *index = [NSNumber numberWithInt:j * 3 + 1];
-//            NSNumber *x = (NSNumber*)[finished objectAtIndex:index];
-//            NSNumber *y = (NSNumber*)[expected objectAtIndex:index];
-//            float z = x.floatValue /y.floatValue;
-            float z = (i + 78.0f) * (j + 79.0f) / (i + 83.0f) / (j + 81.0f) / (7- i - j) * 4;
+            float z = 0.2;
             [subScore addObject:[NSNumber numberWithFloat:z]];
             NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",(z*100)];
-            [[subCircleLabel objectAtIndex:j*3+i] setText:text];
-            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(10.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
+                                                            [[subCircleLabel objectAtIndex:@0] setText:text];
+            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(10.0f + 0 * 108, 363.0f + 105.0f * 0, 80.0f, 80.0f)];
             [tmpView setProgress:z];
             [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN];
             [self.subProgessView addObject:tmpView];
             [self.view addSubview:tmpView];
-             //NSString* selectorName = [NSString stringWithFormat:@"subProgressChange%d:",(j*3+1)];
-             [self.view bringSubviewToFront:self.buttonView];
-//             SEL selector = NSSelectorFromString(selectorName);
-//             [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:selector userInfo:[NSNumber numberWithInt:j*3+i] repeats:YES];
-        }
-    }
-    
-    
-                                                            
-                                                            
-    //sub circle progress ended
+            [self.view bringSubviewToFront:self.buttonView];
              
+//    for(int i = 0; i < 3; i++) {
+//        for (int j = 0; j < 2; j++) {
+//            float z = (i + 78.0f) * (j + 79.0f) / (i + 83.0f) / (j + 81.0f) / (7- i - j) * 4;
+//            [subScore addObject:[NSNumber numberWithFloat:z]];
+//            NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",(z*100)];
+//            [[subCircleLabel objectAtIndex:j*3+i] setText:text];
+//            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(10.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
+//            [tmpView setProgress:z];
+//            [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN];
+//            [self.subProgessView addObject:tmpView];
+//            [self.view addSubview:tmpView];
+//            [self.view bringSubviewToFront:self.buttonView];
+//        }
+//    }
+             
+//SEL selector = NSSelectorFromString(selectorName);
+// [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:selector userInfo:[NSNumber numberWithInt:j*3+i]repeats:YES];
+
     thumbnails = [NSArray arrayWithObjects:@"heart_green", @"sleep_green", @"steps", @"water_green", @"weight_green",nil];
     
     expected = [NSArray arrayWithObjects: [NSNumber numberWithInt:80], [NSNumber numberWithInt:8], [NSNumber numberWithInt:1200], [NSNumber numberWithInt:6],[NSNumber numberWithInt:20],nil];
     tableData = [NSArray arrayWithObjects:@"heartrate", @"sleep", @"step", @"cups", @"weight",nil];
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
-//    [NSTimer scheduledTimerWithTimeInterval:0.17 target:self selector:@selector(numberChange:) userInfo:nil repeats:YES];
              
     //add shadow
     self.dashTable.layer.shadowColor = [UIColor darkGrayColor].CGColor;
@@ -317,8 +321,7 @@
 //    for (NSNumber * m in expect) {
 //        sum_expected = [m integerValue];
 //    }
-   
-//    return 0.7;
+
     srand48(time(0));
     return 0.50f + drand48()/2.0f;
 }
@@ -406,9 +409,6 @@
     } else if ([segue.identifier isEqualToString:@"cups"]) {
         destViewController.healthDataName = @"cups";
     }
-
-
-   
 }
 
 
