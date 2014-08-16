@@ -188,8 +188,8 @@
     int index = 0;
     for(int i = 0; i < 3; i++) {
         for (int j = 0; j < 2; j++) {
-//            float z = (i + 78.0f) * (j + 79.0f) / (i + 83.0f) / (j + 81.0f) / (7- i - j) * 4;
-//            [subScore addObject:[NSNumber numberWithFloat:z]];
+            float z = (i + 78.0f) * (j + 79.0f) / (i + 83.0f) / (j + 81.0f) / (7- i - j) * 4;
+            [subScore addObject:[NSNumber numberWithFloat:z]];
             NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",([[subScore objectAtIndex:index] floatValue]*100)];
             [[subCircleLabel objectAtIndex:j*3+i] setText:text];
             DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(10.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
