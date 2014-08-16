@@ -90,22 +90,80 @@
     
     NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];
     
-    [query whereKey:@"Time" lessThanOrEqualTo:today];
-    [query whereKey:@"Time" greaterThan:yesterday];
+    [query whereKey:@"date" lessThanOrEqualTo:today];
+    [query whereKey:@"date" greaterThan:yesterday];
     
     subCircleLabel = [NSArray arrayWithObjects:_heartrate,_sleep,_step, _cups, _weight, _bodyfat, nil];
-                                                            
+    
                                                             
     NSArray* objects = [query findObjects];
+    subScore = [[NSMutableArray alloc] init];
+    
     for (PFObject *object in objects) {
-         NSLog(@"%@", [object objectForKey:@"step"]);
          int heartrate = [[object objectForKey:@"heartrate"] intValue];
+         if(heartrate <= 100 && heartrate >= 40){
+             [subScore addObject:[NSNumber numberWithFloat:1]];
+         } else {
+             [subScore addObject:[NSNumber numberWithFloat:0]];
+         }
          int sleep = [[object objectForKey:@"sleep"] intValue];
+        
+         if (sleep <= 9 && sleep >=7) {
+            [subScore addObject:[NSNumber numberWithFloat:1]];
+         } else if (sleep > 13 || sleep < 4){
+            [subScore addObject:[NSNumber numberWithFloat:0]];
+         } else if (sleep >9 && sleep <=13) {
+            [subScore addObject:[NSNumber numberWithFloat:(13-sleep)/4]];
+         } else if (sleep >= 4 && sleep <7){
+            [subScore addObject:[NSNumber numberWithFloat:(sleep - 4)/4]];
+         }
+        
          int step = [[object objectForKey:@"step"] intValue];
+         if (step >= 8000) {
+            [subScore addObject:[NSNumber numberWithFloat:1]];
+         } else {
+            [subScore addObject:[NSNumber numberWithFloat:step/8000]];
+         }
+        
          int cups = [[object objectForKey:@"cups"] intValue];
+         if ([[UserData getGender] isEqualToString:@"male"]) {
+             if (cups >=13) {
+                 [subScore addObject:[NSNumber numberWithFloat:1]];
+             } else {
+                 [subScore addObject:[NSNumber numberWithFloat:abs((cups - 13)/13)]];
+             }
+         } else {
+             if (cups >= 9 ) {
+                 [subScore addObject:[NSNumber numberWithFloat:1]];
+             } else {
+                 [subScore addObject:[NSNumber numberWithFloat:abs((cups - 9)/9)]];
+             }
+         }
+        
          int losedWeight = [[object objectForKey:@"weight"] intValue];
-         
-         finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:step],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight], nil];
+        
+        
+         int fatratio = [[object objectForKey:@"fatratio"] intValue];
+         if ([[UserData getGender] isEqualToString:@"male"]) {
+             if (fatratio < 18) {
+                 [subScore addObject:[NSNumber numberWithFloat:fatratio/18]];
+             } else if (fatratio > 24){
+                 [subScore addObject:[NSNumber numberWithFloat:(100-fatratio)/76]];
+             } else {
+                 [subScore addObject:[NSNumber numberWithFloat:1]];
+             }
+         } else {
+             if (fatratio < 25) {
+                 [subScore addObject:[NSNumber numberWithFloat:fatratio/25]];
+             } else if (fatratio > 31){
+                 [subScore addObject:[NSNumber numberWithFloat:(100-fatratio)/69]];
+
+             } else {
+                 [subScore addObject:[NSNumber numberWithFloat:1]];
+             }
+         }
+        
+         finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:step],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight],[NSNumber numberWithInt:fatratio], nil];
      }
    
     self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(70.0f, 115.0f, 180.0f, 180.0f)];
@@ -126,32 +184,23 @@
     //          float z = x.floatValue /y.floatValue;
                                                             
     self.subProgessView = [[NSMutableArray alloc]init];
-    subScore = [[NSMutableArray alloc] init];
-            float z = 0.2;
-            [subScore addObject:[NSNumber numberWithFloat:z]];
-            NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",(z*100)];
-                                                            [[subCircleLabel objectAtIndex:@0] setText:text];
-            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(10.0f + 0 * 108, 363.0f + 105.0f * 0, 80.0f, 80.0f)];
-            [tmpView setProgress:z];
+
+    int index = 0;
+    for(int i = 0; i < 3; i++) {
+        for (int j = 0; j < 2; j++) {
+//            float z = (i + 78.0f) * (j + 79.0f) / (i + 83.0f) / (j + 81.0f) / (7- i - j) * 4;
+//            [subScore addObject:[NSNumber numberWithFloat:z]];
+            NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",([[subScore objectAtIndex:index] floatValue]*100)];
+            [[subCircleLabel objectAtIndex:j*3+i] setText:text];
+            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(10.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
+            [tmpView setProgress:[[subScore objectAtIndex:index] floatValue]];
             [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN];
             [self.subProgessView addObject:tmpView];
             [self.view addSubview:tmpView];
             [self.view bringSubviewToFront:self.buttonView];
-             
-//    for(int i = 0; i < 3; i++) {
-//        for (int j = 0; j < 2; j++) {
-//            float z = (i + 78.0f) * (j + 79.0f) / (i + 83.0f) / (j + 81.0f) / (7- i - j) * 4;
-//            [subScore addObject:[NSNumber numberWithFloat:z]];
-//            NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",(z*100)];
-//            [[subCircleLabel objectAtIndex:j*3+i] setText:text];
-//            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(10.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
-//            [tmpView setProgress:z];
-//            [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN];
-//            [self.subProgessView addObject:tmpView];
-//            [self.view addSubview:tmpView];
-//            [self.view bringSubviewToFront:self.buttonView];
-//        }
-//    }
+            index++;
+        }
+    }
              
 //SEL selector = NSSelectorFromString(selectorName);
 // [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:selector userInfo:[NSNumber numberWithInt:j*3+i]repeats:YES];
