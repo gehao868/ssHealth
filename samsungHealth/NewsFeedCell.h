@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *userPic;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (strong, nonatomic) IBOutlet UIButton *likeButton;
+@property (strong, nonatomic) IBOutlet UILabel *objid;
 - (IBAction)liked:(id)sender;
 
 @end

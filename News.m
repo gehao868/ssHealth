@@ -13,6 +13,7 @@
 @synthesize file;
 @synthesize content;
 @synthesize postusername;
+@synthesize likedby;
 @synthesize likenum;
 @synthesize showlikenum;
 @synthesize type;

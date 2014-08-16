@@ -13,6 +13,7 @@
 @property (nonatomic) NSData *file;
 @property (nonatomic) NSString *content;
 @property (nonatomic) NSString *postusername;
+@property (nonatomic) NSArray *likedby;
 @property (nonatomic) NSNumber *likenum;
 @property (nonatomic) NSNumber *showlikenum;
 @property (nonatomic) NSString *type;
