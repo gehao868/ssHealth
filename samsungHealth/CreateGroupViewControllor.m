@@ -11,6 +11,7 @@
 #import "CreateGroupViewControllor.h"
 #import "FriendTableViewCell.h"
 #import <Parse/Parse.h>
+#import "Util.h"
 
 @interface CreateGroupViewControllor () <UITextFieldDelegate>
 
@@ -25,7 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"Create Group";
+    [Util formatTable:self.friends];
     NSDictionary *dict = [UserData getAppFriendAvatars];
     NSArray *friendsingroup = [UserData getCurrgroupusers];
     
@@ -51,6 +53,7 @@
     self.navigationItem.rightBarButtonItem = doneButton;
     
     self.friends.allowsMultipleSelection = YES;
+    [Util formatTextField:_groupname];
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{    
@@ -86,6 +89,7 @@
     
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[thumbnails objectAtIndex:indexPath.row]]];
     cell.pic.image = [UIImage imageWithData:imageData];
+    [Util addCircleForImage:cell.pic :20.0f];
     cell.name.text = [tableData objectAtIndex:indexPath.row];
     
     return cell;

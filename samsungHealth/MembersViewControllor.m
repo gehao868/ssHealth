@@ -11,6 +11,7 @@
 #import "MembersViewControllor.h"
 #import <Parse/Parse.h>
 #import "CreateGroupViewControllor.h"
+#import "Util.h"
 
 @interface MembersViewControllor ()
 
@@ -78,13 +79,16 @@
     NSInteger dheight = 20;
     int numberPerLine = 3;
     int count = 2;
-    
+   
     CGRect frame = CGRectMake(15.0f, 10.0f, width, height);
     UIButton *addFriendButton = [[UIButton alloc] initWithFrame:frame];
     [addFriendButton setFrame:frame];
-    [addFriendButton setBackgroundColor:[UIColor blackColor]];
-    [addFriendButton setTitle:@"add" forState:UIControlStateNormal];
+    [addFriendButton setBackgroundColor:[DEFAULT_COLOR_THEME];
+    [addFriendButton setTitle:@"+" forState:UIControlStateNormal];
+    addFriendButton.titleLabel.font = [UIFont systemFontOfSize:44];
     [addFriendButton addTarget:self action:@selector(show:) forControlEvents:UIControlEventTouchUpInside];
+    [Util addCircleForButton:addFriendButton:45];
+
     [scrollView addSubview:addFriendButton];
     
     NSDictionary *friendsAvatar = [UserData getAppFriendAvatars];
@@ -94,7 +98,9 @@
     for (int i = 0; i < [members count]; i++) {
         UIButton *btn = [[UIButton alloc] initWithFrame:frame];
         [btn setBackgroundImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendsAvatar objectForKey:[members objectAtIndex:i]]]]] forState:UIControlStateNormal];
-        [btn setBackgroundColor:[UIColor blackColor]];
+        [Util addCircleForButton:btn:45];
+
+        [btn setBackgroundColor:[DEFAULT_COLOR_THEME];
         //[btn setTitle:[members objectAtIndex:i] forState:UIControlStateNormal];
         [btn addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
         
@@ -118,9 +124,11 @@
     }
     
     UIButton *deleteFriendBUtton = [[UIButton alloc] initWithFrame:frame];
-    [deleteFriendBUtton setBackgroundColor:[UIColor blackColor]];
+    [deleteFriendBUtton setBackgroundColor:[DEFAULT_COLOR_RED];
     [deleteFriendBUtton setTitle:@"delete" forState:UIControlStateNormal];
     [deleteFriendBUtton addTarget:self action:@selector(deleteFriend:) forControlEvents:UIControlEventTouchUpInside];
+     [Util addCircleForButton:deleteFriendBUtton:45];
+
     [scrollView addSubview:deleteFriendBUtton];
     
     if (count == 1) {

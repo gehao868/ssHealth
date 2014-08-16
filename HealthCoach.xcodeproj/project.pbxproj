@@ -108,6 +108,7 @@
 		7CE78A9F198D8AC0002ED7E5 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A9E198D8AC0002ED7E5 /* FriendTableViewCell.m */; };
 		BB93A1FB19914FE100AA1CED /* RedeemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB93A1FA19914FE100AA1CED /* RedeemViewController.m */; };
 		BBC1B2CE198721E600DDEC78 /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC1B2CD198721E600DDEC78 /* FriendListController.m */; };
+		BBCEBC81199EBC3E008A1501 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCEBC80199EBC3E008A1501 /* Util.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -293,6 +294,8 @@
 		BB93A1FA19914FE100AA1CED /* RedeemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedeemViewController.m; sourceTree = "<group>"; };
 		BBC1B2CC198721E600DDEC78 /* FriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListController.h; sourceTree = "<group>"; };
 		BBC1B2CD198721E600DDEC78 /* FriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListController.m; sourceTree = "<group>"; };
+		BBCEBC7F199EBC3E008A1501 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		BBCEBC80199EBC3E008A1501 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -553,6 +556,8 @@
 				7CBD2C5C197E4651002F23A5 /* RootViewController.m */,
 				7CBD2C69197E4651002F23A5 /* NavigationController.h */,
 				7CBD2C68197E4651002F23A5 /* NavigationController.m */,
+				BBCEBC7F199EBC3E008A1501 /* Util.h */,
+				BBCEBC80199EBC3E008A1501 /* Util.m */,
 				7CBD2C6B197E4651002F23A5 /* MenuViewController.h */,
 				7CBD2C6A197E4651002F23A5 /* MenuViewController.m */,
 				7CBD2C28197E4510002F23A5 /* AppDelegate.h */,
@@ -786,6 +791,7 @@
 				7CE78A99198CA459002ED7E5 /* ImproveTableViewController.m in Sources */,
 				0BA87092198C5BA900236EBD /* UserData.m in Sources */,
 				7C89F8A31989C1B800F021EF /* PNBar.m in Sources */,
+				BBCEBC81199EBC3E008A1501 /* Util.m in Sources */,
 				0B0A241F19957B620086309E /* SIMenuTable.m in Sources */,
 				0B0A242119957B620086309E /* UIColor+Extension.m in Sources */,
 				3BE7C199199B0A3600FB30AE /* SendGiftViewController.m in Sources */,

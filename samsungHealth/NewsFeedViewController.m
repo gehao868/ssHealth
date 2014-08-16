@@ -74,6 +74,13 @@ UIRefreshControl *currRC;
     [self.moreView setHidden:moreIsHidden];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self adjustHeightOfTableview];
+}
+
 - (void)addView:(NSArray *)objects error:(NSError *)error {
     if (!error) {
         for (PFObject *object in objects) {
@@ -282,7 +289,33 @@ UIRefreshControl *currRC;
             [array addObject:news];
         }
         [Global setNewsFeed:array];
+        
         [self.table reloadData];
+        [self adjustHeightOfTableview];
+    }];
+}
+
+- (void)adjustHeightOfTableview
+{
+    CGFloat height = self.table.contentSize.height;
+    CGFloat maxHeight = self.table.superview.frame.size.height - self.table.frame.origin.y;
+    
+    // if the height of the content is greater than the maxHeight of
+    // total space on the screen, limit the height to the size of the
+    // superview.
+    
+    if (height > maxHeight)
+        height = maxHeight;
+    
+    // now set the frame accordingly
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect frame = self.table.frame;
+        frame.size.height = height;
+        self.table.frame = frame;
+        
+        // if you have other controls that should be resized/moved to accommodate
+        // the resized tableview, do that here, too
     }];
 }
 

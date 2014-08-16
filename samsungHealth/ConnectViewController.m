@@ -37,6 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = @"Mange Group";
     // Do any additional setup after loading the view.
     [UserData setCurrgroupusers:[[NSArray alloc] init]];
     preGroup = [Global getCurrGroup];
