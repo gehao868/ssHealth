@@ -59,9 +59,9 @@ NSUserDefaults *defaults;
                 [UserData setAppFriends:[object objectForKey:@"appfriends"]];
                 
                 for (NSString *name in [object objectForKey:@"appfriends"]) {
-                PFQuery *query = [PFQuery queryWithClassName:@"Users"];
-                    [query whereKey:@"username" equalTo:name];
-                    [query getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
+                PFQuery *query1 = [PFQuery queryWithClassName:@"Users"];
+                    [query1 whereKey:@"username" equalTo:name];
+                    [query1 getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
                         [UserData setAppFriendAvatars:[user objectForKey:@"avatar"] forKey:name];
                     }];
                 }
@@ -265,6 +265,7 @@ NSUserDefaults *defaults;
         
         [UserData setAvatar:url];
         [defaults setObject:[UserData getAvatar] forKey:@"avatar"];
+        [UserData setAppFriendAvatars:[UserData getAvatar] forKey:[UserData getUsername]];
         
         PFQuery *query = [PFQuery queryWithClassName:@"Users"];
         [query whereKey:@"username" equalTo:[UserData getUsername]];
