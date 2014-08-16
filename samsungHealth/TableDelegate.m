@@ -27,7 +27,7 @@
     
     UIFont *font =  [UIFont systemFontOfSize:14.0f];
     float imgHeight = 47.0f;
-    float likesHeight = 21.0f;
+    float likesHeight = 44.0f;
     
     News *news = (News *)[[Global getNewsFeed] objectAtIndex:indexPath.row];
     
@@ -91,12 +91,16 @@
     CGRect likeFrame = cell.likeNum.frame;
 //    NSLog(@"like starting point is %f" @" index at %ld", cell.likeNum.frame.origin.y ,(long)indexPath.row);
     likeFrame.origin.y = cell.newsContent.frame.origin.y + cell.newsContent.frame.size.height + gap;
-    
+    cell.likeNum.frame = likeFrame;
 //    NSLog(@"news height is %f" @" index at %ld", cell.newsContent.frame.size.height, (long)indexPath.row);
 //    NSLog(@"news size width %f" @" index at %ld", textSize.width, (long)indexPath.row);
     
-    cell.likeNum.frame = likeFrame;
 //    NSLog(@"like starting point is %f" @" index at %ld", cell.likeNum.frame.origin.y ,(long)indexPath.row);
+    
+    CGRect likeImgFrame = cell.likeButton.frame;
+    likeImgFrame.origin.y = likeFrame.origin.y;
+    cell.likeButton.frame = likeImgFrame;
+    
     return cell;
 }
 
