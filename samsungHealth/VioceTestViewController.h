@@ -7,13 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface VioceTestViewController : UIViewController
+@interface VioceTestViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate> {
+    AVAudioRecorder *recorder;
+    AVAudioPlayer *player;
+}
+
 @property (strong, nonatomic) IBOutlet UIButton *record;
-@property (strong, nonatomic) IBOutlet UIButton *stop;
 @property (strong, nonatomic) IBOutlet UIButton *play;
-- (IBAction)recordact:(id)sender;
-- (IBAction)stopact:(id)sender;
+
+- (IBAction)recordstart:(id)sender;
+- (IBAction)recorddone:(id)sender;
 - (IBAction)playact:(id)sender;
 
 @end
