@@ -18,6 +18,8 @@
 
 - (IBAction)showMenu;
 @property (strong, nonatomic) IBOutlet UITableView *dashTable;
+@property (strong, nonatomic) IBOutlet UIButton *liked;
+- (IBAction)likedAction:(id)sender;
 
 
 @end

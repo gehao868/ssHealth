@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="0XT-Lj-xhU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="0XT-Lj-xhU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -671,12 +671,26 @@
                                 <action selector="showMenu" destination="jsP-Dz-DYG" id="Soy-f1-SOW"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="nLc-Zx-BqB">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="svv-tu-HBr">
+                                <rect key="frame" x="233" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="liked">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="likedAction:" destination="jsP-Dz-DYG" eventType="touchUpInside" id="HOH-MK-QCJ"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bodyfat" destination="2pC-YX-h65" id="58v-rv-L8P"/>
                         <outlet property="buttonView" destination="DFq-rg-di5" id="E26-2R-xqy"/>
                         <outlet property="cups" destination="T45-Ob-Oqr" id="ilv-aw-VvM"/>
                         <outlet property="heartrate" destination="L3z-lD-Dc8" id="Snw-G9-jAQ"/>
+                        <outlet property="liked" destination="svv-tu-HBr" id="YeE-gN-Dyi"/>
                         <outlet property="score" destination="73S-fu-iWP" id="jr7-Cd-Zrg"/>
                         <outlet property="sleep" destination="3Fj-H2-pOq" id="28e-QS-WkP"/>
                         <outlet property="step" destination="RhN-Z8-JO5" id="HOj-K5-c71"/>
@@ -1720,6 +1734,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="RqK-Om-hBt"/>
-        <segue reference="ALd-n6-pw0"/>
+        <segue reference="ru9-4z-DP7"/>
     </inferredMetricsTieBreakers>
 </document>

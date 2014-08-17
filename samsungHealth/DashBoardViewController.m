@@ -46,16 +46,9 @@
     NSNumber *stepObj;
     NSNumber *fatratioObj;
     NSNumber *cupsObj;
+
+    NSInteger showlikenum;
 }
-
-//@synthesize score = _score;
-//@synthesize heartrate = _heartrate;
-//@synthesize sleep = _sleep;
-//@synthesize step = _step;
-//@synthesize cups = _cups;
-//@synthesize weight = _weight;
-//@synthesize bodyfat = _bodyfat;
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -68,7 +61,6 @@
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
     
     self.navigationController.navigationBar.barTintColor = [DEFAULT_COLOR_THEME;
@@ -77,6 +69,33 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Apple SD Gothic Neo" size:19]}];
     subIndexDict = [NSDictionary dictionaryWithObjectsAndKeys:@"heartrate", [NSNumber numberWithInt:0], @"sleep", [NSNumber numberWithInt:1], @"step", [NSNumber numberWithInt:2], @"cups", [NSNumber numberWithInt:3], @"weight", [NSNumber numberWithInt:4], @"bodyfat", [NSNumber numberWithInt:5], nil];
     
+    PFQuery *newsQuery = [PFQuery queryWithClassName:@"News"];
+    [newsQuery findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
+        if (!error) {
+            NSString *username = [UserData getUsername];
+            showlikenum = 0;
+            for (PFObject *object in results) {
+                if ([[object objectForKey:@"postusername"] isEqualToString:username]) {
+                    NSNumber *num = [object objectForKey:@"showlikenum"];
+                    showlikenum += [num integerValue];
+                    object[@"showlikenum"] = @0;
+                    [object saveInBackground];
+                }
+            }
+            if (showlikenum > 0) {
+                [self.liked setEnabled:YES];
+                [self.liked setBackgroundImage:[UIImage imageNamed:@"heart_filled"] forState:UIControlStateNormal];
+                [self.liked setTitle:[NSString stringWithFormat:@"%d", showlikenum] forState:UIControlStateNormal];
+            } else {
+                [self.liked setEnabled:NO];
+                [self.liked setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
+                [self.liked setTitle:nil forState:UIControlStateNormal];
+            }
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+                                                            
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
     [query whereKey:@"username" equalTo:[UserData getUsername]];
 
@@ -185,8 +204,6 @@
         
          finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:step],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight],[NSNumber numberWithInt:fatratio], nil];
      }
-
-                                                            
                                                             
     self.subProgessView = [[NSMutableArray alloc]init];
 
@@ -479,6 +496,24 @@
     }
 }
 
+- (IBAction)likedAction:(id)sender {
+    [self.liked setEnabled:NO];
+    [self.liked setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
+    [self.liked setTitle:nil forState:UIControlStateNormal];
+    
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Congratulations!" message:[NSString stringWithFormat:@"You recieved %d hearts,\nand earned %d scores.", showlikenum, showlikenum * 10] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    [alertView show];
+    
+    [UserData setPoint:[NSNumber numberWithInteger:[[UserData getPoint] integerValue] + showlikenum * 10]];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+    [query whereKey:@"username" equalTo:[UserData getUsername]];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
+        user[@"point"] = [UserData getPoint];
+        [user saveInBackground];
+    }];
+}
 
 @end
+
 
