@@ -422,19 +422,6 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [thumbnails count];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 52;
-}
-
-
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath{
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
 }
