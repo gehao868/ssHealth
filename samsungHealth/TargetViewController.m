@@ -233,6 +233,19 @@
     [self.frostedViewController presentMenuViewController];
 }
 
+-(BOOL)loadViewWithClassName:(NSString*)name title:(NSString*)title {
+    
+    Class controllerClass=NSClassFromString(name);
+    
+    if(controllerClass){
+        UIViewController* backController=[[controllerClass alloc]initWithNibName:@"CUSLayerVC" bundle:nil];
+        backController.title = title;
+        [self.navigationController pushViewController:backController animated:YES];
+        return YES;
+    }
+    
+    return NO;
+}
 
 
 @end

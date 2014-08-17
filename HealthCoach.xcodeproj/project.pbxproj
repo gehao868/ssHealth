@@ -101,6 +101,9 @@
 		7CBFE97E199B064E006331E4 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBFE97D199B064E006331E4 /* EventKit.framework */; };
 		7CBFE980199B0654006331E4 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBFE97F199B0654006331E4 /* EventKitUI.framework */; };
 		7CC76539199C5A6100C8C111 /* FriendListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC76538199C5A6100C8C111 /* FriendListViewCell.m */; };
+		7CC7654019A04AEF00C8C111 /* CUSSenderStarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7653F19A04AEF00C8C111 /* CUSSenderStarLayer.m */; };
+		7CC7654619A04D5100C8C111 /* CUSSenderLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7654319A04D5100C8C111 /* CUSSenderLayer.m */; };
+		7CC7654719A04D5100C8C111 /* CUSSenderFallLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7654519A04D5100C8C111 /* CUSSenderFallLayer.m */; };
 		7CCA4CC9199B10D10086AF91 /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCA4CC8199B10D10086AF91 /* CalendarView.m */; };
 		7CE78A90198C5AE2002ED7E5 /* HealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A8F198C5AE2002ED7E5 /* HealthData.m */; };
 		7CE78A93198C8366002ED7E5 /* DashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE78A92198C8366002ED7E5 /* DashTableViewCell.m */; };
@@ -281,6 +284,13 @@
 		7CBFE97F199B0654006331E4 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		7CC76537199C5A6100C8C111 /* FriendListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListViewCell.h; sourceTree = "<group>"; };
 		7CC76538199C5A6100C8C111 /* FriendListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListViewCell.m; sourceTree = "<group>"; };
+		7CC7653E19A04AEF00C8C111 /* CUSSenderStarLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSSenderStarLayer.h; sourceTree = "<group>"; };
+		7CC7653F19A04AEF00C8C111 /* CUSSenderStarLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSSenderStarLayer.m; sourceTree = "<group>"; };
+		7CC7654119A04D4200C8C111 /* CUSSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUSSender.h; sourceTree = "<group>"; };
+		7CC7654219A04D5100C8C111 /* CUSSenderLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSSenderLayer.h; sourceTree = "<group>"; };
+		7CC7654319A04D5100C8C111 /* CUSSenderLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSSenderLayer.m; sourceTree = "<group>"; };
+		7CC7654419A04D5100C8C111 /* CUSSenderFallLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSSenderFallLayer.h; sourceTree = "<group>"; };
+		7CC7654519A04D5100C8C111 /* CUSSenderFallLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSSenderFallLayer.m; sourceTree = "<group>"; };
 		7CCA4CC7199B10D10086AF91 /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarView.h; sourceTree = "<group>"; };
 		7CCA4CC8199B10D10086AF91 /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarView.m; sourceTree = "<group>"; };
 		7CE78A8E198C5AE2002ED7E5 /* HealthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthData.h; sourceTree = "<group>"; };
@@ -416,6 +426,7 @@
 		7C79580719872581008FB679 /* Goal */ = {
 			isa = PBXGroup;
 			children = (
+				7CC7653D19A04ADA00C8C111 /* CUSSender */,
 				0B3758551989DE08004A9EB9 /* GoalTableCell.h */,
 				0B3758561989DE08004A9EB9 /* GoalTableCell.m */,
 				7CBD2C57197E4642002F23A5 /* TargetViewController.h */,
@@ -631,6 +642,20 @@
 			name = DatePicker;
 			sourceTree = "<group>";
 		};
+		7CC7653D19A04ADA00C8C111 /* CUSSender */ = {
+			isa = PBXGroup;
+			children = (
+				7CC7654219A04D5100C8C111 /* CUSSenderLayer.h */,
+				7CC7654319A04D5100C8C111 /* CUSSenderLayer.m */,
+				7CC7654419A04D5100C8C111 /* CUSSenderFallLayer.h */,
+				7CC7654519A04D5100C8C111 /* CUSSenderFallLayer.m */,
+				7CC7654119A04D4200C8C111 /* CUSSender.h */,
+				7CC7653E19A04AEF00C8C111 /* CUSSenderStarLayer.h */,
+				7CC7653F19A04AEF00C8C111 /* CUSSenderStarLayer.m */,
+			);
+			name = CUSSender;
+			sourceTree = "<group>";
+		};
 		7CCA4CC6199B10710086AF91 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -824,6 +849,7 @@
 				7CE78A9F198D8AC0002ED7E5 /* FriendTableViewCell.m in Sources */,
 				7CBD2C8A197E467D002F23A5 /* AppsDevicesViewController.m in Sources */,
 				7C89F8BA198AFDB400F021EF /* LaunchViewController.m in Sources */,
+				7CC7654619A04D5100C8C111 /* CUSSenderLayer.m in Sources */,
 				0BA067AD199AB19400D7CD21 /* NewPostViewController.m in Sources */,
 				0B0A24241995E2990086309E /* Group.m in Sources */,
 				0B0A241B19957B620086309E /* SICellSelection.m in Sources */,
@@ -843,6 +869,7 @@
 				7C1A6CA219956E2500E307DA /* Goal.m in Sources */,
 				7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */,
 				3B1CD2071989D75400282886 /* (null) in Sources */,
+				7CC7654719A04D5100C8C111 /* CUSSenderFallLayer.m in Sources */,
 				7C89F8B11989CB4A00F021EF /* TargetViewDetailController.m in Sources */,
 				7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */,
 				7CBD2C86197E467D002F23A5 /* DashBoardViewController.m in Sources */,
@@ -850,6 +877,7 @@
 				0B0A240219957AAB0086309E /* NewsFeedViewController.m in Sources */,
 				7CE78A96198CA42C002ED7E5 /* ImproveTableViewCell.m in Sources */,
 				7CBD2C59197E4642002F23A5 /* UIView+REFrostedViewController.m in Sources */,
+				7CC7654019A04AEF00C8C111 /* CUSSenderStarLayer.m in Sources */,
 				7C89F8A81989C1B800F021EF /* PNLineChart.m in Sources */,
 				7CE78A93198C8366002ED7E5 /* DashTableViewCell.m in Sources */,
 				7CBD2C58197E4642002F23A5 /* UIViewController+REFrostedViewController.m in Sources */,
