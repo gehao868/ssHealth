@@ -301,6 +301,8 @@ UIRefreshControl *currRC;
             news.showlikenum = [object objectForKey:@"showlikenum"];
             news.type = [object objectForKey:@"type"];
             news.objecid = object.objectId;
+            PFFile *file = [object objectForKey:@"media"];
+            news.media = [file getData];
             [array addObject:news];
         }
         [Global setNewsFeed:array];

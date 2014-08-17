@@ -17,5 +17,5 @@
 @property (strong, nonatomic) IBOutlet UIButton *likeButton;
 @property (strong, nonatomic) IBOutlet UILabel *objid;
 - (IBAction)liked:(id)sender;
-
+@property (strong, nonatomic) IBOutlet UIImageView *photo;
 @end

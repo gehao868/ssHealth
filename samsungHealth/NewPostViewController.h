@@ -13,5 +13,13 @@
 - (IBAction)send:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UITextView *postText;
+@property (strong, nonatomic) IBOutlet UIView *photoView;
+@property (strong, nonatomic) IBOutlet UIImageView *photo;
+
+- (IBAction)takePhoto:(id)sender;
+- (IBAction)choosePhoto:(id)sender;
+- (IBAction)cancel:(id)sender;
+- (IBAction)addPhoto:(id)sender;
+
 
 @end

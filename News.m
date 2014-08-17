@@ -19,5 +19,6 @@
 @synthesize type;
 @synthesize groupname;
 @synthesize objecid;
+@synthesize media;
 
 @end

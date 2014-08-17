@@ -30,6 +30,7 @@
 		0BA87092198C5BA900236EBD /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA87091198C5BA900236EBD /* UserData.m */; };
 		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
 		0BE4C45919A00B87008E4396 /* VioceTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE4C45819A00B87008E4396 /* VioceTestViewController.m */; };
+		0BE4C45B19A00D32008E4396 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BE4C45A19A00D32008E4396 /* AVFoundation.framework */; };
 		3B1CD2071989D75400282886 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3B609FC5199C520D0048FD3C /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B609FC4199C520D0048FD3C /* Global.m */; };
 		3B609FC8199C653D0048FD3C /* TableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B609FC7199C653D0048FD3C /* TableDelegate.m */; };
@@ -160,6 +161,7 @@
 		0BA87091198C5BA900236EBD /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		0BE4C45719A00B86008E4396 /* VioceTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VioceTestViewController.h; sourceTree = "<group>"; };
 		0BE4C45819A00B87008E4396 /* VioceTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VioceTestViewController.m; sourceTree = "<group>"; };
+		0BE4C45A19A00D32008E4396 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3B609FC3199C520D0048FD3C /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		3B609FC4199C520D0048FD3C /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		3B609FC6199C653D0048FD3C /* TableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDelegate.h; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BE4C45B19A00D32008E4396 /* AVFoundation.framework in Frameworks */,
 				7CBFE980199B0654006331E4 /* EventKitUI.framework in Frameworks */,
 				7CBFE97E199B064E006331E4 /* EventKit.framework in Frameworks */,
 				0B3758541989D90E004A9EB9 /* Accounts.framework in Frameworks */,
@@ -515,6 +518,7 @@
 		7CBD2C18197E4510002F23A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0BE4C45A19A00D32008E4396 /* AVFoundation.framework */,
 				7CBFE97F199B0654006331E4 /* EventKitUI.framework */,
 				7CBFE97D199B064E006331E4 /* EventKit.framework */,
 				7CBFE979199AFFDC006331E4 /* libKal.a */,

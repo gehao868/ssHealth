@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="0XT-Lj-xhU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="0XT-Lj-xhU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -238,6 +238,10 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nmC-w8-fRA">
+                                                    <rect key="frame" x="79" y="-3" width="160" height="120"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -245,6 +249,7 @@
                                             <outlet property="likeNum" destination="rHk-5o-Esw" id="9hf-eB-Dgg"/>
                                             <outlet property="newsContent" destination="Ucy-vN-5VG" id="R3A-oF-ESe"/>
                                             <outlet property="objid" destination="gHA-nx-sof" id="2ht-Dr-e2W"/>
+                                            <outlet property="photo" destination="nmC-w8-fRA" id="be1-1v-M8j"/>
                                             <outlet property="userName" destination="GgD-ss-tHb" id="wza-H3-Zv4"/>
                                             <outlet property="userPic" destination="7Tl-kW-Xwz" id="UuM-cg-8bz"/>
                                         </connections>
@@ -934,25 +939,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2yg-Gr-eol">
-                                <rect key="frame" x="68" y="188" width="50" height="30"/>
+                                <rect key="frame" x="97" y="144" width="109" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Record">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="recordact:" destination="JXk-GF-O8l" eventType="touchUpInside" id="h0m-G5-G4e"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nBj-Lz-Iij">
-                                <rect key="frame" x="186" y="188" width="33" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Stop">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopact:" destination="JXk-GF-O8l" eventType="touchUpInside" id="c0b-rN-pjB"/>
+                                    <action selector="recorddone:" destination="JXk-GF-O8l" eventType="touchUpInside" id="bwO-36-xb3"/>
+                                    <action selector="recordstart:" destination="JXk-GF-O8l" eventType="touchDown" id="JAy-9m-vhg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mjg-Vk-AfJ">
@@ -973,7 +968,6 @@
                     <connections>
                         <outlet property="play" destination="Mjg-Vk-AfJ" id="wia-T5-u8k"/>
                         <outlet property="record" destination="2yg-Gr-eol" id="TP7-G6-0wu"/>
-                        <outlet property="stop" destination="nBj-Lz-Iij" id="gG6-qd-3cs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MyA-JX-Tpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1001,6 +995,9 @@
                                 <state key="normal" title="Add picture">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addPhoto:" destination="DKI-eR-fEu" eventType="touchUpInside" id="8rd-Ds-eqZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zm7-Pv-6s3">
                                 <rect key="frame" x="186" y="263" width="73" height="30"/>
@@ -1012,6 +1009,50 @@
                                     <segue destination="JXk-GF-O8l" kind="push" id="IUv-fb-qKe"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="DjR-zN-mzV">
+                                <rect key="frame" x="0.0" y="437" width="320" height="131"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mCa-M2-4PR">
+                                        <rect key="frame" x="0.0" y="14" width="320" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Take a photo">
+                                            <color key="titleColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="takePhoto:" destination="DKI-eR-fEu" eventType="touchUpInside" id="9TE-25-N8F"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Dd1-8l-0kh">
+                                        <rect key="frame" x="0.0" y="52" width="320" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Choose an existing photo">
+                                            <color key="titleColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="choosePhoto:" destination="DKI-eR-fEu" eventType="touchUpInside" id="e34-ev-MFo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="APQ-oe-pYf">
+                                        <rect key="frame" x="0.0" y="90" width="320" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="DKI-eR-fEu" eventType="touchUpInside" id="edL-4l-uiG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="NcX-kV-jVm">
+                                <rect key="frame" x="80" y="301" width="160" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.32156863810000003" green="0.38823530080000002" blue="0.44705882670000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1023,6 +1064,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="photo" destination="NcX-kV-jVm" id="Sz7-Qi-LFn"/>
+                        <outlet property="photoView" destination="DjR-zN-mzV" id="I4x-fU-YQY"/>
                         <outlet property="postText" destination="NuR-FN-e7K" id="pd2-5f-LFc"/>
                         <outlet property="sendButton" destination="PtE-cd-kQx" id="jJ0-3g-YKD"/>
                     </connections>
