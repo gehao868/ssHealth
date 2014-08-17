@@ -10,6 +10,7 @@
 #import "TargetViewDetailController.h"
 #import "GoalTableCell.h"
 #import "UserData.h"
+#import "HealthTime.h"
 #import <Parse/Parse.h>
 
 @interface TargetViewController ()
@@ -112,6 +113,7 @@
 {
 
     NSDate *date = self.datepicker.selectedDate;
+   
     if (date == nil) {
         date = today;
     }
@@ -204,8 +206,6 @@
     
     cell.progress.progress =x.doubleValue / y.doubleValue;
     cell.progress.progressTintColor = [UIColor redColor];
-    
-//    NSLog(@"image is %@",[imgList objectAtIndex:indexPath.row] );
     
     cell.image.image = [UIImage imageNamed:[imgList objectAtIndex:indexPath.row]];
     cell.image.frame = CGRectMake(cell.image.frame.origin.x, cell.image.frame.origin.y, 44, 44);

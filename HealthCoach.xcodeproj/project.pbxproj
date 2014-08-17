@@ -54,7 +54,7 @@
 		7C89F8B41989CD9900F021EF /* CompeteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B31989CD9900F021EF /* CompeteViewController.m */; };
 		7C89F8B71989F01600F021EF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B61989F01600F021EF /* ProfileViewController.m */; };
 		7C89F8BA198AFDB400F021EF /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C89F8B9198AFDB400F021EF /* LaunchViewController.m */; };
-		7CA1D870199024720066CE40 /* Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA1D86F199024720066CE40 /* Time.m */; };
+		7CA1D870199024720066CE40 /* HealthTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA1D86F199024720066CE40 /* HealthTime.m */; };
 		7CBD2C1A197E4510002F23A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C19197E4510002F23A5 /* Foundation.framework */; };
 		7CBD2C1C197E4510002F23A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */; };
 		7CBD2C1E197E4510002F23A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C1D197E4510002F23A5 /* UIKit.framework */; };
@@ -209,8 +209,8 @@
 		7C89F8B61989F01600F021EF /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		7C89F8B8198AFDB400F021EF /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
 		7C89F8B9198AFDB400F021EF /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
-		7CA1D86E199024720066CE40 /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
-		7CA1D86F199024720066CE40 /* Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Time.m; sourceTree = "<group>"; };
+		7CA1D86E199024720066CE40 /* HealthTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthTime.h; sourceTree = "<group>"; };
+		7CA1D86F199024720066CE40 /* HealthTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthTime.m; sourceTree = "<group>"; };
 		7CBD2C16197E4510002F23A5 /* HealthCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBD2C19197E4510002F23A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7CBD2C1B197E4510002F23A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -670,8 +670,8 @@
 				7CE78A8F198C5AE2002ED7E5 /* HealthData.m */,
 				0BA87090198C5BA900236EBD /* UserData.h */,
 				0BA87091198C5BA900236EBD /* UserData.m */,
-				7CA1D86E199024720066CE40 /* Time.h */,
-				7CA1D86F199024720066CE40 /* Time.m */,
+				7CA1D86E199024720066CE40 /* HealthTime.h */,
+				7CA1D86F199024720066CE40 /* HealthTime.m */,
 				7C1A6CA019956E2500E307DA /* Goal.h */,
 				7C1A6CA119956E2500E307DA /* Goal.m */,
 				0B0A24221995E2990086309E /* Group.h */,
@@ -885,7 +885,7 @@
 				7C89F8A61989C1B800F021EF /* PNChartLabel.m in Sources */,
 				7C89F8A41989C1B800F021EF /* PNBarChart.m in Sources */,
 				3B609FCB199C65EC0048FD3C /* NewsFeedCell.m in Sources */,
-				7CA1D870199024720066CE40 /* Time.m in Sources */,
+				7CA1D870199024720066CE40 /* HealthTime.m in Sources */,
 				7CBFE94A199A9FD6006331E4 /* DIDatepicker.m in Sources */,
 				0B0A242D1995E42E0086309E /* News.m in Sources */,
 				7CBD2CA4197EF612002F23A5 /* DACircularProgressView.m in Sources */,

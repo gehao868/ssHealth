@@ -10,7 +10,7 @@
 #import "REFrostedViewController.h"
 #import "DACircularProgressView.h"
 
-@interface DashBoardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface DashBoardViewController : UIViewController
 
 
 @property (strong, nonatomic) DACircularProgressView *largestProgressView;
@@ -19,6 +19,8 @@
 - (IBAction)showMenu;
 @property (strong, nonatomic) IBOutlet UITableView *dashTable;
 @property (strong, nonatomic) IBOutlet UIButton *liked;
+@property (weak, nonatomic) IBOutlet UILabel *cheerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cheerNumberLabel;
 - (IBAction)likedAction:(id)sender;
 
 

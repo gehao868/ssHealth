@@ -8,6 +8,7 @@
 
 #import "ImproveTableViewController.h"
 #import "ImproveTableViewCell.h"
+#import "HealthTime.h"
 #import "UserData.h"
 #import <EventKit/EventKit.h>
 
@@ -32,22 +33,9 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
     [query whereKey:@"name" equalTo:[UserData getUsername]];
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
-    
-    [components setHour:-[components hour]];
-    [components setMinute:-[components minute]];
-    [components setSecond:-[components second]];
-    today = [NSDate date];//This variable should now be pointing at a date object that is the start of today (midnight);
-    
-    [components setHour:-24];
-    [components setMinute:0];
-    [components setSecond:0];
-    
-    
-    NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];
 
-    [query whereKey:@"date" greaterThan:yesterday];
+    [query whereKey:@"date" greaterThanOrEqualTo:[HealthTime getToday]];
+    [query whereKey:@"date" lessThanOrEqualTo:[HealthTime getTomorrow]];
     
     NSArray* objects = [query findObjects];
     
@@ -59,53 +47,87 @@
     
     // recomend step
     
+    NSLog(@"step number is %d", [[HealthData getStep] intValue]);
+
+    
     goalArray = [[NSMutableArray alloc] init];
     thumbnails = [[NSMutableArray alloc] init];
     goalNumber =[[NSMutableArray alloc] init];
     goalType = [[NSMutableArray alloc] init];
     
-    if ([[[self healthData] step] intValue] < 8000 && [mutableDict objectForKey:@"step"] == nil) {
-        int quota =[[[self healthData] step] intValue] + 1000;
+    if ([[HealthData getStep] intValue] < 8000 && [mutableDict objectForKey:@"step"] == nil) {
+        int quota =[[HealthData getStep] intValue]+ 1000;
         [goalArray addObject:[NSString stringWithFormat:@"Walk %d steps", quota]];
-        [thumbnails addObject:@"steps"];
+        [thumbnails addObject:@"step"];
         [goalNumber addObject:[NSNumber numberWithInt:quota]];
         [goalType addObject:@"step"];
     }
     
     // recommend sleep
     
-    if ([[[self healthData] sleep] intValue] < 430 && [mutableDict objectForKey:@"sleep"]== nil){
-        int quota =([[[self healthData] sleep] intValue] + 60)/60;
+    if ([[HealthData getSleep] intValue] < 420 && [mutableDict objectForKey:@"sleep"]== nil){
+        int quota =([[HealthData getSleep] intValue] + 60)/60;
         [goalArray addObject:[NSString stringWithFormat:@"Sleep %d hours", quota]];
-        [thumbnails addObject:@"sleep_green"];
+        [thumbnails addObject:@"sleep"];
         [goalNumber addObject:[NSNumber numberWithInt:quota]];
         [goalType addObject:@"sleep"];
         
-    } else if ([[[self healthData] sleep] intValue] > 540 &&[mutableDict objectForKey:@"sleep"]== nil) {
-        int quota =([[[self healthData] sleep] intValue] - 60)/60;
+    } else if ([[HealthData getSleep] intValue] > 540 &&[mutableDict objectForKey:@"sleep"]== nil) {
+        int quota =([[HealthData getSleep] intValue] - 60)/60;
         [goalArray addObject:[NSString stringWithFormat:@"Sleep %d hours", quota]];
-        [thumbnails addObject:@"sleep_green"];
+        [thumbnails addObject:@"sleep"];
         [goalNumber addObject:[NSNumber numberWithInt:quota]];
         [goalType addObject:@"sleep"];
     }
     
     // recommend bodyfat
     
-    if ([[[self healthData] fatratio] floatValue] > 31 && [mutableDict objectForKey:@"fatratio"]== nil){
+    if ([[HealthData getFatratio] floatValue] > 31 && [mutableDict objectForKey:@"fatratio"]== nil){
         [goalArray addObject:[NSString stringWithFormat:@"Exercies 30 minutes"]];
-        [thumbnails addObject:@"bodyfat"];
+        [thumbnails addObject:@"fatratio"];
         [goalNumber addObject:[NSNumber numberWithInt:30]];
         [goalType addObject:@"fatratio"];
     }
     
     // cups
-    if ([[[self healthData] cups] intValue] < 8 && [mutableDict objectForKey:@"cups"]== nil){
-        int quota =[[[self healthData] cups] intValue] + 1;
-        [goalArray addObject:[NSString stringWithFormat:@"Drink %d cups of water", quota]];
-        [thumbnails addObject:@"water_green"];
-        [goalNumber addObject:[NSNumber numberWithInt:quota]];
-        [goalType addObject:@"cups"];
+    
+    if ([[UserData getGender] isEqualToString:@"female"]) {
+        if ([[HealthData getCups] intValue] < 8 && [mutableDict objectForKey:@"cups"]== nil){
+            int quota =[[HealthData getCups] intValue] + 1;
+            [goalArray addObject:[NSString stringWithFormat:@"Drink %d cups of water", quota]];
+            [thumbnails addObject:@"cups"];
+            [goalNumber addObject:[NSNumber numberWithInt:quota]];
+            [goalType addObject:@"cups"];
+        }
+    } else if ([[UserData getGender] isEqualToString:@"male"]) {
+        if ([[HealthData getCups] intValue] < 13 && [mutableDict objectForKey:@"cups"]== nil){
+            int quota =[[HealthData getCups] intValue] + 1;
+            [goalArray addObject:[NSString stringWithFormat:@"Drink %d cups of water", quota]];
+            [thumbnails addObject:@"cups"];
+            [goalNumber addObject:[NSNumber numberWithInt:quota]];
+            [goalType addObject:@"cups"];
+        }
     }
+    
+    //bmi
+    
+    if ([[HealthData getBMI] intValue] > 25 && [mutableDict objectForKey:@"weight"]==nil) {
+        [goalArray addObject:[NSString stringWithFormat:@"Exercies 30 minutes"]];
+        [thumbnails addObject:@"weight"];
+        [goalNumber addObject:[NSNumber numberWithInt:30]];
+        [goalType addObject:@"weight"];
+    }
+    
+    
+    // heartrate
+    if ([[HealthData getHeartrate] intValue] >100 && [mutableDict objectForKey:@"heartrate"] == nil) {
+        [goalArray addObject:[NSString stringWithFormat:@"Exercies 30 minutes"]];
+        [thumbnails addObject:@"hearrate"];
+        [goalNumber addObject:[NSNumber numberWithInt:30]];
+        [goalType addObject:@"heartrate"];
+    }
+    
+    
 }
 
 
@@ -151,14 +173,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     PFObject *goal =[PFObject objectWithClassName:@"Goal"];
     goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
     goal[@"type"] = [goalType objectAtIndex:indexPath.row];
-    goal[@"date"] = [NSDate date];
+    goal[@"date"] = [HealthTime getToday];
     goal[@"name"] = [UserData getUsername];
-    
     [goal saveInBackground];
-
+    
+    
     ImproveTableViewCell *cell = (ImproveTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
 
     cell.improveAdd.image = [UIImage imageNamed:@"checkmark_black"];
