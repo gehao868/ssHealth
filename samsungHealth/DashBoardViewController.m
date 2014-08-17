@@ -28,9 +28,6 @@
 @end
 
 @implementation DashBoardViewController {
-    NSArray *finished;
-    NSArray *expected;
-    NSArray *tableData;
     NSArray *thumbnails;
     NSMutableArray *subScore;
     NSArray * subCircleLabel;
@@ -242,8 +239,7 @@
 
     thumbnails = [NSArray arrayWithObjects:@"heart_green", @"sleep_green", @"steps", @"water_green", @"weight_green",nil];
     
-    expected = [NSArray arrayWithObjects: [NSNumber numberWithInt:80], [NSNumber numberWithInt:8], [NSNumber numberWithInt:1200], [NSNumber numberWithInt:6],[NSNumber numberWithInt:20],nil];
-    tableData = [NSArray arrayWithObjects:@"heartrate", @"sleep", @"step", @"cups", @"weight",nil];
+
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
              
     //add shadow
@@ -270,7 +266,7 @@
 - (void)progressChange
 {
     int score = (int)roundf(_largestProgressView.progress * 100);
-    int curScore = _score.text.intValue;
+   // int curScore = _score.text.intValue;
     
     if (healthScoreInt > _score.text.intValue && score > _score.text.intValue) {
         score += 1;
@@ -437,40 +433,7 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *simpleTableIdentifier = @"HealthDataCell";
-    
-    DashTableViewCell *cell = (DashTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
 
-    if (cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"HealthDataCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    
-    NSNumber *x = (NSNumber*)[finished objectAtIndex:indexPath.row];
-    NSNumber *y = (NSNumber*)[expected objectAtIndex:indexPath.row];
-    float z = x.floatValue /y.floatValue;
-    
-    NSString *text = [[NSString alloc] initWithFormat:@"%2.0f %%",(z*100)];
-    
-    cell.output.text = text;
-
-
-    cell.progress.progress =  x.doubleValue /y.doubleValue;
-    UIColor* tintColor = [DEFAULT_COLOR_GREEN;
-    if (z * 100 < 60) {
-        tintColor = [DEFAULT_COLOR_RED;
-    } else if (z * 100 < 80) {
-        tintColor = [DEFAULT_COLOR_YELLOW;
-    }
-    cell.progress.progressTintColor = tintColor;
-    
-    cell.healthIconImage.image = [UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
-    [[cell healthIconImage]setTintColor:[UIColor lightGrayColor]];
-    return cell;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath{
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
