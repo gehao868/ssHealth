@@ -8,7 +8,7 @@
 
 #import "DetailViewController.h"
 #import "PNChart.h"
-#import "Time.h"
+#import "HealthTime.h"
 #import "UserData.h"
 #import <Parse/Parse.h>
 
@@ -165,13 +165,24 @@
         }
         
     } else if ([self.healthDataName isEqualToString:@"cups"]) {
-        if (checkVal < 8) {
-            int quota = checkVal + 1;
-            self.recommendGoal.text = [NSString stringWithFormat:@"Drink %d cups of water", quota];
-            self.goalTypePic.image = [UIImage imageNamed: @"cups"];
-        } else {
-            self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
-            self.goalTypePic.image = [UIImage imageNamed: @"cups"];
+        if ([[UserData getGender] isEqualToString:@"female"]) {
+            if (checkVal < 8) {
+                int quota = checkVal + 1;
+                self.recommendGoal.text = [NSString stringWithFormat:@"Drink %d cups of water", quota];
+                self.goalTypePic.image = [UIImage imageNamed: @"cups"];
+            } else {
+                self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
+                self.goalTypePic.image = [UIImage imageNamed: @"cups"];
+            }
+        } else if ([[UserData getGender] isEqualToString:@"male"]) {
+            if (checkVal < 13) {
+                int quota = checkVal + 1;
+                self.recommendGoal.text = [NSString stringWithFormat:@"Drink %d cups of water", quota];
+                self.goalTypePic.image = [UIImage imageNamed: @"cups"];
+            } else {
+                self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
+                self.goalTypePic.image = [UIImage imageNamed: @"cups"];
+            }
         }
     }
     

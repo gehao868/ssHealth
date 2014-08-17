@@ -205,8 +205,6 @@
     cell.progress.progress =x.doubleValue / y.doubleValue;
     cell.progress.progressTintColor = [UIColor redColor];
     
-//    NSLog(@"image is %@",[imgList objectAtIndex:indexPath.row] );
-    
     cell.image.image = [UIImage imageNamed:[imgList objectAtIndex:indexPath.row]];
     cell.image.frame = CGRectMake(cell.image.frame.origin.x, cell.image.frame.origin.y, 44, 44);
     
