@@ -35,7 +35,7 @@
                                      NSForegroundColorAttributeName: [UIColor blackColor]};
     const CGSize textSize = [news.content sizeWithAttributes:userAttributes];
     
-    float newsHeight = ceil((ceil(textSize.width / 300.0f) + 1) * font.lineHeight);
+    float newsHeight = lroundf((textSize.width / 300.0f) + 0.5f) * (font.lineHeight * 1.5);
     newsHeight = MAX(newsHeight, 28.0f);
     
     float cellHeight = gap + imgHeight + gap + newsHeight + gap + likesHeight;
@@ -79,10 +79,8 @@
     const CGSize textSize = [cell.newsContent.text sizeWithAttributes:userAttributes];
     
 //    cell.newsContent.contentSize.height = 28.0f;
-    frame.size.height = ceil((ceil(textSize.width / 300.0f) + 1) * cell.newsContent.font.lineHeight);
-    if (frame.size.height < 28.0f) {
-        frame.size.height = 28.0f;
-    }
+    frame.size.height = lroundf((textSize.width / 300.0f) + 0.5f) * (cell.newsContent.font.lineHeight * 1.5);
+    
     cell.newsContent.frame = frame;
    
     cell.likeNum.text = [[news.likenum stringValue] stringByAppendingString:@" likes"];
