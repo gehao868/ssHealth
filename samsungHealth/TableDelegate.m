@@ -25,7 +25,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     UIFont *font =  [UIFont systemFontOfSize:14.0f];
     float imgHeight = 47.0f;
     float likesHeight = 38.0f;
@@ -46,8 +45,6 @@
     }
     return cellHeight;
 }
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -119,16 +116,15 @@
         
         likeImgFrame.origin.y = likeFrame.origin.y;
         cell.likeButton.frame = likeImgFrame;
-
     } else {
         cell.photo.hidden = YES;
     }
     NSLog(@"photo starting point is %f" @" index at %ld", cell.photo.frame.origin.y ,(long)indexPath.row);
-    NSLog(@"like starting point is %f" @" index at %ld", cell.likeNum.frame.origin.y ,(long)indexPath.row);
+    //NSLog(@"like starting point is %f" @" index at %ld", cell.likeNum.frame.origin.y ,(long)indexPath.row);
+    
     return cell;
 }
 
 - (void)reloadRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
-    
 }
 @end
