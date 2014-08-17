@@ -113,8 +113,67 @@
         [self.view addSubview:lineChart];
     }
     
+    int checkVal =[self.dataValue intValue];
+    
+    if ([self.healthDataName isEqualToString:@"sleep"]) {
+        if (checkVal > 540) {
+            int quota = (checkVal - 60)/60;
+            self.recommendGoal.text = [NSString stringWithFormat:@"Sleep %d hours", quota];
+            self.goalTypePic.image = [UIImage imageNamed: @"sleep"];
+        } else if(checkVal < 420) {
+            int quota = (checkVal + 60)/60;
+            self.recommendGoal.text = [NSString stringWithFormat:@"Sleep %d hours", quota];
+            self.goalTypePic.image = [UIImage imageNamed: @"sleep"];
+        } else {
+            self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
+            self.goalTypePic.image = [UIImage imageNamed: @"sleep"];
+        }
+    } else if ([self.healthDataName isEqualToString:@"step"]) {
+        if (checkVal< 8000) {
+            int quota = checkVal + 1000;
+            self.recommendGoal.text = [NSString stringWithFormat:@"Walk %d steps", quota];
+            self.goalTypePic.image = [UIImage imageNamed: @"step"];
+        } else {
+            self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
+            self.goalTypePic.image = [UIImage imageNamed: @"step"];
+        }
+    } else if ([self.healthDataName isEqualToString:@"heartrate"]) {
+        if (checkVal > 100) {
+            self.recommendGoal.text = [NSString stringWithFormat:@"Exercies 30 minutes"];
+            self.goalTypePic.image = [UIImage imageNamed: @"heartrate"];
+        } else {
+            self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
+            self.goalTypePic.image = [UIImage imageNamed: @"heartrate"];
+        }
+        
+    } else if ([self.healthDataName isEqualToString:@"fatratio"]) {
+        if (checkVal > 31) {
+            self.recommendGoal.text = [NSString stringWithFormat:@"Exercies 30 minutes"];
+            self.goalTypePic.image = [UIImage imageNamed: @"bodyfat"];
+        } else {
+            self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
+            self.goalTypePic.image = [UIImage imageNamed: @"bodyfat"];
+        }
+        
+    } else if ([self.healthDataName isEqualToString:@"weight"]) {
+        if (checkVal) {
+            
+        }
+        
+    } else if ([self.healthDataName isEqualToString:@"cups"]) {
+        if (checkVal < 8) {
+            int quota = checkVal + 1;
+            self.recommendGoal.text = [NSString stringWithFormat:@"Drink %d cups of water", quota];
+            self.goalTypePic.image = [UIImage imageNamed: @"cups"];
+        } else {
+            self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
+            self.goalTypePic.image = [UIImage imageNamed: @"cups"];
+        }
+    }
+    
     self.title = [self healthDataName];
     self.monthLabel.text = [self getMonthName:thisMonth];
+    
 }
 
 - (NSString* )getMonthName:(int)thisMonth {

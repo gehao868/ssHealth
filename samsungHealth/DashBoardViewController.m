@@ -38,15 +38,23 @@
     UIColor* defaultColor;
     int healthScoreInt;
     NSDictionary *subIndexDict;
+    NSArray* objects;
+    
+    NSNumber *bmiObj;
+    NSNumber *heartrateObj;
+    NSNumber *sleepObj;
+    NSNumber *stepObj;
+    NSNumber *fatratioObj;
+    NSNumber *cupsObj;
 }
 
-@synthesize score = _score;
-@synthesize heartrate = _heartrate;
-@synthesize sleep = _sleep;
-@synthesize step = _step;
-@synthesize cups = _cups;
-@synthesize weight = _weight;
-@synthesize bodyfat = _bodyfat;
+//@synthesize score = _score;
+//@synthesize heartrate = _heartrate;
+//@synthesize sleep = _sleep;
+//@synthesize step = _step;
+//@synthesize cups = _cups;
+//@synthesize weight = _weight;
+//@synthesize bodyfat = _bodyfat;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -86,11 +94,13 @@
     subCircleLabel = [NSArray arrayWithObjects:_heartrate,_sleep,_step, _cups, _weight, _bodyfat, nil];
     
                                                             
-    NSArray* objects = [query findObjects];
+    objects = [query findObjects];
     subScore = [[NSMutableArray alloc] init];
     
     for (PFObject *object in objects) {
          int heartrate = [[object objectForKey:@"heartrate"] intValue];
+         heartrateObj = [object objectForKey:@"heartrate"];
+        
          if(heartrate <= 100 && heartrate >= 40){
              [subScore addObject:[NSNumber numberWithFloat:1]];
          } else {
@@ -98,6 +108,7 @@
          }
         
         int cups = [[object objectForKey:@"cups"] intValue];
+        cupsObj =[object objectForKey:@"cups"];
         
         if ([[UserData getGender] isEqualToString:@"male"]) {
             if (cups >=13) {
@@ -115,7 +126,8 @@
         }
         
         int step = [[object objectForKey:@"step"] intValue];
-        NSLog(@"step is %d",step);
+        stepObj =[object objectForKey:@"step"];
+        
         if (step >= 8000) {
             [subScore addObject:[NSNumber numberWithFloat:1]];
         } else {
@@ -124,6 +136,7 @@
         
         int losedWeight = [[object objectForKey:@"weight"] intValue];
         float bmi = 1.0 * losedWeight / [[UserData getHeight] intValue] * [[UserData getHeight] intValue];
+        bmiObj = [NSNumber numberWithFloat:bmi];
         
         if (bmi < 18) {
             [subScore addObject:[NSNumber numberWithFloat:0.7]];
@@ -136,6 +149,7 @@
         }
         
          int sleep = [[object objectForKey:@"sleep"] intValue];
+         sleepObj =[object objectForKey:@"sleep"];
         
          if (sleep <= 540 && sleep >=420) {
             [subScore addObject:[NSNumber numberWithFloat:1]];
@@ -148,6 +162,8 @@
          }
 
          int fatratio = [[object objectForKey:@"fatratio"] intValue];
+        fatratioObj =[object objectForKey:@"fatratio"];
+        
          if ([[UserData getGender] isEqualToString:@"male"]) {
              if (fatratio < 18) {
                  [subScore addObject:[NSNumber numberWithFloat:1.0 * fatratio/18]];
@@ -440,16 +456,26 @@
     
     if ([segue.identifier isEqualToString:@"sleep"]) {
         destViewController.healthDataName = @"sleep";
+        destViewController.dataValue = sleepObj;
+    
     } else if ([segue.identifier isEqualToString:@"step"]) {
         destViewController.healthDataName = @"step";
+        destViewController.dataValue = stepObj;
+        
     } else if ([segue.identifier isEqualToString:@"weight"]) {
         destViewController.healthDataName = @"weight";
+        destViewController.dataValue = bmiObj;
     } else if ([segue.identifier isEqualToString:@"fatratio"]) {
         destViewController.healthDataName = @"fatratio";
+        destViewController.dataValue = fatratioObj;
+
     } else if ([segue.identifier isEqualToString:@"heartrate"]) {
         destViewController.healthDataName = @"heartrate";
+        destViewController.dataValue = heartrateObj;
+
     } else if ([segue.identifier isEqualToString:@"cups"]) {
         destViewController.healthDataName = @"cups";
+        destViewController.dataValue = cupsObj;
     }
 }
 

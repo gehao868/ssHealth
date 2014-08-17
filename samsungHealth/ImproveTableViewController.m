@@ -74,15 +74,15 @@
     
     // recommend sleep
     
-    if ([[[self healthData] sleep] intValue] < 7 && [mutableDict objectForKey:@"sleep"]== nil){
-        int quota =[[[self healthData] sleep] intValue] + 1;
+    if ([[[self healthData] sleep] intValue] < 430 && [mutableDict objectForKey:@"sleep"]== nil){
+        int quota =([[[self healthData] sleep] intValue] + 60)/60;
         [goalArray addObject:[NSString stringWithFormat:@"Sleep %d hours", quota]];
         [thumbnails addObject:@"sleep_green"];
         [goalNumber addObject:[NSNumber numberWithInt:quota]];
         [goalType addObject:@"sleep"];
         
-    } else if ([[[self healthData] sleep] intValue] > 9 &&[mutableDict objectForKey:@"sleep"]== nil) {
-        int quota =[[[self healthData] sleep] intValue] - 1;
+    } else if ([[[self healthData] sleep] intValue] > 540 &&[mutableDict objectForKey:@"sleep"]== nil) {
+        int quota =([[[self healthData] sleep] intValue] - 60)/60;
         [goalArray addObject:[NSString stringWithFormat:@"Sleep %d hours", quota]];
         [thumbnails addObject:@"sleep_green"];
         [goalNumber addObject:[NSNumber numberWithInt:quota]];
