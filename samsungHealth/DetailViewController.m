@@ -156,8 +156,12 @@
         }
         
     } else if ([self.healthDataName isEqualToString:@"weight"]) {
-        if (checkVal) {
-            
+        if (checkVal > 25) {
+            self.recommendGoal.text = [NSString stringWithFormat:@"Exercies 30 minutes"];
+            self.goalTypePic.image = [UIImage imageNamed: @"weight"];
+        } else {
+            self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
+            self.goalTypePic.image = [UIImage imageNamed: @"weight"];
         }
         
     } else if ([self.healthDataName isEqualToString:@"cups"]) {
