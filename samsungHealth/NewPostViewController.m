@@ -19,6 +19,8 @@
 
 @implementation NewPostViewController
 
+UIImage *chosenImage = NULL;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,6 +35,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.photoView.hidden = YES;
+    
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                              message:@"Device has no camera"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        
+        [myAlertView show];
+        
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,12 +75,81 @@
     post[@"showlikenum"] = @0;
     post[@"likedby"] = [[NSArray alloc] init];
     post[@"groupname"] = [Global getCurrGroup];
+    if (chosenImage) {
+        NSData *imageData = UIImagePNGRepresentation(chosenImage);
+        PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
+        post[@"media"] = imageFile;
+    }
+    
     [post saveInBackground];
     
     UIAlertView *messageAlert = [[UIAlertView alloc]
                                  initWithTitle:@"Post Sent" message:@"Succeed!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [messageAlert show];
     
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (IBAction)takePhoto:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+    }
+
+- (IBAction)choosePhoto:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+    }
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    chosenImage = info[UIImagePickerControllerEditedImage];
+    UIImageWriteToSavedPhotosAlbum (chosenImage, self, @selector(image:finishedSavingWithError:contextInfo:) , nil);
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    if (chosenImage) {
+        self.photo.image = chosenImage;
+    }
+    self.photoView.hidden = YES;
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+-(void)image:(UIImage *)image finishedSavingWithError:(NSError *)
+error contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image/video"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+- (IBAction)cancel:(id)sender {
+    self.photoView.hidden = YES;
+}
+
+- (IBAction)addPhoto:(id)sender {
+    if ([self.photoView isHidden]) {
+        self.photoView.hidden = NO;
+    } else {
+        self.photoView.hidden = YES;
+    }
 }
 @end

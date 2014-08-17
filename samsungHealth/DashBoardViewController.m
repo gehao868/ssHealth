@@ -63,11 +63,8 @@
     
     [super viewDidLoad];
     
-    //UI modification
     self.navigationController.navigationBar.barTintColor = [DEFAULT_COLOR_THEME;
-//    self.navigationController.navigationBar.translucent = NO;
-                                                            
-//    [self.navigationController.navigationBar setTintColor:[DEFAULT_COLOR_DARKTHEME];
+
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Apple SD Gothic Neo" size:19]}];
     subIndexDict = [NSDictionary dictionaryWithObjectsAndKeys:@"heartrate", [NSNumber numberWithInt:0], @"sleep", [NSNumber numberWithInt:1], @"step", [NSNumber numberWithInt:2], @"cups", [NSNumber numberWithInt:3], @"weight", [NSNumber numberWithInt:4], @"bodyfat", [NSNumber numberWithInt:5], nil];
@@ -75,88 +72,138 @@
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
     [query whereKey:@"username" equalTo:[UserData getUsername]];
 
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
-    
-    [components setHour:-[components hour]];
-    [components setMinute:-[components minute]];
-    [components setSecond:-[components second]];
-    NSDate *today = [NSDate date];//This variable should now be pointing at a date object that is the start of today (midnight);
-    
-    [components setHour:-24];
-    [components setMinute:0];
-    [components setSecond:0];
-    
-    
-    NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];
-    
-    [query whereKey:@"Time" lessThanOrEqualTo:today];
-    [query whereKey:@"Time" greaterThan:yesterday];
+                                            
+    NSDate *today = [NSDate date];
+
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+    [components setHour:-4];
+    today = [[NSCalendar currentCalendar] dateFromComponents:components];
+
+                                                            
+    [query whereKey:@"date" lessThanOrEqualTo:[today dateByAddingTimeInterval:60*60*24*1]];
+    [query whereKey:@"date" greaterThanOrEqualTo:today];
     
     subCircleLabel = [NSArray arrayWithObjects:_heartrate,_sleep,_step, _cups, _weight, _bodyfat, nil];
-                                                            
-                                                            
-    NSArray* objects = [query findObjects];
-    for (PFObject *object in objects) {
-         NSLog(@"%@", [object objectForKey:@"step"]);
-         int heartrate = [[object objectForKey:@"heartrate"] intValue];
-         int sleep = [[object objectForKey:@"sleep"] intValue];
-         int step = [[object objectForKey:@"step"] intValue];
-         int cups = [[object objectForKey:@"cups"] intValue];
-         int losedWeight = [[object objectForKey:@"weight"] intValue];
-         
-         finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:step],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight], nil];
-     }
-   
-    self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(70.0f, 115.0f, 180.0f, 180.0f)];
-                                                            
-    healthScore = [self calculateScore:finished :expected];
-    healthScoreInt = (int)roundf(healthScore * 100);
-//    [[self largestProgressView]setProgress:healthScore];
-    [self setDefaultColor];
-    _score.textColor = defaultColor;
-    [[self largestProgressView]setProgressTintColor:defaultColor];
-    NSLog(@"health score is %f", healthScore);
-    [self.view addSubview: self.largestProgressView];
     
                                                             
-    //add sub circle progress
+    NSArray* objects = [query findObjects];
+    subScore = [[NSMutableArray alloc] init];
+    
+    for (PFObject *object in objects) {
+         int heartrate = [[object objectForKey:@"heartrate"] intValue];
+         if(heartrate <= 100 && heartrate >= 40){
+             [subScore addObject:[NSNumber numberWithFloat:1]];
+         } else {
+             [subScore addObject:[NSNumber numberWithFloat:0]];
+         }
+        
+        int cups = [[object objectForKey:@"cups"] intValue];
+        
+        if ([[UserData getGender] isEqualToString:@"male"]) {
+            if (cups >=13) {
+                [subScore addObject:[NSNumber numberWithFloat:1]];
+            } else {
+                NSLog(@"CUPS IS %f", fabsf(1.0 *(cups - 13)/13));
+                [subScore addObject:[NSNumber numberWithFloat:0.4]];
+            }
+        } else {
+            if (cups >= 9 ) {
+                [subScore addObject:[NSNumber numberWithFloat:1]];
+            } else {
+                [subScore addObject:[NSNumber numberWithFloat:fabsf(1.0 * (cups - 9)/9)]];
+            }
+        }
+        
+        int step = [[object objectForKey:@"step"] intValue];
+        NSLog(@"step is %d",step);
+        if (step >= 8000) {
+            [subScore addObject:[NSNumber numberWithFloat:1]];
+        } else {
+            [subScore addObject:[NSNumber numberWithFloat:1.0 * step/8000]];
+        }
+        
+        int losedWeight = [[object objectForKey:@"weight"] intValue];
+        float bmi = 1.0 * losedWeight / [[UserData getHeight] intValue] * [[UserData getHeight] intValue];
+        
+        if (bmi < 18) {
+            [subScore addObject:[NSNumber numberWithFloat:0.7]];
+        } else if (bmi > 30) {
+            [subScore addObject:[NSNumber numberWithFloat:0.5]];
+        } else if (bmi >25 && bmi <= 30) {
+            [subScore addObject:[NSNumber numberWithFloat:0.7]];
+        } else {
+            [subScore addObject:[NSNumber numberWithFloat:1]];
+        }
+        
+         int sleep = [[object objectForKey:@"sleep"] intValue];
+        
+         if (sleep <= 540 && sleep >=420) {
+            [subScore addObject:[NSNumber numberWithFloat:1]];
+         } else if (sleep > 780 || sleep < 240){
+            [subScore addObject:[NSNumber numberWithFloat:0]];
+         } else if (sleep >540 && sleep <=780) {
+            [subScore addObject:[NSNumber numberWithFloat:1.0 * (780-sleep)/240]];
+         } else if (sleep >= 240 && sleep <420){
+            [subScore addObject:[NSNumber numberWithFloat:1.0 * (sleep - 240)/240]];
+         }
+
+         int fatratio = [[object objectForKey:@"fatratio"] intValue];
+         if ([[UserData getGender] isEqualToString:@"male"]) {
+             if (fatratio < 18) {
+                 [subScore addObject:[NSNumber numberWithFloat:1.0 * fatratio/18]];
+             } else if (fatratio > 24){
+                 [subScore addObject:[NSNumber numberWithFloat:1.0 * (100-fatratio)/76]];
+             } else {
+                 [subScore addObject:[NSNumber numberWithFloat:1]];
+             }
+         } else {
+             if (fatratio < 25) {
+                 [subScore addObject:[NSNumber numberWithFloat:1.0 * fatratio/25]];
+             } else if (fatratio > 31){
+                 [subScore addObject:[NSNumber numberWithFloat:1.0 * (100-fatratio)/69]];
+
+             } else {
+                 [subScore addObject:[NSNumber numberWithFloat:1]];
+             }
+         }
+        
+         finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:step],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight],[NSNumber numberWithInt:fatratio], nil];
+     }
+
+                                                            
                                                             
     self.subProgessView = [[NSMutableArray alloc]init];
-    subScore = [[NSMutableArray alloc] init];
+
+    int index = 0;
     for(int i = 0; i < 3; i++) {
         for (int j = 0; j < 2; j++) {
-//            NSNumber *index = [NSNumber numberWithInt:j * 3 + 1];
-//            NSNumber *x = (NSNumber*)[finished objectAtIndex:index];
-//            NSNumber *y = (NSNumber*)[expected objectAtIndex:index];
-//            float z = x.floatValue /y.floatValue;
-            float z = (i + 78.0f) * (j + 79.0f) / (i + 83.0f) / (j + 81.0f) / (7- i - j) * 4;
-            [subScore addObject:[NSNumber numberWithFloat:z]];
-            NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",(z*100)];
+            NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",([[subScore objectAtIndex:index] floatValue]*100)];
             [[subCircleLabel objectAtIndex:j*3+i] setText:text];
             DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(10.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
-            [tmpView setProgress:z];
+            [tmpView setProgress:[[subScore objectAtIndex:index] floatValue]];
             [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN];
             [self.subProgessView addObject:tmpView];
             [self.view addSubview:tmpView];
-             //NSString* selectorName = [NSString stringWithFormat:@"subProgressChange%d:",(j*3+1)];
-             [self.view bringSubviewToFront:self.buttonView];
-//             SEL selector = NSSelectorFromString(selectorName);
-//             [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:selector userInfo:[NSNumber numberWithInt:j*3+i] repeats:YES];
+            [self.view bringSubviewToFront:self.buttonView];
+            index++;
         }
     }
-    
-    
-                                                            
-                                                            
-    //sub circle progress ended
+             self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(70.0f, 115.0f, 180.0f, 180.0f)];
+             NSMutableArray *subCopy = [NSMutableArray arrayWithArray:subScore];;
+             healthScore = [self calculateScore:subCopy];
+             healthScoreInt = (int)roundf(healthScore * 100);
              
+             [self setDefaultColor];
+             _score.textColor = defaultColor;
+             [[self largestProgressView]setProgressTintColor:defaultColor];
+             NSLog(@"health score is %f", healthScore);
+             [self.view addSubview: self.largestProgressView];
+
     thumbnails = [NSArray arrayWithObjects:@"heart_green", @"sleep_green", @"steps", @"water_green", @"weight_green",nil];
     
     expected = [NSArray arrayWithObjects: [NSNumber numberWithInt:80], [NSNumber numberWithInt:8], [NSNumber numberWithInt:1200], [NSNumber numberWithInt:6],[NSNumber numberWithInt:20],nil];
     tableData = [NSArray arrayWithObjects:@"heartrate", @"sleep", @"step", @"cups", @"weight",nil];
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
-//    [NSTimer scheduledTimerWithTimeInterval:0.17 target:self selector:@selector(numberChange:) userInfo:nil repeats:YES];
              
     //add shadow
     self.dashTable.layer.shadowColor = [UIColor darkGrayColor].CGColor;
@@ -308,25 +355,23 @@
 }
 
 
--(double) calculateScore:(NSArray *) finish :(NSArray *)expect {
-//    int sum_finish = 0;
-//    int sum_expected = 0;
-//    for (NSNumber * n in finish) {
-//        sum_finish = [n integerValue];
-//    }
-//    for (NSNumber * m in expect) {
-//        sum_expected = [m integerValue];
-//    }
-   
-//    return 0.7;
-    srand48(time(0));
-    return 0.50f + drand48()/2.0f;
+-(double) calculateScore:(NSMutableArray *) subScoreArray {
+    NSSortDescriptor *lowToHigh = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
+    [subScoreArray sortUsingDescriptors:[NSArray arrayWithObject:lowToHigh]];
+    
+    NSArray *gradient  = [NSArray arrayWithObjects:[NSNumber numberWithDouble:0.4], [NSNumber numberWithDouble:0.2],[NSNumber numberWithDouble:0.1],[NSNumber numberWithDouble:0.1],[NSNumber numberWithDouble:0.1],[NSNumber numberWithDouble:0.1],nil];
+    
+    double score = 0.0;
+    
+    for (int i = 0; i < [subScoreArray count]; i++) {
+        score = score + [[subScoreArray objectAtIndex:i] floatValue] * [[gradient objectAtIndex:i] doubleValue];
+    }
+    return score;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)showMenu
@@ -406,9 +451,6 @@
     } else if ([segue.identifier isEqualToString:@"cups"]) {
         destViewController.healthDataName = @"cups";
     }
-
-
-   
 }
 
 

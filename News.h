@@ -19,4 +19,5 @@
 @property (nonatomic) NSString *type;
 @property (nonatomic) NSString *groupname;
 @property (nonatomic) NSString *objecid;
+@property (nonatomic) NSData *media;
 @end

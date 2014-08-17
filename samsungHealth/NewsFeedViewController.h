@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SINavigationMenuView.h"
 #import "TableDelegate.h"
+#import "DACircularProgressView.h"
+
 
 @interface NewsFeedViewController : UIViewController <SINavigationMenuDelegate>
 - (IBAction)showMenu;
@@ -17,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIView *buttonView;
 @property (strong, nonatomic) IBOutlet UIView *moreView;
 @property (strong, nonatomic) TableDelegate *myTableDelegate;
+@property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 
 - (IBAction)more:(id)sender;
 - (IBAction)managefriend:(id)sender;
