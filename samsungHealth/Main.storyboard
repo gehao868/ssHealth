@@ -923,25 +923,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2yg-Gr-eol">
-                                <rect key="frame" x="68" y="188" width="50" height="30"/>
+                                <rect key="frame" x="97" y="144" width="109" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Record">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="recordact:" destination="JXk-GF-O8l" eventType="touchUpInside" id="h0m-G5-G4e"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nBj-Lz-Iij">
-                                <rect key="frame" x="186" y="188" width="33" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Stop">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopact:" destination="JXk-GF-O8l" eventType="touchUpInside" id="c0b-rN-pjB"/>
+                                    <action selector="recorddone:" destination="JXk-GF-O8l" eventType="touchUpInside" id="bwO-36-xb3"/>
+                                    <action selector="recordstart:" destination="JXk-GF-O8l" eventType="touchDown" id="JAy-9m-vhg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mjg-Vk-AfJ">
@@ -962,7 +952,6 @@
                     <connections>
                         <outlet property="play" destination="Mjg-Vk-AfJ" id="wia-T5-u8k"/>
                         <outlet property="record" destination="2yg-Gr-eol" id="TP7-G6-0wu"/>
-                        <outlet property="stop" destination="nBj-Lz-Iij" id="gG6-qd-3cs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MyA-JX-Tpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
