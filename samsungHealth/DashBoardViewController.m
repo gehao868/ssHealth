@@ -119,10 +119,12 @@
     subScore = [[NSMutableArray alloc] init];
                                                             
 
-                                                                
-                                                                for (PFObject *object in objects) {
-                                                                    int heartrate = [[object objectForKey:@"heartrate"] intValue];
-                                                                    heartrateObj = [object objectForKey:@"heartrate"];
+                                                            if ([objects count] == 0) {
+                                                                [subScore addObject:[NSNumber numberWithFloat:0]];
+                                                            } else {
+                                                                int i = [objects count] - 1;
+                                                                    int heartrate = [[objects[i] objectForKey:@"heartrate"] intValue];
+                                                                    heartrateObj = [objects[i] objectForKey:@"heartrate"];
                                                                     
                                                                     if(heartrate <= 100 && heartrate >= 40){
                                                                         [subScore addObject:[NSNumber numberWithFloat:1]];
@@ -130,8 +132,8 @@
                                                                         [subScore addObject:[NSNumber numberWithFloat:0]];
                                                                     }
                                                                     
-                                                                    int cups = [[object objectForKey:@"cups"] intValue];
-                                                                    cupsObj =[object objectForKey:@"cups"];
+                                                                    int cups = [[objects[i] objectForKey:@"cups"] intValue];
+                                                                    cupsObj =[objects[i] objectForKey:@"cups"];
                                                                     
                                                                     if ([[UserData getGender] isEqualToString:@"male"]) {
                                                                         if (cups >=13) {
@@ -148,8 +150,8 @@
                                                                         }
                                                                     }
                                                                     
-                                                                    int step = [[object objectForKey:@"step"] intValue];
-                                                                    stepObj =[object objectForKey:@"step"];
+                                                                    int step = [[objects[i] objectForKey:@"step"] intValue];
+                                                                    stepObj =[objects[i] objectForKey:@"step"];
                                                                     
                                                                     if (step >= 8000) {
                                                                         [subScore addObject:[NSNumber numberWithFloat:1]];
@@ -157,7 +159,7 @@
                                                                         [subScore addObject:[NSNumber numberWithFloat:1.0 * step/8000]];
                                                                     }
                                                                     
-                                                                    int losedWeight = [[object objectForKey:@"weight"] intValue];
+                                                                    int losedWeight = [[objects[i] objectForKey:@"weight"] intValue];
                                                                     float bmi = 1.0 * losedWeight / [[UserData getHeight] intValue] * [[UserData getHeight] intValue];
                                                                     bmiObj = [NSNumber numberWithFloat:bmi];
                                                                     
@@ -171,8 +173,8 @@
                                                                         [subScore addObject:[NSNumber numberWithFloat:1]];
                                                                     }
                                                                     
-                                                                    int sleep = [[object objectForKey:@"sleep"] intValue];
-                                                                    sleepObj =[object objectForKey:@"sleep"];
+                                                                    int sleep = [[objects[i] objectForKey:@"sleep"] intValue];
+                                                                    sleepObj =[objects[i] objectForKey:@"sleep"];
                                                                     
                                                                     if (sleep <= 540 && sleep >=420) {
                                                                         [subScore addObject:[NSNumber numberWithFloat:1]];
@@ -184,8 +186,8 @@
                                                                         [subScore addObject:[NSNumber numberWithFloat:1.0 * (sleep - 240)/240]];
                                                                     }
                                                                     
-                                                                    int fatratio = [[object objectForKey:@"fatratio"] intValue];
-                                                                    fatratioObj =[object objectForKey:@"fatratio"];
+                                                                    int fatratio = [[objects[i] objectForKey:@"fatratio"] intValue];
+                                                                    fatratioObj =[objects[i] objectForKey:@"fatratio"];
                                                                     
                                                                     if ([[UserData getGender] isEqualToString:@"male"]) {
                                                                         if (fatratio < 18) {
@@ -206,8 +208,9 @@
                                                                         }
                                                                     }
                                                                     
-                                                                    finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:step],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight],[NSNumber numberWithInt:fatratio], nil];
-                                                                }
+                                                                
+                                                               
+                                                            }
                                                             
                                                             
     self.subProgessView = [[NSMutableArray alloc]init];
