@@ -84,6 +84,7 @@ UIImage *chosenImage = NULL;
     post[@"content"] = self.postText.text;
     post[@"postusername"] = [UserData getUsername];
     post[@"showlikenum"] = @0;
+    post[@"likenum"] = @0;
     post[@"likedby"] = [[NSArray alloc] init];
     post[@"groupname"] = [Global getCurrGroup];
     post[@"type"] = @"text";

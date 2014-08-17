@@ -25,7 +25,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     UIFont *font =  [UIFont systemFontOfSize:14.0f];
     float imgHeight = 47.0f;
     float likesHeight = 38.0f;
@@ -36,7 +35,7 @@
                                      NSForegroundColorAttributeName: [UIColor blackColor]};
     const CGSize textSize = [news.content sizeWithAttributes:userAttributes];
     
-    float newsHeight = ceil((ceil(textSize.width / 300.0f) + 1) * font.lineHeight);
+    float newsHeight = lroundf((textSize.width / 300.0f) + 0.5f) * (font.lineHeight * 1.5);
     newsHeight = MAX(newsHeight, 28.0f);
     
     float cellHeight = gap + imgHeight + gap + newsHeight + gap + likesHeight;
@@ -46,8 +45,6 @@
     }
     return cellHeight;
 }
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -82,10 +79,8 @@
     const CGSize textSize = [cell.newsContent.text sizeWithAttributes:userAttributes];
     
 //    cell.newsContent.contentSize.height = 28.0f;
-    frame.size.height = ceil((ceil(textSize.width / 300.0f) + 1) * cell.newsContent.font.lineHeight);
-    if (frame.size.height < 28.0f) {
-        frame.size.height = 28.0f;
-    }
+    frame.size.height = lroundf((textSize.width / 300.0f) + 0.5f) * (cell.newsContent.font.lineHeight * 1.5);
+    
     cell.newsContent.frame = frame;
    
     cell.likeNum.text = [[news.likenum stringValue] stringByAppendingString:@" likes"];
@@ -119,16 +114,15 @@
         
         likeImgFrame.origin.y = likeFrame.origin.y;
         cell.likeButton.frame = likeImgFrame;
-
     } else {
         cell.photo.hidden = YES;
     }
     NSLog(@"photo starting point is %f" @" index at %ld", cell.photo.frame.origin.y ,(long)indexPath.row);
-    NSLog(@"like starting point is %f" @" index at %ld", cell.likeNum.frame.origin.y ,(long)indexPath.row);
+    //NSLog(@"like starting point is %f" @" index at %ld", cell.likeNum.frame.origin.y ,(long)indexPath.row);
+    
     return cell;
 }
 
 - (void)reloadRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
-    
 }
 @end
