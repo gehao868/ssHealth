@@ -38,13 +38,6 @@
     int healthScoreInt;
     NSDictionary *subIndexDict;
     NSArray* objects;
-    
-//    NSNumber *bmiObj;
-//    NSNumber *heartrateObj;
-//    NSNumber *sleepObj;
-//    NSNumber *stepObj;
-//    NSNumber *fatratioObj;
-//    NSNumber *cupsObj;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -232,14 +225,15 @@
              NSMutableArray *subCopy = [NSMutableArray arrayWithArray:subScore];;
              healthScore = [self calculateScore:subCopy];
              healthScoreInt = (int)roundf(healthScore * 100);
+             [self setCheer:healthScoreInt];
+             
              
              [self setDefaultColor];
              _score.textColor = defaultColor;
              [[self largestProgressView]setProgressTintColor:defaultColor];
-             NSLog(@"health score is %f", healthScore);
              [self.view addSubview: self.largestProgressView];
 
-    thumbnails = [NSArray arrayWithObjects:@"heart_green", @"sleep_green", @"steps", @"water_green", @"weight_green",nil];
+    thumbnails = [NSArray arrayWithObjects:@"heartrate", @"sleep", @"step", @"cups", @"weight",nil];
     
 
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
@@ -253,7 +247,19 @@
     self.dashTable.layer.masksToBounds = NO;
 }
          
-         
+-(void) setCheer:(int) s{
+    if (s >= 80) {
+        self.cheerLabel.text = @"Well done";
+        self.cheerNumberLabel.text = @"You are better than 90% users";
+    } else if (s <80 && s>=50) {
+        self.cheerLabel.text = @"Good job";
+        self.cheerNumberLabel.text = @"You are better than 70% users";
+    } else {
+        self.cheerLabel.text = @"Try hard";
+        self.cheerNumberLabel.text = @"You are better than 30% users";
+    }
+}
+             
 -(void) setDefaultColor{
     if (healthScore * 100 < 60) {
         defaultColor = [DEFAULT_COLOR_RED;
@@ -430,7 +436,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     DetailViewController *destViewController = segue.destinationViewController;
-    NSLog(@"SEGUE ID IS %@", segue.identifier);
     
     if ([segue.identifier isEqualToString:@"sleep"]) {
         destViewController.healthDataName = @"sleep";

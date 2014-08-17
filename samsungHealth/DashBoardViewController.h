@@ -19,6 +19,8 @@
 - (IBAction)showMenu;
 @property (strong, nonatomic) IBOutlet UITableView *dashTable;
 @property (strong, nonatomic) IBOutlet UIButton *liked;
+@property (weak, nonatomic) IBOutlet UILabel *cheerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cheerNumberLabel;
 - (IBAction)likedAction:(id)sender;
 
 

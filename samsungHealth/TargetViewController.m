@@ -10,6 +10,7 @@
 #import "TargetViewDetailController.h"
 #import "GoalTableCell.h"
 #import "UserData.h"
+#import "HealthTime.h"
 #import <Parse/Parse.h>
 
 @interface TargetViewController ()
@@ -112,6 +113,7 @@
 {
 
     NSDate *date = self.datepicker.selectedDate;
+   
     if (date == nil) {
         date = today;
     }

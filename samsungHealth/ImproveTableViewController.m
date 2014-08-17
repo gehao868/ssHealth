@@ -58,7 +58,7 @@
     if ([[HealthData getStep] intValue] < 8000 && [mutableDict objectForKey:@"step"] == nil) {
         int quota =[[HealthData getStep] intValue]+ 1000;
         [goalArray addObject:[NSString stringWithFormat:@"Walk %d steps", quota]];
-        [thumbnails addObject:@"steps"];
+        [thumbnails addObject:@"step"];
         [goalNumber addObject:[NSNumber numberWithInt:quota]];
         [goalType addObject:@"step"];
     }
@@ -68,14 +68,14 @@
     if ([[HealthData getSleep] intValue] < 420 && [mutableDict objectForKey:@"sleep"]== nil){
         int quota =([[HealthData getSleep] intValue] + 60)/60;
         [goalArray addObject:[NSString stringWithFormat:@"Sleep %d hours", quota]];
-        [thumbnails addObject:@"sleep_green"];
+        [thumbnails addObject:@"sleep"];
         [goalNumber addObject:[NSNumber numberWithInt:quota]];
         [goalType addObject:@"sleep"];
         
     } else if ([[HealthData getSleep] intValue] > 540 &&[mutableDict objectForKey:@"sleep"]== nil) {
         int quota =([[HealthData getSleep] intValue] - 60)/60;
         [goalArray addObject:[NSString stringWithFormat:@"Sleep %d hours", quota]];
-        [thumbnails addObject:@"sleep_green"];
+        [thumbnails addObject:@"sleep"];
         [goalNumber addObject:[NSNumber numberWithInt:quota]];
         [goalType addObject:@"sleep"];
     }
@@ -84,7 +84,7 @@
     
     if ([[HealthData getFatratio] floatValue] > 31 && [mutableDict objectForKey:@"fatratio"]== nil){
         [goalArray addObject:[NSString stringWithFormat:@"Exercies 30 minutes"]];
-        [thumbnails addObject:@"bodyfat"];
+        [thumbnails addObject:@"fatratio"];
         [goalNumber addObject:[NSNumber numberWithInt:30]];
         [goalType addObject:@"fatratio"];
     }
@@ -95,7 +95,7 @@
         if ([[HealthData getCups] intValue] < 8 && [mutableDict objectForKey:@"cups"]== nil){
             int quota =[[HealthData getCups] intValue] + 1;
             [goalArray addObject:[NSString stringWithFormat:@"Drink %d cups of water", quota]];
-            [thumbnails addObject:@"water_green"];
+            [thumbnails addObject:@"cups"];
             [goalNumber addObject:[NSNumber numberWithInt:quota]];
             [goalType addObject:@"cups"];
         }
@@ -103,7 +103,7 @@
         if ([[HealthData getCups] intValue] < 13 && [mutableDict objectForKey:@"cups"]== nil){
             int quota =[[HealthData getCups] intValue] + 1;
             [goalArray addObject:[NSString stringWithFormat:@"Drink %d cups of water", quota]];
-            [thumbnails addObject:@"water_green"];
+            [thumbnails addObject:@"cups"];
             [goalNumber addObject:[NSNumber numberWithInt:quota]];
             [goalType addObject:@"cups"];
         }
@@ -113,7 +113,7 @@
     
     if ([[HealthData getBMI] intValue] > 25 && [mutableDict objectForKey:@"weight"]==nil) {
         [goalArray addObject:[NSString stringWithFormat:@"Exercies 30 minutes"]];
-        [thumbnails addObject:@"weight_green"];
+        [thumbnails addObject:@"weight"];
         [goalNumber addObject:[NSNumber numberWithInt:30]];
         [goalType addObject:@"weight"];
     }
@@ -122,7 +122,7 @@
     // heartrate
     if ([[HealthData getHeartrate] intValue] >100 && [mutableDict objectForKey:@"heartrate"] == nil) {
         [goalArray addObject:[NSString stringWithFormat:@"Exercies 30 minutes"]];
-        [thumbnails addObject:@"heart_green"];
+        [thumbnails addObject:@"hearrate"];
         [goalNumber addObject:[NSNumber numberWithInt:30]];
         [goalType addObject:@"heartrate"];
     }
@@ -173,14 +173,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     PFObject *goal =[PFObject objectWithClassName:@"Goal"];
     goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
     goal[@"type"] = [goalType objectAtIndex:indexPath.row];
-    goal[@"date"] = [NSDate date];
+    goal[@"date"] = [HealthTime getToday];
     goal[@"name"] = [UserData getUsername];
-    
     [goal saveInBackground];
-
+    
+    
     ImproveTableViewCell *cell = (ImproveTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
 
     cell.improveAdd.image = [UIImage imageNamed:@"checkmark_black"];
