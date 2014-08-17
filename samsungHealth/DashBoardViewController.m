@@ -365,7 +365,6 @@
     
     for (int i = 0; i < [subScoreArray count]; i++) {
         score = score + [[subScoreArray objectAtIndex:i] floatValue] * [[gradient objectAtIndex:i] doubleValue];
-        NSLog(@"%f", score);
     }
     return score;
 }

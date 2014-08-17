@@ -67,6 +67,19 @@ UIRefreshControl *currRC;
 //        PFQuery *query1 = [PFQuery queryWithClassName:@"News"];
 //        [query1 findObjectsInBackgroundWithTarget:self selector:@selector(getNews:error:)];
     }
+    
+    
+    
+    NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",14.0];
+    
+    [self.progressLabel setText:text];
+  
+    DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(120.0f, 80.0f, 80.0f, 80.0f)];
+    [tmpView setProgress:12.0];
+    [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN];
+     [self.view addSubview:tmpView];
+     [self.view bringSubviewToFront:self.buttonView];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
