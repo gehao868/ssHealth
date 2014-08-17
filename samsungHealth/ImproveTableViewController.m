@@ -177,7 +177,7 @@
     PFObject *goal =[PFObject objectWithClassName:@"Goal"];
     goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
     goal[@"type"] = [goalType objectAtIndex:indexPath.row];
-    goal[@"date"] = [HealthTime getToday];
+    goal[@"date"] = [NSDate date];
     goal[@"name"] = [UserData getUsername];
     [goal saveInBackground];
     

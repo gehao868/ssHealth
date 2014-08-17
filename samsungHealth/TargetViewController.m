@@ -135,7 +135,7 @@
             [healthObjects addObject:object];
         }
         [self getHealthData:date];
-        NSLog(@"health object count is %lu", (unsigned long)[healthObjects count]);
+//        NSLog(@"health object count is %lu", (unsigned long)[healthObjects count]);
         NSLog(@"The date is %@", date);
     }];
     
@@ -167,7 +167,10 @@
                 [finished addObject:[NSNumber numberWithInt:0]];
             }
         } else {
+//            NSLog(@"%@", date);
             for (PFObject *object in goalObjects) {
+                NSLog(@"goal object count is %lu", (unsigned long)[goalObjects count]);
+
                 [expected addObject:[object objectForKey:@"expected"]];
                 
                 [imgList addObject:[object objectForKey:@"type"]];
