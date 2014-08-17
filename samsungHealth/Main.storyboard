@@ -238,6 +238,10 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nmC-w8-fRA">
+                                                    <rect key="frame" x="79" y="-3" width="160" height="120"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -245,6 +249,7 @@
                                             <outlet property="likeNum" destination="rHk-5o-Esw" id="9hf-eB-Dgg"/>
                                             <outlet property="newsContent" destination="Ucy-vN-5VG" id="R3A-oF-ESe"/>
                                             <outlet property="objid" destination="gHA-nx-sof" id="2ht-Dr-e2W"/>
+                                            <outlet property="photo" destination="nmC-w8-fRA" id="be1-1v-M8j"/>
                                             <outlet property="userName" destination="GgD-ss-tHb" id="wza-H3-Zv4"/>
                                             <outlet property="userPic" destination="7Tl-kW-Xwz" id="UuM-cg-8bz"/>
                                         </connections>

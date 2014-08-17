@@ -36,7 +36,7 @@ UIImage *chosenImage = NULL;
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.photoView.hidden = YES;
-    
+    chosenImage = NULL;
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -48,6 +48,12 @@ UIImage *chosenImage = NULL;
         [myAlertView show];
         
     }
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+
 
 }
 
@@ -68,6 +74,11 @@ UIImage *chosenImage = NULL;
 }
 */
 
+- (void)dismissKeyboard {
+    [self.postText endEditing:YES];
+    [self.postText resignFirstResponder];
+}
+
 - (IBAction)send:(id)sender {
     PFObject *post = [PFObject objectWithClassName:@"News"];
     post[@"content"] = self.postText.text;
@@ -75,10 +86,13 @@ UIImage *chosenImage = NULL;
     post[@"showlikenum"] = @0;
     post[@"likedby"] = [[NSArray alloc] init];
     post[@"groupname"] = [Global getCurrGroup];
+    post[@"type"] = @"text";
     if (chosenImage) {
         NSData *imageData = UIImagePNGRepresentation(chosenImage);
         PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
+        [imageFile saveInBackground];
         post[@"media"] = imageFile;
+        post[@"type"] = @"photo";
     }
     
     [post saveInBackground];

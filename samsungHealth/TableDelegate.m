@@ -7,6 +7,7 @@
 //
 
 #define gap 5.0f
+#define photoHeight 160.0f
 
 #import "TableDelegate.h"
 #import "NewsFeedCell.h"
@@ -38,7 +39,12 @@
     float newsHeight = ceil((ceil(textSize.width / 300.0f) + 1) * font.lineHeight);
     newsHeight = MAX(newsHeight, 28.0f);
     
-    return gap + imgHeight + gap + newsHeight + gap + likesHeight;
+    float cellHeight = gap + imgHeight + gap + newsHeight + gap + likesHeight;
+    
+    if ([news.type isEqualToString:@"photo"]) {
+        cellHeight += (photoHeight + gap);
+    }
+    return cellHeight;
 }
 
 
@@ -95,12 +101,29 @@
 //    NSLog(@"news height is %f" @" index at %ld", cell.newsContent.frame.size.height, (long)indexPath.row);
 //    NSLog(@"news size width %f" @" index at %ld", textSize.width, (long)indexPath.row);
     
-//    NSLog(@"like starting point is %f" @" index at %ld", cell.likeNum.frame.origin.y ,(long)indexPath.row);
     
     CGRect likeImgFrame = cell.likeButton.frame;
     likeImgFrame.origin.y = likeFrame.origin.y;
     cell.likeButton.frame = likeImgFrame;
     
+    if ([news.type isEqualToString:@"photo"]) {
+        cell.photo.image = [UIImage imageWithData:news.media];
+        CGRect photoFrame = cell.photo.frame;
+        photoFrame.origin.x = frame.origin.x;
+        photoFrame.origin.y = cell.likeButton.frame.origin.y;
+        cell.photo.frame = photoFrame;
+        
+        likeFrame.origin.y = likeFrame.origin.y + photoHeight + gap;
+        cell.likeNum.frame = likeFrame;
+        
+        likeImgFrame.origin.y = likeFrame.origin.y;
+        cell.likeButton.frame = likeImgFrame;
+
+    } else {
+        cell.photo.hidden = YES;
+    }
+    NSLog(@"photo starting point is %f" @" index at %ld", cell.photo.frame.origin.y ,(long)indexPath.row);
+    NSLog(@"like starting point is %f" @" index at %ld", cell.likeNum.frame.origin.y ,(long)indexPath.row);
     return cell;
 }
 
