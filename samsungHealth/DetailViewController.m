@@ -140,10 +140,10 @@
     } else if ([self.healthDataName isEqualToString:@"heartrate"]) {
         if (checkVal > 100) {
             self.recommendGoal.text = [NSString stringWithFormat:@"Exercies 30 minutes"];
-            self.goalTypePic.image = [UIImage imageNamed: @"heartrate"];
+            self.goalTypePic.image = [UIImage imageNamed: @"heart_green"];
         } else {
             self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
-            self.goalTypePic.image = [UIImage imageNamed: @"heartrate"];
+            self.goalTypePic.image = [UIImage imageNamed: @"heart_green"];
         }
         
     } else if ([self.healthDataName isEqualToString:@"fatratio"]) {
@@ -156,8 +156,12 @@
         }
         
     } else if ([self.healthDataName isEqualToString:@"weight"]) {
-        if (checkVal) {
-            
+        if (checkVal > 25) {
+            self.recommendGoal.text = [NSString stringWithFormat:@"Exercies 30 minutes"];
+            self.goalTypePic.image = [UIImage imageNamed: @"weight_green"];
+        } else {
+            self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
+            self.goalTypePic.image = [UIImage imageNamed: @"weight_green"];
         }
         
     } else if ([self.healthDataName isEqualToString:@"cups"]) {

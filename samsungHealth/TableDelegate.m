@@ -107,6 +107,7 @@
     cell.likeButton.frame = likeImgFrame;
     
     if ([news.type isEqualToString:@"photo"]) {
+        cell.photo.hidden = NO;
         cell.photo.image = [UIImage imageWithData:news.media];
         CGRect photoFrame = cell.photo.frame;
         photoFrame.origin.x = frame.origin.x;
