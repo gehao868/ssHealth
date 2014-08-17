@@ -261,6 +261,7 @@
 - (void)progressChange
 {
     int score = (int)roundf(_largestProgressView.progress * 100);
+    int curScore = _score.text.intValue;
     
     if (healthScoreInt > _score.text.intValue && score > _score.text.intValue) {
         score += 1;
