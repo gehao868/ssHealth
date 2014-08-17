@@ -113,96 +113,106 @@
     
                                                             
     objects = [query findObjects];
+                                                            
+
+                                    
     subScore = [[NSMutableArray alloc] init];
-    
-    for (PFObject *object in objects) {
-         int heartrate = [[object objectForKey:@"heartrate"] intValue];
-         heartrateObj = [object objectForKey:@"heartrate"];
-        
-         if(heartrate <= 100 && heartrate >= 40){
-             [subScore addObject:[NSNumber numberWithFloat:1]];
-         } else {
-             [subScore addObject:[NSNumber numberWithFloat:0]];
-         }
-        
-        int cups = [[object objectForKey:@"cups"] intValue];
-        cupsObj =[object objectForKey:@"cups"];
-        
-        if ([[UserData getGender] isEqualToString:@"male"]) {
-            if (cups >=13) {
-                [subScore addObject:[NSNumber numberWithFloat:1]];
-            } else {
-                NSLog(@"CUPS IS %f", fabsf(1.0 *(cups - 13)/13));
-                [subScore addObject:[NSNumber numberWithFloat:0.4]];
-            }
-        } else {
-            if (cups >= 9 ) {
-                [subScore addObject:[NSNumber numberWithFloat:1]];
-            } else {
-                [subScore addObject:[NSNumber numberWithFloat:fabsf(1.0 * (cups - 9)/9)]];
-            }
-        }
-        
-        int step = [[object objectForKey:@"step"] intValue];
-        stepObj =[object objectForKey:@"step"];
-        
-        if (step >= 8000) {
-            [subScore addObject:[NSNumber numberWithFloat:1]];
-        } else {
-            [subScore addObject:[NSNumber numberWithFloat:1.0 * step/8000]];
-        }
-        
-        int losedWeight = [[object objectForKey:@"weight"] intValue];
-        float bmi = 1.0 * losedWeight / [[UserData getHeight] intValue] * [[UserData getHeight] intValue];
-        bmiObj = [NSNumber numberWithFloat:bmi];
-        
-        if (bmi < 18) {
-            [subScore addObject:[NSNumber numberWithFloat:0.7]];
-        } else if (bmi > 30) {
-            [subScore addObject:[NSNumber numberWithFloat:0.5]];
-        } else if (bmi >25 && bmi <= 30) {
-            [subScore addObject:[NSNumber numberWithFloat:0.7]];
-        } else {
-            [subScore addObject:[NSNumber numberWithFloat:1]];
-        }
-        
-         int sleep = [[object objectForKey:@"sleep"] intValue];
-         sleepObj =[object objectForKey:@"sleep"];
-        
-         if (sleep <= 540 && sleep >=420) {
-            [subScore addObject:[NSNumber numberWithFloat:1]];
-         } else if (sleep > 780 || sleep < 240){
-            [subScore addObject:[NSNumber numberWithFloat:0]];
-         } else if (sleep >540 && sleep <=780) {
-            [subScore addObject:[NSNumber numberWithFloat:1.0 * (780-sleep)/240]];
-         } else if (sleep >= 240 && sleep <420){
-            [subScore addObject:[NSNumber numberWithFloat:1.0 * (sleep - 240)/240]];
-         }
-
-         int fatratio = [[object objectForKey:@"fatratio"] intValue];
-        fatratioObj =[object objectForKey:@"fatratio"];
-        
-         if ([[UserData getGender] isEqualToString:@"male"]) {
-             if (fatratio < 18) {
-                 [subScore addObject:[NSNumber numberWithFloat:1.0 * fatratio/18]];
-             } else if (fatratio > 24){
-                 [subScore addObject:[NSNumber numberWithFloat:1.0 * (100-fatratio)/76]];
-             } else {
-                 [subScore addObject:[NSNumber numberWithFloat:1]];
-             }
-         } else {
-             if (fatratio < 25) {
-                 [subScore addObject:[NSNumber numberWithFloat:1.0 * fatratio/25]];
-             } else if (fatratio > 31){
-                 [subScore addObject:[NSNumber numberWithFloat:1.0 * (100-fatratio)/69]];
-
-             } else {
-                 [subScore addObject:[NSNumber numberWithFloat:1]];
-             }
-         }
-        
-         finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:step],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight],[NSNumber numberWithInt:fatratio], nil];
-     }
+                                                            
+                                                            if ([objects count] == 0) {
+                                                                for (int i = 0; i < 6; i++) {
+                                                                    [subScore addObject:[NSNumber numberWithFloat:0]];
+                                                                }
+                                                            } else {
+                                                                
+                                                                for (PFObject *object in objects) {
+                                                                    int heartrate = [[object objectForKey:@"heartrate"] intValue];
+                                                                    heartrateObj = [object objectForKey:@"heartrate"];
+                                                                    
+                                                                    if(heartrate <= 100 && heartrate >= 40){
+                                                                        [subScore addObject:[NSNumber numberWithFloat:1]];
+                                                                    } else {
+                                                                        [subScore addObject:[NSNumber numberWithFloat:0]];
+                                                                    }
+                                                                    
+                                                                    int cups = [[object objectForKey:@"cups"] intValue];
+                                                                    cupsObj =[object objectForKey:@"cups"];
+                                                                    
+                                                                    if ([[UserData getGender] isEqualToString:@"male"]) {
+                                                                        if (cups >=13) {
+                                                                            [subScore addObject:[NSNumber numberWithFloat:1]];
+                                                                        } else {
+                                                                            NSLog(@"CUPS IS %f", fabsf(1.0 *(cups - 13)/13));
+                                                                            [subScore addObject:[NSNumber numberWithFloat:0.4]];
+                                                                        }
+                                                                    } else {
+                                                                        if (cups >= 9 ) {
+                                                                            [subScore addObject:[NSNumber numberWithFloat:1]];
+                                                                        } else {
+                                                                            [subScore addObject:[NSNumber numberWithFloat:fabsf(1.0 * (cups - 9)/9)]];
+                                                                        }
+                                                                    }
+                                                                    
+                                                                    int step = [[object objectForKey:@"step"] intValue];
+                                                                    stepObj =[object objectForKey:@"step"];
+                                                                    
+                                                                    if (step >= 8000) {
+                                                                        [subScore addObject:[NSNumber numberWithFloat:1]];
+                                                                    } else {
+                                                                        [subScore addObject:[NSNumber numberWithFloat:1.0 * step/8000]];
+                                                                    }
+                                                                    
+                                                                    int losedWeight = [[object objectForKey:@"weight"] intValue];
+                                                                    float bmi = 1.0 * losedWeight / [[UserData getHeight] intValue] * [[UserData getHeight] intValue];
+                                                                    bmiObj = [NSNumber numberWithFloat:bmi];
+                                                                    
+                                                                    if (bmi < 18) {
+                                                                        [subScore addObject:[NSNumber numberWithFloat:0.7]];
+                                                                    } else if (bmi > 30) {
+                                                                        [subScore addObject:[NSNumber numberWithFloat:0.5]];
+                                                                    } else if (bmi >25 && bmi <= 30) {
+                                                                        [subScore addObject:[NSNumber numberWithFloat:0.7]];
+                                                                    } else {
+                                                                        [subScore addObject:[NSNumber numberWithFloat:1]];
+                                                                    }
+                                                                    
+                                                                    int sleep = [[object objectForKey:@"sleep"] intValue];
+                                                                    sleepObj =[object objectForKey:@"sleep"];
+                                                                    
+                                                                    if (sleep <= 540 && sleep >=420) {
+                                                                        [subScore addObject:[NSNumber numberWithFloat:1]];
+                                                                    } else if (sleep > 780 || sleep < 240){
+                                                                        [subScore addObject:[NSNumber numberWithFloat:0]];
+                                                                    } else if (sleep >540 && sleep <=780) {
+                                                                        [subScore addObject:[NSNumber numberWithFloat:1.0 * (780-sleep)/240]];
+                                                                    } else if (sleep >= 240 && sleep <420){
+                                                                        [subScore addObject:[NSNumber numberWithFloat:1.0 * (sleep - 240)/240]];
+                                                                    }
+                                                                    
+                                                                    int fatratio = [[object objectForKey:@"fatratio"] intValue];
+                                                                    fatratioObj =[object objectForKey:@"fatratio"];
+                                                                    
+                                                                    if ([[UserData getGender] isEqualToString:@"male"]) {
+                                                                        if (fatratio < 18) {
+                                                                            [subScore addObject:[NSNumber numberWithFloat:1.0 * fatratio/18]];
+                                                                        } else if (fatratio > 24){
+                                                                            [subScore addObject:[NSNumber numberWithFloat:1.0 * (100-fatratio)/76]];
+                                                                        } else {
+                                                                            [subScore addObject:[NSNumber numberWithFloat:1]];
+                                                                        }
+                                                                    } else {
+                                                                        if (fatratio < 25) {
+                                                                            [subScore addObject:[NSNumber numberWithFloat:1.0 * fatratio/25]];
+                                                                        } else if (fatratio > 31){
+                                                                            [subScore addObject:[NSNumber numberWithFloat:1.0 * (100-fatratio)/69]];
+                                                                            
+                                                                        } else {
+                                                                            [subScore addObject:[NSNumber numberWithFloat:1]];
+                                                                        }
+                                                                    }
+                                                                    
+                                                                    finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:step],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight],[NSNumber numberWithInt:fatratio], nil];
+                                                                }
+                                                            }
                                                             
     self.subProgessView = [[NSMutableArray alloc]init];
 
