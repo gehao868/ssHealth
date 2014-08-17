@@ -43,6 +43,7 @@
     if ([news.type isEqualToString:@"photo"]) {
         cellHeight += (photoHeight + gap);
     }
+    
     return cellHeight;
 }
 
@@ -117,8 +118,6 @@
     } else {
         cell.photo.hidden = YES;
     }
-    NSLog(@"photo starting point is %f" @" index at %ld", cell.photo.frame.origin.y ,(long)indexPath.row);
-    //NSLog(@"like starting point is %f" @" index at %ld", cell.likeNum.frame.origin.y ,(long)indexPath.row);
     
     return cell;
 }

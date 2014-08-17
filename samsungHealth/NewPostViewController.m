@@ -37,6 +37,7 @@ UIImage *chosenImage = NULL;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.photoView.hidden = YES;
     chosenImage = NULL;
+    
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -54,7 +55,36 @@ UIImage *chosenImage = NULL;
     
     [self.view addGestureRecognizer:tap];
 
+    [_playButton setHidden:YES];
+    [_recordingMsg setHidden:YES];
+    
+}
 
+- (void)prepareForRecording {
+    // Set the audio file
+    NSArray *pathComponents = [NSArray arrayWithObjects:
+                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+                               @"audioMsg.m4a",
+                               nil];
+    
+    NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
+    
+    // Setup audio session
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    
+    // Define the recorder setting
+    NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
+    
+    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
+    [recordSetting setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
+    [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
+    
+    // Initiate and prepare the recorder
+    recorder = [[AVAudioRecorder alloc] initWithURL:outputFileURL settings:recordSetting error:NULL];
+    recorder.delegate = self;
+    recorder.meteringEnabled = YES;
+    [recorder prepareToRecord];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,6 +124,18 @@ UIImage *chosenImage = NULL;
         [imageFile saveInBackground];
         post[@"media"] = imageFile;
         post[@"type"] = @"photo";
+    }
+    if () {
+        
+        /*
+         NSData *data = [NSData dataWithContentsOfURL:recorder.url];
+         PFFile *file = [PFFile fileWithName:@"audioMsg.m4a" data:data];
+         [file saveInBackground];
+         
+         PFObject *audio = [PFObject objectWithClassName:@"audio"];
+         audio[@"content"] = file;
+         [audio saveInBackground];
+         */
     }
     
     [post saveInBackground];
@@ -163,8 +205,67 @@ error contextInfo:(void *)contextInfo
 - (IBAction)addPhoto:(id)sender {
     if ([self.photoView isHidden]) {
         self.photoView.hidden = NO;
+        [_playButton setHidden:YES];
     } else {
         self.photoView.hidden = YES;
     }
 }
+
+- (IBAction)playandstop:(id)sender {
+    if (!player.playing){
+        [_playButton setBackgroundColor:[UIColor redColor]];
+        
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
+        player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
+        
+        [player setDelegate:self];
+        [player play];
+    } else {
+        [_playButton setBackgroundColor:[UIColor greenColor]];
+        
+        [player stop];
+    }
+}
+
+- (IBAction)startRecording:(id)sender {
+    if (player.playing) {
+        [player stop];
+    }
+    
+    [self prepareForRecording];
+    [_playButton setBackgroundColor:[UIColor greenColor]];
+    
+    if (!recorder.recording) {
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        [session setActive:YES error:nil];
+        
+        [recorder record];
+        [_recordingMsg setHidden:NO];
+    } else {
+        [recorder pause];
+    }
+    
+    [_playButton setEnabled:NO];
+    [_playButton setBackgroundColor:[UIColor redColor]];
+}
+
+- (IBAction)endRecording:(id)sender {
+    [recorder stop];
+    [_recordingMsg setHidden:YES];
+    
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setActive:NO error:nil];
+}
+
+- (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag {
+    [_playButton setEnabled:YES];
+    [_playButton setHidden:NO];
+    [_playButton setBackgroundColor:[UIColor greenColor]];
+}
+
+- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    [_playButton setEnabled:YES];
+    [_playButton setBackgroundColor:[UIColor greenColor]];
+}
+
 @end

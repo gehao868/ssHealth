@@ -585,8 +585,6 @@
 				7C89F8B8198AFDB400F021EF /* LaunchViewController.h */,
 				7C89F8B9198AFDB400F021EF /* LaunchViewController.m */,
 				7CBD2C4E197E4538002F23A5 /* Main.storyboard */,
-				0BE4C45719A00B86008E4396 /* VioceTestViewController.h */,
-				0BE4C45819A00B87008E4396 /* VioceTestViewController.m */,
 				7CBD2C31197E4510002F23A5 /* Images.xcassets */,
 				7CBD2C20197E4510002F23A5 /* Supporting Files */,
 			);
@@ -704,6 +702,8 @@
 				3B609FCA199C65EC0048FD3C /* NewsFeedCell.m */,
 				0BA067AB199AB19400D7CD21 /* NewPostViewController.h */,
 				0BA067AC199AB19400D7CD21 /* NewPostViewController.m */,
+				0BE4C45719A00B86008E4396 /* VioceTestViewController.h */,
+				0BE4C45819A00B87008E4396 /* VioceTestViewController.m */,
 				3BD61A0119969E6600F2A528 /* MembersViewControllor.h */,
 				3BD61A0219969E6600F2A528 /* MembersViewControllor.m */,
 				3BE7C197199B0A3600FB30AE /* SendGiftViewController.h */,
