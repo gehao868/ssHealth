@@ -12,6 +12,7 @@ static NSString * toUserName;
 static NSString * currGroup;
 static BOOL isToUserName;
 static NSMutableArray *newsFeed;
+static NSInteger showlikenum;
 
 @implementation Global
 
@@ -45,6 +46,13 @@ static NSMutableArray *newsFeed;
 
 + (void) setNewsFeed:(NSMutableArray *)array {
     newsFeed = array;
+}
+
++ (NSInteger) getShowlikenum {
+    return showlikenum;
+}
++ (void) setShowlikenum: (NSInteger) newShowlikenum {
+    showlikenum = newShowlikenum;
 }
 
 @end

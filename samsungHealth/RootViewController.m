@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "Global.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface RootViewController ()
@@ -19,6 +20,7 @@
 {
     //self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"launchController"];
     
+    [Global setShowlikenum:0];
     self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentController"];
     self.menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"menuController"];
 }

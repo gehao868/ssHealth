@@ -22,4 +22,7 @@
 + (NSMutableArray *) getNewsFeed;
 + (void) setNewsFeed : (NSMutableArray *) array;
 
++ (NSInteger) getShowlikenum;
++ (void) setShowlikenum: (NSInteger) newShowlikenum;
+
 @end

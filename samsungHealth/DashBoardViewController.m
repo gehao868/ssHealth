@@ -9,6 +9,7 @@
 #import "DashBoardViewController.h"
 #import "HealthData.h"
 #import "UserData.h"
+#import "Global.h"
 #import "DashTableViewCell.h"
 #import "DetailViewController.h"
 
@@ -46,8 +47,6 @@
     NSNumber *stepObj;
     NSNumber *fatratioObj;
     NSNumber *cupsObj;
-
-    NSInteger showlikenum;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -73,19 +72,19 @@
     [newsQuery findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
         if (!error) {
             NSString *username = [UserData getUsername];
-            showlikenum = 0;
             for (PFObject *object in results) {
                 if ([[object objectForKey:@"postusername"] isEqualToString:username]) {
                     NSNumber *num = [object objectForKey:@"showlikenum"];
-                    showlikenum += [num integerValue];
+                    [Global setShowlikenum:[Global getShowlikenum] + [num integerValue]];
                     object[@"showlikenum"] = @0;
                     [object saveInBackground];
                 }
             }
-            if (showlikenum > 0) {
+            
+            if ([Global getShowlikenum] > 0) {
                 [self.liked setEnabled:YES];
                 [self.liked setBackgroundImage:[UIImage imageNamed:@"heart_filled"] forState:UIControlStateNormal];
-                [self.liked setTitle:[NSString stringWithFormat:@"%d", showlikenum] forState:UIControlStateNormal];
+                [self.liked setTitle:[NSString stringWithFormat:@"%d", [Global getShowlikenum]] forState:UIControlStateNormal];
             } else {
                 [self.liked setEnabled:NO];
                 [self.liked setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
@@ -501,6 +500,8 @@
     [self.liked setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
     [self.liked setTitle:nil forState:UIControlStateNormal];
     
+    NSInteger showlikenum = [Global getShowlikenum];
+    
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Congratulations!" message:[NSString stringWithFormat:@"You recieved %d hearts,\nand earned %d scores.", showlikenum, showlikenum * 10] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
     [alertView show];
     
@@ -512,6 +513,8 @@
         user[@"point"] = [UserData getPoint];
         [user saveInBackground];
     }];
+    
+    [Global setShowlikenum:0];
 }
 
 @end
