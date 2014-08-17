@@ -118,11 +118,7 @@
                                     
     subScore = [[NSMutableArray alloc] init];
                                                             
-                                                            if ([objects count] == 0) {
-                                                                for (int i = 0; i < 6; i++) {
-                                                                    [subScore addObject:[NSNumber numberWithFloat:0]];
-                                                                }
-                                                            } else {
+
                                                                 
                                                                 for (PFObject *object in objects) {
                                                                     int heartrate = [[object objectForKey:@"heartrate"] intValue];
@@ -212,7 +208,7 @@
                                                                     
                                                                     finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:step],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight],[NSNumber numberWithInt:fatratio], nil];
                                                                 }
-                                                            }
+                                                            
                                                             
     self.subProgessView = [[NSMutableArray alloc]init];
 
