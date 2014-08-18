@@ -216,9 +216,9 @@
     
     cell.progress.progress =x.doubleValue / y.doubleValue;
     cell.progress.progressTintColor = [DEFAULT_COLOR_GREEN];
-    if (cell.progress.progress < 60) {
+    if (cell.progress.progress < 0.60) {
         cell.progress.progressTintColor = [DEFAULT_COLOR_RED];
-    } else if (cell.progress.progress < 80) {
+    } else if (cell.progress.progress < 0.80) {
         cell.progress.progressTintColor = [DEFAULT_COLOR_YELLOW];
     }
     
