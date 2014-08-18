@@ -177,7 +177,9 @@
                 if ([[object objectForKey:@"type"] isEqualToString:@"fatraito" ]|| [[object objectForKey:@"type"] isEqualToString:@"weight"]||[[object objectForKey:@"type"] isEqualToString:@"heartrate"]) {
                     [finished addObject:[healthObjects[i] objectForKey:@"active"]];
                 } else if ([[object objectForKey:@"type"] isEqualToString:@"sleep" ]){
-                    [finished addObject:[healthObjects[i] objectForKey:@"asleep"]];
+                    NSNumber *asleep = [NSNumber numberWithDouble:[[healthObjects[i] objectForKey:@"asleep"] doubleValue] / 60.0];
+                    
+                    [finished addObject:asleep];
                 } else{
                     [finished addObject:[healthObjects[i] objectForKey:[object objectForKey:@"type"]]];
                 }
