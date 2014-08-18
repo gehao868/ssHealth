@@ -31,7 +31,6 @@
 - (IBAction)playandstop:(id)sender;
 - (IBAction)startRecording:(id)sender;
 - (IBAction)endRecording:(id)sender;
-- (IBAction)endRecording1:(id)sender;
 
 
 @end

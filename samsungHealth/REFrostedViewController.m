@@ -62,7 +62,10 @@
 
 - (void)commonInit
 {
-    self.wantsFullScreenLayout = YES;
+    // remove deprecated
+    //self.wantsFullScreenLayout = YES;
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    
     _animationDuration = 0.35f;
     _blurTintColor = REUIKitIsFlatMode() ? nil : [UIColor colorWithWhite:1 alpha:0.75f];
     _blurSaturationDeltaFactor = 1.8f;
