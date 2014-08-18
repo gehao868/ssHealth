@@ -182,6 +182,7 @@
             goal[@"type"] = type;
             goal[@"date"] = [[NSDate date] dateByAddingTimeInterval:60*60*24*i];
             goal[@"name"] = [UserData getUsername];
+            goal[@"done"] = @"no";
             [goal saveInBackground];
         }
     } else {
@@ -191,6 +192,7 @@
         goal[@"type"] = [goalType objectAtIndex:indexPath.row];
         goal[@"date"] = [NSDate date];
         goal[@"name"] = [UserData getUsername];
+        goal[@"done"] = @"no";
         [goal saveInBackground];
     
     
