@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="0XT-Lj-xhU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="0XT-Lj-xhU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -608,8 +608,8 @@
                                 <rect key="frame" x="37" y="483" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weight" id="SHk-aF-vy9">
-                                <rect key="frame" x="142" y="480" width="35" height="35"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bmi" id="SHk-aF-vy9">
+                                <rect key="frame" x="142" y="483" width="33" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fatratio" id="52T-7A-WUP">
@@ -1754,6 +1754,7 @@
     <resources>
         <image name="add" width="12" height="12"/>
         <image name="addPost" width="55" height="55"/>
+        <image name="bmi" width="44" height="44"/>
         <image name="camera" width="80" height="80"/>
         <image name="coupon_white" width="33" height="33"/>
         <image name="cups" width="44" height="44"/>
@@ -1768,7 +1769,6 @@
         <image name="shake" width="320" height="250"/>
         <image name="sleep" width="22" height="22"/>
         <image name="step" width="22" height="22"/>
-        <image name="weight" width="22" height="22"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
