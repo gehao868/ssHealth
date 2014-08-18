@@ -30,11 +30,6 @@
 	// Initialize table data and thumbnails
     tableData = [[NSMutableArray alloc] init];
     thumbnails = [[NSMutableArray alloc] init];
-//    for (NSDictionary *dict in [UserData getFBFriends]) {
-//        [tableData addObject:[dict objectForKey:@"name"]];
-//        [thumbnails addObject:[dict objectForKey:@"pic"]];
-//    }
-
 }
 
 - (void)viewDidUnload
