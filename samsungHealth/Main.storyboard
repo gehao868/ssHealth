@@ -1751,7 +1751,7 @@
     </scenes>
     <resources>
         <image name="add" width="12" height="12"/>
-        <image name="addPost" width="55" height="55"/>
+        <image name="addPost" width="60" height="60"/>
         <image name="bmi" width="44" height="44"/>
         <image name="camera" width="80" height="80"/>
         <image name="coupon_white" width="33" height="33"/>
