@@ -8,13 +8,14 @@
 
 #define gap 5.0f
 #define photoHeight 140.0f
-#define audioHeight 120.0f
+#define audioHeight 50.0f
 
 #import "TableDelegate.h"
 #import "NewsFeedCell.h"
 #import "Global.h"
 #import "UserData.h"
 #import "News.h"
+#import "Util.h"
 
 @implementation TableDelegate 
 
@@ -27,7 +28,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIFont *font =  [UIFont systemFontOfSize:14.0f];
-    float imgHeight = 47.0f;
+    float imgHeight = 46.0f;
     float likesHeight = 38.0f;
     
     News *news = (News *)[[Global getNewsFeed] objectAtIndex:indexPath.row];
@@ -36,7 +37,7 @@
                                      NSForegroundColorAttributeName: [UIColor blackColor]};
     const CGSize textSize = [news.content sizeWithAttributes:userAttributes];
     
-    float newsHeight = lroundf((textSize.width / 300.0f) + 0.5f) * (font.lineHeight * 1.5);
+    float newsHeight = lroundf((textSize.width / 231) + 0.5f) * (font.lineHeight * 1.5);
     newsHeight = MAX(newsHeight, 28.0f);
     
     float cellHeight = gap + imgHeight + gap + newsHeight + gap + likesHeight;
@@ -81,13 +82,14 @@
     const CGSize textSize = [cell.newsContent.text sizeWithAttributes:userAttributes];
     
 //    cell.newsContent.contentSize.height = 28.0f;
-    frame.size.height = lroundf((textSize.width / 300.0f) + 0.5f) * (cell.newsContent.font.lineHeight * 1.5);
+    frame.size.height = lroundf((textSize.width / 231.0f) + 0.5f) * (cell.newsContent.font.lineHeight * 1.5);
     
     cell.newsContent.frame = frame;
    
     cell.likeNum.text = [[news.likenum stringValue] stringByAppendingString:@" likes"];
     cell.userName.text = news.postusername;
     cell.userPic.image =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendAvatars objectForKey:news.postusername]]]];
+    [Util addCircleForImage:cell.userPic :23.0];
     
     cell.objid.text = news.objecid;
     
@@ -124,8 +126,8 @@
         [cell.playButton setEnabled:YES];
         
         CGRect audioFrame = cell.playButton.frame;
-        audioFrame.origin.x = frame.origin.x;
-        audioFrame.origin.y = cell.likeButton.frame.origin.y;
+        audioFrame.origin.x = frame.origin.x - 10.0f;
+        audioFrame.origin.y = cell.likeButton.frame.origin.y + gap;
         cell.playButton.frame = audioFrame;
         
         likeFrame.origin.y = likeFrame.origin.y + audioHeight + gap;
