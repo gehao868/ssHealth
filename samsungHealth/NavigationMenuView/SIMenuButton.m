@@ -31,7 +31,7 @@
         NSDictionary *currentStyle = [[UINavigationBar appearance] titleTextAttributes];
 //        self.title.textColor = currentStyle[NSForegroundColorAttributeName];
         self.title.textColor = [UIColor whiteColor];
-        self.title.font = currentStyle[UITextAttributeFont];
+        self.title.font = currentStyle[NSFontAttributeName];
 //        self.title.shadowColor = currentStyle[UITextAttributeTextShadowColor];
 //        NSValue *shadowOffset = currentStyle[UITextAttributeTextShadowOffset];
 //        self.title.shadowOffset = shadowOffset.CGSizeValue;

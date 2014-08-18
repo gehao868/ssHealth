@@ -68,6 +68,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
     [query whereKey:@"username" equalTo:[UserData getUsername]];
     [query whereKey:@"date" greaterThan:lastWeek];
+    [query orderByAscending:@"date"];
     
     NSArray* objects = [query findObjects];
     

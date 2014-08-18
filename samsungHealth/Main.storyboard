@@ -966,50 +966,6 @@
             </objects>
             <point key="canvasLocation" x="876" y="131"/>
         </scene>
-        <!--Vioce Test View Controller-->
-        <scene sceneID="ETz-Z3-kGs">
-            <objects>
-                <viewController storyboardIdentifier="VioceTestViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JXk-GF-O8l" customClass="VioceTestViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oTp-rb-sbN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2yg-Gr-eol">
-                                <rect key="frame" x="97" y="144" width="109" height="69"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Record">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="recorddone:" destination="JXk-GF-O8l" eventType="touchUpInside" id="bwO-36-xb3"/>
-                                    <action selector="recordstart:" destination="JXk-GF-O8l" eventType="touchDown" id="JAy-9m-vhg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mjg-Vk-AfJ">
-                                <rect key="frame" x="137" y="261" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Play">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playact:" destination="JXk-GF-O8l" eventType="touchUpInside" id="Xws-gx-IfA"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="XQ5-Qv-ovS"/>
-                    <connections>
-                        <outlet property="play" destination="Mjg-Vk-AfJ" id="wia-T5-u8k"/>
-                        <outlet property="record" destination="2yg-Gr-eol" id="TP7-G6-0wu"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MyA-JX-Tpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2593" y="136"/>
-        </scene>
         <!--New Post View Controller-->
         <scene sceneID="dSr-kv-nHt">
             <objects>

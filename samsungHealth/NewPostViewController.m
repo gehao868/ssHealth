@@ -148,7 +148,7 @@ BOOL chosenAudio = NO;
 
 - (IBAction)takePhoto:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
+    picker.delegate = (id)self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
@@ -157,7 +157,7 @@ BOOL chosenAudio = NO;
 
 - (IBAction)choosePhoto:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
+    picker.delegate = (id)self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
