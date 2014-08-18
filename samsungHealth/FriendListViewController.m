@@ -42,6 +42,14 @@
     }
     
     self.friendTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self setTitle:@"Select Friend"];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Done"
+                                   style:UIBarButtonItemStyleBordered
+                                   target:self
+                                   action:@selector(OK:)];
+    self.navigationItem.rightBarButtonItem = doneButton;
 }
 
 - (void)viewDidUnload
@@ -102,11 +110,7 @@
     if (currRow != nil) {
         [Global setToUserName:[tableData objectAtIndex:currRow.row]];
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)cancel:(id)sender {
-    [Global setToUserSet:NO];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 @end
