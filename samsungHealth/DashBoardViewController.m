@@ -98,8 +98,8 @@
                                                             [HealthTime setToday:today];
                                                             [HealthTime setTomorrow:[today dateByAddingTimeInterval:60*60*24*1]];
                                                             
-    [query whereKey:@"date" lessThanOrEqualTo:[HealthTime getTomorrow]];
-    [query whereKey:@"date" greaterThanOrEqualTo:today];
+    [query whereKey:@"date" lessThanOrEqualTo:[HealthTime getToday]];
+    [query whereKey:@"date" greaterThanOrEqualTo:[today dateByAddingTimeInterval:-60*60*24*1]];
     
     subCircleLabel = [NSArray arrayWithObjects:_heartrate,_sleep,_step, _cups, _weight, _bodyfat, nil];
                                                             
