@@ -220,6 +220,9 @@
     NSMutableArray *subCopy = [NSMutableArray arrayWithArray:subScore];;
     healthScore = [self calculateScore:subCopy];
     healthScoreInt = (int)roundf(healthScore * 100);
+    //health score test
+    healthScore = 0.01;
+    healthScoreInt = 1;
              
     [self setCheer:healthScoreInt];
     
@@ -243,6 +246,10 @@
 }
          
 -(void) setCheer:(int) s{
+    double u = 0.75;
+    double o = 0.05;
+    double x = 1.0 / sqrt(2.0 * 3.1415926) / o * exp(pow(healthScore - u, 2) / 2.0 * pow(o, 2));
+    NSLog([NSString stringWithFormat:@"normal%f",x]);
     if (s >= 80) {
         self.cheerLabel.text = @"Well done";
         self.cheerNumberLabel.text = @"You are better than 90% users";
