@@ -174,17 +174,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-//    NSString *type = [goalType objectAtIndex:indexPath.row];
-//    if ([type isEqualToString:@"fatratio"]||[type isEqualToString:@"weight"]||[type isEqualToString:@"heartrate"]) {
-//        for (int i = 0; i < 21; i++) {
-//            PFObject *goal =[PFObject objectWithClassName:@"Goal"];
-//            goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
-//            goal[@"type"] = type;
-//            goal[@"date"] = [[NSDate date] dateByAddingTimeInterval:60*60*24*i];
-//            goal[@"name"] = [UserData getUsername];
-//            [goal saveInBackground];
-//        }
-//    } else {
+    NSString *type = [goalType objectAtIndex:indexPath.row];
+    if ([type isEqualToString:@"fatratio"]||[type isEqualToString:@"weight"]||[type isEqualToString:@"heartrate"]) {
+        for (int i = 0; i < 21; i++) {
+            PFObject *goal =[PFObject objectWithClassName:@"Goal"];
+            goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
+            goal[@"type"] = type;
+            goal[@"date"] = [[NSDate date] dateByAddingTimeInterval:60*60*24*i];
+            goal[@"name"] = [UserData getUsername];
+            [goal saveInBackground];
+        }
+    } else {
     
         PFObject *goal =[PFObject objectWithClassName:@"Goal"];
         goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
@@ -194,7 +194,7 @@
         [goal saveInBackground];
     
     
-//    }
+    }
     
     ImproveTableViewCell *cell = (ImproveTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
 

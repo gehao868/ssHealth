@@ -93,7 +93,7 @@
     NSDate *today = [NSDate date];
 
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
-    [components setHour:-4];
+    //[components setHour:-4];
     today = [[NSCalendar currentCalendar] dateFromComponents:components];
                                                             [HealthTime setToday:today];
                                                             [HealthTime setTomorrow:[today dateByAddingTimeInterval:60*60*24*1]];
@@ -157,7 +157,7 @@
                                                                     }
                                                                     
                                                                     int losedWeight = [[objects[i] objectForKey:@"weight"] intValue];
-                                                                    float bmi = 1.0 * losedWeight / [[UserData getHeight] intValue] * [[UserData getHeight] intValue];
+                                                                    float bmi = 1.0 * losedWeight / ([[UserData getHeight] intValue] * [[UserData getHeight] intValue] / 10000);
                                                                     [HealthData setBMI:[NSNumber numberWithFloat:bmi]];
                                                                     
                                                                     if (bmi < 18) {

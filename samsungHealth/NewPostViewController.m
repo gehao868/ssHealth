@@ -213,7 +213,7 @@ error contextInfo:(void *)contextInfo
 
 - (IBAction)playandstop:(id)sender {
     if (!player.playing){
-        [_playButton setBackgroundColor:[UIColor redColor]];
+        [_playButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
         
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
@@ -221,7 +221,7 @@ error contextInfo:(void *)contextInfo
         [player setDelegate:self];
         [player play];
     } else {
-        [_playButton setBackgroundColor:[UIColor greenColor]];
+        [_playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
         
         [player stop];
     }
@@ -234,7 +234,7 @@ error contextInfo:(void *)contextInfo
     
     chosenAudio = YES;
     [self prepareForRecording];
-    [_playButton setBackgroundColor:[UIColor greenColor]];
+    [_playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
     
     if (!recorder.recording) {
         AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -247,7 +247,7 @@ error contextInfo:(void *)contextInfo
     }
     
     [_playButton setEnabled:NO];
-    [_playButton setBackgroundColor:[UIColor redColor]];
+    [_playButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
 }
 
 - (IBAction)endRecording:(id)sender {
@@ -258,16 +258,24 @@ error contextInfo:(void *)contextInfo
     [audioSession setActive:NO error:nil];
 }
 
+- (IBAction)endRecording1:(id)sender {
+    [recorder stop];
+    [_recordingMsg setHidden:YES];
+    
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setActive:NO error:nil];
+}
+
 - (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag {
     [_playButton setEnabled:YES];
     [_playButton setHidden:NO];
-    [_playButton setBackgroundColor:[UIColor greenColor]];
+    [_playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
     self.photo.hidden = YES;
 }
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
     [_playButton setEnabled:YES];
-    [_playButton setBackgroundColor:[UIColor greenColor]];
+    [_playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
 }
 
 @end
