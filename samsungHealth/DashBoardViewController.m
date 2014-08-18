@@ -73,12 +73,12 @@
             }
             
             if ([Global getShowlikenum] > 0) {
-                [self.liked setHidden:NO];
+                //[self.liked setHidden:NO];
                 [self.liked setEnabled:YES];
                 [self.liked setBackgroundImage:[UIImage imageNamed:@"heart_filled"] forState:UIControlStateNormal];
                 [self.liked setTitle:[NSString stringWithFormat:@"%d", [Global getShowlikenum]] forState:UIControlStateNormal];
             } else {
-                [self.liked setHidden:YES];
+                //[self.liked setHidden:YES];
                 [self.liked setEnabled:NO];
                 [self.liked setBackgroundImage:[UIImage imageNamed:@"heart_white"] forState:UIControlStateNormal];
                 [self.liked setTitle:@"0" forState:UIControlStateNormal];
@@ -352,6 +352,7 @@
 }
 
 - (IBAction)likedAction:(id)sender {
+    //[self.liked setHidden:YES];
     [self.liked setEnabled:NO];
     [self.liked setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
     [self.liked setTitle:nil forState:UIControlStateNormal];
