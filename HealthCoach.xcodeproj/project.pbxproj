@@ -1011,10 +1011,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "samsungHealth/HealthCoach-Prefix.pch";
 				INFOPLIST_FILE = "samsungHealth/HealthCoach-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/samsungHealth/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = HealthCoach;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1032,10 +1029,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "samsungHealth/HealthCoach-Prefix.pch";
 				INFOPLIST_FILE = "samsungHealth/HealthCoach-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/samsungHealth/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = HealthCoach;
 				WRAPPER_EXTENSION = app;
 			};

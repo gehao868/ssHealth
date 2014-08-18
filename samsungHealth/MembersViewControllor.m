@@ -74,52 +74,54 @@
 }
 
 - (void) fillMembers {
-    NSInteger width = 80;
-    NSInteger height = 80;
+    NSInteger width = 70;
+    NSInteger height = 70;
     NSInteger dwidth = 20;
     NSInteger dheight = 20;
-    double offset = -1.0;
+    double offset = 2.0;
     int numberPerLine = 3;
     int count = 2;
     
-    CGRect frame = CGRectMake(15.0f, 10.0f, width, height);
+    CGRect frame = CGRectMake(25.0f, 10.0f, width, height);
     UIButton *addFriendButton = [[UIButton alloc] initWithFrame:frame];
     [addFriendButton setFrame:frame];
     [addFriendButton setBackgroundColor:[DEFAULT_COLOR_THEME]];
     [addFriendButton setTitle:@"+" forState:UIControlStateNormal];
     addFriendButton.titleLabel.font = [UIFont systemFontOfSize:44];
     [addFriendButton addTarget:self action:@selector(show:) forControlEvents:UIControlEventTouchUpInside];
-    [Util addCircleForButton:addFriendButton:40];
+    [Util addCircleForButton:addFriendButton:width/2];
 
     [scrollView addSubview:addFriendButton];
     
     NSDictionary *friendsAvatar = [UserData getAppFriendAvatars];
-    frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, width, height);
+    frame = CGRectMake(frame.origin.x + width + 25.0f , frame.origin.y, width, height);
     CGRect dframe = CGRectMake(frame.origin.x - offset, frame.origin.y - offset, dwidth, dheight);
     
     for (int i = 0; i < [members count]; i++) {
         UIButton *btn = [[UIButton alloc] initWithFrame:frame];
         [btn setBackgroundImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendsAvatar objectForKey:[members objectAtIndex:i]]]]] forState:UIControlStateNormal];
-        [Util addCircleForButton:btn:40];
+        [Util addCircleForButton:btn:width/2];
 
         [btn setBackgroundColor:[DEFAULT_COLOR_THEME]];
-        //[btn setTitle:[members objectAtIndex:i] forState:UIControlStateNormal];
         [btn addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
+        [scrollView addSubview:btn];
+        
+        DACircularProgressView *da = [[DACircularProgressView alloc]initWithFrame:CGRectMake(frame.origin.x - 5, frame.origin.y - 5, width + 10, height + 10)];
+        [scrollView addSubview:da];
+        [scrollView bringSubviewToFront:da];
         
         UIButton *dbtn = [[UIButton alloc] initWithFrame:dframe];
         [dbtn setBackgroundImage:[UIImage imageNamed:@"deleteBtn"] forState:UIControlStateNormal];
         [dbtn setHidden:YES];
         [deleteBtns addObject:dbtn];
-        
-        [scrollView addSubview:btn];
         [scrollView addSubview:dbtn];
         
-        dframe = CGRectMake(frame.origin.x + width + 10.0f - offset, frame.origin.y - offset, dwidth, dheight);
-        frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, width, height);
+        dframe = CGRectMake(frame.origin.x + width + 25.0f - offset, frame.origin.y - offset, dwidth, dheight);
+        frame = CGRectMake(frame.origin.x + width + 25.0f , frame.origin.y, width, height);
         if (count == numberPerLine)
         {
-            dframe = CGRectMake(15.0f - offset , frame.origin.y + height + 10.0f - offset, dwidth, dheight);
-            frame = CGRectMake(15.0f , frame.origin.y + height + 10.0f, width, height);
+            dframe = CGRectMake(25.0f - offset , frame.origin.y + height + 25.0f - offset, dwidth, dheight);
+            frame = CGRectMake(25.0f , frame.origin.y + height + 25.0f, width, height);
             count = 0;
         }
        
@@ -130,14 +132,14 @@
     [deleteFriendBUtton setBackgroundColor:[DEFAULT_COLOR_RED]];
     [deleteFriendBUtton setTitle:@"delete" forState:UIControlStateNormal];
     [deleteFriendBUtton addTarget:self action:@selector(deleteFriend:) forControlEvents:UIControlEventTouchUpInside];
-     [Util addCircleForButton:deleteFriendBUtton:45];
+     [Util addCircleForButton:deleteFriendBUtton:width/2];
 
     [scrollView addSubview:deleteFriendBUtton];
     
     if (count == 1) {
-        scrollHeight = frame.origin.y + height + 10.0f;
+        scrollHeight = frame.origin.y + height + 25.0f;
     } else {
-        scrollHeight = frame.origin.y + (height + 10.0f) * 2;
+        scrollHeight = frame.origin.y + (height + 25.0f) * 2;
     }
     
     //scrollView.hidden = NO;
