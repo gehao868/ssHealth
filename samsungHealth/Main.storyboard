@@ -237,6 +237,16 @@
                                                     <rect key="frame" x="79" y="-3" width="140" height="140"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mgr-YA-2aM">
+                                                    <rect key="frame" x="79" y="17" width="140" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="playAudio:" destination="fSK-J4-Rrb" eventType="touchUpInside" id="HfZ-5f-DEk"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -245,6 +255,7 @@
                                             <outlet property="newsContent" destination="Ucy-vN-5VG" id="R3A-oF-ESe"/>
                                             <outlet property="objid" destination="gHA-nx-sof" id="2ht-Dr-e2W"/>
                                             <outlet property="photo" destination="nmC-w8-fRA" id="be1-1v-M8j"/>
+                                            <outlet property="playButton" destination="Mgr-YA-2aM" id="2PR-VY-b4t"/>
                                             <outlet property="userName" destination="GgD-ss-tHb" id="wza-H3-Zv4"/>
                                             <outlet property="userPic" destination="7Tl-kW-Xwz" id="UuM-cg-8bz"/>
                                         </connections>

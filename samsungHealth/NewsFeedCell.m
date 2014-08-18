@@ -10,13 +10,16 @@
 #import <Parse/Parse.h>
 #import "UserData.h"
 
-@implementation NewsFeedCell
+@implementation NewsFeedCell {
+    NSData *audioData;
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        audioData = NULL;
     }
     return self;
 }
@@ -41,8 +44,6 @@
     self.likeNum.text = [NSString stringWithFormat:@"%d likes", [self.likeNum.text intValue] + 1];
     
     PFQuery *query = [PFQuery queryWithClassName:@"News"];
-    
-    // Retrieve the object by id
     [query getObjectInBackgroundWithId:self.objid.text block:^(PFObject *news, NSError *error) {
         NSMutableArray *arr = [news objectForKey:@"likedby"];
         [arr addObject:[UserData getUsername]];
@@ -53,4 +54,34 @@
         [news saveInBackground];
     }];
 }
+
+- (IBAction)playAudio:(id)sender {
+    if (audioData == NULL) {
+        PFQuery *query = [PFQuery queryWithClassName:@"News"];
+        [query getObjectInBackgroundWithId:self.objid.text block:^(PFObject *news, NSError *error) {
+            PFFile *audio = [news objectForKey:@"media"];
+            audioData = [audio getData];
+            
+            [self startPlay];
+        }];
+    } else {
+        [self startPlay];
+    }
+}
+
+- (void) startPlay {
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
+    player = [[AVAudioPlayer alloc] initWithData:audioData error:nil];
+    [player setDelegate:self];
+    [player play];
+    
+    [_playButton setEnabled:NO];
+    [_playButton setBackgroundColor:[UIColor redColor]];
+}
+
+- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    [_playButton setEnabled:YES];
+    [_playButton setBackgroundColor:[UIColor greenColor]];
+}
+
 @end

@@ -700,6 +700,8 @@
 				0B0A240119957AAB0086309E /* NewsFeedViewController.m */,
 				3B609FC9199C65EC0048FD3C /* NewsFeedCell.h */,
 				3B609FCA199C65EC0048FD3C /* NewsFeedCell.m */,
+				3B609FC6199C653D0048FD3C /* TableDelegate.h */,
+				3B609FC7199C653D0048FD3C /* TableDelegate.m */,
 				0BA067AB199AB19400D7CD21 /* NewPostViewController.h */,
 				0BA067AC199AB19400D7CD21 /* NewPostViewController.m */,
 				0BE4C45719A00B86008E4396 /* VioceTestViewController.h */,
@@ -714,8 +716,6 @@
 				3BA8B933199C419900003268 /* FriendListViewController.m */,
 				7CC76537199C5A6100C8C111 /* FriendListViewCell.h */,
 				7CC76538199C5A6100C8C111 /* FriendListViewCell.m */,
-				3B609FC6199C653D0048FD3C /* TableDelegate.h */,
-				3B609FC7199C653D0048FD3C /* TableDelegate.m */,
 			);
 			name = Connect;
 			sourceTree = "<group>";

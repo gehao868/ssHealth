@@ -20,6 +20,7 @@
 @implementation NewPostViewController
 
 UIImage *chosenImage = NULL;
+BOOL chosenAudio = NO;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +38,7 @@ UIImage *chosenImage = NULL;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.photoView.hidden = YES;
     chosenImage = NULL;
+    chosenAudio = NO;
     
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
@@ -114,7 +116,6 @@ UIImage *chosenImage = NULL;
     post[@"content"] = self.postText.text;
     post[@"postusername"] = [UserData getUsername];
     post[@"showlikenum"] = @0;
-    post[@"likenum"] = @0;
     post[@"likedby"] = [[NSArray alloc] init];
     post[@"groupname"] = [Global getCurrGroup];
     post[@"type"] = @"text";
@@ -122,20 +123,17 @@ UIImage *chosenImage = NULL;
         NSData *imageData = UIImagePNGRepresentation(chosenImage);
         PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
         [imageFile saveInBackground];
+        
         post[@"media"] = imageFile;
         post[@"type"] = @"photo";
     }
-    if () {
+    if (chosenAudio) {
+        NSData *data = [NSData dataWithContentsOfURL:recorder.url];
+        PFFile *audioFile = [PFFile fileWithName:@"audioMsg.m4a" data:data];
+        [audioFile saveInBackground];
         
-        /*
-         NSData *data = [NSData dataWithContentsOfURL:recorder.url];
-         PFFile *file = [PFFile fileWithName:@"audioMsg.m4a" data:data];
-         [file saveInBackground];
-         
-         PFObject *audio = [PFObject objectWithClassName:@"audio"];
-         audio[@"content"] = file;
-         [audio saveInBackground];
-         */
+        post[@"media"] = audioFile;
+        post[@"type"] = @"audio";
     }
     
     [post saveInBackground];
@@ -176,6 +174,8 @@ UIImage *chosenImage = NULL;
         self.photo.image = chosenImage;
     }
     self.photoView.hidden = YES;
+    self.photo.hidden = NO;
+    chosenAudio = NO;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -232,6 +232,7 @@ error contextInfo:(void *)contextInfo
         [player stop];
     }
     
+    chosenAudio = YES;
     [self prepareForRecording];
     [_playButton setBackgroundColor:[UIColor greenColor]];
     
@@ -261,6 +262,7 @@ error contextInfo:(void *)contextInfo
     [_playButton setEnabled:YES];
     [_playButton setHidden:NO];
     [_playButton setBackgroundColor:[UIColor greenColor]];
+    self.photo.hidden = YES;
 }
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {

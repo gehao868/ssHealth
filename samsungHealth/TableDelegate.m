@@ -7,7 +7,8 @@
 //
 
 #define gap 5.0f
-#define photoHeight 160.0f
+#define photoHeight 140.0f
+#define audioHeight 120.0f
 
 #import "TableDelegate.h"
 #import "NewsFeedCell.h"
@@ -42,6 +43,8 @@
     
     if ([news.type isEqualToString:@"photo"]) {
         cellHeight += (photoHeight + gap);
+    } else if ([news.type isEqualToString:@"audio"]) {
+        cellHeight += (audioHeight + gap);
     }
     
     return cellHeight;
@@ -73,8 +76,6 @@
     cell.newsContent.text = news.content;
     CGRect frame = cell.newsContent.frame;
     
-//    NSLog(@"the line number is %f", cell.newsContent.contentSize.height / cell.newsContent.font.lineHeight);
-    
     NSDictionary *userAttributes = @{NSFontAttributeName: cell.newsContent.font,
                                      NSForegroundColorAttributeName: [UIColor blackColor]};
     const CGSize textSize = [cell.newsContent.text sizeWithAttributes:userAttributes];
@@ -91,12 +92,9 @@
     cell.objid.text = news.objecid;
     
     CGRect likeFrame = cell.likeNum.frame;
-//    NSLog(@"like starting point is %f" @" index at %ld", cell.likeNum.frame.origin.y ,(long)indexPath.row);
+
     likeFrame.origin.y = cell.newsContent.frame.origin.y + cell.newsContent.frame.size.height + gap;
     cell.likeNum.frame = likeFrame;
-//    NSLog(@"news height is %f" @" index at %ld", cell.newsContent.frame.size.height, (long)indexPath.row);
-//    NSLog(@"news size width %f" @" index at %ld", textSize.width, (long)indexPath.row);
-    
     
     CGRect likeImgFrame = cell.likeButton.frame;
     likeImgFrame.origin.y = likeFrame.origin.y;
@@ -117,6 +115,25 @@
         cell.likeButton.frame = likeImgFrame;
     } else {
         cell.photo.hidden = YES;
+    }
+
+    if ([news.type isEqualToString:@"audio"]) {
+        cell.playButton.hidden = NO;
+        [cell.playButton setBackgroundColor:[UIColor greenColor]];
+        [cell.playButton setEnabled:YES];
+        
+        CGRect audioFrame = cell.playButton.frame;
+        audioFrame.origin.x = frame.origin.x;
+        audioFrame.origin.y = cell.likeButton.frame.origin.y;
+        cell.playButton.frame = audioFrame;
+        
+        likeFrame.origin.y = likeFrame.origin.y + audioHeight + gap;
+        cell.likeNum.frame = likeFrame;
+        
+        likeImgFrame.origin.y = likeFrame.origin.y;
+        cell.likeButton.frame = likeImgFrame;
+    } else {
+        cell.playButton.hidden = YES;
     }
     
     return cell;
