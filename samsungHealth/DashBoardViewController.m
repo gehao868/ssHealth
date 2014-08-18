@@ -222,8 +222,6 @@
     NSMutableArray *subCopy = [NSMutableArray arrayWithArray:subScore];;
     healthScore = [self calculateScore:subCopy];
     healthScoreInt = (int)roundf(healthScore * 100);
-    healthScore = 0.60;
-    healthScoreInt = 60;
              
     [self setCheer:healthScoreInt];
     

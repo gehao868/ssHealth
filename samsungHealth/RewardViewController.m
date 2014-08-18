@@ -224,11 +224,16 @@
     
     random = rand() %4;
     int i = random;
-    if (count <= 3) {
-        result = data[3-count];
+    if (count == 0) {
+        result = data[4];
+    } else if (count == 1) {
+        result = data[2];
+    } else if (count == 2){
+        result = data[3];
     } else {
         result = data[i];
-    }  //TEST DATA ,shoud fetch result from remote service
+    }
+    //TEST DATA ,shoud fetch result from remote service
 //    if (_labelTextField.text != nil && ![_labelTextField.text isEqualToString:@""]) {
 //        result = _labelTextField.text;
 //    }
