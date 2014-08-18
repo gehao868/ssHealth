@@ -29,6 +29,7 @@
     int pointNeeded;
     __block Reward *reward;
     BOOL isRewarding;
+    int count;
 }
 
 
@@ -47,6 +48,7 @@
     srand((unsigned)time(0));
     reward = [[Reward alloc] init];
     isRewarding = NO;
+    count = 0;
     
     pointNeeded = 300;
     self.user.text = [UserData getUsername];
@@ -222,10 +224,15 @@
     
     random = rand() %4;
     int i = random;
-    result = data[i];  //TEST DATA ,shoud fetch result from remote service
+    if (count <= 3) {
+        result = data[3-count];
+    } else {
+        result = data[i];
+    }  //TEST DATA ,shoud fetch result from remote service
 //    if (_labelTextField.text != nil && ![_labelTextField.text isEqualToString:@""]) {
 //        result = _labelTextField.text;
 //    }
+    count++;
     for (NSString *str in [awards allKeys]) {
         if ([str isEqualToString:result]) {
             NSDictionary *content = awards[str][0];

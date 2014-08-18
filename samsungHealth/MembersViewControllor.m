@@ -98,8 +98,9 @@
     CGRect dframe = CGRectMake(frame.origin.x - offset, frame.origin.y - offset, dwidth, dheight);
     
     for (int i = 0; i < [members count]; i++) {
+        NSString *name = [members objectAtIndex:i];
         UIButton *btn = [[UIButton alloc] initWithFrame:frame];
-        [btn setBackgroundImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendsAvatar objectForKey:[members objectAtIndex:i]]]]] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendsAvatar objectForKey:name]]]] forState:UIControlStateNormal];
         [Util addCircleForButton:btn:width/2];
 
         [btn setBackgroundColor:[DEFAULT_COLOR_THEME]];
@@ -107,6 +108,13 @@
         [scrollView addSubview:btn];
         
         DACircularProgressView *da = [[DACircularProgressView alloc]initWithFrame:CGRectMake(frame.origin.x - 5, frame.origin.y - 5, width + 10, height + 10)];
+        
+        if ([Global getTotelGoal:name] == 0) {
+            [da setProgress:1.0f];
+        } else {
+            [da setProgress:1.0 * [Global getDoneGoal:name] / [Global getTotelGoal:name]];
+            
+        }
         [scrollView addSubview:da];
         [scrollView bringSubviewToFront:da];
         
@@ -115,7 +123,6 @@
         [dbtn setHidden:YES];
         [deleteBtns addObject:dbtn];
         [scrollView addSubview:dbtn];
-        [scrollView bringSubviewToFront:dbtn];
         
         dframe = CGRectMake(frame.origin.x + width + 25.0f - offset, frame.origin.y - offset, dwidth, dheight);
         frame = CGRectMake(frame.origin.x + width + 25.0f , frame.origin.y, width, height);

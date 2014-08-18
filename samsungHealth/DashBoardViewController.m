@@ -218,7 +218,7 @@
         }
     }
     
-    self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(70.0f, 115.0f, 180.0f, 180.0f)];
+    self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(80.0f, 125.0f, 160.0f, 160.0f)];
     NSMutableArray *subCopy = [NSMutableArray arrayWithArray:subScore];;
     healthScore = [self calculateScore:subCopy];
     healthScoreInt = (int)roundf(healthScore * 100);

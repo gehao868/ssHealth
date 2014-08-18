@@ -25,4 +25,10 @@
 + (NSInteger) getShowlikenum;
 + (void) setShowlikenum: (NSInteger) newShowlikenum;
 
++ (NSInteger) getTotelGoal:(NSString *)name;
++ (void) addTotleGoal:(NSString *)name number:(NSInteger) num;
+
++ (NSInteger) getDoneGoal:(NSString *)name;
++ (void) addDoneGoal:(NSString *)name number:(NSInteger) num;
+
 @end

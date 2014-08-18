@@ -67,7 +67,7 @@
 }
 
 - (void)fillGroups {
-    NSArray *colorArray = [[NSArray alloc] initWithObjects:@"circle_cyan", @"circle_red", @"circle_orange", @"circle_yellow", nil];
+    NSArray *colorArray = [[NSArray alloc] initWithObjects:@"circle_orange", @"circle_cyan", @"circle_yellow", @"circle_red", nil];
     
     NSInteger width = 140;
     NSInteger height = 140;

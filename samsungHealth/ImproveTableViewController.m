@@ -202,7 +202,7 @@
 
     cell.improveAdd.image = [UIImage imageNamed:@"checkmark_black"];
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 
 }
 
