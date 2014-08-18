@@ -119,6 +119,7 @@
 
     if ([news.type isEqualToString:@"audio"]) {
         cell.playButton.hidden = NO;
+        cell.data = news.media;
         [cell.playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
         [cell.playButton setEnabled:YES];
         
@@ -141,4 +142,5 @@
 
 - (void)reloadRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
 }
+
 @end

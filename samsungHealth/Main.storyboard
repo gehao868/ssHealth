@@ -1042,6 +1042,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="endRecording1:" destination="DKI-eR-fEu" eventType="touchUpOutside" id="yfW-Qo-uLv"/>
                                     <action selector="endRecording:" destination="DKI-eR-fEu" eventType="touchUpInside" id="X95-7l-9Zq"/>
                                     <action selector="startRecording:" destination="DKI-eR-fEu" eventType="touchDown" id="FcY-eY-sdX"/>
                                 </connections>

@@ -258,6 +258,14 @@ error contextInfo:(void *)contextInfo
     [audioSession setActive:NO error:nil];
 }
 
+- (IBAction)endRecording1:(id)sender {
+    [recorder stop];
+    [_recordingMsg setHidden:YES];
+    
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setActive:NO error:nil];
+}
+
 - (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag {
     [_playButton setEnabled:YES];
     [_playButton setHidden:NO];
