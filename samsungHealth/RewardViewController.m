@@ -61,7 +61,10 @@
     self.userIcon.layer.shouldRasterize = YES;
     self.userIcon.clipsToBounds = YES;
     
-    self.rewardPoint.text = [[UserData getPoint] stringValue];
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithInteger:[[UserData getPoint] integerValue]]];
+    self.rewardPoint.text = formatted;
     
     data = @[@"1st prize",@"2nd prize",@"3rd prize",@"gift",@"try again"];
     //中奖和没中奖之间的分隔线设有2个弧度的盲区，指针不会旋转到的，避免抽奖的时候起争议。

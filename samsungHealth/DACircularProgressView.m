@@ -124,7 +124,6 @@
     return _trackTintColor;
 }
 
-
 - (UIColor *)progressTintColor
 {
 //    if (!_progressTintColor)
