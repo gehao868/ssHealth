@@ -174,13 +174,27 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    PFObject *goal =[PFObject objectWithClassName:@"Goal"];
-    goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
-    goal[@"type"] = [goalType objectAtIndex:indexPath.row];
-    goal[@"date"] = [HealthTime getToday];
-    goal[@"name"] = [UserData getUsername];
-    [goal saveInBackground];
+//    NSString *type = [goalType objectAtIndex:indexPath.row];
+//    if ([type isEqualToString:@"fatratio"]||[type isEqualToString:@"weight"]||[type isEqualToString:@"heartrate"]) {
+//        for (int i = 0; i < 21; i++) {
+//            PFObject *goal =[PFObject objectWithClassName:@"Goal"];
+//            goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
+//            goal[@"type"] = type;
+//            goal[@"date"] = [[NSDate date] dateByAddingTimeInterval:60*60*24*i];
+//            goal[@"name"] = [UserData getUsername];
+//            [goal saveInBackground];
+//        }
+//    } else {
     
+        PFObject *goal =[PFObject objectWithClassName:@"Goal"];
+        goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
+        goal[@"type"] = [goalType objectAtIndex:indexPath.row];
+        goal[@"date"] = [NSDate date];
+        goal[@"name"] = [UserData getUsername];
+        [goal saveInBackground];
+    
+    
+//    }
     
     ImproveTableViewCell *cell = (ImproveTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
 

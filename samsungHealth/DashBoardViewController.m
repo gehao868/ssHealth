@@ -110,11 +110,16 @@
                                     
     subScore = [[NSMutableArray alloc] init];
                                                             
-
                                                             if ([objects count] == 0) {
-                                                                [subScore addObject:[NSNumber numberWithFloat:0]];
+                                                                for (int i = 0; i < 6; i++) {
+                                                                    [subScore addObject:[NSNumber numberWithFloat:0]];
+                                                                }
+                                                                
                                                             } else {
                                                                 int i = [objects count] - 1;
+                                                                    [HealthData setActive:[objects[i] objectForKey:@"active"]];
+                                                                    [HealthData setAsleep:[objects[i] objectForKey:@"asleep"]];
+                                                                
                                                                     int heartrate = [[objects[i] objectForKey:@"heartrate"] intValue];
                                                                     [HealthData setHeartrate:[objects[i] objectForKey:@"heartrate"]];
                                                                     
@@ -225,6 +230,7 @@
              NSMutableArray *subCopy = [NSMutableArray arrayWithArray:subScore];;
              healthScore = [self calculateScore:subCopy];
              healthScoreInt = (int)roundf(healthScore * 100);
+             
              [self setCheer:healthScoreInt];
              
              
@@ -273,132 +279,114 @@
 
 - (void)progressChange
 {
-    int score = (int)roundf(_largestProgressView.progress * 100);
-   // int curScore = _score.text.intValue;
-    
-    if (healthScoreInt > _score.text.intValue && score > _score.text.intValue) {
-        score += 1;
-        _score.text = [NSString stringWithFormat:@"%d",score];
-    } else if (healthScoreInt < _score.text.intValue) {
-        _score.text = [NSString stringWithFormat:@"%d",healthScoreInt];
-    }
-    
-    if (_largestProgressView.progress < healthScore){
+//    int score = (int)roundf(_largestProgressView.progress * 100);
+    float score =_largestProgressView.progress;
+    if (score < healthScore - 0.003){
         _largestProgressView.progress += 0.003f;
-    }
-    if (_largestProgressView.progress > 1.0f)
-    {
-        _largestProgressView.progress = 0.0f;
-    }
-    
-}
-
-- (void)subProgressChange1:(NSTimer*)timer
-{
-            NSNumber* index = (NSNumber*)[timer userInfo];
-            DACircularProgressView * tmpView= _subProgessView[index.intValue];
-    NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
-    
-            if (tmpView.progress < score.floatValue){
-                tmpView.progress += 0.003;
-            }
-            
-            if (tmpView.progress > 1.0f)
-            {
-                tmpView.progress = 0.0f;
-            }
-        }
-                        
-                        - (void)subProgressChange2:(NSTimer*)timer
-        {
-            NSNumber* index = (NSNumber*)[timer userInfo];
-            DACircularProgressView * tmpView= _subProgessView[index.intValue];
-            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
-            
-            if (tmpView.progress < score.floatValue){
-                tmpView.progress += 0.003;
-            }
-            
-            if (tmpView.progress > 1.0f)
-            {
-                tmpView.progress = 0.0f;
-            }
-        }
-                        
-                        - (void)subProgressChange3:(NSTimer*)timer
-        {
-            NSNumber* index = (NSNumber*)[timer userInfo];
-            DACircularProgressView * tmpView= _subProgessView[index.intValue];
-            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
-            
-            if (tmpView.progress < score.floatValue){
-                tmpView.progress += 0.003;
-            }
-            
-            if (tmpView.progress > 1.0f)
-            {
-                tmpView.progress = 0.0f;
-            }
-        }
-
-                        - (void)subProgressChange4:(NSTimer*)timer
-        {
-            NSNumber* index = (NSNumber*)[timer userInfo];
-            DACircularProgressView * tmpView= _subProgessView[index.intValue];
-            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
-            
-            if (tmpView.progress < score.floatValue){
-                tmpView.progress += 0.003;
-            }
-            
-            if (tmpView.progress > 1.0f)
-            {
-                tmpView.progress = 0.0f;
-            }
-        }
-                        - (void)subProgressChange5:(NSTimer*)timer
-        {
-            NSNumber* index = (NSNumber*)[timer userInfo];
-            DACircularProgressView * tmpView= _subProgessView[index.intValue];
-            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
-            
-            if (tmpView.progress < score.floatValue){
-                tmpView.progress += 0.003;
-            }
-            
-            if (tmpView.progress > 1.0f)
-            {
-                tmpView.progress = 0.0f;
-            }
-        }
-
-                        - (void)subProgressChange0:(NSTimer*)timer
-        {
-            NSNumber* index = (NSNumber*)[timer userInfo];
-            DACircularProgressView * tmpView= _subProgessView[index.intValue];
-            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
-            
-            if (tmpView.progress < score.floatValue){
-                tmpView.progress += 0.003;
-            }
-            
-            if (tmpView.progress > 1.0f)
-            {
-                tmpView.progress = 0.0f;
-            }
-        }
-
-                        
-- (void)numberChange:(NSTimer *)timer {
-    NSInteger value = _score.text.integerValue;
-    if (value > healthScore * 100){
-    } else if (value > healthScore * 100 - 3){
-        value = healthScore * 100;
+        _score.text = [NSString stringWithFormat:@"%d", (int)roundf(_largestProgressView.progress * 100)];
     } else {
-        value += 3;
+        _largestProgressView.progress = healthScore;
+        _score.text = [NSString stringWithFormat:@"%d", healthScoreInt];
     }
-    _score.text = [NSString stringWithFormat:@"%ld",(long)value];
+    
 }
+
+//- (void)subProgressChange1:(NSTimer*)timer
+//{
+//            NSNumber* index = (NSNumber*)[timer userInfo];
+//            DACircularProgressView * tmpView= _subProgessView[index.intValue];
+//    NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
+//    
+//            if (tmpView.progress < score.floatValue){
+//                tmpView.progress += 0.003;
+//            }
+//            
+//            if (tmpView.progress > 1.0f)
+//            {
+//                tmpView.progress = 0.0f;
+//            }
+//        }
+//                        
+//                        - (void)subProgressChange2:(NSTimer*)timer
+//        {
+//            NSNumber* index = (NSNumber*)[timer userInfo];
+//            DACircularProgressView * tmpView= _subProgessView[index.intValue];
+//            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
+//            
+//            if (tmpView.progress < score.floatValue){
+//                tmpView.progress += 0.003;
+//            }
+//            
+//            if (tmpView.progress > 1.0f)
+//            {
+//                tmpView.progress = 0.0f;
+//            }
+//        }
+//                        
+//                        - (void)subProgressChange3:(NSTimer*)timer
+//        {
+//            NSNumber* index = (NSNumber*)[timer userInfo];
+//            DACircularProgressView * tmpView= _subProgessView[index.intValue];
+//            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
+//            
+//            if (tmpView.progress < score.floatValue){
+//                tmpView.progress += 0.003;
+//            }
+//            
+//            if (tmpView.progress > 1.0f)
+//            {
+//                tmpView.progress = 0.0f;
+//            }
+//        }
+//
+//                        - (void)subProgressChange4:(NSTimer*)timer
+//        {
+//            NSNumber* index = (NSNumber*)[timer userInfo];
+//            DACircularProgressView * tmpView= _subProgessView[index.intValue];
+//            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
+//            
+//            if (tmpView.progress < score.floatValue){
+//                tmpView.progress += 0.003;
+//            }
+//            
+//            if (tmpView.progress > 1.0f)
+//            {
+//                tmpView.progress = 0.0f;
+//            }
+//        }
+//                        - (void)subProgressChange5:(NSTimer*)timer
+//        {
+//            NSNumber* index = (NSNumber*)[timer userInfo];
+//            DACircularProgressView * tmpView= _subProgessView[index.intValue];
+//            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
+//            
+//            if (tmpView.progress < score.floatValue){
+//                tmpView.progress += 0.003;
+//            }
+//            
+//            if (tmpView.progress > 1.0f)
+//            {
+//                tmpView.progress = 0.0f;
+//            }
+//        }
+//
+//                        - (void)subProgressChange0:(NSTimer*)timer
+//        {
+//            NSNumber* index = (NSNumber*)[timer userInfo];
+//            DACircularProgressView * tmpView= _subProgessView[index.intValue];
+//            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
+//            
+//            if (tmpView.progress < score.floatValue){
+//                tmpView.progress += 0.003;
+//            }
+//            
+//            if (tmpView.progress > 1.0f)
+//            {
+//                tmpView.progress = 0.0f;
+//            }
+//        }
+
+                        
 
 
 -(double) calculateScore:(NSMutableArray *) subScoreArray {
