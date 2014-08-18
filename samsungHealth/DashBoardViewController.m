@@ -110,11 +110,16 @@
                                     
     subScore = [[NSMutableArray alloc] init];
                                                             
-
                                                             if ([objects count] == 0) {
-                                                                [subScore addObject:[NSNumber numberWithFloat:0]];
+                                                                for (int i = 0; i < 6; i++) {
+                                                                    [subScore addObject:[NSNumber numberWithFloat:0]];
+                                                                }
+                                                                
                                                             } else {
                                                                 int i = [objects count] - 1;
+                                                                    [HealthData setActive:[objects[i] objectForKey:@"active"]];
+                                                                    [HealthData setAsleep:[objects[i] objectForKey:@"asleep"]];
+                                                                
                                                                     int heartrate = [[objects[i] objectForKey:@"heartrate"] intValue];
                                                                     [HealthData setHeartrate:[objects[i] objectForKey:@"heartrate"]];
                                                                     
