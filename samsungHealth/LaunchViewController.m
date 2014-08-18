@@ -241,38 +241,28 @@ NSUserDefaults *defaults;
             }
         }];
         
-        [self performSegueWithIdentifier:@"skipLogin" sender:nil];
-    }];
-    
-    /*
-     [FBRequestConnection startWithGraphPath:@"/me/friends" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
-     NSArray *friends = [result objectForKey:@"data"];
-     //NSLog(@"%@", friends);
-     [UserData setAppFriends:friends];
-     
-     [defaults setObject:[UserData getAppFriends] forKey:@"appFriends"];
-     }];
-     */
-    
-    NSMutableDictionary *picturePara = [[NSMutableDictionary alloc] init];
-    [picturePara setValue:@"false" forKey:@"redirect"];
-    [picturePara setValue:@"large" forKey:@"type"];
-    [picturePara setValue:@"500" forKey:@"height"];
-    [picturePara setValue:@"500" forKey:@"width"];
-    [FBRequestConnection startWithGraphPath:@"/me/picture" parameters:picturePara HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
-        NSString *url = [[result objectForKey:@"data"] objectForKey:@"url"];
-        //NSLog(@"%@", url);
-        
-        [UserData setAvatar:url];
-        [defaults setObject:[UserData getAvatar] forKey:@"avatar"];
-        [UserData setAppFriendAvatars:[UserData getAvatar] forKey:[UserData getUsername]];
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"Users"];
-        [query whereKey:@"username" equalTo:[UserData getUsername]];
-        [query getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
-            user[@"avatar"] = url;
-            [user saveInBackground];
+        NSMutableDictionary *picturePara = [[NSMutableDictionary alloc] init];
+        [picturePara setValue:@"false" forKey:@"redirect"];
+        [picturePara setValue:@"large" forKey:@"type"];
+        [picturePara setValue:@"500" forKey:@"height"];
+        [picturePara setValue:@"500" forKey:@"width"];
+        [FBRequestConnection startWithGraphPath:@"/me/picture" parameters:picturePara HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
+            NSString *url = [[result objectForKey:@"data"] objectForKey:@"url"];
+            //NSLog(@"%@", url);
+            
+            [UserData setAvatar:url];
+            [defaults setObject:[UserData getAvatar] forKey:@"avatar"];
+            [UserData setAppFriendAvatars:url forKey:[UserData getUsername]];
+            
+            PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+            [query whereKey:@"username" equalTo:[UserData getUsername]];
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject *user, NSError *error) {
+                user[@"avatar"] = url;
+                [user saveInBackground];
+            }];
         }];
+        
+        [self performSegueWithIdentifier:@"skipLogin" sender:nil];
     }];
 }
 

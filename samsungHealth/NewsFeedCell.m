@@ -41,8 +41,6 @@
     self.likeNum.text = [NSString stringWithFormat:@"%d likes", [self.likeNum.text intValue] + 1];
     
     PFQuery *query = [PFQuery queryWithClassName:@"News"];
-    
-    // Retrieve the object by id
     [query getObjectInBackgroundWithId:self.objid.text block:^(PFObject *news, NSError *error) {
         NSMutableArray *arr = [news objectForKey:@"likedby"];
         [arr addObject:[UserData getUsername]];
@@ -53,4 +51,20 @@
         [news saveInBackground];
     }];
 }
+
+- (IBAction)playAudio:(id)sender {    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
+    player = [[AVAudioPlayer alloc] initWithData:_data error:nil];
+    [player setDelegate:self];
+    [player play];
+    
+    [_playButton setEnabled:NO];
+    [_playButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+}
+
+- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    [_playButton setEnabled:YES];
+    [_playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+}
+
 @end
