@@ -9,7 +9,7 @@
 #import "Util.h"
 
 @implementation Util
-+(void)addCircleForButton:(UIButton *)btn:(float)radius{
++(void)addCircleForButton:(UIButton *)btn :(float)radius{
     btn.layer.masksToBounds = YES;
     btn.layer.cornerRadius = radius;
     btn.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -19,7 +19,7 @@
     btn.clipsToBounds = YES;
 };
 
-+(void)addCircleForImage:(UIImageView *)btn:(float)radius{
++(void)addCircleForImage:(UIImageView *)btn :(float)radius{
     btn.layer.masksToBounds = YES;
     btn.layer.cornerRadius = radius;
     btn.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -38,7 +38,7 @@
 +(void)formatTextField:(UITextField *)textField{
     textField.backgroundColor = [UIColor clearColor];
     textField.layer.masksToBounds=YES;
-    textField.layer.borderColor=[[DEFAULT_COLOR_THEME CGColor];
+    textField.layer.borderColor= [DEFAULT_COLOR_THEME].CGColor;
     textField.layer.borderWidth= 1.0f;
 }
 

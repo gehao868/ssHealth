@@ -72,7 +72,7 @@ UIRefreshControl *currRC;
   
     DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(120.0f, 80.0f, 80.0f, 80.0f)];
     [tmpView setProgress:12.0];
-    [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN];
+    [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN]];
      [self.view addSubview:tmpView];
      [self.view bringSubviewToFront:self.buttonView];
 
@@ -220,7 +220,7 @@ UIRefreshControl *currRC;
             [array addObject:news];
         }
         [Global setNewsFeed:array];
-        self.table.backgroundColor = [DEFAULT_COLOR_DARKCYAN;
+        self.table.backgroundColor = [DEFAULT_COLOR_DARKCYAN];
         [self.table reloadData];
         [self adjustHeightOfTableview];
     }];

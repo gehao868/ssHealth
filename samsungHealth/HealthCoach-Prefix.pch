@@ -16,12 +16,12 @@
 #endif
 
 //#define DEFAULT_COLOR_GREEN UIColor colorWithRed:114.0f/255.0f green:204.0f/255.0f blue:143.0f/255.0f alpha:1.0f]
-#define DEFAULT_COLOR_GREEN UIColor colorWithRed:109.0f/255.0f green:214.0f/255.0f blue:173.0f/255.0f alpha:1.0f]
-#define DEFAULT_COLOR_RED UIColor colorWithRed:230.0f/255.0f green:119.0f/255.0f blue:118.0f/255.0f alpha:1.0f]
-#define DEFAULT_COLOR_YELLOW UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:169.0f/255.0f alpha:1.0f]
-#define DEFAULT_COLOR_ORANGE UIColor colorWithRed:255.0f/255.0f green:178.0f/255.0f blue:136.0f/255.0f alpha:1.0f]
-#define DEFAULT_COLOR_DARKGREY UIColor colorWithRed:80.0f/255.0f green:80.0f/255.0f blue:80.0f/255.0f alpha:1.0f]
-#define DEFAULT_COLOR_THEME UIColor colorWithRed:109.0f/255.0f green:214.0f/255.0f blue:173.0f/255.0f alpha:1.0f]
-//#define DEFAULT_COLOR_THEME UIColor colorWithRed:0.0f/255.0f green:170.0f/255.0f blue:147.0f/255.0f alpha:1.0f]
-#define DEFAULT_COLOR_DARKTHEME UIColor colorWithRed:8.0f/255.0f green:96.0f/255.0f blue:108.0f/255.0f alpha:1.0f]
-#define DEFAULT_COLOR_DARKCYAN UIColor colorWithRed:82.0f/255.0f green:99.0f/255.0f blue:114.0f/255.0f alpha:1.0f]
+#define DEFAULT_COLOR_GREEN UIColor colorWithRed:109.0f/255.0f green:214.0f/255.0f blue:173.0f/255.0f alpha:1.0f
+#define DEFAULT_COLOR_RED UIColor colorWithRed:230.0f/255.0f green:119.0f/255.0f blue:118.0f/255.0f alpha:1.0f
+#define DEFAULT_COLOR_YELLOW UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:169.0f/255.0f alpha:1.0f
+#define DEFAULT_COLOR_ORANGE UIColor colorWithRed:255.0f/255.0f green:178.0f/255.0f blue:136.0f/255.0f alpha:1.0f
+#define DEFAULT_COLOR_DARKGREY UIColor colorWithRed:80.0f/255.0f green:80.0f/255.0f blue:80.0f/255.0f alpha:1.0f
+#define DEFAULT_COLOR_THEME UIColor colorWithRed:109.0f/255.0f green:214.0f/255.0f blue:173.0f/255.0f alpha:1.0f
+//#define DEFAULT_COLOR_THEME UIColor colorWithRed:0.0f/255.0f green:170.0f/255.0f blue:147.0f/255.0f alpha:1.0f
+#define DEFAULT_COLOR_DARKTHEME UIColor colorWithRed:8.0f/255.0f green:96.0f/255.0f blue:108.0f/255.0f alpha:1.0f
+#define DEFAULT_COLOR_DARKCYAN UIColor colorWithRed:82.0f/255.0f green:99.0f/255.0f blue:114.0f/255.0f alpha:1.0f

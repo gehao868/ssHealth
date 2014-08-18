@@ -76,14 +76,13 @@
 //gradient color
     UIImage* image = [UIImage imageNamed:@"gradient"];
     if(radius < 50){
-        self.progressTintColor =[DEFAULT_COLOR_GREEN;
+        self.progressTintColor =[DEFAULT_COLOR_GREEN];
         if(self.progress < 0.6f) {
-            self.progressTintColor = [DEFAULT_COLOR_RED;
-                                      } else if (self.progress < 0.8f) {
-                                          self.progressTintColor = [DEFAULT_COLOR_YELLOW;
-
-                                      }
-                                                                    [self.progressTintColor setFill];
+            self.progressTintColor = [DEFAULT_COLOR_RED];
+        } else if (self.progress < 0.8f) {
+            self.progressTintColor = [DEFAULT_COLOR_YELLOW];
+        }
+    [self.progressTintColor setFill];
 //     resize gradient
 //        CGSize newSize = CGSizeMake(60.0f, 60.0f);
 //        UIGraphicsBeginImageContext( newSize );
