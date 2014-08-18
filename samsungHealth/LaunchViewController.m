@@ -244,16 +244,6 @@ NSUserDefaults *defaults;
         [self performSegueWithIdentifier:@"skipLogin" sender:nil];
     }];
     
-    /*
-     [FBRequestConnection startWithGraphPath:@"/me/friends" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, NSDictionary* result, NSError *error) {
-     NSArray *friends = [result objectForKey:@"data"];
-     //NSLog(@"%@", friends);
-     [UserData setAppFriends:friends];
-     
-     [defaults setObject:[UserData getAppFriends] forKey:@"appFriends"];
-     }];
-     */
-    
     NSMutableDictionary *picturePara = [[NSMutableDictionary alloc] init];
     [picturePara setValue:@"false" forKey:@"redirect"];
     [picturePara setValue:@"large" forKey:@"type"];

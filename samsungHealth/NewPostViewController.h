@@ -7,19 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface NewPostViewController : UIViewController
+@interface NewPostViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate> {
+    AVAudioRecorder *recorder;
+    AVAudioPlayer *player;
+}
+
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *sendButton;
 - (IBAction)send:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UITextView *postText;
 @property (strong, nonatomic) IBOutlet UIView *photoView;
 @property (strong, nonatomic) IBOutlet UIImageView *photo;
+@property (strong, nonatomic) IBOutlet UIButton *recordButton;
+@property (strong, nonatomic) IBOutlet UIButton *playButton;
+@property (strong, nonatomic) IBOutlet UILabel *recordingMsg;
 
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)choosePhoto:(id)sender;
 - (IBAction)cancel:(id)sender;
 - (IBAction)addPhoto:(id)sender;
+- (IBAction)playandstop:(id)sender;
+- (IBAction)startRecording:(id)sender;
+- (IBAction)endRecording:(id)sender;
 
 
 @end

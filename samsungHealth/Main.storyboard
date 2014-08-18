@@ -237,6 +237,16 @@
                                                     <rect key="frame" x="79" y="-3" width="140" height="140"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mgr-YA-2aM">
+                                                    <rect key="frame" x="79" y="17" width="140" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="playAudio:" destination="fSK-J4-Rrb" eventType="touchUpInside" id="HfZ-5f-DEk"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -245,6 +255,7 @@
                                             <outlet property="newsContent" destination="Ucy-vN-5VG" id="R3A-oF-ESe"/>
                                             <outlet property="objid" destination="gHA-nx-sof" id="2ht-Dr-e2W"/>
                                             <outlet property="photo" destination="nmC-w8-fRA" id="be1-1v-M8j"/>
+                                            <outlet property="playButton" destination="Mgr-YA-2aM" id="2PR-VY-b4t"/>
                                             <outlet property="userName" destination="GgD-ss-tHb" id="wza-H3-Zv4"/>
                                             <outlet property="userPic" destination="7Tl-kW-Xwz" id="UuM-cg-8bz"/>
                                         </connections>
@@ -1021,13 +1032,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zm7-Pv-6s3">
-                                <rect key="frame" x="186" y="263" width="73" height="30"/>
+                                <rect key="frame" x="227" y="263" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Audio">
+                                <state key="normal" title="Add Audio">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="JXk-GF-O8l" kind="push" id="IUv-fb-qKe"/>
+                                    <action selector="endRecording:" destination="DKI-eR-fEu" eventType="touchUpInside" id="X95-7l-9Zq"/>
+                                    <action selector="startRecording:" destination="DKI-eR-fEu" eventType="touchDown" id="FcY-eY-sdX"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="DjR-zN-mzV">
@@ -1071,9 +1083,27 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="NcX-kV-jVm">
-                                <rect key="frame" x="80" y="301" width="160" height="120"/>
+                                <rect key="frame" x="90" y="289" width="140" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z16-hr-WC3">
+                                <rect key="frame" x="90" y="309" width="140" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playandstop:" destination="DKI-eR-fEu" eventType="touchUpInside" id="FkI-RM-Kyt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UNT-kc-DxG">
+                                <rect key="frame" x="121" y="143" width="79" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.24819362540000001" green="0.73656728319999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.32156863810000003" green="0.38823530080000002" blue="0.44705882670000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1087,7 +1117,10 @@
                     <connections>
                         <outlet property="photo" destination="NcX-kV-jVm" id="Sz7-Qi-LFn"/>
                         <outlet property="photoView" destination="DjR-zN-mzV" id="I4x-fU-YQY"/>
+                        <outlet property="playButton" destination="Z16-hr-WC3" id="oTA-Ph-JSe"/>
                         <outlet property="postText" destination="NuR-FN-e7K" id="pd2-5f-LFc"/>
+                        <outlet property="recordButton" destination="Zm7-Pv-6s3" id="GsD-vM-Fva"/>
+                        <outlet property="recordingMsg" destination="UNT-kc-DxG" id="HNj-Zw-DLN"/>
                         <outlet property="sendButton" destination="PtE-cd-kQx" id="jJ0-3g-YKD"/>
                     </connections>
                 </viewController>
