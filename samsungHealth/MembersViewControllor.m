@@ -113,9 +113,6 @@
         
         [scrollView addSubview:btn];
         [scrollView addSubview:dbtn];
-        DACircularProgressView *da = [[DACircularProgressView alloc]initWithFrame:CGRectMake(frame.origin.x - 10, frame.origin.y - 10, width+20, height+20)];
-        [scrollView addSubview:da];
-        [scrollView bringSubviewToFront:da];
         
         dframe = CGRectMake(frame.origin.x + width + 10.0f - offset, frame.origin.y - offset, dwidth, dheight);
         frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, width, height);

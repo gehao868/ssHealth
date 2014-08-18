@@ -12,6 +12,7 @@
 #import "CouponDetailCell.h"
 #import "RedeemViewController.h"
 #import "UserData.h"
+#import "Util.h"
 
 @interface CouponListViewController ()
 
@@ -34,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [Util formatTable:self.table];
     rewards = [[NSMutableArray alloc] init];
     dic = [[NSMutableDictionary alloc] init];
     self.table.hidden = YES;
