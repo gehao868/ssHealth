@@ -73,12 +73,12 @@
             }
             
             if ([Global getShowlikenum] > 0) {
-                [self.liked setHidden:NO];
+                //[self.liked setHidden:NO];
                 [self.liked setEnabled:YES];
                 [self.liked setBackgroundImage:[UIImage imageNamed:@"heart_filled"] forState:UIControlStateNormal];
                 [self.liked setTitle:[NSString stringWithFormat:@"%d", [Global getShowlikenum]] forState:UIControlStateNormal];
             } else {
-                [self.liked setHidden:YES];
+                //[self.liked setHidden:YES];
                 [self.liked setEnabled:NO];
                 [self.liked setBackgroundImage:[UIImage imageNamed:@"heart_white"] forState:UIControlStateNormal];
                 [self.liked setTitle:@"0" forState:UIControlStateNormal];
@@ -247,12 +247,12 @@
 -(void) setCheer:(int) s{
     double u = 0;
     double o = 1;
-    double convertedX = (healthScore - 0.75) * 15;
+    double convertedX = (healthScore - 0.65) * 10;
     double a = 4.0 / sqrt(2.0 * 3.1415926) / o;
     double ex = exp(a * (convertedX - u));
     NSLog(@"normal %f",ex/(1+ex));
     int ret = (int)roundf(ex / (1 + ex) * 100);
-    self.cheerNumberLabel.text = [NSString stringWithFormat:@"You are better than %d%%users",ret];
+    self.cheerNumberLabel.text = [NSString stringWithFormat:@"You are better than %d%% users",ret];
     if (s >= 80) {
         self.cheerLabel.text = @"Well done";
     } else if (s <80 && s>=50) {
@@ -275,7 +275,6 @@
 
 - (void)progressChange
 {
-//    int score = (int)roundf(_largestProgressView.progress * 100);
     float score =_largestProgressView.progress;
     if (score < healthScore - 0.003){
         _largestProgressView.progress += 0.003f;
@@ -287,102 +286,6 @@
     
 }
 
-//- (void)subProgressChange1:(NSTimer*)timer
-//{
-//            NSNumber* index = (NSNumber*)[timer userInfo];
-//            DACircularProgressView * tmpView= _subProgessView[index.intValue];
-//    NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
-//    
-//            if (tmpView.progress < score.floatValue){
-//                tmpView.progress += 0.003;
-//            }
-//            
-//            if (tmpView.progress > 1.0f)
-//            {
-//                tmpView.progress = 0.0f;
-//            }
-//        }
-//                        
-//                        - (void)subProgressChange2:(NSTimer*)timer
-//        {
-//            NSNumber* index = (NSNumber*)[timer userInfo];
-//            DACircularProgressView * tmpView= _subProgessView[index.intValue];
-//            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
-//            
-//            if (tmpView.progress < score.floatValue){
-//                tmpView.progress += 0.003;
-//            }
-//            
-//            if (tmpView.progress > 1.0f)
-//            {
-//                tmpView.progress = 0.0f;
-//            }
-//        }
-//                        
-//                        - (void)subProgressChange3:(NSTimer*)timer
-//        {
-//            NSNumber* index = (NSNumber*)[timer userInfo];
-//            DACircularProgressView * tmpView= _subProgessView[index.intValue];
-//            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
-//            
-//            if (tmpView.progress < score.floatValue){
-//                tmpView.progress += 0.003;
-//            }
-//            
-//            if (tmpView.progress > 1.0f)
-//            {
-//                tmpView.progress = 0.0f;
-//            }
-//        }
-//
-//                        - (void)subProgressChange4:(NSTimer*)timer
-//        {
-//            NSNumber* index = (NSNumber*)[timer userInfo];
-//            DACircularProgressView * tmpView= _subProgessView[index.intValue];
-//            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
-//            
-//            if (tmpView.progress < score.floatValue){
-//                tmpView.progress += 0.003;
-//            }
-//            
-//            if (tmpView.progress > 1.0f)
-//            {
-//                tmpView.progress = 0.0f;
-//            }
-//        }
-//                        - (void)subProgressChange5:(NSTimer*)timer
-//        {
-//            NSNumber* index = (NSNumber*)[timer userInfo];
-//            DACircularProgressView * tmpView= _subProgessView[index.intValue];
-//            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
-//            
-//            if (tmpView.progress < score.floatValue){
-//                tmpView.progress += 0.003;
-//            }
-//            
-//            if (tmpView.progress > 1.0f)
-//            {
-//                tmpView.progress = 0.0f;
-//            }
-//        }
-//
-//                        - (void)subProgressChange0:(NSTimer*)timer
-//        {
-//            NSNumber* index = (NSNumber*)[timer userInfo];
-//            DACircularProgressView * tmpView= _subProgessView[index.intValue];
-//            NSNumber *score = (NSNumber*)[subScore objectAtIndex:index.intValue];
-//            
-//            if (tmpView.progress < score.floatValue){
-//                tmpView.progress += 0.003;
-//            }
-//            
-//            if (tmpView.progress > 1.0f)
-//            {
-//                tmpView.progress = 0.0f;
-//            }
-//        }
-
-                        
 
 
 -(double) calculateScore:(NSMutableArray *) subScoreArray {
@@ -447,6 +350,7 @@
 }
 
 - (IBAction)likedAction:(id)sender {
+    //[self.liked setHidden:YES];
     [self.liked setEnabled:NO];
     [self.liked setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
     [self.liked setTitle:nil forState:UIControlStateNormal];

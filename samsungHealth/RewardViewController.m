@@ -61,7 +61,10 @@
     self.userIcon.layer.shouldRasterize = YES;
     self.userIcon.clipsToBounds = YES;
     
-    self.rewardPoint.text = [[UserData getPoint] stringValue];
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithInteger:[[UserData getPoint] integerValue]]];
+    self.rewardPoint.text = formatted;
     
     data = @[@"1st prize",@"2nd prize",@"3rd prize",@"gift",@"try again"];
     //中奖和没中奖之间的分隔线设有2个弧度的盲区，指针不会旋转到的，避免抽奖的时候起争议。
@@ -224,11 +227,16 @@
     
     random = rand() %4;
     int i = random;
-    if (count <= 3) {
-        result = data[3-count];
+    if (count == 0) {
+        result = data[4];
+    } else if (count == 1) {
+        result = data[2];
+    } else if (count == 2){
+        result = data[3];
     } else {
         result = data[i];
-    }  //TEST DATA ,shoud fetch result from remote service
+    }
+    //TEST DATA ,shoud fetch result from remote service
 //    if (_labelTextField.text != nil && ![_labelTextField.text isEqualToString:@""]) {
 //        result = _labelTextField.text;
 //    }

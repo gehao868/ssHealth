@@ -51,7 +51,6 @@
     CGFloat radius = MIN(rect.size.height, rect.size.width) / 2;
     
     CGFloat pathWidth = radius * 0.0f;
-    
     CGFloat radians = DEGREES_2_RADIANS((self.progress*359.9)-90);
     CGFloat xOffset = radius*(1 + 0.85*cosf(radians));
     CGFloat yOffset = radius*(1 + 0.85*sinf(radians));
@@ -93,12 +92,7 @@
     } else {
         [[UIColor colorWithPatternImage:image] setFill];
     }
-//    else {
-//        if(self.progress < 0.6f) self.progressTintColor = [DEFAULT_COLOR_RED;
-//        else if (self.progress < 0.8f) self.progressTintColor = [DEFAULT_COLOR_YELLOW;
-////3 tint color based on score
-//    [self.progressTintColor setFill];
-//    }
+    
     CGMutablePathRef progressPath = CGPathCreateMutable();
     CGPathMoveToPoint(progressPath, NULL, centerPoint.x, centerPoint.y);
     CGPathAddArc(progressPath, NULL, centerPoint.x, centerPoint.y, radius, DEGREES_2_RADIANS(270), radians, NO);
@@ -129,7 +123,6 @@
     }
     return _trackTintColor;
 }
-
 
 - (UIColor *)progressTintColor
 {

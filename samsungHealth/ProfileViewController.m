@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "ProfileTableViewCell.h"
+#import "Util.h"
 
 @interface ProfileViewController ()
 
