@@ -73,13 +73,15 @@
             }
             
             if ([Global getShowlikenum] > 0) {
+                [self.liked setHidden:NO];
                 [self.liked setEnabled:YES];
                 [self.liked setBackgroundImage:[UIImage imageNamed:@"heart_filled"] forState:UIControlStateNormal];
                 [self.liked setTitle:[NSString stringWithFormat:@"%d", [Global getShowlikenum]] forState:UIControlStateNormal];
             } else {
+                [self.liked setHidden:YES];
                 [self.liked setEnabled:NO];
-                [self.liked setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
-                [self.liked setTitle:nil forState:UIControlStateNormal];
+                [self.liked setBackgroundImage:[UIImage imageNamed:@"heart_white"] forState:UIControlStateNormal];
+                [self.liked setTitle:@"0" forState:UIControlStateNormal];
             }
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -206,7 +208,7 @@
         for (int j = 0; j < 2; j++) {
             NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",([[subScore objectAtIndex:index] floatValue]*100)];
             [[subCircleLabel objectAtIndex:j*3+i] setText:text];
-            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(10.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
+            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(12.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
             [tmpView setProgress:[[subScore objectAtIndex:index] floatValue]];
             [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN]];
             [self.subProgessView addObject:tmpView];
@@ -220,6 +222,8 @@
     NSMutableArray *subCopy = [NSMutableArray arrayWithArray:subScore];;
     healthScore = [self calculateScore:subCopy];
     healthScoreInt = (int)roundf(healthScore * 100);
+    healthScoreInt = 45;
+    healthScore = 0.45;
              
     [self setCheer:healthScoreInt];
     
@@ -243,15 +247,20 @@
 }
          
 -(void) setCheer:(int) s{
+    double u = 0;
+    double o = 1;
+    double convertedX = (healthScore - 0.75) * 15;
+    double a = 4.0 / sqrt(2.0 * 3.1415926) / o;
+    double ex = exp(a * (convertedX - u));
+    NSLog(@"normal %f",ex/(1+ex));
+    int ret = (int)roundf(ex / (1 + ex) * 100);
+    self.cheerNumberLabel.text = [NSString stringWithFormat:@"You are better than %d%%users",ret];
     if (s >= 80) {
         self.cheerLabel.text = @"Well done";
-        self.cheerNumberLabel.text = @"You are better than 90% users";
     } else if (s <80 && s>=50) {
         self.cheerLabel.text = @"Good job";
-        self.cheerNumberLabel.text = @"You are better than 70% users";
     } else {
         self.cheerLabel.text = @"Try hard";
-        self.cheerNumberLabel.text = @"You are better than 30% users";
     }
 }
              

@@ -21,6 +21,7 @@
 
 UIImage *chosenImage = NULL;
 BOOL chosenAudio = NO;
+NSTimer * rcdTimer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,6 +57,8 @@ BOOL chosenAudio = NO;
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    [[self.postText layer] setBorderColor:[DEFAULT_COLOR_GREEN].CGColor];
+    [[self.postText layer] setBorderWidth:1.0];
 
     [_playButton setHidden:YES];
     [_recordingMsg setHidden:YES];
@@ -227,6 +230,22 @@ error contextInfo:(void *)contextInfo
     }
 }
 
+- (void)rcdMsgChange{
+    if ([self.recordingMsg.text  isEqual: @"Recording"]) {
+        [self.recordingMsg setText:@"Recording."];
+        NSLog(@"Recording.");
+    } else if ([self.recordingMsg.text  isEqual: @"Recording."]) {
+        [self.recordingMsg setText:@"Recording.."];
+        NSLog(@"Recording..");
+    } else if ([self.recordingMsg.text  isEqual: @"Recording.."]) {
+        [self.recordingMsg setText:@"Recording..."];
+        NSLog(@"Recording...");
+    } else {
+        [self.recordingMsg setText:@"Recording"];
+        NSLog(@"Recording");
+    }
+}
+
 - (IBAction)startRecording:(id)sender {
     if (player.playing) {
         [player stop];
@@ -236,6 +255,11 @@ error contextInfo:(void *)contextInfo
     chosenAudio = YES;
     [self prepareForRecording];
     [_playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+    rcdTimer = [NSTimer scheduledTimerWithTimeInterval:0.8f
+                                                         target:self
+                                                       selector:@selector(rcdMsgChange)
+                                                       userInfo:nil
+                                                        repeats:YES];
     
     if (!recorder.recording) {
         AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -257,6 +281,7 @@ error contextInfo:(void *)contextInfo
     
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setActive:NO error:nil];
+    [rcdTimer invalidate];
 }
 
 - (IBAction)endRecording1:(id)sender {
