@@ -73,13 +73,15 @@
             }
             
             if ([Global getShowlikenum] > 0) {
+                [self.liked setHidden:NO];
                 [self.liked setEnabled:YES];
                 [self.liked setBackgroundImage:[UIImage imageNamed:@"heart_filled"] forState:UIControlStateNormal];
                 [self.liked setTitle:[NSString stringWithFormat:@"%d", [Global getShowlikenum]] forState:UIControlStateNormal];
             } else {
+                [self.liked setHidden:YES];
                 [self.liked setEnabled:NO];
-                [self.liked setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
-                [self.liked setTitle:nil forState:UIControlStateNormal];
+                [self.liked setBackgroundImage:[UIImage imageNamed:@"heart_white"] forState:UIControlStateNormal];
+                [self.liked setTitle:@"0" forState:UIControlStateNormal];
             }
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -206,7 +208,7 @@
         for (int j = 0; j < 2; j++) {
             NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",([[subScore objectAtIndex:index] floatValue]*100)];
             [[subCircleLabel objectAtIndex:j*3+i] setText:text];
-            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(10.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
+            DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(12.0f + i * 108, 363.0f + 105.0f * j, 80.0f, 80.0f)];
             [tmpView setProgress:[[subScore objectAtIndex:index] floatValue]];
             [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN]];
             [self.subProgessView addObject:tmpView];

@@ -70,7 +70,7 @@ UIRefreshControl *currRC;
     
     [self.progressLabel setText:text];
   
-    DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(120.0f, 80.0f, 80.0f, 80.0f)];
+    DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(220.0f, 80.0f, 80.0f, 80.0f)];
     [tmpView setProgress:12.0];
     [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN]];
      [self.view addSubview:tmpView];
