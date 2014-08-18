@@ -76,12 +76,12 @@
     [player play];
     
     [_playButton setEnabled:NO];
-    [_playButton setBackgroundColor:[UIColor redColor]];
+    [_playButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
 }
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
     [_playButton setEnabled:YES];
-    [_playButton setBackgroundColor:[UIColor greenColor]];
+    [_playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
 }
 
 @end
