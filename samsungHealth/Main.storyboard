@@ -1026,9 +1026,9 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W7d-fk-mii">
-                                <rect key="frame" x="20" y="263" width="87" height="30"/>
+                                <rect key="frame" x="20" y="253" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add picture">
+                                <state key="normal" backgroundImage="camera">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1036,9 +1036,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zm7-Pv-6s3">
-                                <rect key="frame" x="227" y="263" width="73" height="30"/>
+                                <rect key="frame" x="245" y="244" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Audio">
+                                <state key="normal" backgroundImage="record">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1753,6 +1753,7 @@
     <resources>
         <image name="add" width="12" height="12"/>
         <image name="addPost" width="55" height="55"/>
+        <image name="camera" width="80" height="80"/>
         <image name="coupon_white" width="33" height="33"/>
         <image name="cups" width="44" height="44"/>
         <image name="fatratio" width="230" height="230"/>
@@ -1761,6 +1762,7 @@
         <image name="ly-plate" width="150" height="150"/>
         <image name="menu" width="20" height="20"/>
         <image name="more" width="22" height="22"/>
+        <image name="record" width="100" height="100"/>
         <image name="rotate-static" width="107" height="107"/>
         <image name="shake" width="320" height="250"/>
         <image name="sleep" width="22" height="22"/>
