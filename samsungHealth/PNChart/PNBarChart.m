@@ -49,9 +49,6 @@
     }
     
     _yValueMax = (int)max*1.5;
-    
-    NSLog(@"Y Max is %d", _yValueMax );
-
 	
 }
 
