@@ -215,7 +215,12 @@
     [cell.number setFont:font];
     
     cell.progress.progress =x.doubleValue / y.doubleValue;
-    cell.progress.progressTintColor = [UIColor redColor];
+    cell.progress.progressTintColor = [DEFAULT_COLOR_GREEN];
+    if (cell.progress.progress < 60) {
+        cell.progress.progressTintColor = [DEFAULT_COLOR_RED];
+    } else if (cell.progress.progress < 80) {
+        cell.progress.progressTintColor = [DEFAULT_COLOR_YELLOW];
+    }
     
     cell.image.image = [UIImage imageNamed:[imgList objectAtIndex:indexPath.row]];
     cell.image.frame = CGRectMake(cell.image.frame.origin.x, cell.image.frame.origin.y, 44, 44);
