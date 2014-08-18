@@ -123,7 +123,6 @@
         [dbtn setHidden:YES];
         [deleteBtns addObject:dbtn];
         [scrollView addSubview:dbtn];
-        [scrollView bringSubviewToFront:dbtn];
         
         dframe = CGRectMake(frame.origin.x + width + 25.0f - offset, frame.origin.y - offset, dwidth, dheight);
         frame = CGRectMake(frame.origin.x + width + 25.0f , frame.origin.y, width, height);
