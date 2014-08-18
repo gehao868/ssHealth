@@ -8,11 +8,13 @@
 
 #import "Global.h"
 
-static NSString * toUserName;
-static NSString * currGroup;
+static NSString *toUserName;
+static NSString *currGroup;
 static BOOL isToUserName;
 static NSMutableArray *newsFeed;
 static NSInteger showlikenum;
+static NSMutableDictionary *totelGoal;
+static NSMutableDictionary *doneGoal;
 
 @implementation Global
 
@@ -53,6 +55,42 @@ static NSInteger showlikenum;
 }
 + (void) setShowlikenum: (NSInteger) newShowlikenum {
     showlikenum = newShowlikenum;
+}
+
++ (NSInteger) getTotelGoal:(NSString *)name {
+    if (totelGoal == NULL || [totelGoal objectForKey:name] == nil) {
+        return 0;
+    }
+    return [[totelGoal objectForKey:name] integerValue];
+}
++ (void) addTotleGoal:(NSString *)name number:(NSInteger) num {
+    if (totelGoal == NULL) {
+        totelGoal = [[NSMutableDictionary alloc] init];
+    }
+    if ([totelGoal objectForKey:name] == nil) {
+        [totelGoal setValue:[NSString stringWithFormat:@"%d", num] forKey:name];
+    } else {
+        NSInteger newNum = [[totelGoal objectForKey:name] integerValue] + num;
+        [totelGoal setValue:[NSString stringWithFormat:@"%d", newNum] forKey:name];
+    }
+}
+
++ (NSInteger) getDoneGoal:(NSString *)name {
+    if (doneGoal == NULL || [doneGoal objectForKey:name] == nil) {
+        return 0;
+    }
+    return [[doneGoal objectForKey:name] integerValue];
+}
++ (void) addDoneGoal:(NSString *)name number:(NSInteger) num {
+    if (doneGoal == NULL) {
+        doneGoal = [[NSMutableDictionary alloc] init];
+    }
+    if ([doneGoal objectForKey:name] == nil) {
+        [doneGoal setValue:[NSString stringWithFormat:@"%d", num] forKey:name];
+    } else {
+        NSInteger newNum = [[doneGoal objectForKey:name] integerValue] + num;
+        [doneGoal setValue:[NSString stringWithFormat:@"%d", newNum] forKey:name];
+    }
 }
 
 @end
