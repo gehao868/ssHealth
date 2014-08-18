@@ -180,20 +180,20 @@
                                 <color key="backgroundColor" red="0.42745098469999998" green="0.8392156959" blue="0.6784313917" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="128" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bp0-xm-1Dv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="190" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bp0-xm-1Dv">
                                 <rect key="frame" x="0.0" y="173" width="320" height="395"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsFeedCell" rowHeight="128" id="fSK-J4-Rrb" customClass="NewsFeedCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="128"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsFeedCell" rowHeight="190" id="fSK-J4-Rrb" customClass="NewsFeedCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="190"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fSK-J4-Rrb" id="UC3-4d-w62">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="189"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rHk-5o-Esw">
-                                                    <rect key="frame" x="272" y="97" width="48" height="30"/>
+                                                    <rect key="frame" x="272" y="159" width="48" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
@@ -216,7 +216,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Ib-1G-nBW">
-                                                    <rect key="frame" x="237" y="94" width="30" height="30"/>
+                                                    <rect key="frame" x="234" y="139" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <state key="normal" title="like">
@@ -233,13 +233,8 @@
                                                     <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" id="dgk-Vr-QUk">
-                                                    <rect key="frame" x="0.0" y="-138" width="320" height="105"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nmC-w8-fRA">
-                                                    <rect key="frame" x="79" y="-3" width="160" height="120"/>
+                                                    <rect key="frame" x="79" y="-3" width="140" height="140"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -582,27 +577,27 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_green" id="gzp-ca-5rb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartrate" id="gzp-ca-5rb">
                                 <rect key="frame" x="34" y="377" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steps" id="rLE-vs-OzJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="step" id="rLE-vs-OzJ">
                                 <rect key="frame" x="142" y="377" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sleep_green" id="3B5-XJ-aMA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sleep" id="3B5-XJ-aMA">
                                 <rect key="frame" x="248" y="377" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="water_green" id="5eI-Ef-hpN">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cups" id="5eI-Ef-hpN">
                                 <rect key="frame" x="37" y="483" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weight_green" id="SHk-aF-vy9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weight" id="SHk-aF-vy9">
                                 <rect key="frame" x="142" y="480" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bodyfat" id="52T-7A-WUP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fatratio" id="52T-7A-WUP">
                                 <rect key="frame" x="248" y="480" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -650,8 +645,8 @@
                                             <segue destination="7Wj-2K-5tN" kind="push" identifier="fatratio" id="6II-hd-gZu"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gey-73-Vmo">
-                                        <rect key="frame" x="-3" y="12" width="107" height="108"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gey-73-Vmo">
+                                        <rect key="frame" x="40" y="55" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -698,6 +693,8 @@
                     <connections>
                         <outlet property="bodyfat" destination="2pC-YX-h65" id="58v-rv-L8P"/>
                         <outlet property="buttonView" destination="DFq-rg-di5" id="E26-2R-xqy"/>
+                        <outlet property="cheerLabel" destination="TIq-G6-fxW" id="cpD-Uk-ddI"/>
+                        <outlet property="cheerNumberLabel" destination="RWa-uv-mwi" id="MWA-0g-dhM"/>
                         <outlet property="cups" destination="T45-Ob-Oqr" id="ilv-aw-VvM"/>
                         <outlet property="heartrate" destination="L3z-lD-Dc8" id="Snw-G9-jAQ"/>
                         <outlet property="liked" destination="svv-tu-HBr" id="YeE-gN-Dyi"/>
@@ -1722,19 +1719,19 @@
     <resources>
         <image name="add" width="12" height="12"/>
         <image name="addPost" width="55" height="55"/>
-        <image name="bodyfat" width="230" height="230"/>
         <image name="coupon_white" width="33" height="33"/>
-        <image name="heart_green" width="22" height="22"/>
+        <image name="cups" width="44" height="44"/>
+        <image name="fatratio" width="230" height="230"/>
+        <image name="heartrate" width="22" height="22"/>
         <image name="launch@R4" width="640" height="1136"/>
         <image name="ly-plate" width="150" height="150"/>
         <image name="menu" width="20" height="20"/>
         <image name="more" width="22" height="22"/>
         <image name="rotate-static" width="107" height="107"/>
         <image name="shake" width="320" height="250"/>
-        <image name="sleep_green" width="22" height="22"/>
-        <image name="steps" width="22" height="22"/>
-        <image name="water_green" width="44" height="44"/>
-        <image name="weight_green" width="22" height="22"/>
+        <image name="sleep" width="22" height="22"/>
+        <image name="step" width="22" height="22"/>
+        <image name="weight" width="22" height="22"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

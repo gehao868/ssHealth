@@ -8,6 +8,7 @@
 
 #import "DashBoardViewController.h"
 #import "HealthData.h"
+#import "HealthTime.h"
 #import "UserData.h"
 #import "Global.h"
 #import "DashTableViewCell.h"
@@ -28,9 +29,6 @@
 @end
 
 @implementation DashBoardViewController {
-    NSArray *finished;
-    NSArray *expected;
-    NSArray *tableData;
     NSArray *thumbnails;
     NSMutableArray *subScore;
     NSArray * subCircleLabel;
@@ -40,13 +38,6 @@
     int healthScoreInt;
     NSDictionary *subIndexDict;
     NSArray* objects;
-    
-    NSNumber *bmiObj;
-    NSNumber *heartrateObj;
-    NSNumber *sleepObj;
-    NSNumber *stepObj;
-    NSNumber *fatratioObj;
-    NSNumber *cupsObj;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -104,9 +95,10 @@
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
     [components setHour:-4];
     today = [[NSCalendar currentCalendar] dateFromComponents:components];
-
+                                                            [HealthTime setToday:today];
+                                                            [HealthTime setTomorrow:[today dateByAddingTimeInterval:60*60*24*1]];
                                                             
-    [query whereKey:@"date" lessThanOrEqualTo:[today dateByAddingTimeInterval:60*60*24*1]];
+    [query whereKey:@"date" lessThanOrEqualTo:[HealthTime getTomorrow]];
     [query whereKey:@"date" greaterThanOrEqualTo:today];
     
     subCircleLabel = [NSArray arrayWithObjects:_heartrate,_sleep,_step, _cups, _weight, _bodyfat, nil];
@@ -119,10 +111,12 @@
     subScore = [[NSMutableArray alloc] init];
                                                             
 
-                                                                
-                                                                for (PFObject *object in objects) {
-                                                                    int heartrate = [[object objectForKey:@"heartrate"] intValue];
-                                                                    heartrateObj = [object objectForKey:@"heartrate"];
+                                                            if ([objects count] == 0) {
+                                                                [subScore addObject:[NSNumber numberWithFloat:0]];
+                                                            } else {
+                                                                int i = [objects count] - 1;
+                                                                    int heartrate = [[objects[i] objectForKey:@"heartrate"] intValue];
+                                                                    [HealthData setHeartrate:[objects[i] objectForKey:@"heartrate"]];
                                                                     
                                                                     if(heartrate <= 100 && heartrate >= 40){
                                                                         [subScore addObject:[NSNumber numberWithFloat:1]];
@@ -130,8 +124,8 @@
                                                                         [subScore addObject:[NSNumber numberWithFloat:0]];
                                                                     }
                                                                     
-                                                                    int cups = [[object objectForKey:@"cups"] intValue];
-                                                                    cupsObj =[object objectForKey:@"cups"];
+                                                                    int cups = [[objects[i] objectForKey:@"cups"] intValue];
+                                                                     [HealthData setCups:[objects[i] objectForKey:@"cups"]];
                                                                     
                                                                     if ([[UserData getGender] isEqualToString:@"male"]) {
                                                                         if (cups >=13) {
@@ -148,8 +142,8 @@
                                                                         }
                                                                     }
                                                                     
-                                                                    int step = [[object objectForKey:@"step"] intValue];
-                                                                    stepObj =[object objectForKey:@"step"];
+                                                                    int step = [[objects[i] objectForKey:@"step"] intValue];
+                                                                    [HealthData setStep:[objects[i] objectForKey:@"step"]];
                                                                     
                                                                     if (step >= 8000) {
                                                                         [subScore addObject:[NSNumber numberWithFloat:1]];
@@ -157,9 +151,9 @@
                                                                         [subScore addObject:[NSNumber numberWithFloat:1.0 * step/8000]];
                                                                     }
                                                                     
-                                                                    int losedWeight = [[object objectForKey:@"weight"] intValue];
+                                                                    int losedWeight = [[objects[i] objectForKey:@"weight"] intValue];
                                                                     float bmi = 1.0 * losedWeight / [[UserData getHeight] intValue] * [[UserData getHeight] intValue];
-                                                                    bmiObj = [NSNumber numberWithFloat:bmi];
+                                                                    [HealthData setBMI:[NSNumber numberWithFloat:bmi]];
                                                                     
                                                                     if (bmi < 18) {
                                                                         [subScore addObject:[NSNumber numberWithFloat:0.7]];
@@ -171,8 +165,8 @@
                                                                         [subScore addObject:[NSNumber numberWithFloat:1]];
                                                                     }
                                                                     
-                                                                    int sleep = [[object objectForKey:@"sleep"] intValue];
-                                                                    sleepObj =[object objectForKey:@"sleep"];
+                                                                    int sleep = [[objects[i] objectForKey:@"sleep"] intValue];
+                                                                    [HealthData setSleep:[objects[i] objectForKey:@"sleep"]];
                                                                     
                                                                     if (sleep <= 540 && sleep >=420) {
                                                                         [subScore addObject:[NSNumber numberWithFloat:1]];
@@ -184,8 +178,8 @@
                                                                         [subScore addObject:[NSNumber numberWithFloat:1.0 * (sleep - 240)/240]];
                                                                     }
                                                                     
-                                                                    int fatratio = [[object objectForKey:@"fatratio"] intValue];
-                                                                    fatratioObj =[object objectForKey:@"fatratio"];
+                                                                    int fatratio = [[objects[i] objectForKey:@"fatratio"] intValue];
+                                                                    [HealthData setFatratio:[objects[i] objectForKey:@"fatratio"]];
                                                                     
                                                                     if ([[UserData getGender] isEqualToString:@"male"]) {
                                                                         if (fatratio < 18) {
@@ -206,8 +200,9 @@
                                                                         }
                                                                     }
                                                                     
-                                                                    finished = [NSArray arrayWithObjects:[NSNumber numberWithInt:heartrate],[NSNumber numberWithInt:step],[NSNumber numberWithInt:sleep],[NSNumber numberWithInt:cups],[NSNumber numberWithInt:losedWeight],[NSNumber numberWithInt:fatratio], nil];
-                                                                }
+                                                                
+                                                               
+                                                            }
                                                             
                                                             
     self.subProgessView = [[NSMutableArray alloc]init];
@@ -236,13 +231,11 @@
              [self setDefaultColor];
              _score.textColor = defaultColor;
              [[self largestProgressView]setProgressTintColor:defaultColor];
-             NSLog(@"health score is %f", healthScore);
              [self.view addSubview: self.largestProgressView];
 
-    thumbnails = [NSArray arrayWithObjects:@"heart_green", @"sleep_green", @"steps", @"water_green", @"weight_green",nil];
+    thumbnails = [NSArray arrayWithObjects:@"heartrate", @"sleep", @"step", @"cups", @"weight",nil];
     
-    expected = [NSArray arrayWithObjects: [NSNumber numberWithInt:80], [NSNumber numberWithInt:8], [NSNumber numberWithInt:1200], [NSNumber numberWithInt:6],[NSNumber numberWithInt:20],nil];
-    tableData = [NSArray arrayWithObjects:@"heartrate", @"sleep", @"step", @"cups", @"weight",nil];
+
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
              
     //add shadow
@@ -254,7 +247,19 @@
     self.dashTable.layer.masksToBounds = NO;
 }
          
-         
+-(void) setCheer:(int) s{
+    if (s >= 80) {
+        self.cheerLabel.text = @"Well done";
+        self.cheerNumberLabel.text = @"You are better than 90% users";
+    } else if (s <80 && s>=50) {
+        self.cheerLabel.text = @"Good job";
+        self.cheerNumberLabel.text = @"You are better than 70% users";
+    } else {
+        self.cheerLabel.text = @"Try hard";
+        self.cheerNumberLabel.text = @"You are better than 30% users";
+    }
+}
+             
 -(void) setDefaultColor{
     if (healthScore * 100 < 60) {
         defaultColor = [DEFAULT_COLOR_RED;
@@ -407,82 +412,35 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [thumbnails count];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 52;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *simpleTableIdentifier = @"HealthDataCell";
-    
-    DashTableViewCell *cell = (DashTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-
-    if (cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"HealthDataCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    
-    NSNumber *x = (NSNumber*)[finished objectAtIndex:indexPath.row];
-    NSNumber *y = (NSNumber*)[expected objectAtIndex:indexPath.row];
-    float z = x.floatValue /y.floatValue;
-    
-    NSString *text = [[NSString alloc] initWithFormat:@"%2.0f %%",(z*100)];
-    
-    cell.output.text = text;
-
-
-    cell.progress.progress =  x.doubleValue /y.doubleValue;
-    UIColor* tintColor = [DEFAULT_COLOR_GREEN;
-    if (z * 100 < 60) {
-        tintColor = [DEFAULT_COLOR_RED;
-    } else if (z * 100 < 80) {
-        tintColor = [DEFAULT_COLOR_YELLOW;
-    }
-    cell.progress.progressTintColor = tintColor;
-    
-    cell.healthIconImage.image = [UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
-    [[cell healthIconImage]setTintColor:[UIColor lightGrayColor]];
-    return cell;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath{
     [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     DetailViewController *destViewController = segue.destinationViewController;
-    NSLog(@"SEGUE ID IS %@", segue.identifier);
     
     if ([segue.identifier isEqualToString:@"sleep"]) {
         destViewController.healthDataName = @"sleep";
-        destViewController.dataValue = sleepObj;
+        destViewController.dataValue = [HealthData getSleep];
     
     } else if ([segue.identifier isEqualToString:@"step"]) {
         destViewController.healthDataName = @"step";
-        destViewController.dataValue = stepObj;
+        destViewController.dataValue = [HealthData getStep];
         
     } else if ([segue.identifier isEqualToString:@"weight"]) {
         destViewController.healthDataName = @"weight";
-        destViewController.dataValue = bmiObj;
+        destViewController.dataValue = [HealthData getBMI];
     } else if ([segue.identifier isEqualToString:@"fatratio"]) {
         destViewController.healthDataName = @"fatratio";
-        destViewController.dataValue = fatratioObj;
+        destViewController.dataValue = [HealthData getFatratio];
 
     } else if ([segue.identifier isEqualToString:@"heartrate"]) {
         destViewController.healthDataName = @"heartrate";
-        destViewController.dataValue = heartrateObj;
+        destViewController.dataValue = [HealthData getHeartrate];
 
     } else if ([segue.identifier isEqualToString:@"cups"]) {
         destViewController.healthDataName = @"cups";
-        destViewController.dataValue = cupsObj;
+        destViewController.dataValue = [HealthData getCups];
     }
 }
 

@@ -10,6 +10,7 @@
 #import "TargetViewDetailController.h"
 #import "GoalTableCell.h"
 #import "UserData.h"
+#import "HealthTime.h"
 #import <Parse/Parse.h>
 
 @interface TargetViewController ()
@@ -112,6 +113,7 @@
 {
 
     NSDate *date = self.datepicker.selectedDate;
+   
     if (date == nil) {
         date = today;
     }
@@ -133,7 +135,7 @@
             [healthObjects addObject:object];
         }
         [self getHealthData:date];
-        NSLog(@"health object count is %lu", (unsigned long)[healthObjects count]);
+//        NSLog(@"health object count is %lu", (unsigned long)[healthObjects count]);
         NSLog(@"The date is %@", date);
     }];
     
@@ -165,7 +167,10 @@
                 [finished addObject:[NSNumber numberWithInt:0]];
             }
         } else {
+//            NSLog(@"%@", date);
             for (PFObject *object in goalObjects) {
+                NSLog(@"goal object count is %lu", (unsigned long)[goalObjects count]);
+
                 [expected addObject:[object objectForKey:@"expected"]];
                 
                 [imgList addObject:[object objectForKey:@"type"]];
@@ -204,8 +209,6 @@
     
     cell.progress.progress =x.doubleValue / y.doubleValue;
     cell.progress.progressTintColor = [UIColor redColor];
-    
-//    NSLog(@"image is %@",[imgList objectAtIndex:indexPath.row] );
     
     cell.image.image = [UIImage imageNamed:[imgList objectAtIndex:indexPath.row]];
     cell.image.frame = CGRectMake(cell.image.frame.origin.x, cell.image.frame.origin.y, 44, 44);

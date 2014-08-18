@@ -12,7 +12,5 @@
 
 @interface ImproveTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) HealthData *healthData;
-
 
 @end
