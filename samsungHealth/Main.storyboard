@@ -1282,7 +1282,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="s04-g3-kXa">
                                 <rect key="frame" x="0.0" y="58" width="320" height="510"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.15235088120000001" green="0.1840853522" blue="0.21301020409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.2633497876" green="0.31820517240000001" blue="0.36820392219999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="FriendListViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendListViewCell" rowHeight="50" id="xAt-fL-Zmm" customClass="FriendListViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="50"/>
@@ -1522,7 +1522,7 @@
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CouponDetailCell" rowHeight="58" id="LGj-f4-GO0" customClass="CouponDetailCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CouponDetailCell" rowHeight="58" id="LGj-f4-GO0" customClass="CouponDetailCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="58"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LGj-f4-GO0" id="UFp-Se-Vjd">
