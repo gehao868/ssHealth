@@ -114,7 +114,7 @@ UIRefreshControl *currRC;
         NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%", rate*100];
         [self.progressLabel setText:text];
         
-        DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(220.0f, 80.0f, 80.0f, 80.0f)];
+        DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(20.0f, 75.0f, 80.0f, 80.0f)];
         [tmpView setProgress:rate];
         [self.view addSubview:tmpView];
     }];
