@@ -56,6 +56,7 @@
     font = [UIFont systemFontOfSize:20.0f];
     
     NSCalendar *cal = [NSCalendar currentCalendar];
+    [cal setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     NSDateComponents *newComponents = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
     
     [newComponents setHour:-[newComponents hour]];
@@ -68,12 +69,24 @@
     [newComponents setSecond:0];
     
     yesterday = [cal dateByAddingComponents:newComponents toDate: today options:0];
+    
+    
+    
+    //****
+    
+    
     NSDateComponents *components = [[NSCalendar currentCalendar]
                                     components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit
                                     fromDate:[NSDate date]];
     //[components setHour:-4];
-    today = [[NSCalendar currentCalendar]
-                         dateFromComponents:components];
+    
+    
+    NSCalendar *newCal =[NSCalendar currentCalendar];
+   // [newCal setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    
+    today = [newCal dateFromComponents:components];
+    
+    NSLog(@"today is %@", today);
     
     numberFrame = CGRectMake(20.0f, 5.0f, 120.0f, 20.0f);
     progressFrame = CGRectMake(20.0f, 5.0f + font.lineHeight + 2.0f, 110.0f, 20.0f);
@@ -81,6 +94,7 @@
     
     [self.datepicker fillCurrentMonth];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+   // [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     [dateFormat setDateFormat:@"d"];
     NSInteger day = [[dateFormat stringFromDate:yesterday] intValue];
     
@@ -143,12 +157,16 @@
 }
 
 - (void) getHealthData: (NSDate*) date {
+//    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+//    [df setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+//    NSDate *newDate = [date ];
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
     [query whereKey:@"name" equalTo:[UserData getUsername]];
     
-    [query whereKey:@"date" greaterThanOrEqualTo:date];
     
-    [query whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*24*1]];
+    [query whereKey:@"date" greaterThanOrEqualTo:date];
+    [query whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*20*1]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         finished = [[NSMutableArray alloc] init];
         expected = [[NSMutableArray alloc] init];
@@ -209,8 +227,19 @@
     NSNumber *x = (NSNumber*)[finished objectAtIndex:indexPath.row];
     NSNumber *y = (NSNumber*)[expected objectAtIndex:indexPath.row];
     
+    NSString *unit =  [NSString new];
+    NSString *type = [[goalObjects objectAtIndex:indexPath.row] objectForKey:@"type"];
+    if ([type isEqualToString:@"cups"]) {
+        unit = @"cups";
+    } else if ([type isEqualToString:@"step"]){
+        unit = @"steps";
+    } else if ([type isEqualToString:@"sleep"]){
+        unit = @"hours";
+    } else {
+        unit = @"minutes";
+    }
     
-    NSString *text = [NSString stringWithFormat:@"%d%@%d", [x intValue], @"/",[y intValue]];
+    NSString *text = [NSString stringWithFormat:@"%d%@%d %@", [x intValue], @"/",[y intValue], unit];
     cell.number.text = text;
     [cell.number setFont:font];
     

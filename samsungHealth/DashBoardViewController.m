@@ -90,15 +90,24 @@
                                                             
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
     [query whereKey:@"username" equalTo:[UserData getUsername]];
-
-                                            
+    
+    
     NSDate *today = [NSDate date];
 
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+    
+    
     //[components setHour:-4];
+    
+    [components setHour:-4];
+    [components setMinute:0];
+    [components setSecond:0];
+    
     today = [[NSCalendar currentCalendar] dateFromComponents:components];
-                                                            [HealthTime setToday:today];
-                                                            [HealthTime setTomorrow:[today dateByAddingTimeInterval:60*60*24*1]];
+    
+    [HealthTime setToday:today];
+    [HealthTime setTomorrow:[today dateByAddingTimeInterval:60*60*24*1]];
+    
                                                             
     [query whereKey:@"date" lessThanOrEqualTo:[HealthTime getToday]];
     [query whereKey:@"date" greaterThanOrEqualTo:[today dateByAddingTimeInterval:-60*60*24*1]];
@@ -352,7 +361,7 @@
 - (IBAction)likedAction:(id)sender {
     //[self.liked setHidden:YES];
     [self.liked setEnabled:NO];
-    [self.liked setBackgroundImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
+    [self.liked setBackgroundImage:[UIImage imageNamed:@"heart_white"] forState:UIControlStateNormal];
     [self.liked setTitle:nil forState:UIControlStateNormal];
     
     NSInteger showlikenum = [Global getShowlikenum];

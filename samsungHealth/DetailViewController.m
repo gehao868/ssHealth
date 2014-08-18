@@ -63,19 +63,35 @@
     barDate = [[NSMutableArray alloc] init];
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     format.dateFormat = @"dd";
     
     PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
     [query whereKey:@"username" equalTo:[UserData getUsername]];
+    
     [query whereKey:@"date" greaterThan:lastWeek];
+    [query whereKey:@"date" lessThanOrEqualTo:[HealthTime getToday]];
+    
+    
     [query orderByAscending:@"date"];
     
     NSArray* objects = [query findObjects];
     
+   
+    
     for (PFObject *object in objects) {
-        NSNumber *step =[NSNumber numberWithInt:[[object objectForKey:self.healthDataName] intValue]];
+        NSNumber *step = [[NSNumber alloc] init];
+        if([[self healthDataName] isEqualToString:@"weight"]){
+            double losedWeight =[[object objectForKey:self.healthDataName] doubleValue];
+            double height = [[UserData getHeight] doubleValue];
+            step = [NSNumber numberWithDouble:1.0 * losedWeight / ( height* height / 10000.0)];
+            
+        } else {
+            step =[NSNumber numberWithInt:[[object objectForKey:self.healthDataName] intValue]];
+        }
         [barData addObject:step];
         NSString *date = [format stringFromDate:[object objectForKey:@"date"]];
+         NSLog(@"time is %@", date);
         [barDate addObject:date];
     }
 
@@ -188,7 +204,11 @@
         }
     }
     
-    self.title = [self healthDataName];
+    if ([[self healthDataName] isEqualToString:@"weight"]) {
+        self.title = @"BMI";
+    } else {
+        self.title = [self healthDataName];
+    }
     self.monthLabel.text = [self getMonthName:thisMonth];
     
 }
