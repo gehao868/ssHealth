@@ -80,7 +80,7 @@
         weekNameLabel.titleLabel.text = [_weekNames objectAtIndex:i];
         [weekNameLabel setTitle:[_weekNames objectAtIndex:i] forState:UIControlStateNormal];
         [weekNameLabel setFrame:CGRectMake(originX+(width*(i%columns)), originY, width, width)];
-        [weekNameLabel setTitleColor:[DEFAULT_COLOR_THEME forState:UIControlStateNormal];
+        [weekNameLabel setTitleColor:[DEFAULT_COLOR_THEME] forState:UIControlStateNormal];
         [weekNameLabel.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]];
         weekNameLabel.userInteractionEnabled = NO;
         [self addSubview:weekNameLabel];
@@ -99,10 +99,10 @@
         NSInteger offsetX = (width*((i+weekday)%columns));
         NSInteger offsetY = (width *((i+weekday)/columns));
         [button setFrame:CGRectMake(originX+offsetX, originY+40+offsetY, width, width)];
-        [button.layer setBorderColor:[[DEFAULT_COLOR_THEME CGColor]];
+        [button.layer setBorderColor:[DEFAULT_COLOR_THEME].CGColor];
         [button.layer setBorderWidth:0.5];
         UIView *lineView = [[UIView alloc] init];
-        lineView.backgroundColor = [DEFAULT_COLOR_THEME;
+        lineView.backgroundColor = [DEFAULT_COLOR_THEME];
         if(((i+weekday)/columns)==0)
         {
             [lineView setFrame:CGRectMake(0, 0, button.frame.size.width, 1)];
@@ -116,7 +116,7 @@
         }
         
         UIView *columnView = [[UIView alloc]init];
-        [columnView setBackgroundColor:[DEFAULT_COLOR_THEME];
+        [columnView setBackgroundColor:[DEFAULT_COLOR_THEME]];
         if((i+weekday)%7==0)
         {
             [columnView setFrame:CGRectMake(0, 0, 1, button.frame.size.width)];
@@ -129,7 +129,7 @@
         }
         if(i+1 ==_selectedDate && components.month == _selectedMonth && components.year == _selectedYear)
         {
-            [button setBackgroundColor:[DEFAULT_COLOR_THEME];
+            [button setBackgroundColor:[DEFAULT_COLOR_THEME]];
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             
         }
@@ -143,7 +143,7 @@
             int day = [mycomponents day];
             
             if (i+1 == day && components.month == month && components.year == year) {
-                [button setBackgroundColor:[DEFAULT_COLOR_THEME];
+                [button setBackgroundColor:[DEFAULT_COLOR_THEME]];
                 [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             }
         }
@@ -170,9 +170,9 @@
         NSInteger offsetY = (width *(i/columns));
         [button setFrame:CGRectMake(originX+offsetX, originY+40+offsetY, width, width)];
         [button.layer setBorderWidth:0.5];
-        [button.layer setBorderColor:[[DEFAULT_COLOR_THEME CGColor]];
+        [button.layer setBorderColor:[DEFAULT_COLOR_THEME].CGColor];
         UIView *columnView = [[UIView alloc]init];
-        [columnView setBackgroundColor:[DEFAULT_COLOR_THEME];
+        [columnView setBackgroundColor:[DEFAULT_COLOR_THEME]];
         if(i==0)
         {
             [columnView setFrame:CGRectMake(0, 0, 1, button.frame.size.width)];
@@ -180,7 +180,7 @@
         }
 
         UIView *lineView = [[UIView alloc]init];
-        [lineView setBackgroundColor:[DEFAULT_COLOR_THEME];
+        [lineView setBackgroundColor:[DEFAULT_COLOR_THEME]];
         [lineView setFrame:CGRectMake(0, 0, button.frame.size.width, 1)];
         [button addSubview:lineView];
         [button setTitleColor:[UIColor colorWithRed:150.0/255.0 green:150.0/255.0 blue:150.0/255.0 alpha:1.0] forState:UIControlStateNormal];
@@ -199,16 +199,16 @@
             NSInteger offsetY = (width *((monthLength+weekday)/columns));
             [button setFrame:CGRectMake(originX+offsetX, originY+40+offsetY, width, width)];
             [button.layer setBorderWidth:0.5];
-            [button.layer setBorderColor:[[DEFAULT_COLOR_THEME CGColor]];
+            [button.layer setBorderColor:[DEFAULT_COLOR_THEME].CGColor];
             UIView *columnView = [[UIView alloc]init];
-            [columnView setBackgroundColor:[DEFAULT_COLOR_THEME];
+            [columnView setBackgroundColor:[DEFAULT_COLOR_THEME]];
             if(i==columns - 1)
             {
                 [columnView setFrame:CGRectMake(button.frame.size.width-1, 0, 1, button.frame.size.width)];
                 [button addSubview:columnView];
             }
             UIView *lineView = [[UIView alloc]init];
-            [lineView setBackgroundColor:[DEFAULT_COLOR_THEME];
+            [lineView setBackgroundColor:[DEFAULT_COLOR_THEME]];
             [lineView setFrame:CGRectMake(0, button.frame.size.width-1, button.frame.size.width, 1)];
             [button addSubview:lineView];
             [button setTitleColor:[UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1.0] forState:UIControlStateNormal];
@@ -230,8 +230,7 @@
         {
             UIButton *previousSelected =(UIButton *) [self viewWithTag:_selectedDate];
             [previousSelected setBackgroundColor:[UIColor clearColor]];
-            [previousSelected setTitleColor:[DEFAULT_COLOR_THEME forState:UIControlStateNormal];
-            
+            [previousSelected setTitleColor:[DEFAULT_COLOR_THEME] forState:UIControlStateNormal];
         }
         
         [sender setBackgroundColor:[UIColor clearColor]];

@@ -50,7 +50,7 @@
     
     friendName.hidden = YES;
     [Util formatTextField:giftTitle];
-    [[giftDetail layer] setBorderColor:[[DEFAULT_COLOR_GREEN CGColor]];
+    [[giftDetail layer] setBorderColor:[DEFAULT_COLOR_GREEN].CGColor];
     [[giftDetail layer] setBorderWidth:1.0];
 }
 

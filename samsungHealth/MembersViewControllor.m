@@ -84,7 +84,7 @@
     CGRect frame = CGRectMake(15.0f, 10.0f, width, height);
     UIButton *addFriendButton = [[UIButton alloc] initWithFrame:frame];
     [addFriendButton setFrame:frame];
-    [addFriendButton setBackgroundColor:[DEFAULT_COLOR_THEME];
+    [addFriendButton setBackgroundColor:[DEFAULT_COLOR_THEME]];
     [addFriendButton setTitle:@"+" forState:UIControlStateNormal];
     addFriendButton.titleLabel.font = [UIFont systemFontOfSize:44];
     [addFriendButton addTarget:self action:@selector(show:) forControlEvents:UIControlEventTouchUpInside];
@@ -101,7 +101,7 @@
         [btn setBackgroundImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendsAvatar objectForKey:[members objectAtIndex:i]]]]] forState:UIControlStateNormal];
         [Util addCircleForButton:btn:45];
 
-        [btn setBackgroundColor:[DEFAULT_COLOR_THEME];
+        [btn setBackgroundColor:[DEFAULT_COLOR_THEME]];
         //[btn setTitle:[members objectAtIndex:i] forState:UIControlStateNormal];
         [btn addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
         
@@ -125,7 +125,7 @@
     }
     
     UIButton *deleteFriendBUtton = [[UIButton alloc] initWithFrame:frame];
-    [deleteFriendBUtton setBackgroundColor:[DEFAULT_COLOR_RED];
+    [deleteFriendBUtton setBackgroundColor:[DEFAULT_COLOR_RED]];
     [deleteFriendBUtton setTitle:@"delete" forState:UIControlStateNormal];
     [deleteFriendBUtton addTarget:self action:@selector(deleteFriend:) forControlEvents:UIControlEventTouchUpInside];
      [Util addCircleForButton:deleteFriendBUtton:45];
