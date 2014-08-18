@@ -232,6 +232,7 @@ error contextInfo:(void *)contextInfo
         [player stop];
     }
     
+    self.photoView.hidden = YES;
     chosenAudio = YES;
     [self prepareForRecording];
     [_playButton setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
