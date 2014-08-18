@@ -48,6 +48,7 @@ UIRefreshControl *currRC;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     myTableDelegate = [[TableDelegate alloc] init];
     [self.table setDelegate:myTableDelegate];
     [self.table setDataSource:myTableDelegate];
@@ -70,10 +71,14 @@ UIRefreshControl *currRC;
     
     [self.progressLabel setText:text];
   
-    DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(120.0f, 80.0f, 80.0f, 80.0f)];
+    DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(220.0f, 80.0f, 80.0f, 80.0f)];
     [tmpView setProgress:12.0];
     [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN]];
      [self.view addSubview:tmpView];
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = screenBound.size;
+    CGRect frame = CGRectMake(screenSize.width - 62.0, screenSize.height - 62, 56.0, 56.0);
+    self.buttonView.frame = frame;
      [self.view bringSubviewToFront:self.buttonView];
 
 }

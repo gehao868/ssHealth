@@ -30,7 +30,6 @@
 		0BA87092198C5BA900236EBD /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA87091198C5BA900236EBD /* UserData.m */; };
 		0BE385E7197E4AA2002D27B4 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBD2C8D197E4754002F23A5 /* OAuthiOS.framework */; };
 		0BE4C45B19A00D32008E4396 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BE4C45A19A00D32008E4396 /* AVFoundation.framework */; };
-		3B1CD2071989D75400282886 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		3B609FC5199C520D0048FD3C /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B609FC4199C520D0048FD3C /* Global.m */; };
 		3B609FC8199C653D0048FD3C /* TableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B609FC7199C653D0048FD3C /* TableDelegate.m */; };
 		3B609FCB199C65EC0048FD3C /* NewsFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B609FCA199C65EC0048FD3C /* NewsFeedCell.m */; };
@@ -862,7 +861,6 @@
 				7CBD2C70197E4651002F23A5 /* RECommonFunctions.m in Sources */,
 				7C1A6CA219956E2500E307DA /* Goal.m in Sources */,
 				7CBD2C85197E467D002F23A5 /* DeviceViewController.m in Sources */,
-				3B1CD2071989D75400282886 /* (null) in Sources */,
 				7CC7654719A04D5100C8C111 /* CUSSenderFallLayer.m in Sources */,
 				7C89F8B11989CB4A00F021EF /* TargetViewDetailController.m in Sources */,
 				7CBD2C87197E467D002F23A5 /* ConnectViewController.m in Sources */,
@@ -1013,10 +1011,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "samsungHealth/HealthCoach-Prefix.pch";
 				INFOPLIST_FILE = "samsungHealth/HealthCoach-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/samsungHealth/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = HealthCoach;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1034,10 +1029,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "samsungHealth/HealthCoach-Prefix.pch";
 				INFOPLIST_FILE = "samsungHealth/HealthCoach-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/samsungHealth/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = HealthCoach;
 				WRAPPER_EXTENSION = app;
 			};
