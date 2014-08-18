@@ -221,12 +221,14 @@
             index++;
         }
     }
-    self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(70.0f, 115.0f, 180.0f, 180.0f)];
-    NSMutableArray *subCopy = [NSMutableArray arrayWithArray:subScore];;
-    healthScore = [self calculateScore:subCopy];
-    healthScoreInt = (int)roundf(healthScore * 100);
-             healthScore = 1.000f;
-             healthScoreInt = 100;
+             self.largestProgressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(70.0f, 115.0f, 180.0f, 180.0f)];
+             NSMutableArray *subCopy = [NSMutableArray arrayWithArray:subScore];;
+             healthScore = [self calculateScore:subCopy];
+             healthScoreInt = (int)roundf(healthScore * 100);
+             healthScore=1;
+             healthScoreInt=100;
+             [self setCheer:healthScoreInt];
+             
              
              [self setDefaultColor];
              _score.textColor = defaultColor;
@@ -277,7 +279,7 @@
     float score =_largestProgressView.progress;
     if (score < healthScore - 0.003){
         _largestProgressView.progress += 0.003f;
-        _score.text = [NSString stringWithFormat:@"%d", (int)roundf(_largestProgressView.progress)];
+        _score.text = [NSString stringWithFormat:@"%d", (int)roundf(_largestProgressView.progress * 100)];
     } else {
         _largestProgressView.progress = healthScore;
         _score.text = [NSString stringWithFormat:@"%d", healthScoreInt];
