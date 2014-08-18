@@ -12,6 +12,7 @@
 #import <Parse/Parse.h>
 #import "CreateGroupViewControllor.h"
 #import "Util.h"
+#import "DACircularProgressView.h"
 
 @interface MembersViewControllor ()
 
@@ -73,14 +74,14 @@
 }
 
 - (void) fillMembers {
-    NSInteger width = 90;
-    NSInteger height = 90;
+    NSInteger width = 80;
+    NSInteger height = 80;
     NSInteger dwidth = 20;
     NSInteger dheight = 20;
     double offset = -1.0;
     int numberPerLine = 3;
     int count = 2;
-   
+    
     CGRect frame = CGRectMake(15.0f, 10.0f, width, height);
     UIButton *addFriendButton = [[UIButton alloc] initWithFrame:frame];
     [addFriendButton setFrame:frame];
@@ -88,7 +89,7 @@
     [addFriendButton setTitle:@"+" forState:UIControlStateNormal];
     addFriendButton.titleLabel.font = [UIFont systemFontOfSize:44];
     [addFriendButton addTarget:self action:@selector(show:) forControlEvents:UIControlEventTouchUpInside];
-    [Util addCircleForButton:addFriendButton:45];
+    [Util addCircleForButton:addFriendButton:40];
 
     [scrollView addSubview:addFriendButton];
     
@@ -99,7 +100,7 @@
     for (int i = 0; i < [members count]; i++) {
         UIButton *btn = [[UIButton alloc] initWithFrame:frame];
         [btn setBackgroundImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendsAvatar objectForKey:[members objectAtIndex:i]]]]] forState:UIControlStateNormal];
-        [Util addCircleForButton:btn:45];
+        [Util addCircleForButton:btn:40];
 
         [btn setBackgroundColor:[DEFAULT_COLOR_THEME]];
         //[btn setTitle:[members objectAtIndex:i] forState:UIControlStateNormal];
@@ -112,6 +113,9 @@
         
         [scrollView addSubview:btn];
         [scrollView addSubview:dbtn];
+        DACircularProgressView *da = [[DACircularProgressView alloc]initWithFrame:CGRectMake(frame.origin.x - 10, frame.origin.y - 10, width+20, height+20)];
+        [scrollView addSubview:da];
+        [scrollView bringSubviewToFront:da];
         
         dframe = CGRectMake(frame.origin.x + width + 10.0f - offset, frame.origin.y - offset, dwidth, dheight);
         frame = CGRectMake(frame.origin.x + width + 10.0f , frame.origin.y, width, height);
@@ -121,6 +125,7 @@
             frame = CGRectMake(15.0f , frame.origin.y + height + 10.0f, width, height);
             count = 0;
         }
+       
         count++;
     }
     
