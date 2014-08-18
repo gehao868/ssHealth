@@ -49,6 +49,7 @@
     isRewarding = NO;
     
     pointNeeded = 300;
+    self.user.text = [UserData getUsername];
     self.userIcon.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[UserData getAvatar]]]];
     self.userIcon.layer.masksToBounds = YES;
     self.userIcon.layer.cornerRadius = 30.0;
