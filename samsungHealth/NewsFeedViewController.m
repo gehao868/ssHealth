@@ -53,6 +53,7 @@ UIRefreshControl *currRC;
     [self.table setDataSource:myTableDelegate];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tintColor = [UIColor whiteColor];
     [refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
     [self.table addSubview:refreshControl];
 
@@ -219,7 +220,7 @@ UIRefreshControl *currRC;
             [array addObject:news];
         }
         [Global setNewsFeed:array];
-        
+        self.table.backgroundColor = [DEFAULT_COLOR_DARKCYAN;
         [self.table reloadData];
         [self adjustHeightOfTableview];
     }];
