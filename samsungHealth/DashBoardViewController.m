@@ -157,7 +157,7 @@
                                                                     }
                                                                     
                                                                     int losedWeight = [[objects[i] objectForKey:@"weight"] intValue];
-                                                                    float bmi = 1.0 * losedWeight / ([[UserData getHeight] intValue] * [[UserData getHeight] intValue]);
+                                                                    float bmi = 1.0 * losedWeight / ([[UserData getHeight] intValue] * [[UserData getHeight] intValue] / 10000);
                                                                     [HealthData setBMI:[NSNumber numberWithFloat:bmi]];
                                                                     
                                                                     if (bmi < 18) {
