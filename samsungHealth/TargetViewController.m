@@ -71,7 +71,7 @@
     NSDateComponents *components = [[NSCalendar currentCalendar]
                                     components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit
                                     fromDate:[NSDate date]];
-    [components setHour:-4];
+    //[components setHour:-4];
     today = [[NSCalendar currentCalendar]
                          dateFromComponents:components];
     
@@ -167,15 +167,20 @@
                 [finished addObject:[NSNumber numberWithInt:0]];
             }
         } else {
-//            NSLog(@"%@", date);
+            int i = [healthObjects count] - 1;
             for (PFObject *object in goalObjects) {
                 NSLog(@"goal object count is %lu", (unsigned long)[goalObjects count]);
 
                 [expected addObject:[object objectForKey:@"expected"]];
                 
                 [imgList addObject:[object objectForKey:@"type"]];
-                
-                [finished addObject:[healthObjects[0] objectForKey:[object objectForKey:@"type"]]];
+                if ([[object objectForKey:@"type"] isEqualToString:@"fatraito" ]|| [[object objectForKey:@"type"] isEqualToString:@"weight"]||[[object objectForKey:@"type"] isEqualToString:@"heartrate"]) {
+                    [finished addObject:[healthObjects[i] objectForKey:@"active"]];
+                } else if ([[object objectForKey:@"type"] isEqualToString:@"sleep" ]){
+                    [finished addObject:[healthObjects[i] objectForKey:@"asleep"]];
+                } else{
+                    [finished addObject:[healthObjects[i] objectForKey:[object objectForKey:@"type"]]];
+                }
                 
             }
         }

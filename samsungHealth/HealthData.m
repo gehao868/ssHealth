@@ -14,6 +14,8 @@ static NSNumber *sleepLength;
 static NSNumber *cups;
 static NSNumber *bmi;
 static NSNumber *fatratio;
+static NSNumber *asleep;
+static NSNumber *active;
 
 @implementation HealthData
 
@@ -58,6 +60,21 @@ static NSNumber *fatratio;
 + (void)setFatratio:(NSNumber *) newFatratio{
     fatratio = newFatratio;
 }
+
++ (NSNumber *)getActive{
+    return active;
+}
++ (void)setActive:(NSNumber *) newActive{
+    active = newActive;
+}
+
++ (NSNumber *)getAsleep {
+    return asleep;
+}
++ (void)setAsleep:(NSNumber *) newAsleep{
+    asleep = newAsleep;
+}
+
 
 
 @end

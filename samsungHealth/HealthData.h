@@ -29,4 +29,10 @@
 + (NSNumber *)getFatratio;
 + (void)setFatratio:(NSNumber *) newFatratio;
 
++ (NSNumber *)getActive;
++ (void)setActive:(NSNumber *) newActive;
+
++ (NSNumber *)getAsleep;
++ (void)setAsleep:(NSNumber *) newAsleep;
+
 @end
