@@ -184,7 +184,7 @@
                                         <color key="trackTintColor" red="0.65720148229999997" green="0.74716996170000005" blue="0.70861113939999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.42745098469999998" green="0.8392156959" blue="0.6784313917" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.37254901959999998" green="0.72549019609999998" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="190" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bp0-xm-1Dv">
@@ -433,16 +433,16 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    1. Enter your group name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KW3-74-VS0">
                                 <rect key="frame" x="0.0" y="63" width="320" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.031372550870000002" green="0.37647059560000001" blue="0.42352941630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="backgroundColor" red="0.2633497876" green="0.31820517240000001" blue="0.36820392219999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    2. Select group member" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oTN-g4-ISV">
                                 <rect key="frame" x="0.0" y="175" width="320" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.031372550870000002" green="0.37647059560000001" blue="0.42352941630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="backgroundColor" red="0.2633497876" green="0.31820517240000001" blue="0.36820392219999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -477,7 +477,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="w9w-vY-iff">
                                 <rect key="frame" x="13" y="306" width="292" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.42745098040000001" green="0.83921568629999999" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.37254901960784315" green="0.72549019607843135" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="titleShadowOffset" width="270" height="45"/>
@@ -822,8 +822,8 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended Goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kkw-t4-tBU">
                                 <rect key="frame" x="0.0" y="305" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.031372549020000001" green="0.37647058820000001" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="backgroundColor" red="0.2633497876" green="0.31820517240000001" blue="0.36820392219999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1166,7 +1166,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cb1-Ez-B5W">
                                 <rect key="frame" x="20" y="510" width="280" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.42745098469999998" green="0.8392156959" blue="0.6784313917" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.37254901959999998" green="0.72549019609999998" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="submit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1191,7 +1191,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yCu-XB-3GB">
                                 <rect key="frame" x="20" y="109" width="280" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.42745098471641541" green="0.83921569585800171" blue="0.67843139171600342" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.37254901959999998" green="0.72549019609999998" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Select">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1203,7 +1203,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    1. Select friend" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oIA-ne-eAC">
                                 <rect key="frame" x="0.0" y="58" width="320" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.031372550870000002" green="0.37647059560000001" blue="0.42352941630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.2633497876" green="0.31820517240000001" blue="0.36820392219999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1211,7 +1211,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    2. Gift title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yak-rN-ZFI">
                                 <rect key="frame" x="0.0" y="161" width="320" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.031372550870000002" green="0.37647059560000001" blue="0.42352941630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.2633497876" green="0.31820517240000001" blue="0.36820392219999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1219,7 +1219,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    3. Gift detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IrX-Sd-mBf">
                                 <rect key="frame" x="0.0" y="265" width="320" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.031372550870000002" green="0.37647059560000001" blue="0.42352941630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.2633497876" green="0.31820517240000001" blue="0.36820392219999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1364,7 +1364,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0qp-mw-a3u">
                                 <rect key="frame" x="20" y="439" width="280" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.42745098469999998" green="0.8392156959" blue="0.6784313917" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.37254901959999998" green="0.72549019609999998" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
