@@ -13,6 +13,7 @@
 #import "TableDelegate.h"
 #import <Parse/Parse.h>
 #import "News.h"
+#import "HealthTime.h"
 #import "NewsFeedCell.h"
 
 @interface NewsFeedViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -49,6 +50,8 @@ UIRefreshControl *currRC;
 {
     [super viewDidLoad];
     
+    [self fetchProgress];
+    
     myTableDelegate = [[TableDelegate alloc] init];
     [self.table setDelegate:myTableDelegate];
     [self.table setDataSource:myTableDelegate];
@@ -67,20 +70,11 @@ UIRefreshControl *currRC;
         [query findObjectsInBackgroundWithTarget:self selector:@selector(addView:error:)];
     }
     
-    NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%",14.0];
-    
-    [self.progressLabel setText:text];
-  
-    DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(220.0f, 80.0f, 80.0f, 80.0f)];
-    [tmpView setProgress:12.0];
-    [tmpView setProgressTintColor:[DEFAULT_COLOR_GREEN]];
-     [self.view addSubview:tmpView];
     CGRect screenBound = [[UIScreen mainScreen] bounds];
     CGSize screenSize = screenBound.size;
     CGRect frame = CGRectMake(screenSize.width - 62.0, screenSize.height - 62, 56.0, 56.0);
     self.buttonView.frame = frame;
-     [self.view bringSubviewToFront:self.buttonView];
-
+    [self.view bringSubviewToFront:self.buttonView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -93,6 +87,37 @@ UIRefreshControl *currRC;
     [super viewDidAppear:animated];
     
     [self adjustHeightOfTableview];
+}
+
+- (void) fetchProgress {
+    PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
+    [query whereKey:@"date" greaterThanOrEqualTo:[HealthTime getToday]];
+    [query whereKey:@"date" lessThanOrEqualTo:[[HealthTime getToday] dateByAddingTimeInterval:60*60*24*1]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *goals, NSError *error) {
+        NSInteger totle = 0;
+        NSInteger done = 0;
+        for (PFObject *goal in goals) {
+            NSString *name = [goal objectForKey:@"name"];
+            NSString *isDone = [goal objectForKey:@"done"];
+            
+            totle++;
+            [Global addTotleGoal:name number:1];
+            if ([isDone isEqualToString:@"yes"]) {
+                done++;
+                [Global addDoneGoal:name number:1];
+            } else {
+                // ignore
+            }
+        }
+        
+        double rate = (totle == 0) ? 0 : 1.0*done/totle;
+        NSString *text = [[NSString alloc] initWithFormat:@"%2.0f%%", rate*100];
+        [self.progressLabel setText:text];
+        
+        DACircularProgressView *tmpView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(220.0f, 80.0f, 80.0f, 80.0f)];
+        [tmpView setProgress:rate];
+        [self.view addSubview:tmpView];
+    }];
 }
 
 - (void)addView:(NSArray *)objects error:(NSError *)error {

@@ -75,7 +75,7 @@
 
 //gradient color
     UIImage* image = [UIImage imageNamed:@"gradient"];
-    if(radius < 50){
+    if(radius < 80){
         self.progressTintColor =[DEFAULT_COLOR_GREEN];
         if(self.progress < 0.6f) {
             self.progressTintColor = [DEFAULT_COLOR_RED];
