@@ -220,9 +220,8 @@
     NSMutableArray *subCopy = [NSMutableArray arrayWithArray:subScore];;
     healthScore = [self calculateScore:subCopy];
     healthScoreInt = (int)roundf(healthScore * 100);
-    //health score test
-    healthScore = 0.01;
-    healthScoreInt = 1;
+    healthScoreInt = 45;
+    healthScore = 0.45;
              
     [self setCheer:healthScoreInt];
     
@@ -246,19 +245,20 @@
 }
          
 -(void) setCheer:(int) s{
-    double u = 0.75;
-    double o = 0.05;
-    double x = 1.0 / sqrt(2.0 * 3.1415926) / o * exp(pow(healthScore - u, 2) / 2.0 * pow(o, 2));
-    NSLog([NSString stringWithFormat:@"normal%f",x]);
+    double u = 0;
+    double o = 1;
+    double convertedX = (healthScore - 0.75) * 15;
+    double a = 4.0 / sqrt(2.0 * 3.1415926) / o;
+    double ex = exp(a * (convertedX - u));
+    NSLog(@"normal %f",ex/(1+ex));
+    int ret = (int)roundf(ex / (1 + ex) * 100);
+    self.cheerNumberLabel.text = [NSString stringWithFormat:@"You are better than %d%%users",ret];
     if (s >= 80) {
         self.cheerLabel.text = @"Well done";
-        self.cheerNumberLabel.text = @"You are better than 90% users";
     } else if (s <80 && s>=50) {
         self.cheerLabel.text = @"Good job";
-        self.cheerNumberLabel.text = @"You are better than 70% users";
     } else {
         self.cheerLabel.text = @"Try hard";
-        self.cheerNumberLabel.text = @"You are better than 30% users";
     }
 }
              
