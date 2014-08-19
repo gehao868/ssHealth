@@ -48,17 +48,17 @@
 - (void)drawRect:(CGRect)rect
 {    
     CGPoint centerPoint = CGPointMake(rect.size.height / 2, rect.size.width / 2);
-    CGFloat radius = MIN(rect.size.height, rect.size.width) / 2;
+    self.radius = MIN(rect.size.height, rect.size.width) / 2;
     
-    CGFloat pathWidth = radius * 0.0f;
+    CGFloat pathWidth = self.radius * 0.0f;
     CGFloat radians = DEGREES_2_RADIANS((self.progress*359.9)-90);
-    CGFloat xOffset = radius*(1 + 0.85*cosf(radians));
-    CGFloat yOffset = radius*(1 + 0.85*sinf(radians));
+    CGFloat xOffset = self.radius*(1 + 0.85*cosf(radians));
+    CGFloat yOffset = self.radius*(1 + 0.85*sinf(radians));
     CGPoint endPoint = CGPointMake(xOffset, yOffset);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    if(radius < 50){
+    if(self.radius < 80){
         _trackTintColor = [UIColor clearColor];
     } else {
         _trackTintColor = [UIColor colorWithRed:102.0f/255.0f green:119.0f/255.0f blue:134.0f/255.0f alpha:1.0f];
@@ -66,7 +66,7 @@
     [self.trackTintColor setFill];
     CGMutablePathRef trackPath = CGPathCreateMutable();
     CGPathMoveToPoint(trackPath, NULL, centerPoint.x, centerPoint.y);
-    CGPathAddArc(trackPath, NULL, centerPoint.x, centerPoint.y, radius, DEGREES_2_RADIANS(-90), DEGREES_2_RADIANS(270), NO);
+    CGPathAddArc(trackPath, NULL, centerPoint.x, centerPoint.y, self.radius, DEGREES_2_RADIANS(-90), DEGREES_2_RADIANS(270), NO);
     CGPathCloseSubpath(trackPath);
     CGContextAddPath(context, trackPath);
     CGContextFillPath(context);
@@ -74,7 +74,7 @@
 
 //gradient color
     UIImage* image = [UIImage imageNamed:@"gradient"];
-    if(radius < 80){
+    if(self.radius < 80){
         self.progressTintColor =[DEFAULT_COLOR_GREEN];
         if(self.progress < 0.6f) {
             self.progressTintColor = [DEFAULT_COLOR_RED];
@@ -95,7 +95,7 @@
     
     CGMutablePathRef progressPath = CGPathCreateMutable();
     CGPathMoveToPoint(progressPath, NULL, centerPoint.x, centerPoint.y);
-    CGPathAddArc(progressPath, NULL, centerPoint.x, centerPoint.y, radius, DEGREES_2_RADIANS(270), radians, NO);
+    CGPathAddArc(progressPath, NULL, centerPoint.x, centerPoint.y, self.radius, DEGREES_2_RADIANS(270), radians, NO);
     CGPathCloseSubpath(progressPath);
     CGContextAddPath(context, progressPath);
     CGContextFillPath(context);
@@ -107,7 +107,7 @@
     CGContextFillPath(context);
     
     CGContextSetBlendMode(context, kCGBlendModeClear);;
-    CGFloat innerRadius = radius * 0.85;
+    CGFloat innerRadius = self.radius * 0.85;
 	CGPoint newCenterPoint = CGPointMake(centerPoint.x - innerRadius, centerPoint.y - innerRadius);    
 	CGContextAddEllipseInRect(context, CGRectMake(newCenterPoint.x, newCenterPoint.y, innerRadius*2, innerRadius*2));
 	CGContextFillPath(context);
@@ -139,7 +139,7 @@
 
 - (void)setProgress:(float)progress
 {
-    if (progress < 0.007) {
+    if (progress < 0.007 && self.radius >= 80) {
         _progress = 0.007;
     } else {
         _progress = progress;

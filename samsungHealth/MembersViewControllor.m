@@ -89,7 +89,7 @@
     [addFriendButton setTitle:@"+" forState:UIControlStateNormal];
     addFriendButton.titleLabel.font = [UIFont systemFontOfSize:44];
     [addFriendButton addTarget:self action:@selector(show:) forControlEvents:UIControlEventTouchUpInside];
-    [Util addCircleForButton:addFriendButton:width/2];
+//    [Util addCircleForButton:addFriendButton:width/2];
 
     [scrollView addSubview:addFriendButton];
     
@@ -101,7 +101,12 @@
         NSString *name = [members objectAtIndex:i];
         UIButton *btn = [[UIButton alloc] initWithFrame:frame];
         [btn setBackgroundImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[friendsAvatar objectForKey:name]]]] forState:UIControlStateNormal];
-        [Util addCircleForButton:btn:width/2];
+//        [Util addCircleForButton:btn:width/2];
+        btn.layer.masksToBounds = YES;
+        btn.layer.cornerRadius = width/2;
+        btn.layer.rasterizationScale = [UIScreen mainScreen].scale;
+        btn.layer.shouldRasterize = YES;
+        btn.clipsToBounds = YES;
 
         [btn setBackgroundColor:[DEFAULT_COLOR_THEME]];
         [btn addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
