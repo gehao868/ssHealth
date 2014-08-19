@@ -226,7 +226,7 @@
         [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
         NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithInteger:        [[UserData getPoint] integerValue] - pointNeeded]];
         self.rewardPoint.text = formatted;
-        [UserData setPoint:@([[UserData getPoint] intValue] - pointNeeded)];
+        [UserData setPoint:@([[UserData getPoint] integerValue] - pointNeeded)];
     }
 }
 
