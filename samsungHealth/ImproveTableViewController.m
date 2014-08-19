@@ -188,7 +188,7 @@
             PFObject *goal =[PFObject objectWithClassName:@"Goal"];
             goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
             goal[@"type"] = type;
-            goal[@"date"] = [[NSDate date] dateByAddingTimeInterval:60*60*24*i];
+            goal[@"date"] = [[HealthTime getToday] dateByAddingTimeInterval:60*60*24*i];
             goal[@"name"] = [UserData getUsername];
             goal[@"done"] = @"no";
             [goal saveInBackground];
@@ -198,7 +198,7 @@
         PFObject *goal =[PFObject objectWithClassName:@"Goal"];
         goal[@"expected"] = [goalNumber objectAtIndex:indexPath.row];
         goal[@"type"] = [goalType objectAtIndex:indexPath.row];
-        goal[@"date"] = [NSDate date];
+        goal[@"date"] = [HealthTime getToday];
         goal[@"name"] = [UserData getUsername];
         goal[@"done"] = @"no";
         [goal saveInBackground];
