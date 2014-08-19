@@ -740,7 +740,7 @@
             </objects>
             <point key="canvasLocation" x="668" y="-917"/>
         </scene>
-        <!--Improve Table View Controller - Be better-->
+        <!--Improve Table View Controller - Become better-->
         <scene sceneID="qTE-sc-RLk">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="ZUt-o8-i1O" customClass="ImproveTableViewController" sceneMemberID="viewController">
@@ -749,10 +749,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" id="7EV-js-kUF">
-                                <rect key="frame" x="0.0" y="95" width="320" height="473"/>
+                                <rect key="frame" x="0.0" y="125" width="320" height="443"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.65720146894454956" green="0.74716997146606445" blue="0.7086111307144165" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="ImproveCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImproveCell" rowHeight="61" id="FDw-1z-tUd" customClass="ImproveTableViewCell">
@@ -792,12 +792,27 @@
                                     <outlet property="delegate" destination="ZUt-o8-i1O" id="xFU-rV-Yk1"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" id="h6T-id-2LU">
+                                <rect key="frame" x="0.0" y="65" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cA8-tg-yzf">
+                                        <rect key="frame" x="30" y="0.0" width="260" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-Italic" family="Optima" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2633497876" green="0.31820517240000001" blue="0.36820392219999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Be better" id="RYJ-Cb-uWv"/>
+                    <navigationItem key="navigationItem" title="Become better" id="RYJ-Cb-uWv"/>
                     <connections>
+                        <outlet property="headLabel" destination="cA8-tg-yzf" id="Q3T-4J-8Yn"/>
                         <outlet property="tableView" destination="7EV-js-kUF" id="H0q-Np-KG5"/>
                     </connections>
                 </viewController>
@@ -890,7 +905,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="1" sectionFooterHeight="1" id="494-hQ-heM">
-                                <rect key="frame" x="0.0" y="126" width="320" height="442"/>
+                                <rect key="frame" x="0.0" y="117" width="320" height="451"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.32156863810000003" green="0.38823530080000002" blue="0.44705882670000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>

@@ -14,6 +14,7 @@
 
 @interface ImproveTableViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *headLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
@@ -125,6 +126,13 @@
         [thumbnails addObject:@"hearrate"];
         [goalNumber addObject:[NSNumber numberWithInt:30]];
         [goalType addObject:@"heartrate"];
+    }
+    self.headLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.headLabel.numberOfLines = 0;
+    if ([goalArray count] == 0) {
+        [self.headLabel setText:@"Well done! You've add all goals! Keep on going!"];
+    } else {
+        [self.headLabel setText:@"Add goals to become the best version of yourself!"];
     }
     
     

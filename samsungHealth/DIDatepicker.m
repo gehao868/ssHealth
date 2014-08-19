@@ -40,7 +40,7 @@ const CGFloat kDIDatepickerSpaceBetweenItems = 15.;
 - (void)setupViews
 {
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.backgroundColor = [DEFAULT_COLOR_DARKTHEME];
+    self.backgroundColor = [UIColor colorWithRed:67.0/255.0 green:81.0/255.0 blue:94.0/255.0 alpha:1];
     self.bottomLineColor = [UIColor whiteColor];
     self.selectedDateBottomLineColor = [DEFAULT_COLOR_THEME];
 }
