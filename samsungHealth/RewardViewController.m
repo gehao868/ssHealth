@@ -289,15 +289,12 @@ double radians(float degrees) {
         startValue = startValue - radians(360*10);
     }
     
-    NSLog(@"startValue = %f",startValue);
-    NSLog(@"result = %@",result);
-    NSLog(@"endValue = %f\n",endValue);
     if (![result  isEqual: @"try again"]) {
         [[[UIAlertView alloc] initWithTitle:@"Congratulations!" message:[@"You win " stringByAppendingString:result] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Detail", nil] show];
         [self getCouponDetail];
         
     } else {
-        _label1.text = result;
+        [[[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"You did not get any prize. Please try again." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
     }
     
     isRewarding = NO;
@@ -305,8 +302,8 @@ double radians(float degrees) {
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"buttonIndex is : %li",(long)buttonIndex);
-    if (buttonIndex == [alertView firstOtherButtonIndex]) {
+    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+    if (buttonIndex == [alertView firstOtherButtonIndex] && [buttonTitle isEqualToString:@"Detail"]) {
         RedeemViewController *next = [self.storyboard instantiateViewControllerWithIdentifier:@"RedeemCoupon"];
         next.reward = [[Reward alloc] init];
         next.reward.type = result;
@@ -350,7 +347,6 @@ double radians(float degrees) {
             reward.title = [object objectForKey:@"title"];
             reward.discount = [object objectForKey:@"discount"];
             
-            NSLog(@"%@", reward.expiredate);
             [self saveCoupon];
         }
     }];
@@ -413,7 +409,6 @@ double radians(float degrees) {
 - (void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
     if (motion == UIEventSubtypeMotionShake) {
-        //NSLog(@"shaking.........");
         [self start:nil];
     }
 }
