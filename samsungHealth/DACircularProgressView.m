@@ -139,7 +139,11 @@
 
 - (void)setProgress:(float)progress
 {
-    _progress = progress;
+    if (progress < 0.007) {
+        _progress = 0.007;
+    } else {
+        _progress = progress;
+    }
     [self setNeedsDisplay];
 }
 
