@@ -98,9 +98,9 @@
     
     UIBezierPath *progressline = [UIBezierPath bezierPath];
     
-    CGFloat firstValue = [[_yValues objectAtIndex:0] floatValue];
+    CGFloat firstValue = (_yLabels == NULL) ? 0 : [[_yValues objectAtIndex:0] floatValue];
     
-    CGFloat xPosition = (xLabelMargin + _xLabelWidth)   ;
+    CGFloat xPosition = (xLabelMargin + _xLabelWidth);
     
     CGFloat chartCavanHeight = self.frame.size.height - chartMargin * 2 - 40.0;
     
@@ -143,8 +143,6 @@
     [_chartLine addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
     
     _chartLine.strokeEnd = 1.0;
-    
-    
 }
 
 
