@@ -87,8 +87,7 @@
     today = [newCal dateFromComponents:components];
     theDate = today;
     
-    NSLog(@"today is %@", today);
-    
+
     numberFrame = CGRectMake(20.0f, 5.0f, 120.0f, 20.0f);
     progressFrame = CGRectMake(20.0f, 5.0f + font.lineHeight + 2.0f, 110.0f, 20.0f);
     imgFrame = CGRectMake(0.0f, 2.0f, 44.0f, 44.0f);
@@ -141,8 +140,6 @@
 -(void) getTime: (NSDate*) date {
     PFQuery *queryHealth = [PFQuery queryWithClassName:@"HealthData"];
     [queryHealth whereKey:@"username" equalTo:[UserData getUsername]];
-
-    NSLog(@"The date is %@", date);
     
     [queryHealth whereKey:@"date" greaterThanOrEqualTo:[date dateByAddingTimeInterval:-60*60*4*1]];
     [queryHealth whereKey:@"date" lessThan:[date dateByAddingTimeInterval:60*60*20*1]];
@@ -152,7 +149,6 @@
             [healthObjects addObject:object];
         }
         [self getHealthData:date];
-//        NSLog(@"health object count is %lu", (unsigned long)[healthObjects count]);
         
     }];
     
@@ -161,8 +157,6 @@
 
 - (void) getHealthData: (NSDate*) date {
 
-    
-    NSLog(@"enter 0******");
 
     PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
     [query whereKey:@"name" equalTo:[UserData getUsername]];
@@ -178,7 +172,6 @@
             [goalObjects addObject:object];
         }
         if ([healthObjects count] == 0) {
-            NSLog(@"count is 0******");
             for (PFObject *object in goalObjects) {
                 
                 [expected addObject:[object objectForKey:@"expected"]];
@@ -187,19 +180,11 @@
                 
                 [finished addObject:[NSNumber numberWithInt:0]];
             }
-            
-            NSLog(@"finsih 0******");
-
 
         } else {
             
-             NSLog(@"count is 1******");
-            
-            
             int i = [healthObjects count] - 1;
             for (PFObject *object in goalObjects) {
-                NSLog(@"goal object count is %lu", (unsigned long)[goalObjects count]);
-
                 [expected addObject:[object objectForKey:@"expected"]];
                 
                 [imgList addObject:[object objectForKey:@"type"]];
@@ -274,6 +259,7 @@
         NSIndexPath *indexPath = [self.goalTable indexPathForSelectedRow];
         TargetViewDetailController *destViewController = segue.destinationViewController;
         destViewController.type = [imgList objectAtIndex:indexPath.row];
+        [_goalTable deselectRowAtIndexPath:indexPath animated:NO];
     }
 }
 
