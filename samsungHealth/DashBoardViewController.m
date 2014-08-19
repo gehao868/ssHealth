@@ -327,7 +327,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)newIndexPath{
-    [tableView deselectRowAtIndexPath:newIndexPath animated:YES];
+    [tableView deselectRowAtIndexPath:newIndexPath animated:NO];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

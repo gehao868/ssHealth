@@ -87,7 +87,7 @@
                                                   handler:nil
                                                   ];
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 - (IBAction)done:(id)sender {
