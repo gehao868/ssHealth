@@ -102,7 +102,7 @@
         barChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
         barChartLabel.textAlignment = NSTextAlignmentCenter;
         
-        PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 50.0, SCREEN_WIDTH, 230.0)];
+        PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 100.0, SCREEN_WIDTH, 200.0)];
         barChart.backgroundColor = [UIColor clearColor];
         barChart.type = PNBarType;
         
@@ -120,7 +120,7 @@
         lineChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
         lineChartLabel.textAlignment = NSTextAlignmentCenter;
         
-        PNChart * lineChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 75.0, SCREEN_WIDTH, 200.0)];
+        PNChart * lineChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 100.0, SCREEN_WIDTH, 200.0)];
         lineChart.backgroundColor = [UIColor clearColor];
         [lineChart setXLabels:barDate];
         [lineChart setYValues:barData];
