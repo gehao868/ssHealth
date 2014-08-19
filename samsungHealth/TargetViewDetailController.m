@@ -9,6 +9,7 @@
 #import "TargetViewDetailController.h"
 #import <Parse/Parse.h>
 #import "PNChart.h"
+#import "UserData.h"
 
 
 @interface TargetViewDetailController ()
@@ -51,19 +52,30 @@
     NSDate *today = [NSDate date];
 
     records = [[NSMutableArray alloc] init];
-
+    NSMutableArray* startEnd = [[NSMutableArray alloc] init];
     _sampleView.recordDates = records;
     _sampleView.calendarDate = today;
+    _sampleView.startEnd = startEnd;
     
     PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
-    
+    [query whereKey:@"name" equalTo:[UserData getUsername]];
     [query whereKey:@"type" equalTo:self.type];
-    [query whereKey:@"done" equalTo:@"yes"];
+    //[query whereKey:@"done" equalTo:@"yes"];
     
     NSArray* objects = [query findObjects];
-    
+    PFObject *lastObj = objects[0];
+    [startEnd addObject:[lastObj objectForKey:@"date"]];
     for (PFObject *object in objects) {
-        [records addObject:[object objectForKey:@"date"]];
+        int value =  [[object objectForKey:@"expected"] intValue];
+        if ([[object objectForKey:@"done"] isEqualToString:@"yes"]) {
+            [records addObject:[object objectForKey:@"date"]];
+        }
+        if (value != [[lastObj objectForKey:@"expected"] intValue]) {
+            [startEnd addObject:[lastObj objectForKey:@"date"]];
+            [startEnd addObject:[object objectForKey:@"date"]];
+        }
+        lastObj = object;
+        
     }
     
 }

@@ -16,6 +16,7 @@
 @property (nonatomic,strong) NSDate *calendarDate;
 
 @property (nonatomic,strong) NSArray *recordDates;
+@property (nonatomic,strong) NSArray *startEnd;
 
 @property (nonatomic,weak) id<CalendarDelegate> delegate;
 
