@@ -362,7 +362,7 @@
     //[self.liked setHidden:YES];
     [self.liked setEnabled:NO];
     [self.liked setBackgroundImage:[UIImage imageNamed:@"heart_white"] forState:UIControlStateNormal];
-    [self.liked setTitle:nil forState:UIControlStateNormal];
+    [self.liked setTitle:@"0" forState:UIControlStateNormal];
     
     NSInteger showlikenum = [Global getShowlikenum];
     
