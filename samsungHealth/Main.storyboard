@@ -1454,6 +1454,13 @@
                                 <rect key="frame" x="20" y="160" width="128" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-300" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="apR-dZ-4bf">
+                                <rect key="frame" x="215" y="70" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.32156863810000003" green="0.38823530080000002" blue="0.44705882670000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1473,6 +1480,7 @@
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="label1" destination="4BI-PE-tuz" id="Aec-VE-pho"/>
+                        <outlet property="minusLabel" destination="apR-dZ-4bf" id="aaz-re-ccx"/>
                         <outlet property="plateImageView" destination="Y7D-Dn-yis" id="W4j-tu-gXe"/>
                         <outlet property="points" destination="oCT-ba-REr" id="HrD-2B-E7E"/>
                         <outlet property="rewardPoint" destination="Tlt-8n-nHy" id="eUK-iQ-LYU"/>

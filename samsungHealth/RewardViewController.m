@@ -16,6 +16,7 @@
 
 @interface RewardViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *minusLabel;
 @end
 
 @implementation RewardViewController{
@@ -188,7 +189,6 @@
     if (isRewarding) {
         return;
     }
-    
     isRewarding = YES;
     if ([[UserData getPoint] intValue] < pointNeeded) {
         NSString *text = @"You at lease than ";
@@ -203,6 +203,11 @@
         [alert show];
 
     } else {
+        [self.minusLabel setAlpha:1];
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:1.0];
+        [self.minusLabel setAlpha:0];
+        [UIView commitAnimations];
         CABasicAnimation* rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
         endValue = [self fetchResult];
         rotationAnimation.delegate = self;
