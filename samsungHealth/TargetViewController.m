@@ -71,10 +71,6 @@
     yesterday = [cal dateByAddingComponents:newComponents toDate: today options:0];
     
     
-    
-    //****
-    
-    
     NSDateComponents *components = [[NSCalendar currentCalendar]
                                     components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit
                                     fromDate:[NSDate date]];
@@ -163,6 +159,7 @@
     
     [query whereKey:@"date" greaterThanOrEqualTo:[date dateByAddingTimeInterval:-60*60*4*1]];
     [query whereKey:@"date" lessThan:[date dateByAddingTimeInterval:60*60*20*1]];
+    [query orderByAscending:@"type"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         finished = [[NSMutableArray alloc] init];
         expected = [[NSMutableArray alloc] init];
