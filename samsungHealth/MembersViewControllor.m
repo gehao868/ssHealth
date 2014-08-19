@@ -89,7 +89,7 @@
     [addFriendButton setTitle:@"+" forState:UIControlStateNormal];
     addFriendButton.titleLabel.font = [UIFont systemFontOfSize:44];
     [addFriendButton addTarget:self action:@selector(show:) forControlEvents:UIControlEventTouchUpInside];
-//    [Util addCircleForButton:addFriendButton:width/2];
+    [Util addCircleForButton:addFriendButton:width/2];
 
     [scrollView addSubview:addFriendButton];
     

@@ -139,8 +139,10 @@
 
 - (void)setProgress:(float)progress
 {
-    if (progress < 0.007 && self.radius >= 80) {
+    if (progress < 0.007) {
+        if (self.radius >= 80)
         _progress = 0.007;
+        else _progress = 0.00001;
     } else {
         _progress = progress;
     }
