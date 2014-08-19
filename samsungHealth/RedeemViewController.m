@@ -49,6 +49,7 @@
         dateLabel.hidden = YES;
         [self getCouponDetail];
     }
+    self.QRCode.image = [UIImage imageNamed:@"QRCode"];
 }
 
 - (void)didReceiveMemoryWarning
