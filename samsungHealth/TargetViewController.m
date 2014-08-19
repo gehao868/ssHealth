@@ -128,6 +128,7 @@
 {
 
     NSDate *date = self.datepicker.selectedDate;
+    
    
     if (date == nil) {
         date = today;
@@ -143,7 +144,7 @@
     NSLog(@"The date is %@", date);
     
     [queryHealth whereKey:@"date" greaterThanOrEqualTo:[date dateByAddingTimeInterval:-60*60*4*1]];
-    [queryHealth whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*20*1]];
+    [queryHealth whereKey:@"date" lessThan:[date dateByAddingTimeInterval:60*60*20*1]];
     [queryHealth findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         healthObjects = [[NSMutableArray alloc] init];
         for (PFObject *object in objects) {
@@ -158,17 +159,15 @@
 }
 
 - (void) getHealthData: (NSDate*) date {
-//    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-//    [df setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
-//    NSDate *newDate = [date ];
+
     
     NSLog(@"enter 0******");
 
     PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
     [query whereKey:@"name" equalTo:[UserData getUsername]];
     
-    [query whereKey:@"date" greaterThanOrEqualTo:date];
-    [query whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*20*1]];
+    [query whereKey:@"date" greaterThanOrEqualTo:[date dateByAddingTimeInterval:-60*60*4*1]];
+    [query whereKey:@"date" lessThan:[date dateByAddingTimeInterval:60*60*20*1]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         finished = [[NSMutableArray alloc] init];
         expected = [[NSMutableArray alloc] init];
