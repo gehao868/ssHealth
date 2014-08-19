@@ -138,10 +138,10 @@
 -(void) getTime: (NSDate*) date {
     PFQuery *queryHealth = [PFQuery queryWithClassName:@"HealthData"];
     [queryHealth whereKey:@"username" equalTo:[UserData getUsername]];
+    NSLog(@"****date is %@", [date dateByAddingTimeInterval:-60*60*4*1]);
     
-    
-    [queryHealth whereKey:@"date" greaterThanOrEqualTo:date];
-    [queryHealth whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*24*1]];
+    [queryHealth whereKey:@"date" greaterThanOrEqualTo:[date dateByAddingTimeInterval:-60*60*4*1]];
+    [queryHealth whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*20*1]];
     
     [queryHealth findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         healthObjects = [[NSMutableArray alloc] init];
