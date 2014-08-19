@@ -216,8 +216,12 @@
         [_rotateStaticImageView.layer addAnimation:rotationAnimation forKey:@"revItUpAnimation"];
     
         [self deducePoint];
-        self.rewardPoint.text = [@([[UserData getPoint] intValue] - pointNeeded) stringValue];
-        [UserData setPoint:@([[UserData getPoint] intValue] - pointNeeded)];
+        
+        NSNumberFormatter *formatter = [NSNumberFormatter new];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithInteger:        [[UserData getPoint] integerValue] - pointNeeded]];
+        self.rewardPoint.text = formatted;
+        [UserData setPoint:@([[UserData getPoint] integerValue] - pointNeeded)];
     }
 }
 
