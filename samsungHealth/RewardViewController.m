@@ -32,6 +32,7 @@
     BOOL isRewarding;
     int count;
     
+    PFObject *giftObject;
     BOOL hasGift;
 }
 
@@ -313,7 +314,7 @@ double radians(float degrees) {
         next.reward.type = result;
         [self.navigationController pushViewController:next animated:YES];
         } else {
-          [[[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"You don't have any gifts. Please interactive more with your friend!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];   
+          [[[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"You don't have any gifts. Please interactive more with your friend!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
         }
     }
 }
@@ -360,6 +361,7 @@ double radians(float degrees) {
             reward.title = [object objectForKey:@"title"];
             reward.discount = [object objectForKey:@"discount"];
             
+            giftObject = object;
             [self saveCoupon];
         }
     }];
@@ -367,6 +369,7 @@ double radians(float degrees) {
 }
 
 - (void) saveCoupon {
+    if (![reward.type isEqualToString:@"gift"]) {
     PFObject *object = [PFObject objectWithClassName:@"Reward"];
     object[@"fromusername"] = reward.fromusername;
     object[@"tousername"] = [UserData getUsername];
@@ -381,6 +384,13 @@ double radians(float degrees) {
     object[@"title"] = reward.title;
     object[@"discount"] = reward.discount;
     [object saveInBackground];
+    } else {
+        giftObject[@"isredeemed"] = @YES;
+        if (reward.expiredate != NULL) {
+            giftObject[@"expiredate"] = reward.expiredate;
+        }
+        [giftObject saveInBackground];
+    }
 }
 
 - (void) deducePoint {
