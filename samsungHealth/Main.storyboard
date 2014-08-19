@@ -743,20 +743,20 @@
         <!--Improve Table View Controller - Be better-->
         <scene sceneID="qTE-sc-RLk">
             <objects>
-                <viewController id="ZUt-o8-i1O" customClass="ImproveTableViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ZUt-o8-i1O" customClass="ImproveTableViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PyG-xL-q7p">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" id="7EV-js-kUF">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="95" width="320" height="473"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="ImproveCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImproveCell" rowHeight="61" id="FDw-1z-tUd" customClass="ImproveTableViewCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="61"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FDw-1z-tUd" id="V9x-ra-AKS">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
