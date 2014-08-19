@@ -111,6 +111,7 @@
     [self getTime:today];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+     refreshControl.tintColor = [UIColor whiteColor];
     [refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
     [self.goalTable addSubview:refreshControl];
 }
