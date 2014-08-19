@@ -13,5 +13,6 @@
 @property(nonatomic, strong) UIColor *trackTintColor;
 @property(nonatomic, strong) UIColor *progressTintColor;
 @property (nonatomic) float progress;
+@property(nonatomic) CGFloat radius;
 
 @end
