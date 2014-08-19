@@ -175,7 +175,6 @@
 {
     SIMenuCell *cell = (SIMenuCell *)[tableView cellForRowAtIndexPath:indexPath];
     [cell setSelected:NO withCompletionBlock:^{
-
     }];
 }
 

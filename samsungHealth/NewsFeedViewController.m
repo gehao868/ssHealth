@@ -187,6 +187,7 @@ UIRefreshControl *currRC;
 
 - (void)didSelectItemAtIndex:(NSUInteger)index
 {
+    [_table deselectRowAtIndexPath:[NSIndexPath indexPathWithIndex:index] animated:NO];
     currIndex = index;
     [menu setTitle:[menu.items objectAtIndex:currIndex]];
     [Global setCurrGroup:[menu.items objectAtIndex:currIndex]];
@@ -201,7 +202,6 @@ UIRefreshControl *currRC;
         }
     }];
     
-    NSLog(@"%d", index);
     [self getNewsFeed:index];
     self.navigationItem.titleView = menu;
 }
