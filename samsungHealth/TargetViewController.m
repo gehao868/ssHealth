@@ -85,6 +85,7 @@
    // [newCal setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     
     today = [newCal dateFromComponents:components];
+    theDate = today;
     
     NSLog(@"today is %@", today);
     
@@ -138,11 +139,11 @@
 -(void) getTime: (NSDate*) date {
     PFQuery *queryHealth = [PFQuery queryWithClassName:@"HealthData"];
     [queryHealth whereKey:@"username" equalTo:[UserData getUsername]];
+
+    NSLog(@"The date is %@", date);
     
-    
-    [queryHealth whereKey:@"date" greaterThanOrEqualTo:date];
-    [queryHealth whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*24*1]];
-    
+    [queryHealth whereKey:@"date" greaterThanOrEqualTo:[date dateByAddingTimeInterval:-60*60*4*1]];
+    [queryHealth whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*20*1]];
     [queryHealth findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         healthObjects = [[NSMutableArray alloc] init];
         for (PFObject *object in objects) {
@@ -150,7 +151,7 @@
         }
         [self getHealthData:date];
 //        NSLog(@"health object count is %lu", (unsigned long)[healthObjects count]);
-        NSLog(@"The date is %@", date);
+        
     }];
     
 
@@ -161,9 +162,10 @@
 //    [df setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
 //    NSDate *newDate = [date ];
     
+    NSLog(@"enter 0******");
+
     PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
     [query whereKey:@"name" equalTo:[UserData getUsername]];
-    
     
     [query whereKey:@"date" greaterThanOrEqualTo:date];
     [query whereKey:@"date" lessThanOrEqualTo:[date dateByAddingTimeInterval:60*60*20*1]];
@@ -176,6 +178,7 @@
             [goalObjects addObject:object];
         }
         if ([healthObjects count] == 0) {
+            NSLog(@"count is 0******");
             for (PFObject *object in goalObjects) {
                 
                 [expected addObject:[object objectForKey:@"expected"]];
@@ -184,7 +187,15 @@
                 
                 [finished addObject:[NSNumber numberWithInt:0]];
             }
+            
+            NSLog(@"finsih 0******");
+
+
         } else {
+            
+             NSLog(@"count is 1******");
+            
+            
             int i = [healthObjects count] - 1;
             for (PFObject *object in goalObjects) {
                 NSLog(@"goal object count is %lu", (unsigned long)[goalObjects count]);
