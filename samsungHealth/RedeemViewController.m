@@ -94,8 +94,10 @@
         couponDiscount.text = [@"From: " stringByAppendingString:reward.fromusername];
         dateLabel.hidden = YES;
         expireDate.hidden = YES;
+        _QRCode.hidden = YES;
     } else {
         couponDiscount.text = reward.discount;
+        _QRCode.hidden = NO;
     }
     couponDetail.text = reward.detail;
     couponTitle.text = reward.title;
