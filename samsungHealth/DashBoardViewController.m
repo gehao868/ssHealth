@@ -143,14 +143,13 @@
             if (cups >=13) {
                 [subScore addObject:[NSNumber numberWithFloat:1]];
             } else {
-                NSLog(@"CUPS IS %f", fabsf(1.0 *(cups - 13)/13));
-                [subScore addObject:[NSNumber numberWithFloat:0.4]];
+                [subScore addObject:[NSNumber numberWithFloat:cups/13.0]];
             }
         } else {
             if (cups >= 9 ) {
                 [subScore addObject:[NSNumber numberWithFloat:1]];
             } else {
-                [subScore addObject:[NSNumber numberWithFloat:fabsf(1.0 * (cups - 9)/9)]];
+                [subScore addObject:[NSNumber numberWithFloat:cups/9.0]];
             }
         }
 
