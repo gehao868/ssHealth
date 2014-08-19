@@ -36,7 +36,9 @@
 }
 
 +(void)formatTextField:(UITextField *)textField{
-    textField.backgroundColor = [UIColor clearColor];
+    textField.backgroundColor = [UIColor colorWithRed:67./255. green:81./255. blue:94./255. alpha:1];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Some Text" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
+    textField.attributedPlaceholder = str;
     textField.layer.masksToBounds=YES;
     textField.layer.borderColor= [DEFAULT_COLOR_THEME].CGColor;
     textField.layer.borderWidth= 1.0f;

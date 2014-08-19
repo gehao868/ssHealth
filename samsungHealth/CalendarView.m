@@ -75,6 +75,7 @@
     [titleText setTextColor:[UIColor whiteColor]];
     [self addSubview:titleText];
     
+    //week labels
     for (int i =0; i<_weekNames.count; i++) {
         UIButton *weekNameLabel = [UIButton buttonWithType:UIButtonTypeCustom];
         weekNameLabel.titleLabel.text = [_weekNames objectAtIndex:i];
@@ -86,7 +87,7 @@
         [self addSubview:weekNameLabel];
     }
     
-
+    //draw days
     for (NSInteger i= 0; i<monthLength; i++)
     {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -148,19 +149,24 @@
             }
         }
         
-        for (NSDate *mydate in self.startEnd) {
-            NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-            NSDateComponents *mycomponents = [cal components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:mydate];
-            
-            int year = [mycomponents year];
-            int month = [mycomponents month];
-            int day = [mycomponents day];
-            
-            if (i+1 == day && components.month == month && components.year == year) {
-                [button setBackgroundColor:[DEFAULT_COLOR_DARKTHEME]];
-                [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            }
-        }
+//        if([self.startEnd count] % 2 == 1) {
+//            NSDate *today = [NSDate date];
+//            [self.startEnd addObject:today];
+//        }
+//        
+//        for (int j = 0; j < [self.startEnd count] / 2; j++) {
+//            NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+//            NSDateComponents *mycomponents = [cal components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:self.startEnd[j * 2]];
+//            
+//            int year = [mycomponents year];
+//            int month = [mycomponents month];
+//            int day = [mycomponents day];
+//            
+//            if (i+1 == day && components.month == month && components.year == year) {
+//                [button setBackgroundColor:[DEFAULT_COLOR_DARKTHEME]];
+//                [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//            }
+//        }
         
         [button setEnabled:NO];
             
