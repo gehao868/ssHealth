@@ -153,8 +153,6 @@
         
         for (int j = 0; j < [self.startEnd count]; j++) {
             NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-//            NSDate *startDate = [self.startEnd[j * 2] objectForKey:@"date"];
-//            NSDate *endDate = [self.startEnd[j * 2 + 1] objectForKey:@"date"];
             NSDate *date = [self.startEnd[j] objectForKey:@"date"];
             NSDate *tmpDate = [date addTimeInterval:24*60*60];
             NSDateComponents *mycomponents = [cal components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:tmpDate];
@@ -173,29 +171,6 @@
                 }
                 [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             }
-            
-            
-//            for ( NSDate *nextDate = startDate ; [nextDate compare:endDate] <= 0 ; nextDate = [nextDate addTimeInterval:24*60*60] ) {
-//
-//                NSDate *tmpDate = [nextDate addTimeInterval:24*60*60];
-//                NSDateComponents *mycomponents = [cal components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:tmpDate];
-//
-//                int year = [mycomponents year];
-//                int month = [mycomponents month];
-//                int day = [mycomponents day];
-//                NSLog(@"%d-%d-%d",year,month,day);
-//                NSLog(@"");
-//                if (i+1 == day && components.month == month && components.year == year) {
-////                    [button setFrame:CGRectMake(originX+offsetX+0.5, originY+40+offsetY+0.5, width-1, width-1)];
-////                    [button.layer setBorderColor:[DEFAULT_COLOR_THEME].CGColor];
-////                    [button.layer setBorderWidth:1];
-//                    
-//                    
-//                    [button setBackgroundColor:[DEFAULT_COLOR_THEME]];
-//                    
-//                    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//                }
-//            }
         }
         
         [button setEnabled:NO];

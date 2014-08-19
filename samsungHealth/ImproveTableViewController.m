@@ -175,6 +175,9 @@
     
     cell.improveLabel.text = [goalArray objectAtIndex:indexPath.row];
     cell.improveImage.image = [UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
+    UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
+    myBackView.backgroundColor = [DEFAULT_COLOR_THEME];
+    cell.selectedBackgroundView = myBackView;
     
     return cell;
 }

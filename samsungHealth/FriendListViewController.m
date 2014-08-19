@@ -89,6 +89,9 @@
     cell.pic.image = [UIImage imageWithData:imageData];
     [Util addCircleForImage:cell.pic :20.0f];
     cell.name.text = [tableData objectAtIndex:indexPath.row];
+    UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
+    myBackView.backgroundColor = [DEFAULT_COLOR_THEME];
+    cell.selectedBackgroundView = myBackView;
     
     return cell;
 }

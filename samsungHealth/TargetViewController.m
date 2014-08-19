@@ -52,6 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.goalTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     font = [UIFont systemFontOfSize:20.0f];
     
@@ -246,8 +247,9 @@
     
     cell.image.image = [UIImage imageNamed:[imgList objectAtIndex:indexPath.row]];
     cell.image.frame = CGRectMake(cell.image.frame.origin.x, cell.image.frame.origin.y, 44, 44);
-    
-
+    UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
+    myBackView.backgroundColor = [DEFAULT_COLOR_THEME];
+    cell.selectedBackgroundView = myBackView;
     return cell;
 }
 

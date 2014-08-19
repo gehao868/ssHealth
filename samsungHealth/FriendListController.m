@@ -75,6 +75,9 @@
     cell.pic.layer.rasterizationScale = [UIScreen mainScreen].scale;
     cell.pic.layer.shouldRasterize = YES;
     cell.pic.clipsToBounds = YES;
+    UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
+    myBackView.backgroundColor = [DEFAULT_COLOR_THEME];
+    cell.selectedBackgroundView = myBackView;
     return cell;
 }
 

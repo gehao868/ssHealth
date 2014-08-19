@@ -42,6 +42,7 @@
     [self getCouponList];
     // Do any additional setup after loading the view.
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+     refreshControl.tintColor = [UIColor whiteColor];
     [refreshControl addTarget:self action:@selector(yo:) forControlEvents:UIControlEventValueChanged];
     [self.table addSubview:refreshControl];
 }
@@ -78,6 +79,9 @@
     if ([reward.type isEqualToString:@"gift"]) {
         cell.expireDate.text = @"--";
     }
+    UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
+    myBackView.backgroundColor = [DEFAULT_COLOR_THEME];
+    cell.selectedBackgroundView = myBackView;
     return cell;
     
 }
