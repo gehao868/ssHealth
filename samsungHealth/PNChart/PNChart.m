@@ -46,14 +46,10 @@
 	}
 }
 
-
-
 -(void)strokeChart
 {
 	[self setUpChart];
 	
 }
-
-
 
 @end

@@ -94,9 +94,7 @@
          NSLog(@"time is %@", date);
         [barDate addObject:date];
     }
-
 	//Add BarChart
-        
 	if ([self.healthDataName isEqualToString:@"step"] ||[self.healthDataName isEqualToString:@"sleep"] ||[self.healthDataName isEqualToString:@"water"]) {
         
         UILabel * barChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, SCREEN_WIDTH, 30)];

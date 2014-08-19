@@ -253,7 +253,7 @@
     self.dashTable.layer.masksToBounds = NO;
 }
          
--(void) setCheer:(int) s{
+-(void) setCheer:(int)s {
     double u = 0;
     double o = 1;
     double convertedX = (healthScore - 0.65) * 10;
@@ -344,6 +344,7 @@
     } else if ([segue.identifier isEqualToString:@"weight"]) {
         destViewController.healthDataName = @"weight";
         destViewController.dataValue = [HealthData getBMI];
+        
     } else if ([segue.identifier isEqualToString:@"fatratio"]) {
         destViewController.healthDataName = @"fatratio";
         destViewController.dataValue = [HealthData getFatratio];
@@ -351,7 +352,7 @@
     } else if ([segue.identifier isEqualToString:@"heartrate"]) {
         destViewController.healthDataName = @"heartrate";
         destViewController.dataValue = [HealthData getHeartrate];
-
+        
     } else if ([segue.identifier isEqualToString:@"cups"]) {
         destViewController.healthDataName = @"cups";
         destViewController.dataValue = [HealthData getCups];
