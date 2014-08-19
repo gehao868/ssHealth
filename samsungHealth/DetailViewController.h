@@ -10,6 +10,7 @@
 
 @interface DetailViewController : UIViewController
 @property (strong, nonatomic) NSString *healthDataName;
+@property (weak, nonatomic) IBOutlet UILabel *standardNotice;
 @property (strong, nonatomic) NSNumber *dataValue;
 @property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) NSString *val;
