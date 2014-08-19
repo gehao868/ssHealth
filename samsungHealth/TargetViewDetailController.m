@@ -60,23 +60,25 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Goal"];
     [query whereKey:@"name" equalTo:[UserData getUsername]];
     [query whereKey:@"type" equalTo:self.type];
-    //[query whereKey:@"done" equalTo:@"yes"];
-    
+    [query orderByAscending:@"date"];
     NSArray* objects = [query findObjects];
-    PFObject *lastObj = objects[0];
-    [startEnd addObject:[lastObj objectForKey:@"date"]];
-    for (PFObject *object in objects) {
-        int value =  [[object objectForKey:@"expected"] intValue];
-        if ([[object objectForKey:@"done"] isEqualToString:@"yes"]) {
-            [records addObject:[object objectForKey:@"date"]];
+    _sampleView.startEnd = objects;
+//    [startEnd addObject:objects[0]];
+    for (int i = 1; i < [objects count]; i++) {
+        NSLog(@"%@",[objects[i - 1] objectForKey:@"date"]);
+        int last = [[objects[i - 1] objectForKey:@"expected"] intValue];
+        int cur = [[objects[i] objectForKey:@"expected"] intValue];
+        if ([[objects[i] objectForKey:@"done"] isEqualToString:@"yes"]){
+            [records addObject:[objects[i] objectForKey:@"date"]];
         }
-        if (value != [[lastObj objectForKey:@"expected"] intValue]) {
-            [startEnd addObject:[lastObj objectForKey:@"date"]];
-            [startEnd addObject:[object objectForKey:@"date"]];
-        }
-        lastObj = object;
-        
+//        if (last != cur) {
+//            [startEnd addObject:objects[i - 1]];
+//            [startEnd addObject:objects[i]];
+//            NSLog(@"%@ %d, %@ %d",[objects[i - 1] objectForKey:@"date"], last, [objects[i] objectForKey:@"date"], cur);
+//        }
     }
+    
+    [startEnd addObject:objects[[objects count] - 1]];
     
 }
 
