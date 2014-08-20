@@ -48,7 +48,23 @@
         max = 5;
     }
     
-    _yValueMax = (int)max*1.5;
+    _yValueMax = (int)max;
+
+    
+    float level = max /5.0;
+	
+    NSInteger index = 0;
+	NSInteger num = [yLabels count] + 1;
+	while (num > 0) {
+		CGFloat chartCavanHeight = self.frame.size.height - chartMargin * 2 - 40.0 ;
+		CGFloat levelHeight = chartCavanHeight /5.0;
+		PNChartLabel * label = [[PNChartLabel alloc] initWithFrame:CGRectMake(6.0,chartCavanHeight - index * levelHeight + (levelHeight - yLabelHeight) , 30.0, yLabelHeight)];
+		[label setTextAlignment:NSTextAlignmentRight];
+		label.text = [NSString stringWithFormat:@"%1.f",level * index];
+		[self addSubview:label];
+        index +=1 ;
+		num -= 1;
+	}
 	
 }
 
