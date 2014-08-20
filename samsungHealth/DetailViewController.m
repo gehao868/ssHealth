@@ -41,20 +41,20 @@
     
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
-    
-    [components setHour:-[components hour]];
-    [components setMinute:-[components minute]];
-    [components setSecond:-[components second]];
-    
-    [components setHour:-24];
-    [components setMinute:0];
-    [components setSecond:0];
+//    
+//    [components setHour:-[components hour]];
+//    [components setMinute:-[components minute]];
+//    [components setSecond:-[components second]];
+//    
+//    [components setHour:-24];
+//    [components setMinute:0];
+//    [components setSecond:0];
     
     components = [cal components:NSWeekdayCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[[NSDate alloc] init]];
     
     NSInteger thisMonth = [components month];
     
-    [components setDay:([components day] - ([components weekday] - 1))];
+//    [components setDay:([components day] - ([components weekday] - 1))];
     
     [components setDay:([components day] - 7)];
     NSDate *lastWeek  = [cal dateFromComponents:components];
@@ -65,35 +65,60 @@
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     format.dateFormat = @"dd";
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
-    [query whereKey:@"username" equalTo:[UserData getUsername]];
-    
-    [query whereKey:@"date" greaterThan:lastWeek];
-    [query whereKey:@"date" lessThanOrEqualTo:[HealthTime getToday]];
-    
-    
-    [query orderByAscending:@"date"];
-    
-    NSArray* objects = [query findObjects];
-    
-   
-    
-    for (PFObject *object in objects) {
+    NSDate *cur = lastWeek;
+    while ([cur compare:[HealthTime getToday]] <= 0) {
+        NSDate *next = [cur addTimeInterval:24*60*60];
+        PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
+        [query whereKey:@"username" equalTo:[UserData getUsername]];
+        [query whereKey:@"date" greaterThan:cur];
+        [query whereKey:@"date" lessThanOrEqualTo:next];
+        NSArray* objects = [query findObjects];
+        
         NSNumber *step = [[NSNumber alloc] init];
-        if([[self healthDataName] isEqualToString:@"weight"]){
-            double losedWeight =[[object objectForKey:self.healthDataName] doubleValue];
-            double height = [[UserData getHeight] doubleValue];
-            step = [NSNumber numberWithDouble:1.0 * losedWeight / ( height* height / 10000.0)];
-            
+        if ([objects count] != 0) {
+            if([[self healthDataName] isEqualToString:@"weight"]){
+                double losedWeight =[[objects[0] objectForKey:self.healthDataName] doubleValue];
+                double height = [[UserData getHeight] doubleValue];
+                step = [NSNumber numberWithDouble:1.0 * losedWeight / ( height* height / 10000.0)];
+                
+            } else {
+                step =[NSNumber numberWithInt:[[objects[0] objectForKey:self.healthDataName] intValue]];
+            }
+            [barData addObject:step];
         } else {
-            step =[NSNumber numberWithInt:[[object objectForKey:self.healthDataName] intValue]];
+            [barData addObject:[NSNumber numberWithInt:0]];
         }
-        [barData addObject:step];
-        NSString *date = [format stringFromDate:[object objectForKey:@"date"]];
-         NSLog(@"time is %@", date);
+        NSString *date = [format stringFromDate:cur];
+        NSLog(@"time is %@", cur);
         [barDate addObject:date];
-    }
+        cur = next;
+}
+    NSLog(@"%d, %d", [barData count], [barDate count]);
+    
+//    PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
+//    [query whereKey:@"username" equalTo:[UserData getUsername]];
+//    
+//    [query whereKey:@"date" greaterThan:lastWeek];
+//    [query whereKey:@"date" lessThanOrEqualTo:[HealthTime getToday]];
+//    [query orderByAscending:@"date"];
+//    
+//    NSArray* objects = [query findObjects];
+//    
+//    for (PFObject *object in objects) {
+//        NSNumber *step = [[NSNumber alloc] init];
+//        if([[self healthDataName] isEqualToString:@"weight"]){
+//            double losedWeight =[[object objectForKey:self.healthDataName] doubleValue];
+//            double height = [[UserData getHeight] doubleValue];
+//            step = [NSNumber numberWithDouble:1.0 * losedWeight / ( height* height / 10000.0)];
+//            
+//        } else {
+//            step =[NSNumber numberWithInt:[[object objectForKey:self.healthDataName] intValue]];
+//        }
+//        [barData addObject:step];
+//        NSString *date = [format stringFromDate:[object objectForKey:@"date"]];
+//         NSLog(@"time is %@", date);
+//        [barDate addObject:date];
+//    }
 	//Add BarChart
 	if ([self.healthDataName isEqualToString:@"step"] ||[self.healthDataName isEqualToString:@"sleep"] ||[self.healthDataName isEqualToString:@"water"]) {
         
@@ -102,25 +127,23 @@
         barChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
         barChartLabel.textAlignment = NSTextAlignmentCenter;
         
-        PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 100.0, SCREEN_WIDTH, 200.0)];
+        PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 80.0, SCREEN_WIDTH, 215.0)];
         barChart.backgroundColor = [UIColor clearColor];
         barChart.type = PNBarType;
         
         [barChart setXLabels:barDate];
         [barChart setYValues:barData];
-        
-        
         [barChart strokeChart];
         [self.view addSubview:barChartLabel];
         [self.view addSubview:barChart];
     } else {
-        UILabel * lineChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, 30)];
+        UILabel * lineChartLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, 20)];
         lineChartLabel.text = @"Line Chart";
         lineChartLabel.textColor = PNFreshGreen;
         lineChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
         lineChartLabel.textAlignment = NSTextAlignmentCenter;
         
-        PNChart * lineChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 100.0, SCREEN_WIDTH, 200.0)];
+        PNChart * lineChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 80.0, SCREEN_WIDTH, 215.0)];
         lineChart.backgroundColor = [UIColor clearColor];
         [lineChart setXLabels:barDate];
         [lineChart setYValues:barData];
@@ -128,7 +151,8 @@
         [self.view addSubview:lineChartLabel];
         [self.view addSubview:lineChart];
     }
-    
+    UILabel * unit = [[UILabel alloc] initWithFrame:CGRectMake(14, 70, 100, 30)];
+    [unit setFont:[UIFont fontWithName:@"Helvetica Neue" size:14]];
     int checkVal =[self.dataValue intValue];
     
     if ([self.healthDataName isEqualToString:@"sleep"]) {
@@ -144,6 +168,7 @@
             self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
             self.goalTypePic.image = [UIImage imageNamed: @"sleep"];
         }
+        [unit setText:@"hour"];
     } else if ([self.healthDataName isEqualToString:@"step"]) {
         if (checkVal< 8000) {
             int quota = checkVal + 1000;
@@ -153,6 +178,7 @@
             self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
             self.goalTypePic.image = [UIImage imageNamed: @"step"];
         }
+        [unit setText:@"step"];
     } else if ([self.healthDataName isEqualToString:@"heartrate"]) {
         if (checkVal > 100) {
             self.recommendGoal.text = [NSString stringWithFormat:@"Exercies 30 minutes"];
@@ -161,7 +187,7 @@
             self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
             self.goalTypePic.image = [UIImage imageNamed: @"heartrate"];
         }
-        
+        [unit setText:@"beat/hour"];
     } else if ([self.healthDataName isEqualToString:@"fatratio"]) {
         if (checkVal > 31) {
             self.recommendGoal.text = [NSString stringWithFormat:@"Exercies 30 minutes"];
@@ -170,7 +196,7 @@
             self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
             self.goalTypePic.image = [UIImage imageNamed: @"fatratio"];
         }
-        
+        [unit setText:@"%"];
     } else if ([self.healthDataName isEqualToString:@"weight"]) {
         if (checkVal > 25) {
             self.recommendGoal.text = [NSString stringWithFormat:@"Exercies 30 minutes"];
@@ -200,6 +226,7 @@
                 self.goalTypePic.image = [UIImage imageNamed: @"cups"];
             }
         }
+        [unit setText:@"cup"];
     }
     
     if ([[self healthDataName] isEqualToString:@"weight"]) {
@@ -207,6 +234,8 @@
     } else {
         self.title = [self healthDataName];
     }
+    [unit setTextColor:[UIColor whiteColor]];
+    [self.view addSubview:unit];
     self.monthLabel.text = [self getMonthName:thisMonth];
     
 }

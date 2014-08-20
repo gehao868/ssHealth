@@ -18,7 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor clearColor];
         self.clipsToBounds = YES;
 	
     }
@@ -55,7 +55,7 @@
 -(void)setXLabels:(NSArray *)xLabels
 {
     _xLabels = xLabels;
-    _xLabelWidth = (self.frame.size.width - chartMargin*2)/5.0;
+    _xLabelWidth = (self.frame.size.width - chartMargin*2)/7.0;
     
     for (NSString * labelText in xLabels) {
         NSInteger index = [xLabels indexOfObject:labelText];
@@ -87,7 +87,6 @@
 		bar.barColor = _strokeColor;
 		bar.grade = grade;
 		[self addSubview:bar];
-        
         
         index += 1;
     }

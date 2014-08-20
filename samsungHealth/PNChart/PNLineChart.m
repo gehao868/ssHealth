@@ -26,6 +26,7 @@
 		_chartLine.lineWidth   = 3.0;
 		_chartLine.strokeEnd   = 0.0;
 		[self.layer addSublayer:_chartLine];
+        
     }
     
     return self;
@@ -62,7 +63,7 @@
 	while (num > 0) {
 		CGFloat chartCavanHeight = self.frame.size.height - chartMargin * 2 - 40.0 ;
 		CGFloat levelHeight = chartCavanHeight /5.0;
-		PNChartLabel * label = [[PNChartLabel alloc] initWithFrame:CGRectMake(0.0,chartCavanHeight - index * levelHeight + (levelHeight - yLabelHeight) , 20.0, yLabelHeight)];
+		PNChartLabel * label = [[PNChartLabel alloc] initWithFrame:CGRectMake(6.0,chartCavanHeight - index * levelHeight + (levelHeight - yLabelHeight) , 20.0, yLabelHeight)];
 		[label setTextAlignment:NSTextAlignmentRight];
 		label.text = [NSString stringWithFormat:@"%1.f",level * index];
 		[self addSubview:label];
@@ -75,7 +76,7 @@
 -(void)setXLabels:(NSArray *)xLabels
 {
     _xLabels = xLabels;
-    _xLabelWidth = (self.frame.size.width - chartMargin - 30.0 - ([xLabels count] -1) * xLabelMargin)/5.0;
+    _xLabelWidth = (self.frame.size.width - chartMargin - 30.0 - ([xLabels count] -1) * xLabelMargin)/7.0;
     
     for (NSString * labelText in xLabels) {
         NSInteger index = [xLabels indexOfObject:labelText];

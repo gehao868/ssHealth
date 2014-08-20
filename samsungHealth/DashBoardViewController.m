@@ -258,7 +258,6 @@
     double convertedX = (healthScore - 0.65) * 10;
     double a = 4.0 / sqrt(2.0 * 3.1415926) / o;
     double ex = exp(a * (convertedX - u));
-    NSLog(@"normal %f",ex/(1+ex));
     int ret = (int)roundf(ex / (1 + ex) * 100);
     self.cheerNumberLabel.text = [NSString stringWithFormat:@"You are better than %d%% users",ret];
     if (s >= 80) {
