@@ -131,6 +131,7 @@
         if (index != 0) {
             
             [progressline addLineToPoint:CGPointMake(index * xPosition  + 30.0+ _xLabelWidth /2.0, chartCavanHeight - grade * chartCavanHeight + 20.0)];
+            NSLog(@"!!!!!!!!!!@@@@@%f",chartCavanHeight - grade * chartCavanHeight + 20.0);
             
             [progressline moveToPoint:CGPointMake(index * xPosition + 30.0 + _xLabelWidth /2.0, chartCavanHeight - grade * chartCavanHeight + 20.0 )];
             
@@ -149,7 +150,7 @@
 	}else{
 		_chartLine.strokeColor = [PNGreen CGColor];
 	}
-    
+    _chartLine.strokeColor = [[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradientBar_175"]]CGColor];
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     pathAnimation.duration = 1.0;
     pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
