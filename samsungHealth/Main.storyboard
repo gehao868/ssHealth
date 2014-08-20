@@ -1046,7 +1046,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Honey, although your body fat burdens our team, but you are always the best in my heart!” with a thumb-up photo." id="NuR-FN-e7K">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Honey, although your body fat burdens our team, but you are always the best in my heart!" id="NuR-FN-e7K">
                                 <rect key="frame" x="20" y="83" width="280" height="148"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.2633497876" green="0.31820517240000001" blue="0.36820392219999998" alpha="1" colorSpace="calibratedRGB"/>
