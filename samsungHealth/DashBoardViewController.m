@@ -365,7 +365,7 @@
     
     NSInteger showlikenum = [Global getShowlikenum];
     
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Congratulations!" message:[NSString stringWithFormat:@"You recieved %d hearts,\nand earned %d scores.", showlikenum, showlikenum * 10] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Congratulations!" message:[NSString stringWithFormat:@"You recieved %d hearts,\nand earned %d points.", showlikenum, showlikenum * 10] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
     [alertView show];
     
     [UserData setPoint:[NSNumber numberWithInteger:[[UserData getPoint] integerValue] + showlikenum * 10]];
