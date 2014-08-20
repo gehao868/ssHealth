@@ -168,7 +168,7 @@
             self.recommendGoal.text = [NSString stringWithFormat:@"Well done, keep doing!"];
             self.goalTypePic.image = [UIImage imageNamed: @"sleep"];
         }
-        [unit setText:@"hour"];
+        [unit setText:@"miniute"];
     } else if ([self.healthDataName isEqualToString:@"step"]) {
         if (checkVal< 8000) {
             int quota = checkVal + 1000;
