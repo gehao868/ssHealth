@@ -50,7 +50,6 @@
     NSDate *firstDayOfMonth = [gregorian dateFromComponents:components];
     NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:firstDayOfMonth];
     int weekday = [comps weekday];
-//      NSLog(@"components%d %d %d",_selectedDate,_selectedMonth,_selectedYear);
     weekday  = weekday - 2;
     
     if(weekday < 0)
@@ -130,45 +129,49 @@
             [columnView setFrame:CGRectMake(button.frame.size.width-1, 0, 1, button.frame.size.width)];
             [button addSubview:columnView];
         }
-        if(i+1 ==_selectedDate && components.month == _selectedMonth && components.year == _selectedYear)
-        {
-            [button setBackgroundColor:[DEFAULT_COLOR_THEME]];
-            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            
-        }
-        
-//        for (NSDate *mydate in self.recordDates) {
-//            NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-//            NSDateComponents *mycomponents = [cal components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:mydate];
+//        if(i+1 ==_selectedDate && components.month == _selectedMonth && components.year == _selectedYear)
+//        {
+//            [button setBackgroundColor:[DEFAULT_COLOR_DARKTHEME]];
+//            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 //            
-//            int year = [mycomponents year];
-//            int month = [mycomponents month];
-//            int day = [mycomponents day];
-//            
-//            if (i+1 == day && components.month == month && components.year == year) {
-//                [button setBackgroundColor:[DEFAULT_COLOR_THEME]];
-//                [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//            }
 //        }
+        if(i+1 >_selectedDate || components.month > _selectedMonth)
+        {
+            [button setTitleColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1] forState:UIControlStateNormal];
+            button.enabled = NO;
+        }
         
         for (int j = 0; j < [self.startEnd count]; j++) {
             NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
             NSDate *date = [self.startEnd[j] objectForKey:@"date"];
-            NSDate *tmpDate = [date addTimeInterval:24*60*60];
-            NSDateComponents *mycomponents = [cal components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:tmpDate];
+//            NSDate *tmpDate = [date addTimeInterval:24*60*60];
+            NSDateComponents *mycomponents = [cal components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:date];
             int year = [mycomponents year];
             int month = [mycomponents month];
             int day = [mycomponents day];
             
-            if (i+1 == day && components.month == month && components.year == year) {
-                if([[self.startEnd[j] objectForKey:@"done"] isEqualToString:@"no"]){
-                    [button setFrame:CGRectMake(originX+offsetX, originY+40+offsetY, width, width)];
-                    [button.layer setBorderColor:[DEFAULT_COLOR_THEME].CGColor];
-                    [button.layer setBorderWidth:3];
-                    [button setBackgroundColor:[DEFAULT_COLOR_RED]];
-                } else {
-                    [button setBackgroundColor:[DEFAULT_COLOR_THEME]];
+            if (i == day && components.month == month && components.year == year) {
+                UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(originX+offsetX, originY+40+offsetY+2, width, width)];
+                if(j == 0 || [[self.startEnd[j] objectForKey:@"expected"] intValue] != [[self.startEnd[j - 1] objectForKey:@"expected"] intValue]) {
+                    if ([[self.startEnd[j] objectForKey:@"done"] isEqualToString:@"yes"]) {
+                        imageview.image = [UIImage imageNamed:@"period_start"];
+                    } else {
+                        imageview.image = [UIImage imageNamed:@"period_start_not"];
+                    }
+                }else if (j == [self.startEnd count] - 1 || [[self.startEnd[j] objectForKey:@"expected"] intValue] != [[self.startEnd[j + 1] objectForKey:@"expected"] intValue]){
+                    if ([[self.startEnd[j] objectForKey:@"done"] isEqualToString:@"yes"]) {
+                        imageview.image = [UIImage imageNamed:@"period_end"];
+                    } else {
+                        imageview.image = [UIImage imageNamed:@"period_end_not"];
+                    }
+                }else {
+                    if([[self.startEnd[j] objectForKey:@"done"] isEqualToString:@"no"]){
+                        imageview.image = [UIImage imageNamed:@"period_not"];
+                    } else {
+                        imageview.image = [UIImage imageNamed:@"period"];
+                    }
                 }
+                [self addSubview: imageview];
                 [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             }
         }
@@ -186,7 +189,7 @@
                   forDate:previousMonthDate];
     NSInteger maxDate = previousMonthDays.length - weekday;
     
-    
+    //prev month in this month
     for (int i=0; i<weekday; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.titleLabel.text = [NSString stringWithFormat:@"%d",maxDate+i+1];

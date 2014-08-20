@@ -126,10 +126,6 @@
 
 - (UIColor *)progressTintColor
 {
-//    if (!_progressTintColor)
-//    {
-//        _progressTintColor = [UIColor colorWithRed:70.0f/255.0f green:160.0f/255.0f blue:100.0f/255.0f alpha:1.0f];
-//    }
     return _progressTintColor;
 }
 

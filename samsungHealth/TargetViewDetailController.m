@@ -53,7 +53,6 @@
 
     records = [[NSMutableArray alloc] init];
     NSMutableArray* startEnd = [[NSMutableArray alloc] init];
-    _sampleView.recordDates = records;
     _sampleView.calendarDate = today;
     _sampleView.startEnd = startEnd;
     
@@ -63,19 +62,13 @@
     [query orderByAscending:@"date"];
     NSArray* objects = [query findObjects];
     _sampleView.startEnd = objects;
-//    [startEnd addObject:objects[0]];
+
     for (int i = 1; i < [objects count]; i++) {
         NSLog(@"%@",[objects[i - 1] objectForKey:@"date"]);
-        int last = [[objects[i - 1] objectForKey:@"expected"] intValue];
-        int cur = [[objects[i] objectForKey:@"expected"] intValue];
+
         if ([[objects[i] objectForKey:@"done"] isEqualToString:@"yes"]){
             [records addObject:[objects[i] objectForKey:@"date"]];
         }
-//        if (last != cur) {
-//            [startEnd addObject:objects[i - 1]];
-//            [startEnd addObject:objects[i]];
-//            NSLog(@"%@ %d, %@ %d",[objects[i - 1] objectForKey:@"date"], last, [objects[i] objectForKey:@"date"], cur);
-//        }
     }
     
     [startEnd addObject:objects[[objects count] - 1]];
