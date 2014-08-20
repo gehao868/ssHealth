@@ -40,12 +40,12 @@
     [progressline setLineCapStyle:kCGLineCapSquare];
 	_chartLine.path = progressline.CGPath;
 
-	if (_barColor) {
-		_chartLine.strokeColor = [_barColor CGColor];
-	}else{
-		_chartLine.strokeColor = [PNGreen CGColor];
-	}
-    
+//	if (_barColor) {
+//		_chartLine.strokeColor = [_barColor CGColor];
+//	}else{
+//		_chartLine.strokeColor = [PNGreen CGColor];
+//	}
+    _chartLine.strokeColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradientBar"]].CGColor;
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     pathAnimation.duration = 1.0;
     pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
@@ -64,7 +64,7 @@
 	//Draw BG
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGContextSetFillColorWithColor(context, [UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor colorWithRed:102.0f/255.0f green:119.0f/255.0f blue:134.0f/255.0f alpha:1.0f].CGColor);
 	CGContextFillRect(context, rect);
     
 }
