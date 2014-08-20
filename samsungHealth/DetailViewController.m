@@ -53,12 +53,14 @@
     components = [cal components:NSWeekdayCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[[NSDate alloc] init]];
     
     NSInteger thisMonth = [components month];
+    NSDate *today = [cal dateFromComponents:components];
     
 //    [components setDay:([components day] - ([components weekday] - 1))];
     
-    [components setDay:([components day] - 7)];
+    [components setDay:([components day] - 6)];
+
     NSDate *lastWeek  = [cal dateFromComponents:components];
-    
+//        NSLog(@"#@$@#$@#$@$@!@!@#$@$!@$@!@#$!@$@$@$%@,   %@",today,lastWeek);
     barData = [[NSMutableArray alloc] init];
     barDate = [[NSMutableArray alloc] init];
     
@@ -66,7 +68,7 @@
     [format setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     format.dateFormat = @"dd";
     NSDate *cur = lastWeek;
-    while ([cur compare:[HealthTime getToday]] <= 0) {
+    while ([cur compare: today] <= 0) {
         NSDate *next = [cur addTimeInterval:24*60*60];
         PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
         [query whereKey:@"username" equalTo:[UserData getUsername]];
@@ -89,11 +91,9 @@
             [barData addObject:[NSNumber numberWithInt:0]];
         }
         NSString *date = [format stringFromDate:cur];
-        NSLog(@"time is %@", cur);
         [barDate addObject:date];
         cur = next;
 }
-    NSLog(@"%d, %d", [barData count], [barDate count]);
     
 //    PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
 //    [query whereKey:@"username" equalTo:[UserData getUsername]];

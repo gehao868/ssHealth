@@ -105,14 +105,6 @@
     
     CGFloat chartCavanHeight = self.frame.size.height - chartMargin * 2 - 40.0;
     
-//    [UIColor.redColor setFill];
-//    [progressline fill];
-//    [progressline moveToPoint:CGPointMake(30.0+ _xLabelWidth /2.0, chartCavanHeight+20.0)];
-//
-//    [progressline addLineToPoint:CGPointMake(30.0+ _xLabelWidth /2.0, chartCavanHeight+20)];
-//        [progressline stroke];
-//    [progressline moveToPoint:CGPointMake(30.0+ _xLabelWidth /2.0, chartCavanHeight+20.0)];
-
     float grade = (float)firstValue / (float)_yValueMax;
     [progressline moveToPoint:CGPointMake( xPosition, chartCavanHeight - grade * chartCavanHeight + 20.0)];
     [progressline setLineWidth:3.0];
@@ -131,8 +123,6 @@
         if (index != 0) {
             
             [progressline addLineToPoint:CGPointMake(index * xPosition  + 30.0+ _xLabelWidth /2.0, chartCavanHeight - grade * chartCavanHeight + 20.0)];
-            NSLog(@"!!!!!!!!!!@@@@@%f",chartCavanHeight - grade * chartCavanHeight + 20.0);
-            
             [progressline moveToPoint:CGPointMake(index * xPosition + 30.0 + _xLabelWidth /2.0, chartCavanHeight - grade * chartCavanHeight + 20.0 )];
             
             [progressline stroke];
@@ -140,9 +130,6 @@
         
         index += 1;
     }
-//    [progressline addLineToPoint:CGPointMake(([_yValues count]-1)*xPosition+30.0+ _xLabelWidth /2.0, chartCavanHeight+20)];
-//    [progressline moveToPoint:CGPointMake(([_yValues count]-1)*xPosition+30.0+ _xLabelWidth /2.0, chartCavanHeight+20)];
-//    [progressline stroke];
 
     _chartLine.path = progressline.CGPath;
 	if (_strokeColor) {
