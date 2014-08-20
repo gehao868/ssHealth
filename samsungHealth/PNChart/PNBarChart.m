@@ -58,7 +58,7 @@
 	while (num > 0) {
 		CGFloat chartCavanHeight = self.frame.size.height - chartMargin * 2 - 40.0 ;
 		CGFloat levelHeight = chartCavanHeight /5.0;
-		PNChartLabel * label = [[PNChartLabel alloc] initWithFrame:CGRectMake(6.0,chartCavanHeight - index * levelHeight + (levelHeight - yLabelHeight) , 30.0, yLabelHeight)];
+		PNChartLabel * label = [[PNChartLabel alloc] initWithFrame:CGRectMake(0.0,chartCavanHeight - index * levelHeight + (levelHeight - yLabelHeight) , 30.0, yLabelHeight)];
 		[label setTextAlignment:NSTextAlignmentRight];
 		label.text = [NSString stringWithFormat:@"%1.f",level * index];
 		[self addSubview:label];
@@ -71,11 +71,11 @@
 -(void)setXLabels:(NSArray *)xLabels
 {
     _xLabels = xLabels;
-    _xLabelWidth = (self.frame.size.width - chartMargin*2)/7.0;
+    _xLabelWidth = (self.frame.size.width - chartMargin*2 - 12)/7.0;
     
     for (NSString * labelText in xLabels) {
         NSInteger index = [xLabels indexOfObject:labelText];
-        PNChartLabel * label = [[PNChartLabel alloc] initWithFrame:CGRectMake((index *  _xLabelWidth + chartMargin), self.frame.size.height - 30.0, _xLabelWidth, 20.0)];
+        PNChartLabel * label = [[PNChartLabel alloc] initWithFrame:CGRectMake(12 + (index *  _xLabelWidth + chartMargin), self.frame.size.height - 30.0, _xLabelWidth, 20.0)];
         [label setTextAlignment:NSTextAlignmentCenter];
         label.text = labelText;
         [self addSubview:label];
@@ -99,7 +99,7 @@
         
         float grade = (float)value / (float)_yValueMax;
 		
-		PNBar * bar = [[PNBar alloc] initWithFrame:CGRectMake((index *  _xLabelWidth + chartMargin + _xLabelWidth * 0.25), self.frame.size.height - chartCavanHeight - 30.0, _xLabelWidth * 0.5, chartCavanHeight)];
+		PNBar * bar = [[PNBar alloc] initWithFrame:CGRectMake(12 + (index *  _xLabelWidth + chartMargin + _xLabelWidth * 0.25), self.frame.size.height - chartCavanHeight - 30.0, _xLabelWidth * 0.5, chartCavanHeight)];
 		bar.barColor = _strokeColor;
 		bar.grade = grade;
 		[self addSubview:bar];

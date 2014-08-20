@@ -25,7 +25,7 @@
 
 -(void)setUpChart{
 	if (self.type == PNLineType) {
-		_lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        _lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
 		_lineChart.backgroundColor = [UIColor clearColor];
 		[self addSubview:_lineChart];
 		[_lineChart setYValues:_yValues];
@@ -33,8 +33,7 @@
 		[_lineChart setStrokeColor:_strokeColor];
 		[_lineChart strokeChart];
 
-	}else if (self.type == PNBarType)
-	{
+	}else if (self.type == PNBarType) {
 		_barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
 		_barChart.backgroundColor = [UIColor clearColor];
 		[self addSubview:_barChart];

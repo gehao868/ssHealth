@@ -127,7 +127,7 @@
         barChartLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:23.0];
         barChartLabel.textAlignment = NSTextAlignmentCenter;
         
-        PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(0, 80.0, SCREEN_WIDTH, 215.0)];
+        PNChart * barChart = [[PNChart alloc] initWithFrame:CGRectMake(6, 80.0, SCREEN_WIDTH, 215.0)];
         barChart.backgroundColor = [UIColor clearColor];
         barChart.type = PNBarType;
         
