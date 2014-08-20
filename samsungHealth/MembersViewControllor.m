@@ -118,7 +118,6 @@
             [da setProgress:1.0f];
         } else {
             [da setProgress:1.0 * [Global getDoneGoal:name] / [Global getTotelGoal:name]];
-            
         }
         [scrollView addSubview:da];
         [scrollView bringSubviewToFront:da];

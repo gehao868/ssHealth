@@ -61,7 +61,7 @@
     [query whereKey:@"type" equalTo:self.type];
     [query orderByAscending:@"date"];
     NSArray* objects = [query findObjects];
-    _sampleView.startEnd = objects;
+    _sampleView.startEnd = [[NSMutableArray alloc] initWithArray:objects];
 
     for (int i = 1; i < [objects count]; i++) {
         NSLog(@"%@",[objects[i - 1] objectForKey:@"date"]);
