@@ -126,11 +126,7 @@
         
         objects = [query findObjects];
         
-        if ([objects count] == 0) {
-            for (int i = 0; i < 6; i++) {
-                [subScore addObject:[NSNumber numberWithFloat:0]];
-            }
-        } else {
+        if ([objects count] != 0) {
             int i = [objects count] - 1;
             [HealthData setActive:[objects[i] objectForKey:@"active"]];
             [HealthData setAsleep:[objects[i] objectForKey:@"asleep"]];
