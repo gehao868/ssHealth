@@ -89,10 +89,6 @@
     }];
     
     
-    
-
-    
-    
     NSDate *today = [NSDate date];
 
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
