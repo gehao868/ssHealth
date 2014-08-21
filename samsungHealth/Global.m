@@ -68,10 +68,10 @@ static NSMutableDictionary *doneGoal;
         totelGoal = [[NSMutableDictionary alloc] init];
     }
     if ([totelGoal objectForKey:name] == nil) {
-        [totelGoal setValue:[NSString stringWithFormat:@"%ld", num] forKey:name];
+        [totelGoal setValue:[NSString stringWithFormat:@"%ld", (long)num] forKey:name];
     } else {
         NSInteger newNum = [[totelGoal objectForKey:name] integerValue] + num;
-        [totelGoal setValue:[NSString stringWithFormat:@"%ld", newNum] forKey:name];
+        [totelGoal setValue:[NSString stringWithFormat:@"%ld", (long)newNum] forKey:name];
     }
 }
 + (void) clearTotleGoal {
@@ -89,10 +89,10 @@ static NSMutableDictionary *doneGoal;
         doneGoal = [[NSMutableDictionary alloc] init];
     }
     if ([doneGoal objectForKey:name] == nil) {
-        [doneGoal setValue:[NSString stringWithFormat:@"%ld", num] forKey:name];
+        [doneGoal setValue:[NSString stringWithFormat:@"%ld", (long)num] forKey:name];
     } else {
         NSInteger newNum = [[doneGoal objectForKey:name] integerValue] + num;
-        [doneGoal setValue:[NSString stringWithFormat:@"%ld", newNum] forKey:name];
+        [doneGoal setValue:[NSString stringWithFormat:@"%ld", (long)newNum] forKey:name];
     }
 }
 + (void) clearDoneGoal {
