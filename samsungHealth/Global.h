@@ -27,8 +27,10 @@
 
 + (NSInteger) getTotelGoal:(NSString *)name;
 + (void) addTotleGoal:(NSString *)name number:(NSInteger) num;
++ (void) clearTotleGoal;
 
 + (NSInteger) getDoneGoal:(NSString *)name;
 + (void) addDoneGoal:(NSString *)name number:(NSInteger) num;
++ (void) clearDoneGoal;
 
 @end

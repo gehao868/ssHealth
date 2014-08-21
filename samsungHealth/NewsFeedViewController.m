@@ -96,6 +96,8 @@ UIRefreshControl *currRC;
     [query findObjectsInBackgroundWithBlock:^(NSArray *goals, NSError *error) {
         NSInteger totle = 0;
         NSInteger done = 0;
+        [Global clearDoneGoal];
+        [Global clearTotleGoal];
         for (PFObject *goal in goals) {
             NSString *name = [goal objectForKey:@"name"];
             NSString *isDone = [goal objectForKey:@"done"];
