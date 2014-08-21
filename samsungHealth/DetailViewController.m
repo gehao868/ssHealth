@@ -69,7 +69,6 @@
     format.dateFormat = @"dd";
     NSDate *cur = lastWeek;
     while ([cur compare: today] <= 0) {
-        //NSDate *next = [cur addTimeInterval:24*60*60];
         NSDate *next = [cur dateByAddingTimeInterval:24*60*60];
         PFQuery *query = [PFQuery queryWithClassName:@"HealthData"];
         [query whereKey:@"username" equalTo:[UserData getUsername]];

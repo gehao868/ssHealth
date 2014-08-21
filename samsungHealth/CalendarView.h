@@ -17,6 +17,10 @@
 
 @property (nonatomic,strong) NSMutableArray *startEnd;
 
+@property (nonatomic,strong) NSDate *addDate;
+
+@property (nonatomic,strong) NSMutableSet *doneDates;
+
 @property (nonatomic,weak) id<CalendarDelegate> delegate;
 
 @end
