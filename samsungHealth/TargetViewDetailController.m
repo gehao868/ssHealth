@@ -61,17 +61,25 @@
     [query whereKey:@"type" equalTo:self.type];
     [query orderByAscending:@"date"];
     NSArray* objects = [query findObjects];
-    _sampleView.startEnd = [[NSMutableArray alloc] initWithArray:objects];
-
-    for (int i = 1; i < [objects count]; i++) {
-        NSLog(@"%@",[objects[i - 1] objectForKey:@"date"]);
-
-        if ([[objects[i] objectForKey:@"done"] isEqualToString:@"yes"]){
-            [records addObject:[objects[i] objectForKey:@"date"]];
+    _sampleView.addDate = [[objects objectAtIndex:0] objectForKey:@"date"];
+    _sampleView.doneDates = [[NSMutableSet alloc] init];
+    for (PFObject *object in objects) {
+        if ([[object objectForKey:@"done"] isEqualToString:@"yes"]) {
+            NSDateFormatter *df = [[NSDateFormatter alloc] init];
+            [df setDateFormat:@"yyyy-MM-dd"];
+            [_sampleView.doneDates addObject:[df stringFromDate:[object objectForKey:@"date"]]];
         }
     }
     
-    [startEnd addObject:objects[[objects count] - 1]];
+    //_sampleView.startEnd = [[NSMutableArray alloc] initWithArray:objects];
+
+//    for (int i = 1; i < [objects count]; i++) {
+//        if ([[objects[i] objectForKey:@"done"] isEqualToString:@"yes"]){
+//            [records addObject:[objects[i] objectForKey:@"date"]];
+//        }
+//    }
+    
+//    [startEnd addObject:objects[[objects count] - 1]];
     
 }
 

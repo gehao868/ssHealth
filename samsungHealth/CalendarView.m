@@ -141,14 +141,57 @@
             button.enabled = NO;
         }
         
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
+        components = [cal components:NSWeekdayCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[[NSDate alloc] init]];
+        
+        NSDate *today = [cal dateFromComponents:components];
+        NSDate *curr = _addDate;
+        
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+        format.dateFormat = @"yyyy-MM-dd";
+        while ([curr compare: today] <= 0) {
+            NSDateComponents *mycomponents = [cal components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:curr];
+            
+            long year = [mycomponents year];
+            long month = [mycomponents month];
+            long day = [mycomponents day];
+            
+            if (i == day && components.month == month && components.year == year) {
+                UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(originX+offsetX, originY+40+offsetY+2, width, width)];
+                NSString *formated = [format stringFromDate:curr];
+                //NSLog(@"%@ %@", _doneDates, formated);
+                if([curr isEqual:_addDate]) {
+                    if ([_doneDates containsObject:formated]) {
+                        imageview.image = [UIImage imageNamed:@"period_start"];
+                    } else {
+                        imageview.image = [UIImage imageNamed:@"period_start_not"];
+                    }
+                } else {
+                    if ([_doneDates containsObject:formated]) {
+                        imageview.image = [UIImage imageNamed:@"period"];
+                    } else {
+                        imageview.image = [UIImage imageNamed:@"period_not"];
+                    }
+                }
+                
+                [self addSubview: imageview];
+                [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            }
+
+            NSDate *next = [curr dateByAddingTimeInterval:24*60*60];
+            curr = next;
+        }
+        
         for (int j = 0; j < [self.startEnd count]; j++) {
             NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
             NSDate *date = [self.startEnd[j] objectForKey:@"date"];
 //            NSDate *tmpDate = [date addTimeInterval:24*60*60];
             NSDateComponents *mycomponents = [cal components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:date];
-            int year = [mycomponents year];
-            int month = [mycomponents month];
-            int day = [mycomponents day];
+            long year = [mycomponents year];
+            long month = [mycomponents month];
+            long day = [mycomponents day];
             
             if (i == day && components.month == month && components.year == year) {
                 UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(originX+offsetX, originY+40+offsetY+2, width, width)];
