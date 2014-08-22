@@ -102,7 +102,7 @@
     couponDetail.text = reward.detail;
     couponTitle.text = reward.title;
     
-    couponDiscount.backgroundColor = [UIColor lightGrayColor];
+    couponDiscount.backgroundColor = [UIColor darkGrayColor];
     
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:reward.pic]];
     coupontImg.image = [UIImage imageWithData:data];
